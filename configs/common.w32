@@ -1,0 +1,21 @@
+WINDOWS=1
+TEMP=temp/${ARCH}_release
+BIN=bin
+EXT=.exe
+
+GCC=gcc
+GPP=g++
+AR=ar
+WINDRES=windres
+
+CFLAGS=-O3 -DNDEBUG
+CXXFLAGS=-O3 -DNDEBUG -std=c++17 -DWIN32
+LDFLAGS=-s
+
+WX_CONFIG=wx-config
+
+WX_CXXFLAGS=$(shell $(WX_CONFIG) --cxxflags) -DWX3
+WX_LDFLAGS=$(shell $(WX_CONFIG) --libs std,stc,aui,html,net,core,base) -mwindows
+
+GL_CXXFLAGS=$(shell $(WX_CONFIG) --cxxflags) -DWX3
+GL_LDFLAGS=$(shell $(WX_CONFIG) --libs std,gl,core,base) -lopengl32 -lglu32 -mwindows
