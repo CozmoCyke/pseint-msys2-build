@@ -1,5 +1,7 @@
 #include <cstring>
 #include <csignal>
+#include <cstdio>
+#include <cstdlib>
 #include "version.h"
 #include "zcurlib.h"
 #include "common.h"
@@ -16,7 +18,26 @@
 #include "case_map.h"
 #include "RunTime.hpp"
 #include "ProgramaDump.hpp"
+#include "LocalizationManager.h"
+#ifdef _WIN32
+#include <windows.h>
+#endif
 using namespace std;
+
+static bool g_encoding_test = false;
+
+static void InitConsoleEncoding() {
+#ifdef _WIN32
+	SetConsoleOutputCP(CP_UTF8);
+	SetConsoleCP(CP_UTF8);
+#endif
+}
+
+static void EncodingProbe() {
+	if (!g_encoding_test && std::getenv("PSEINT_ENCODING_TEST") == nullptr) return;
+	std::fprintf(stderr, u8"ENCODING TEST fprintf: Définir Réel Caractère\n");
+	std::cout << u8"ENCODING TEST cout: Définir Réel Caractère" << std::endl;
+}
 
 void on_signal(int s) {
 	Inter.SetFinished(true);
@@ -64,7 +85,10 @@ LangSettings lang(LS_DO_NOT_INIT);
 // ************************* Programa Principal ******************************
 //-----------------------------------------------------------------------------
 int main(int argc, char* argv[]) {
-
+	InitConsoleEncoding();
+    std::cerr << "LANGTRACE before_set_exepath" << std::endl; 
+	SetExecutablePath(argv[0]);
+	std::cerr << "LANGTRACE after_set_exepath" << std::endl;
 	signal(2,on_signal);
 	signal(6,on_signal);
 	signal(9,on_signal);
@@ -86,7 +110,7 @@ int main(int argc, char* argv[]) {
 		for_export=false, // generar entrada para psexport
 		real_time_syntax=false; // indica que espera eternamente codigo desde std, para usar de fondo para el checkeo de sintaxis en tiempo real en la gui
 	int 
-		forced_seed=-1; // semilla a utilizar para inicializar la generación de números aleatorios (si es -1 se usa el reloj)
+		forced_seed=-1; // semilla a utilizar para inicializar la generaci?n de n?meros aleatorios (si es -1 se usa el reloj)
 	
 	int fil_count=0,delay=0; char *fil_args[5];
 	for (int i=1;i<argc;i++) {
@@ -114,10 +138,12 @@ int main(int argc, char* argv[]) {
 				check=false;
 			else if (str=="--nouser")
 				user=false;
-			else if (str=="--noinput")
-				noinput=true;
-			else if (str=="--fixwincharset")
-				fix_win_charset=true;
+		else if (str=="--noinput")
+			noinput=true;
+		else if (str=="--encodingtest")
+			g_encoding_test=true;
+		else if (str=="--fixwincharset")
+			fix_win_charset=true;
 			else if (str=="--draw") {
 				InitCaseMap();
 				ignore_logic_errors = for_draw = true;
@@ -140,7 +166,36 @@ int main(int argc, char* argv[]) {
 			} else if (str.substr(0,10)=="--profile=") {
 				if (not lang.Load(str.substr(10))) {
 					cerr << "No se pudo leer el archivo de perfil: " << str.substr(10) << endl;
-					exit(1);				}
+					exit(1);				}
+			} else if (str.substr(0,7)=="--lang=") {
+				std::string lang_code = str.substr(7);
+				std::string profile_before_lang = lang.GetAsSingleString();
+				std::cerr << "LANGTRACE step=parse arg=" << lang_code << std::endl;
+				std::cerr << "LANGTRACE preserved_profile=" << profile_before_lang << std::endl;
+				
+				std::cerr << "LANGKW ALGORITMO=" << lang.keywords[KW_ALGORITMO].get() << std::endl;
+std::cerr << "LANGKW FINALGORITMO=" << lang.keywords[KW_FINALGORITMO].get() << std::endl;
+std::cerr << "LANGKW DEFINIR=" << lang.keywords[KW_DEFINIR].get() << std::endl;
+std::cerr << "LANGKW COMO=" << lang.keywords[KW_COMO].get() << std::endl;
+				
+				std::string current_lang_before_set = LocalizationManager::Instance().GetCurrentLanguage();
+				std::cerr << "LANGTRACE before_setlanguage_call lang_code=" << lang_code << std::endl;
+				LocalizationManager::Instance().SetLanguage(lang_code);
+				std::cerr << "LANGTRACE after_setlanguage_call" << std::endl;
+				std::cerr << "LANGTRACE postset ALGORITMO=" << lang.keywords[KW_ALGORITMO].get() << std::endl;
+    std::cerr << "LANGTRACE postset FINALGORITMO=" << lang.keywords[KW_FINALGORITMO].get() << std::endl;
+    std::cerr << "LANGTRACE postset DEFINIR=" << lang.keywords[KW_DEFINIR].get() << std::endl;
+    std::cerr << "LANGTRACE postset COMO=" << lang.keywords[KW_COMO].get() << std::endl;
+				std::string current_lang_after_set = LocalizationManager::Instance().GetCurrentLanguage();
+				std::cerr << "LANGTRACE set_current_lang before=" << current_lang_before_set << " after=" << current_lang_after_set << " source=main" << std::endl;
+				
+				// Reset keyword tables for the new language, then restore the already selected profile flags.
+				lang.Reset();
+				lang.SetFromSingleString(profile_before_lang);
+				lang.Fix();
+				std::cerr << "LANGTRACE restored_profile=" << lang.GetAsSingleString() << std::endl;
+				
+				std::cerr << "LANGTRACE engine current_lang=" << LocalizationManager::Instance().GetCurrentLanguage() << std::endl;
 			} else if (str.substr(0,2)=="--" && !lang.ProcessConfigLine(str.substr(2))) {
 				error=true;
 			}
@@ -148,6 +203,15 @@ int main(int argc, char* argv[]) {
 			fil_args[fil_count++]=argv[i];
 		}
 	}
+	EncodingProbe();
+	lang.Fix();
+	std::cerr << "LANGTRACE postfix current_lang=" << LocalizationManager::Instance().GetCurrentLanguage() << std::endl;
+	std::cerr << "LANGTRACE postfix ALGORITMO=" << lang.keywords[KW_ALGORITMO].get() << std::endl;
+	std::cerr << "LANGTRACE postfix FINALGORITMO=" << lang.keywords[KW_FINALGORITMO].get() << std::endl;
+	std::cerr << "LANGTRACE postfix DEFINIR=" << lang.keywords[KW_DEFINIR].get() << std::endl;
+	std::cerr << "LANGTRACE postfix COMO=" << lang.keywords[KW_COMO].get() << std::endl;
+	std::cerr << "LANGTRACE postfix LEER=" << lang.keywords[KW_LEER].get() << std::endl;
+	std::cerr << "LANGTRACE postfix ESCRIBIR=" << lang.keywords[KW_ESCRIBIR].get() << std::endl;
 	error = error&&((fil_count<(for_draw?2:1))||(fil_count>(for_draw?3:2)));
 	log_file = fil_count>(for_draw?2:1);
 #ifdef __APPLE__
@@ -169,14 +233,14 @@ int main(int argc, char* argv[]) {
 		cout<<"      --fortest              ignora algunas instrucciones particulares para evitar ciertas entradas/salidas"<<endl;
 		cout<<"      --rawerrors            muestra los errores sin descripcion, para testing automatizado"<<endl;
 		cout<<"      --noinput              en lugar realizar las lecturas desde el teclado, lo hace desde los argumentos"<<endl;
-		cout<<"      --input=<str>          sirve para predefinir uno o más valores de entrada para acciones LEER"<<endl;
-		cout<<"      --fixwincharset        corrige la codificación de algunos caracteres para que se muestren correctamente"<<endl;
+		cout<<"      --input=<str>          sirve para predefinir uno o m?s valores de entrada para acciones LEER"<<endl;
+		cout<<"      --fixwincharset        corrige la codificaci?n de algunos caracteres para que se muestren correctamente"<<endl;
 		cout<<"                             en la consola de Windows"<<endl;
 		cout<<"      --writepositions       al generar el archivo parseado para el editor de diagrams de flujo incluye los"<<endl;
-		cout<<"                             numeros de linea e instrucción necesarios para marcar la ejecución paso a paso"<<endl;
+		cout<<"                             numeros de linea e instrucci?n necesarios para marcar la ejecuci?n paso a paso"<<endl;
 		cout<<"      --delay=<num>          define el retardo entre instrucciones para la ejecucion paso a paso"<<endl;
 		cout<<"      --seed=<num>           semilla para el generador de numeros aleatorios"<<endl;
-		cout<<"      --profile=<archivo>    archivo de perfil a utilizar para configurar el intérprete"<<endl;
+		cout<<"      --profile=<archivo>    archivo de perfil a utilizar para configurar el int?rprete"<<endl;
 		cout<<"      --<opt>=?              cambia la opcion <opt> del perfil, ? puede ser 0 o 1"<<endl;
 		exit(1);
 	}
@@ -209,12 +273,18 @@ int main(int argc, char* argv[]) {
 			rt.funcs.UnloadSubprocesos();
 			string line;
 			int lcount=0;
+			bool got_input=false;
 			while (cin) {
-				getline(cin,line); lcount++;
+				getline(cin,line);
+				if (!cin) break;
+				lcount++;
+				got_input=true;
 				if (line=="<!{[EXIT]}!>") { rt.funcs.UnloadPredefs(); return 0; }
 				if (line=="<!{[END_OF_INPUT]}!>") break;
 				programa.PushBack(line);
 			}
+			if (!got_input) break;
+
 			SynCheck(rt);
 			cout<<"<!{[END_OF_OUTPUT]}!>"<<endl;
 			for(auto &pf : rt.funcs.GetAllSubs()) {
@@ -306,18 +376,18 @@ int main(int argc, char* argv[]) {
 			memoria = main_func->memoria.get();
 			Inter.SetLocation(rt.prog[main_func->line_start].loc);
 			if (ExeInfoOn) if (user) ExeInfo<<"*** Ejecucion Iniciada. ***"<<endl;
-			if (user) show_user_info("*** Ejecución Iniciada. ***");
+			if (user) show_user_info("*** Ejecuci?n Iniciada. ***");
 			Ejecutar(rt,main_func->line_start);
 			Inter.SetFinished();
 			if (ExeInfoOn) ExeInfo<<"*** Ejecucion Finalizada. ***";
-			if (user) show_user_info("*** Ejecución Finalizada. ***");
+			if (user) show_user_info("*** Ejecuci?n Finalizada. ***");
 		}
 	} else {
 		if (user) cout<<endl;
 		int errores = rt.err.GetErrorsCount();
 		if (errores==1) {
 			if (ExeInfoOn) if (user) ExeInfo<<"*** Se encontro 1 error. ***";
-			if (user) show_user_info("*** Se encontró 1 error. ***");
+			if (user) show_user_info("*** Se encontr? 1 error. ***");
 		} else {
 			if (ExeInfoOn) if (user) ExeInfo<<"*** Se encontraron "<<errores<<" errores. ***";
 			if (user) show_user_info("*** Se encontraron ",errores," errores. ***");
@@ -338,4 +408,3 @@ int main(int argc, char* argv[]) {
 
 
 //--------------------------------------------------------------------------------------
-
