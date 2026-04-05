@@ -4,14 +4,16 @@
 #include <wx/laywin.h>
 #include <wx/textfile.h>
 #include <wx/msgdlg.h>
+#include <iostream>
 #include "mxHelpWindow.h"
 #include "ids.h"
 #include "mxMainWindow.h"
 #include "mxUtils.h"
 #include "ConfigManager.h"
+#include "LocalizationManager.h"
 #include "string_conversions.h"
 
-#define ERROR_PAGE(page) wxString("<I>ERROR</I>: La pagina \"")<<page<<"\" no se encuentra. <br><br> La ayuda de <I>PSeInt</I> aun esta en contruccion."
+#define ERROR_PAGE(page) wxString("<I>ERROR</I>: ")<<_Z("La página \"")<<page<<_Z("\" no se encuentra. <br><br> La ayuda de <I>PSeInt</I> aún está en construcción.")
 #include <wx/settings.h>
 
 mxHelpWindow *helpw = NULL;
@@ -37,7 +39,7 @@ END_EVENT_TABLE();
 bool checkEgg(wxString keyword);
 
 mxHelpWindow::mxHelpWindow(wxString file)
-	: wxFrame (main_window,mxID_HELPW, "Ayuda de PSeInt", 
+	: wxFrame (main_window,mxID_HELPW, _Z("Ayuda de PSeInt"), 
 			   wxDefaultPosition, wxSize(750,500),wxDEFAULT_FRAME_STYLE) 
 {
 
@@ -57,10 +59,10 @@ mxHelpWindow::mxHelpWindow(wxString file)
 	// create and fill index tree
 	tree = new wxTreeCtrl(index_sash, wxID_ANY, wxPoint(0,0), wxSize(10,250), wxTR_DEFAULT_STYLE | wxTR_HIDE_ROOT);
 	
-	wxTextFile fil(DIR_PLUS_FILE(config->help_dir,"index"));
+	wxTextFile fil(config->GetHelpFilePath("index"));
 	if (fil.Exists()) {
 		fil.Open();
-		wxTreeItemId root = tree->AddRoot("Temas de Ayuda",0);
+		wxTreeItemId root = tree->AddRoot(_Z("Temas de Ayuda"),0);
 		wxTreeItemId node = root;
 		unsigned int tabs=0;
 		for ( wxString str = fil.GetFirstLine(); !fil.Eof(); str = fil.GetNextLine() ) {
@@ -98,16 +100,16 @@ mxHelpWindow::mxHelpWindow(wxString file)
 	wxString ipath = DIR_PLUS_FILE_2(config->images_path,"ayuda",config->big_icons?"30":"20");
 	m_button_tree = new wxBitmapButton(panel, mxID_HELPW_SHOWTREE, wxBitmap(DIR_PLUS_FILE(ipath,"tree.png"),wxBITMAP_TYPE_PNG));
 	m_button_index = new wxBitmapButton(panel, mxID_HELPW_HOME, wxBitmap(DIR_PLUS_FILE(ipath,"indice.png"),wxBITMAP_TYPE_PNG));
-	m_button_tree->SetToolTip("Mostrar/Ocultar Indice");
-	m_button_index->SetToolTip("Ir al indice");
+	m_button_tree->SetToolTip(_Z("Mostrar/Ocultar Índice"));
+	m_button_index->SetToolTip(_Z("Ir al Índice"));
 	m_button_prev = new wxBitmapButton(panel, mxID_HELPW_PREV, wxBitmap(DIR_PLUS_FILE(ipath,"anterior.png"),wxBITMAP_TYPE_PNG));
-	m_button_prev->SetToolTip("Ir a la pagina anterior");
+	m_button_prev->SetToolTip(_Z("Ir a la página anterior"));
 	m_button_next = new wxBitmapButton(panel, mxID_HELPW_NEXT, wxBitmap(DIR_PLUS_FILE(ipath,"siguiente.png"),wxBITMAP_TYPE_PNG));
-	m_button_next->SetToolTip("Ir a la pagina siguiente");
+	m_button_next->SetToolTip(_Z("Ir a la página siguiente"));
 	m_button_atop = new wxBitmapButton(panel, mxID_HELPW_ALWAYSONTOP, wxBitmap(DIR_PLUS_FILE(ipath,"atop.png"),wxBITMAP_TYPE_PNG));
-	m_button_atop->SetToolTip("Hacer que la ventana de ayuda permanezca siempre visible (siempre sobre las dem�s ventanas)");
+	m_button_atop->SetToolTip(_Z("Hacer que la ventana de ayuda permanezca siempre visible (siempre sobre las demás ventanas)"));
 	wxBitmapButton *button_copy = new wxBitmapButton(panel, mxID_HELPW_COPY, wxBitmap(DIR_PLUS_FILE(ipath,"copiar.png"),wxBITMAP_TYPE_PNG));
-	button_copy->SetToolTip("Copiar seleccion");
+	button_copy->SetToolTip(_Z("Copiar selección"));
 	topSizer->Add(m_button_tree,wxSizerFlags().Border(wxALL,2));
 	topSizer->Add(m_button_index,wxSizerFlags().Border(wxALL,2));
 	topSizer->Add(m_button_prev,wxSizerFlags().Border(wxALL,2));
@@ -118,7 +120,7 @@ mxHelpWindow::mxHelpWindow(wxString file)
 	topSizer->Add(search_text,wxSizerFlags().Border(wxALL,2).Proportion(1).Expand());
 
 	m_button_search = new wxBitmapButton(panel, mxID_HELPW_SEARCH, wxBitmap(DIR_PLUS_FILE(ipath,"buscar.png"),wxBITMAP_TYPE_PNG));
-	m_button_search->SetToolTip("Buscar...");
+	m_button_search->SetToolTip(_Z("Buscar..."));
 	topSizer->Add(m_button_search,wxSizerFlags().Border(wxALL,2));
 	panel->SetSizer(topSizer);
 	html = new wxHtmlWindow(this, wxID_ANY, wxDefaultPosition, wxSize(400,300));
@@ -139,7 +141,7 @@ void mxHelpWindow::ShowIndex() {
 }
 
 void mxHelpWindow::ShowHelp(wxString file) {
-	html->LoadPage(DIR_PLUS_FILE(config->help_dir,file));
+	html->LoadPage(config->GetHelpFilePath(file));
 	HashStringTreeItem::iterator it = items.find(file);
 	if (it!=items.end()) tree->SelectItem(it->second);
 	RepaintButtons();
@@ -195,13 +197,13 @@ void mxHelpWindow::OnCopy(wxCommandEvent &event) {
 void mxHelpWindow::OnSearch(wxCommandEvent &event) {
 	wxString keyword = search_text->GetValue().MakeUpper();
 	if (keyword=="") {
-		wxMessageBox("Debe introducir al menos una palabra clave para buscar","Error");
+		wxMessageBox(_Z("Debe introducir al menos una palabra clave para buscar"),_Z("Error"));
 		return;
 	}
 	if (checkEgg(keyword)) Close();
-	html->SetPage("<HTML><HEAD></HEAD><BODY><I><B>Buscando...</B></I></BODY></HTML>");
+	html->SetPage(wxString("<HTML><HEAD></HEAD><BODY><I><B>")<<_Z("Buscando...")<<"</B></I></BODY></HTML>");
 	HashStringTreeItem::iterator it = items.begin(), ed = items.end();
-	wxString result("<HTML><HEAD></HEAD><BODY><I><B>Resultados:</B></I><UL>");
+	wxString result(wxString("<HTML><HEAD></HEAD><BODY><I><B>")<<_Z("Resultados:")<<"</B></I><UL>");
 	int count=0;
 	wxArrayString searched;
 	while (it!=ed) {
@@ -209,13 +211,13 @@ void mxHelpWindow::OnSearch(wxCommandEvent &event) {
 		if (fname.Find('#')!=wxNOT_FOUND)
 			fname = fname.BeforeFirst('#');
 		bool already=false;
-		if (!already && wxFileName::FileExists(DIR_PLUS_FILE(config->help_dir,fname))) {
+	if (!already && wxFileName::FileExists(config->GetHelpFilePath(fname))) {
 			for (unsigned int i=0;i<searched.GetCount();i++)
 				if (searched[i]==fname) {
 					already=true;
 					break;
 				}
-			wxTextFile fil(DIR_PLUS_FILE(config->help_dir,fname));
+			wxTextFile fil(config->GetHelpFilePath(fname));
 			fil.Open();
 			for ( wxString str = fil.GetFirstLine(); !fil.Eof(); str = fil.GetNextLine() ) {
 				if (str.MakeUpper().Contains(keyword)) {
@@ -234,7 +236,7 @@ void mxHelpWindow::OnSearch(wxCommandEvent &event) {
 	if (count)		
 		html->SetPage(result);
 	else
-		html->SetPage(wxString("<HTML><HEAD></HEAD><BODY><B>No se encontraron coincidencias para \"")<<search_text->GetValue()<<"\".</B></BODY></HTML>");
+		html->SetPage(wxString("<HTML><HEAD></HEAD><BODY><B>")<<_Z("No se encontraron coincidencias para \"")<<search_text->GetValue()<<_Z("\".")<<"</B></BODY></HTML>");
 	RepaintButtons();
 }
 
@@ -253,12 +255,12 @@ void mxHelpWindow::OnTree(wxTreeEvent &event) {
 	while (it->second != event.GetItem())
 		++it;
 	if (it->first.Find('#')!=wxNOT_FOUND) {
-		if (wxFileName::FileExists(DIR_PLUS_FILE(config->help_dir,it->first.BeforeFirst('#'))))
+		if (wxFileName::FileExists(config->GetHelpFilePath(it->first.BeforeFirst('#'))))
 			html->LoadPage(it->first);
 		else
 			html->SetPage(ERROR_PAGE(it->first));
 	} else {
-		if (wxFileName::FileExists(DIR_PLUS_FILE(config->help_dir,it->first)))
+		if (wxFileName::FileExists(config->GetHelpFilePath(it->first)))
 			html->LoadPage(it->first);
 		else
 			html->SetPage(ERROR_PAGE(it->first));
@@ -268,7 +270,11 @@ void mxHelpWindow::OnTree(wxTreeEvent &event) {
 
 void mxHelpWindow::OnLink (wxHtmlLinkEvent &event) {
 	if (event.GetLinkInfo().GetHref().StartsWith("example:")) {
-		main_window->OpenProgram(DIR_PLUS_FILE(config->examples_dir,event.GetLinkInfo().GetHref().Mid(8)),true);
+		wxString example_path = DIR_PLUS_FILE(config->examples_dir,event.GetLinkInfo().GetHref().Mid(8));
+		std::cerr << "mxHelpWindow::OnLink example=" << _W2S(example_path)
+			<< " lang=" << _W2S(_S2W(LocalizationManager::Instance().GetCurrentLanguage()))
+			<< std::endl;
+		main_window->OpenProgram(example_path,true);
 		if (IsMaximized()) Maximize(false);
 		main_window->Raise();
 	} else if (event.GetLinkInfo().GetHref().StartsWith("open:")) {
@@ -295,7 +301,7 @@ void mxHelpWindow::OnLink (wxHtmlLinkEvent &event) {
 			HashStringTreeItem::iterator it = items.find(fname);
 			if (it!=items.end())
 				tree->SelectItem(it->second);
-			if (!wxFileName::FileExists(DIR_PLUS_FILE(config->help_dir,fname)))
+			if (!wxFileName::FileExists(config->GetHelpFilePath(fname)))
 				html->SetPage(ERROR_PAGE(fname));
 			else
 				event.Skip();
@@ -324,7 +330,7 @@ static void ButtonSetEnabled(wxButton *button, bool value) {
 void mxHelpWindow::RepaintButtons ( ) {
 	ButtonSetToggled(m_button_tree, bottomSizer->GetItem(index_sash)->GetMinSize().GetWidth()>10);
 	ButtonSetToggled(m_button_atop, GetWindowStyleFlag()&wxSTAY_ON_TOP);
-	ButtonSetToggled(m_button_index, html->GetOpenedPageTitle()=="Ayuda de PSeInt - �ndice");
+	ButtonSetToggled(m_button_index, html->GetOpenedPageTitle()=="Ayuda de PSeInt - Índice");
 	ButtonSetEnabled(m_button_prev, html->HistoryCanBack());
 	ButtonSetEnabled(m_button_next, html->HistoryCanForward());
 	ButtonSetEnabled(m_button_search, !search_text->GetValue().IsEmpty());

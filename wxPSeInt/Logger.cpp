@@ -10,7 +10,7 @@ Logger *logger = NULL;
 
 Logger::Logger(const char *where) {
 	file.open(where,std::ios::app);
-	if (file.is_open()) logger=this; else wxMessageBox(wxString("No se pudo abrir el archivo de log: ")<<where);
+	if (file.is_open()) logger=this; else wxMessageBox(_Z("No se pudo abrir el archivo de log: ")+where);
 	file << std::endl << "LOG START" << std::endl;
 	Write(wxString() << "version " << VERSION << '-' << ARCHITECTURE ARCH_EXTRA);
 }

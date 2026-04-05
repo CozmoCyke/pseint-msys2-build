@@ -4,6 +4,9 @@
 #include <wx/msgdlg.h>
 #include <wx/stc/stc.h>
 #include <wx/fontenum.h>
+#include <wx/app.h>
+#include <wx/tokenzr.h>
+#include <iostream>
 #include "ConfigManager.h"
 #include "mxUtils.h"
 #include "version.h"
@@ -11,8 +14,71 @@
 #include "string_conversions.h"
 #include "error_recovery.h"
 #include "osdep.h"
+#include "LocalizationManager.h"
 
 ConfigManager *config = NULL;
+LangSettings lang(LS_DO_NOT_INIT);
+
+static void SyncRuntimeLang(const LangSettings &runtime_lang) {
+	lang = runtime_lang;
+}
+
+static void AuditHelpPath(const char *fn, const wxString &requested, const wxString &root, const wxString &final_path, const wxString &resolved_lang) {
+	std::cerr
+		<< fn
+		<< ": requested=" << _W2S(requested)
+		<< " lang=" << _W2S(resolved_lang)
+		<< " help_dir=" << _W2S(root)
+		<< " final=" << _W2S(final_path)
+		<< std::endl;
+}
+
+static wxString BuildLocalizedPath(const wxString &root_dir, const wxString &lang, const wxString &file) {
+	wxFileName path;
+	path.AssignDir(root_dir);
+	if (!lang.IsEmpty())
+		path.AppendDir(lang);
+	if (!file.IsEmpty())
+		path.SetFullName(file);
+	path.Normalize();
+	return path.GetFullPath();
+}
+
+static wxString BuildHelpPath(const wxString &base_dir, const wxString &help_rel_dir, const wxString &lang, const wxString &file) {
+	wxString normalized_base(base_dir);
+	normalized_base.Replace("\\", "/");
+	while (normalized_base.EndsWith("/"))
+		normalized_base.RemoveLast();
+
+	wxString normalized_rel(help_rel_dir);
+	normalized_rel.Replace("\\", "/");
+	while (normalized_rel.StartsWith("/"))
+		normalized_rel.Remove(0, 1);
+	while (normalized_rel.EndsWith("/"))
+		normalized_rel.RemoveLast();
+
+	if (normalized_base.EndsWith("/bin")) {
+		if (normalized_rel == "bin")
+			normalized_rel.Clear();
+		else if (normalized_rel.StartsWith("bin/"))
+			normalized_rel = normalized_rel.Mid(4);
+	}
+
+	wxFileName path;
+	path.AssignDir(base_dir);
+	wxStringTokenizer tokens(normalized_rel, "/");
+	while (tokens.HasMoreTokens()) {
+		wxString dir = tokens.GetNextToken();
+		if (!dir.IsEmpty())
+			path.AppendDir(dir);
+	}
+	if (!lang.IsEmpty())
+		path.AppendDir(lang);
+	if (!file.IsEmpty())
+		path.SetFullName(file);
+	path.Normalize();
+	return path.GetFullPath();
+}
 
 ConfigManager::ConfigManager(wxString apath) : lang(LS_INIT) {
 	
@@ -45,14 +111,18 @@ ConfigManager::ConfigManager(wxString apath) : lang(LS_INIT) {
 	}
 	
 #ifdef __APPLE__
-	// por alguna extraña razon no logro hacer que la terminal tome la fuente Inconsolata
-	// (llamar a wxDC::SetFont(f) modifica a f y la convierte en Helvetica ¿?), asi que
+	// por alguna extraï¿½a razon no logro hacer que la terminal tome la fuente Inconsolata
+	// (llamar a wxDC::SetFont(f) modifica a f y la convierte en Helvetica ï¿½?), asi que
 	// uso una monospaced del sistema para salir del paso hasta que lo solucione
 	if (version<20230426 and term_font_name=="Inconsolata")
 		term_font_name="Menlo";
 #endif
 		
 	lang.Log();
+	SyncRuntimeLang(lang);
+	std::cerr << "ConfigManager::ConfigManager lang=" << _W2S(_S2W(LocalizationManager::Instance().GetCurrentLanguage()))
+		<< " help_dir=" << _W2S(help_dir)
+		<< std::endl;
 	
 	er_init(_W2S(temp_dir));
 }
@@ -122,7 +192,7 @@ void ConfigManager::LoadDefaults() {
 		term_font_name = wx_font_name  = "Monaco";
 #endif
 	
-	help_dir = "help";
+	help_dir = "bin/help";
 	proxy = "";
 	profiles_dir = "perfiles";
 	examples_dir = "ejemplos";
@@ -275,15 +345,24 @@ void ConfigManager::Read() {
 		lang.source = lang.name=="<personalizado>" ? LS_CUSTOM : LS_LIST;
 	}
 	if (lang.source==LS_LIST) {
-		// si era de la lista, luego de una actualización el perfil
-		// puede haber cambiado... o la interpretación del mismo
+		// si era de la lista, luego de una actualizaciï¿½n el perfil
+		// puede haber cambiado... o la interpretaciï¿½n del mismo
 		if (!LoadListedProfile(_S2W(lang.name))) lang.Fix();
 	}
 	if (version!=0 && version<20160321) temp_dir = home_dir;
 	if (version<20150627) shape_colors = true;
-	// asegurarse de que tamaños y posiciones de la ventana estén en el rango de 
-	// la pantalla actual (por si se guardaron cuando había un segundo monitor que
-	// ya no está)
+	if (help_dir=="help") help_dir = "bin/help";
+	{
+		wxString legacy_help_dir(help_dir);
+		legacy_help_dir.Replace("\\","/");
+		while (legacy_help_dir.EndsWith("/"))
+			legacy_help_dir.RemoveLast();
+		if (legacy_help_dir=="help" || legacy_help_dir=="./help")
+			help_dir = "bin/help";
+	}
+	// asegurarse de que tamaï¿½os y posiciones de la ventana estï¿½n en el rango de 
+	// la pantalla actual (por si se guardaron cuando habï¿½a un segundo monitor que
+	// ya no estï¿½)
 	if (pos_x<0) pos_x = 0; if (pos_y<0) pos_y = 0;
 	int screen_w = wxSystemSettings::GetMetric(wxSYS_SCREEN_X);
 	int screen_h = wxSystemSettings::GetMetric(wxSYS_SCREEN_Y);
@@ -302,16 +381,19 @@ ConfigManager::~ConfigManager() {
 
 bool ConfigManager::LoadProfileFromFile(wxString path) {
 	if (!lang.Load(path,false)) return false;
+	SyncRuntimeLang(lang);
 	return true;
 }
 
 bool ConfigManager::LoadListedProfile(wxString name) {
 	if (!lang.Load(DIR_PLUS_FILE(profiles_dir,name),true)) return false;
+	SyncRuntimeLang(lang);
 	return true;
 }
 
 bool ConfigManager::SetProfile(LangSettings custom_lang) {
 	lang = custom_lang;
+	SyncRuntimeLang(lang);
 	return true;
 }
 
@@ -326,6 +408,101 @@ int ConfigManager::GetDebugPort ( ) {
 wxString ConfigManager::GetTermCommand ( ) {
 	return psterm_command + (config->use_dark_psterm?" --darktheme":"")
 		+ " \"--font="<<config->term_font_name<<":"<<config->term_font_size<<"\"";
+}
+
+wxString ConfigManager::GetEffectiveHelpDir() const {
+	wxString resolved_lang = _S2W(LocalizationManager::Instance().GetCurrentLanguage());
+	if (resolved_lang.IsEmpty() && wxTheApp) {
+		for (int i = 1; i < wxTheApp->argc; ++i) {
+			wxString arg(wxTheApp->argv[i]);
+			if (arg.StartsWith("--lang=")) {
+				resolved_lang = arg.AfterFirst('=');
+				break;
+			}
+		}
+	}
+	if (resolved_lang.IsEmpty()) {
+		_LOG("ConfigManager::GetEffectiveHelpDir");
+		_LOG("   raw help_dir=" << help_dir);
+		_LOG("   resolved language=<default>");
+		_LOG("   effective help dir=" << help_dir);
+		return help_dir;
+	}
+	wxString localized_dir = DIR_PLUS_FILE(help_dir,resolved_lang);
+	wxString effective_dir = wxFileName::DirExists(localized_dir) ? localized_dir : help_dir;
+	_LOG("ConfigManager::GetEffectiveHelpDir");
+	_LOG("   raw help_dir=" << help_dir);
+	_LOG("   resolved language=" << resolved_lang);
+	_LOG("   current ui language=" << _S2W(LocalizationManager::Instance().GetCurrentLanguage()));
+	_LOG("   effective help dir=" << effective_dir);
+	return effective_dir;
+}
+
+wxString ConfigManager::GetHelpFilePath(const wxString &file) const {
+	wxString resolved_lang = _S2W(LocalizationManager::Instance().GetCurrentLanguage());
+	wxString localized_path = BuildHelpPath(pseint_dir, help_dir, resolved_lang, file);
+	if (wxFileName::FileExists(localized_path)) {
+		AuditHelpPath("ResolveHelpPath", file, pseint_dir, localized_path, resolved_lang);
+		return localized_path;
+	}
+
+	wxString fallback_path = BuildHelpPath(pseint_dir, help_dir, wxEmptyString, file);
+	if (wxFileName::FileExists(fallback_path)) {
+		AuditHelpPath("ResolveHelpPathFallback", file, pseint_dir, fallback_path, resolved_lang);
+		return fallback_path;
+	}
+
+	AuditHelpPath("ResolveHelpPathMiss", file, pseint_dir, localized_path, resolved_lang);
+	return localized_path;
+}
+
+wxString ConfigManager::GetEffectiveExamplesDir() const {
+	wxString resolved_lang = _S2W(LocalizationManager::Instance().GetCurrentLanguage());
+	if (resolved_lang.IsEmpty() && wxTheApp) {
+		for (int i = 1; i < wxTheApp->argc; ++i) {
+			wxString arg(wxTheApp->argv[i]);
+			if (arg.StartsWith("--lang=")) {
+				resolved_lang = arg.AfterFirst('=');
+				break;
+			}
+		}
+	}
+	if (resolved_lang.IsEmpty()) {
+		_LOG("ConfigManager::GetEffectiveExamplesDir");
+		_LOG("   raw examples_dir=" << examples_dir);
+		_LOG("   resolved language=<default>");
+		_LOG("   effective examples dir=" << examples_dir);
+		return examples_dir;
+	}
+	wxString localized_dir = DIR_PLUS_FILE(examples_dir,resolved_lang);
+	wxString effective_dir = wxFileName::DirExists(localized_dir) ? localized_dir : examples_dir;
+	_LOG("ConfigManager::GetEffectiveExamplesDir");
+	_LOG("   raw examples_dir=" << examples_dir);
+	_LOG("   resolved language=" << resolved_lang);
+	_LOG("   current ui language=" << _S2W(LocalizationManager::Instance().GetCurrentLanguage()));
+	_LOG("   effective examples dir=" << effective_dir);
+	return effective_dir;
+}
+
+wxString ConfigManager::GetExampleFilePath(const wxString &file) const {
+	wxString effective_examples_dir = GetEffectiveExamplesDir();
+	wxString path = BuildLocalizedPath(effective_examples_dir, wxEmptyString, file);
+	if (wxFileName::FileExists(path)) {
+		std::cerr
+			<< "ResolveExamplePath: requested=" << _W2S(file)
+			<< " lang=" << _W2S(_S2W(LocalizationManager::Instance().GetCurrentLanguage()))
+			<< " examples_dir=" << _W2S(effective_examples_dir)
+			<< " final=" << _W2S(path)
+			<< std::endl;
+		return path;
+	}
+	std::cerr
+		<< "ResolveExamplePathMiss: requested=" << _W2S(file)
+		<< " lang=" << _W2S(_S2W(LocalizationManager::Instance().GetCurrentLanguage()))
+		<< " examples_dir=" << _W2S(effective_examples_dir)
+		<< " final=" << _W2S(path)
+		<< std::endl;
+	return BuildLocalizedPath(examples_dir, wxEmptyString, file);
 }
 
 void ConfigManager::Log ( ) const {
@@ -344,4 +521,3 @@ void ConfigManager::Log ( ) const {
 	_LOG("   psterm_command="<<psterm_command);
 	_LOG("   temp_dir="<<temp_dir);
 }
-

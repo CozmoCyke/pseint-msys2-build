@@ -17,7 +17,7 @@ BEGIN_EVENT_TABLE(mxInputDialog,wxDialog)
 	EVT_BUTTON(wxID_SAVE,mxInputDialog::OnButtonSave)
 END_EVENT_TABLE()
 
-mxInputDialog::mxInputDialog(wxWindow *parent):wxDialog(parent,wxID_ANY,"Predefinir entrada",wxDefaultPosition,wxDefaultSize) {
+mxInputDialog::mxInputDialog(wxWindow *parent):wxDialog(parent,wxID_ANY,_Z("Predefinir entrada"),wxDefaultPosition,wxDefaultSize) {
 	wxBoxSizer *sizer=new wxBoxSizer(wxVERTICAL);
 	wxStaticText *text=new wxStaticText(this,wxID_ANY,_Z(
 		"Puede utilizar esta ventana para ingresar los valores que quiere\n"
@@ -41,14 +41,14 @@ mxInputDialog::mxInputDialog(wxWindow *parent):wxDialog(parent,wxID_ANY,"Predefi
 	wxBoxSizer *button_sizer = new wxBoxSizer(wxHORIZONTAL);
 	
 	wxBitmapButton *load_button = new wxBitmapButton(this, wxID_OPEN, *bitmaps->buttons.load);
-	load_button->SetToolTip("Cargar entradas desde archivo de texto");
+	load_button->SetToolTip(_Z("Cargar entradas desde archivo de texto"));
 	wxBitmapButton *save_button = new wxBitmapButton(this, wxID_SAVE, *bitmaps->buttons.save);
-	save_button->SetToolTip("Guardar entradas en un archivo de texto");
+	save_button->SetToolTip(_Z("Guardar entradas en un archivo de texto"));
 	
 	
-	wxButton *ok_button = new wxButton (this, wxID_OK, _T("Aceptar"));
+	wxButton *ok_button = new wxButton (this, wxID_OK, _Z("Aceptar"));
 	ok_button->SetBitmap(*bitmaps->buttons.ok);
-	wxButton *cancel_button = new wxButton (this, wxID_CANCEL, _T("Cancelar"));
+	wxButton *cancel_button = new wxButton (this, wxID_CANCEL, _Z("Cancelar"));
 	cancel_button->SetBitmap(*bitmaps->buttons.cancel);
 	button_sizer->Add(load_button,wxSizerFlags().Border(wxALL,5).Proportion(0).Expand());
 	button_sizer->Add(save_button,wxSizerFlags().Border(wxALL,5).Proportion(0).Expand());

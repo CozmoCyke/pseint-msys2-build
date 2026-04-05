@@ -5,6 +5,7 @@
 #include "ids.h"
 #include "mxMainWindow.h"
 #include "mxUtils.h"
+#include "KeywordForms.h"
 #include <wx/tooltip.h>
 #include "ConfigManager.h"
 #include <wx/utils.h>
@@ -12,6 +13,14 @@
 #include <wx/settings.h>
 
 mxOpersWindow *opers_window = NULL;
+
+namespace {
+
+bool IsKeywordMetaCategory(const wxString &category) {
+	return category.IsSameAs("predef", false) || category.IsSameAs("constant", false);
+}
+
+}
 
 BEGIN_EVENT_TABLE(mxOpersWindow,wxScrolledWindow)
 	EVT_COMMAND_RANGE(mxID_LAST,mxID_LAST+200,wxEVT_COMMAND_BUTTON_CLICKED,mxOpersWindow::OnItem)
@@ -86,13 +95,24 @@ mxOpersWindow::mxOpersWindow(wxWindow *parent):wxScrolledWindow(parent,wxID_ANY,
 }
 
 void mxOpersWindow::Add (wxString code, wxString label, wxString name, wxString desc) {
-	if (name.Len()) label<<" ("<<name<<")";
+	wxString display_name = name;
+	wxString category = GetKeywordCategoryForWord(label);
+	if (IsKeywordMetaCategory(category)) {
+		wxString display = GetKeywordDisplayFormForWord(label);
+		wxString tooltip = GetKeywordTooltipFormForWord(label);
+		if (!display.IsEmpty())
+			code = display;
+		if (!display.IsEmpty() && !label.IsSameAs(display, false))
+			display_name = display;
+		if (!tooltip.IsEmpty())
+			desc = tooltip;
+	}
+	if (display_name.Len()) label<<" ("<<display_name<<")";
 	wxButton *but=new wxButton(this,mxID_LAST+lista.size(),label,wxDefaultPosition,wxDefaultSize,wxBU_EXACTFIT);
 	sizer->Add(but,wxSizerFlags().Border(wxLEFT,20).Expand());
 	but->SetToolTip(utils->FixTooltip(desc));
 	lista.push_back(oper_item(code,but));
 }
-
 void mxOpersWindow::Replace(oper_item &o, wxString f1, wxString t1, wxString f2, wxString t2, bool sent) {
 	if (o.code==(sent?f1:t1)) o.code=(sent?t1:f1);
 	if (o.but->GetToolTip() && o.but->GetToolTip()->GetTip().Contains(sent?f2:t2)) {

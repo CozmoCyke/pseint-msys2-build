@@ -18,7 +18,7 @@ BEGIN_EVENT_TABLE(mxConfig,wxDialog)
 END_EVENT_TABLE()
 
 mxConfig::mxConfig(wxWindow *parent, LangSettings &settings )
-	: wxDialog(parent,wxID_ANY,"Opciones del Lenguaje",wxDefaultPosition,wxDefaultSize,wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER),
+	: wxDialog(parent,wxID_ANY,_Z("Opciones del Lenguaje"),wxDefaultPosition,wxDefaultSize,wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER),
 	  lang(settings)
 {
 	lang.source = LS_CUSTOM; lang.name = CUSTOM_PROFILE;
@@ -35,13 +35,13 @@ mxConfig::mxConfig(wxWindow *parent, LangSettings &settings )
 		m_list->Check(item,LangSettings::data[i].default_value);
 	}
 	
-	wxButton *load_button = new wxButton (this, wxID_OPEN, "Cargar...");
+	wxButton *load_button = new wxButton (this, wxID_OPEN, _Z("Cargar..."));
 	load_button->SetBitmap(*bitmaps->buttons.load);
-	wxButton *save_button = new wxButton (this, wxID_SAVE, "Guardar...");
+	wxButton *save_button = new wxButton (this, wxID_SAVE, _Z("Guardar..."));
 	save_button->SetBitmap(*bitmaps->buttons.save);
-	wxButton *ok_button = new wxButton (this, wxID_OK, "Aceptar");
+	wxButton *ok_button = new wxButton (this, wxID_OK, _Z("Aceptar"));
 	ok_button->SetBitmap(*bitmaps->buttons.ok);
-	wxButton *cancel_button = new wxButton (this, wxID_CANCEL, "Cancelar");
+	wxButton *cancel_button = new wxButton (this, wxID_CANCEL, _Z("Cancelar"));
 	cancel_button->SetBitmap(*bitmaps->buttons.cancel);
 	button_sizer->Add(load_button,wxSizerFlags().Border(wxALL,5).Proportion(0).Expand());
 	button_sizer->Add(save_button,wxSizerFlags().Border(wxALL,5).Proportion(0).Expand());
@@ -78,7 +78,7 @@ void mxConfig::OnCancelButton(wxCommandEvent &evt) {
 }
 
 wxString mxConfig::LoadFromFile (wxWindow *parent) {
-	wxFileDialog dlg (parent, "Cargar perfil desde archivo", config->last_dir, " ", "Cualquier Archivo (*)|*", wxFD_OPEN | wxFD_FILE_MUST_EXIST );
+	wxFileDialog dlg (parent, _Z("Cargar perfil desde archivo"), config->last_dir, " ", _Z("Cualquier Archivo (*)|*"), wxFD_OPEN | wxFD_FILE_MUST_EXIST );
 	if (dlg.ShowModal() != wxID_OK) return wxEmptyString;
 	config->last_dir = wxFileName(dlg.GetPath()).GetPath();
 	return dlg.GetPath();
@@ -103,7 +103,7 @@ bool TodoMayusculas(const std::string &desc) {
 }
 
 void mxConfig::OnSaveButton (wxCommandEvent & evt) {
-	wxFileDialog dlg (this, "Guardar perfil en archivo", config->last_dir, "", "Cualquier Archivo (*)|*", wxFD_SAVE | wxFD_OVERWRITE_PROMPT);
+	wxFileDialog dlg (this, _Z("Guardar perfil en archivo"), config->last_dir, "", _Z("Cualquier Archivo (*)|*"), wxFD_SAVE | wxFD_OVERWRITE_PROMPT);
 	if (dlg.ShowModal() == wxID_OK) {
 		config->last_dir=wxFileName(dlg.GetPath()).GetPath();
 		LangSettings l(LS_INIT);

@@ -50,11 +50,83 @@
 #include "mxTestPanel.h"
 #include "mxHtmlWindow.h"
 #include "error_recovery.h"
+#include "KeywordForms.h"
 #include "mxFontsConfig.h"
 #include <wx/button.h>
 #include "mxBacktrace.h"
 
 mxMainWindow *main_window = NULL;
+
+static wxString GetQuickHelpCaptionText() { return _Z("Ayuda Rápida"); }
+static wxString GetQuickHelpPromptText() { return _Z("Palabra a buscar:"); }
+
+namespace {
+
+wxString ActiveKeyword(KeywordType kw, const char *fallback) {
+	std::string active_fallback = fallback;
+	if (kw < KW_COUNT && cfg_lang.keywords[kw].IsOk())
+		active_fallback = cfg_lang.keywords[kw].get(false);
+	return GetKeywordInsertionForm(kw, active_fallback);
+}
+
+wxString Placeholder(const char *label) {
+	std::string token = label;
+	const std::string &lang = LocalizationManager::Instance().GetCurrentLanguage();
+	if (lang=="fr") {
+		if (token=="variable") token = "variable";
+		else if (token=="expresion") token = "expression";
+		else if (token=="lista_de_variables") token = "liste_de_variables";
+		else if (token=="lista_de_expresiones") token = "liste_expressions";
+		else if (token=="expresion_logica") token = "expression_logique";
+		else if (token=="secuencia_de_acciones") token = "sequence_actions";
+		else if (token=="elemento") token = "element";
+		else if (token=="arreglo") token = "tableau";
+		else if (token=="variable_numerica") token = "variable_numerique";
+		else if (token=="valor_inicial") token = "valeur_initiale";
+		else if (token=="valor_final") token = "valeur_finale";
+		else if (token=="paso") token = "pas";
+		else if (token=="variable_de_retorno") token = "variable_de_retour";
+		else if (token=="nombre") token = "nom";
+		else if (token=="argumentos") token = "arguments";
+		else if (token=="acciones_si_verdadero") token = "actions_si_vrai";
+		else if (token=="acciones_si_falso") token = "actions_si_faux";
+		else if (token=="opcion_1") token = "option_1";
+		else if (token=="opcion_2") token = "option_2";
+		else if (token=="opcion_3") token = "option_3";
+		else if (token=="secuencia_de_acciones_1") token = "sequence_actions_1";
+		else if (token=="secuencia_de_acciones_2") token = "sequence_actions_2";
+		else if (token=="secuencia_de_acciones_3") token = "sequence_actions_3";
+		else if (token=="secuencia_de_acciones_por_defecto") token = "sequence_actions_par_defaut";
+	} else if (lang=="en") {
+		if (token=="variable") token = "variable";
+		else if (token=="expresion") token = "expression";
+		else if (token=="lista_de_variables") token = "variable_list";
+		else if (token=="lista_de_expresiones") token = "expression_list";
+		else if (token=="expresion_logica") token = "logical_expression";
+		else if (token=="secuencia_de_acciones") token = "action_sequence";
+		else if (token=="elemento") token = "element";
+		else if (token=="arreglo") token = "array";
+		else if (token=="variable_numerica") token = "numeric_variable";
+		else if (token=="valor_inicial") token = "initial_value";
+		else if (token=="valor_final") token = "final_value";
+		else if (token=="paso") token = "step";
+		else if (token=="variable_de_retorno") token = "return_variable";
+		else if (token=="nombre") token = "name";
+		else if (token=="argumentos") token = "arguments";
+		else if (token=="acciones_si_verdadero") token = "true_actions";
+		else if (token=="acciones_si_falso") token = "false_actions";
+		else if (token=="opcion_1") token = "option_1";
+		else if (token=="opcion_2") token = "option_2";
+		else if (token=="opcion_3") token = "option_3";
+		else if (token=="secuencia_de_acciones_1") token = "action_sequence_1";
+		else if (token=="secuencia_de_acciones_2") token = "action_sequence_2";
+		else if (token=="secuencia_de_acciones_3") token = "action_sequence_3";
+		else if (token=="secuencia_de_acciones_por_defecto") token = "default_actions";
+	}
+	return wxString("{") + _S2W(token) + "}";
+}
+
+}
 
 //#define _debug_speed_h 80
 //#define _debug_speed_m 55
@@ -510,21 +582,20 @@ void mxMainWindow::CreateStatusBar() {
 mxSource *mxMainWindow::NewProgram(const wxString &title) {
 	mxSource *source = new mxSource(notebook,title);
 	notebook->AddPage(source,title,true);
-	if (cfg_lang[LS_PREFER_ALGORITMO]) {
-		source->SetText("Algoritmo sin_titulo\n\t\nFinAlgoritmo\n");
-		source->SetFieldIndicator(10,20);
-		source->SetSelection(22,22);
-	} else {
-		source->SetText("Proceso sin_titulo\n\t\nFinProceso\n");
-		source->SetFieldIndicator(8,18);
-		source->SetSelection(20,20);
-	}
+	wxString begin_kw = ActiveKeyword(KW_ALGORITMO, "Proceso");
+	wxString end_kw = ActiveKeyword(KW_FINALGORITMO, "FinProceso");
+	wxString name = "sin_titulo";
+	wxString text = begin_kw + " " + name + "\n\t\n" + end_kw + "\n";
+	source->SetText(text);
+	int name_start = begin_kw.Len() + 1;
+	int name_end = name_start + name.Len();
+	source->SetFieldIndicator(name_start, name_end);
+	source->SetSelection(name_end + 2, name_end + 2);
 	source->Analyze();
 	source->SetJustCreated();
 	status_bar->SetStatus(STATUS_NEW_SOURCE);
 	return source;
 }
-
 mxSource *mxMainWindow::OpenTestPackage(const wxString &path) {
 	if (test_panel) CloseTestPackage();
 	test_panel = new mxTestPanel(this);
@@ -963,9 +1034,9 @@ void mxMainWindow::OnCmdAsignar(wxCommandEvent &evt) {
 		QuickHelp().ShowHelpText(help->GetCommandText("ASIGNAR"));
 	wxArrayString toins;
 	if (cfg_lang[LS_FORCE_SEMICOLON])
-		toins.Add("{variable}<-{expresion};");
+		toins.Add(Placeholder("variable")+"<-"+Placeholder("expresion")+";");
 	else
-		toins.Add("{variable}<-{expresion}");
+		toins.Add(Placeholder("variable")+"<-"+Placeholder("expresion"));
 	InsertCode(toins);
 }
 
@@ -973,73 +1044,69 @@ void mxMainWindow::OnCmdLeer(wxCommandEvent &evt) {
 	if (config->auto_quickhelp) 
 		QuickHelp().ShowHelpText(help->GetCommandText("LEER"));
 	wxArrayString toins;
+	wxString leer = ActiveKeyword(KW_LEER, "Leer");
 	if (cfg_lang[LS_FORCE_SEMICOLON])
-		toins.Add("Leer {lista_de_variables};");
+		toins.Add(leer+" "+Placeholder("lista_de_variables")+";");
 	else
-		toins.Add("Leer {lista_de_variables}");
+		toins.Add(leer+" "+Placeholder("lista_de_variables"));
 	InsertCode(toins);
 }
-
 void mxMainWindow::OnCmdEscribir(wxCommandEvent &evt) {
 	bool alternative = wxGetKeyState(WXK_SHIFT);
 	if (config->auto_quickhelp) 
 		QuickHelp().ShowHelpText(help->GetCommandText("ESCRIBIR"));
 	wxArrayString toins;
-	wxString line = "Escribir {lista_de_expresiones}";
-	if (alternative) line<<" sin saltar";
+	wxString line = ActiveKeyword(KW_ESCRIBIR, "Escribir")+" "+Placeholder("lista_de_expresiones");
+	if (alternative) line<<" "<<ActiveKeyword(KW_SIN_SALTAR, "Sin Saltar");
 	if (cfg_lang[LS_FORCE_SEMICOLON]) line<<";";
 	toins.Add(line);
 	InsertCode(toins);
 }
-
 void mxMainWindow::OnCmdMientras(wxCommandEvent &evt) {
 	if (config->auto_quickhelp) 
 		QuickHelp().ShowHelpText(help->GetCommandText("MIENTRAS"));
 	wxArrayString toins;
-	toins.Add("Mientras {expresion_logica} Hacer");
-	toins.Add("\t{secuencia_de_acciones}");
-	toins.Add("FinMientras");
+	toins.Add(ActiveKeyword(KW_MIENTRAS, "Mientras")+" "+Placeholder("expresion_logica")+" "+ActiveKeyword(KW_HACER, "Hacer"));
+	toins.Add("	"+Placeholder("secuencia_de_acciones"));
+	toins.Add(ActiveKeyword(KW_FINMIENTRAS, "FinMientras"));
 	InsertCode(toins);
 }
-
 void mxMainWindow::OnCmdRepetir(wxCommandEvent &evt) {
 	bool alternative = cfg_lang[LS_PREFER_REPEAT_WHILE]!=wxGetKeyState(WXK_SHIFT);
 	if (config->auto_quickhelp) 
 		QuickHelp().ShowHelpText(help->GetCommandText(alternative?"REPETIR - MIENTRAS QUE":"REPETIR - HASTA QUE"));
 	wxArrayString toins;
-	toins.Add("Repetir");
-	toins.Add("\t{secuencia_de_acciones}");
+	toins.Add(ActiveKeyword(KW_REPETIR, "Repetir"));
+	toins.Add("	"+Placeholder("secuencia_de_acciones"));
 	if (alternative)
-		toins.Add("Mientras Que {expresion_logica}");
+		toins.Add(ActiveKeyword(KW_MIENTRASQUE, "Mientras Que")+" "+Placeholder("expresion_logica"));
 	else
-		toins.Add("Hasta Que {expresion_logica}");
+		toins.Add(ActiveKeyword(KW_HASTAQUE, "Hasta Que")+" "+Placeholder("expresion_logica"));
 	InsertCode(toins);
 }
-
 void mxMainWindow::OnCmdPara(wxCommandEvent &evt) {
 	bool alternative = wxGetKeyState(WXK_SHIFT);
 	if (config->auto_quickhelp) 
 		QuickHelp().ShowHelpText(help->GetCommandText(alternative?"PARA CADA":"PARA"));
 	wxArrayString toins;
 	if (alternative) {
-		toins.Add("Para Cada {id_elemento} de {id_arreglo} Hacer");
+		toins.Add(ActiveKeyword(KW_PARACADA, "Para Cada")+" "+Placeholder("elemento")+" "+ActiveKeyword(KW_DE, "de")+" "+Placeholder("arreglo")+" "+ActiveKeyword(KW_HACER, "Hacer"));
 	} else {
-		toins.Add("Para {variable_numerica}<-{valor_inicial} Hasta {valor_final} Con Paso {paso} Hacer");
+		toins.Add(ActiveKeyword(KW_PARA, "Para")+" "+Placeholder("variable_numerica")+"<-"+Placeholder("valor_inicial")+" "+ActiveKeyword(KW_HASTA, "Hasta")+" "+Placeholder("valor_final")+" "+ActiveKeyword(KW_CONPASO, "Con Paso")+" "+Placeholder("paso")+" "+ActiveKeyword(KW_HACER, "Hacer"));
 	}
-	toins.Add("\t{secuencia_de_acciones}");
-	toins.Add("FinPara");
+	toins.Add("	"+Placeholder("secuencia_de_acciones"));
+	toins.Add(ActiveKeyword(KW_FINPARA, "FinPara"));
 	InsertCode(toins);
 }
-
 void mxMainWindow::OnCmdSubProceso(wxCommandEvent &evt) {
 	bool alternative = wxGetKeyState(WXK_SHIFT);
-	wxString funcion = cfg_lang[LS_PREFER_FUNCION]?"Funcion":(cfg_lang[LS_PREFER_ALGORITMO]?"SubAlgoritmo":"SubProceso");
+	wxString funcion = ActiveKeyword(KW_SUBALGORITMO, "Funcion");
 	if (config->auto_quickhelp) 
-		QuickHelp().ShowHelpText(help->GetCommandText(funcion.Upper()));
+		QuickHelp().ShowHelpText(help->GetCommandText("SUBALGORITMO"));
 	wxArrayString toins;
-	toins.Add(funcion+(alternative?"":" {variable_de_retorno} <-")+" {Nombre} ( {Argumentos} )");
-	toins.Add("\t");
-	toins.Add(wxString("Fin")+funcion);
+	toins.Add(funcion+(alternative?"":" "+Placeholder("variable_de_retorno")+" <-")+" "+Placeholder("nombre")+" ( "+Placeholder("argumentos")+" )");
+	toins.Add("	");
+	toins.Add(ActiveKeyword(KW_FINSUBALGORITMO, "FinFuncion"));
 	toins.Add("");
 	IF_THERE_IS_SOURCE {
 		mxSource *source = CURRENT_SOURCE;
@@ -1048,39 +1115,36 @@ void mxMainWindow::OnCmdSubProceso(wxCommandEvent &evt) {
 	}
 	InsertCode(toins);
 }
-
 void mxMainWindow::OnCmdSi(wxCommandEvent &evt) {
 	bool alternative = wxGetKeyState(WXK_SHIFT);
 	if (config->auto_quickhelp) 
 		QuickHelp().ShowHelpText(help->GetCommandText(alternative?"SI - ENTONCES":"SI - ENTONCES - SINO"));
 	wxArrayString toins;
-	toins.Add("Si {expresion_logica} Entonces");
-	toins.Add("\t{acciones_por_verdadero}");
+	toins.Add(ActiveKeyword(KW_SI, "Si")+" "+Placeholder("expresion_logica")+" "+ActiveKeyword(KW_ENTONCES, "Entonces"));
+	toins.Add("	"+Placeholder("acciones_si_verdadero"));
 	if (!alternative) {
-		toins.Add("SiNo");
-		toins.Add("\t{acciones_por_falso}");
+		toins.Add(ActiveKeyword(KW_SINO, "SiNo"));
+		toins.Add("	"+Placeholder("acciones_si_falso"));
 	}
-	toins.Add("FinSi");
+	toins.Add(ActiveKeyword(KW_FINSI, "FinSi"));
 	InsertCode(toins);
 }
-
 void mxMainWindow::OnCmdSegun(wxCommandEvent &evt) {
 	if (config->auto_quickhelp) 
 		QuickHelp().ShowHelpText(help->GetCommandText("SEGUN"));
 	wxArrayString toins;
-	toins.Add("Segun {variable_numerica} Hacer");
-	toins.Add("\t{opcion_1}:");
-	toins.Add("\t\t{secuencia_de_acciones_1}");
-	toins.Add("\t{opcion_2}:");
-	toins.Add("\t\t{secuencia_de_acciones_2}");
-	toins.Add("\t{opcion_3}:");
-	toins.Add("\t\t{secuencia_de_acciones_3}");
-	toins.Add("\tDe Otro Modo:");
-	toins.Add("\t\t{secuencia_de_acciones_dom}");
-	toins.Add("FinSegun");
+	toins.Add(ActiveKeyword(KW_SEGUN, "Segun")+" "+Placeholder("variable")+" "+ActiveKeyword(KW_HACER, "Hacer"));
+	toins.Add("	"+ActiveKeyword(KW_OPCION, "Opcion")+" "+Placeholder("opcion_1")+":");
+	toins.Add("		"+Placeholder("secuencia_de_acciones_1"));
+	toins.Add("	"+ActiveKeyword(KW_OPCION, "Opcion")+" "+Placeholder("opcion_2")+":");
+	toins.Add("		"+Placeholder("secuencia_de_acciones_2"));
+	toins.Add("	"+ActiveKeyword(KW_OPCION, "Opcion")+" "+Placeholder("opcion_3")+":");
+	toins.Add("		"+Placeholder("secuencia_de_acciones_3"));
+	toins.Add("	"+ActiveKeyword(KW_DEOTROMODO, "De Otro Modo")+":");
+	toins.Add("		"+Placeholder("secuencia_de_acciones_por_defecto"));
+	toins.Add(ActiveKeyword(KW_FINSEGUN, "FinSegun"));
 	InsertCode(toins);
 }	
-
 void mxMainWindow::InsertCode(wxString toins) {
 	IF_THERE_IS_SOURCE {
 		mxSource *source = CURRENT_SOURCE;

@@ -14,7 +14,7 @@ public:
 	bool use_dark_psterm; ///< esquema de colores de psterm, true=fondo negro, false=fondo blanco
 	wxString GetTermCommand(); ///< terminal a usar si no se usa la propia (en GNU/Linux, hay que probar algunas para ver cual hay instalada)
 	
-	int version; ///< version del archivo de configuración que se leyó al inicializar
+	int version; ///< version del archivo de configuraciï¿½n que se leyï¿½ al inicializar
 	int comm_port;
 	int debug_port;
 	bool fixed_port;
@@ -48,8 +48,8 @@ public:
 	const LangSettings &GetLang() { return lang; }
 	LangSettings &GetWritableLang() { return lang; }
 	
-	bool reorganize_for_debug; ///< si reacomoda o no las ventanas al lanzar la ejecución paso a paso
-	bool animate_gui; ///< si al mostrar u ocultar los paneles laterales lo hace con una animación (true) o de forma instantanea (false)
+	bool reorganize_for_debug; ///< si reacomoda o no las ventanas al lanzar la ejecuciï¿½n paso a paso
+	bool animate_gui; ///< si al mostrar u ocultar los paneles laterales lo hace con una animaciï¿½n (true) o de forma instantanea (false)
 	bool use_colors;
 	bool shape_colors; ///< usar diferentes colores de fondo para las distintas estructuras de control
 	bool psdraw_nocrop; ///< no cortar labels largos en el diagrama (por defecto remplaza "xxxxxxxxxx" por "xxx...")
@@ -83,6 +83,10 @@ public:
 	
 	int GetCommPort();
 	int GetDebugPort();
+	wxString GetEffectiveHelpDir() const;
+	wxString GetEffectiveExamplesDir() const;
+	wxString GetHelpFilePath(const wxString &file) const;
+	wxString GetExampleFilePath(const wxString &file) const;
 	
 	void Log() const;
 	
@@ -93,8 +97,7 @@ public:
 extern ConfigManager *config;
 #define cfg_lang config->GetLang()
 
-// para probar como seria la interfaz sin el result tree (usando el marcado de errores sobre el código y el panel de ayuda rápida para la información adicional)
+// para probar como seria la interfaz sin el result tree (usando el marcado de errores sobre el cï¿½digo y el panel de ayuda rï¿½pida para la informaciï¿½n adicional)
 #define _avoid_results_tree config->rt_syntax
 
 #endif
-

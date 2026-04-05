@@ -35,12 +35,12 @@ END_EVENT_TABLE()
 	"\t\t\t12: Escribir \"   N M     @@@@@@@@@@     ##    ##    ##\";\n\t\t\t7: Escribir \" A   O       @@@@@@         ##########\";\n\t\tFinSegun\n\tFinPara\n\tEscribir \"\";\nFinProceso"
 	
 mxAboutWindow::mxAboutWindow(wxWindow *parent) 
-	: wxDialog(parent, wxID_ANY, "Acerca de...", wxDefaultPosition, wxDefaultSize, wxALWAYS_SHOW_SB | wxALWAYS_SHOW_SB | wxDEFAULT_FRAME_STYLE | wxSUNKEN_BORDER) 
+	: wxDialog(parent, wxID_ANY, _Z("Acerca de..."), wxDefaultPosition, wxDefaultSize, wxALWAYS_SHOW_SB | wxALWAYS_SHOW_SB | wxDEFAULT_FRAME_STYLE | wxSUNKEN_BORDER) 
 {
 		
 	wxBoxSizer *mySizer = new wxBoxSizer(wxVERTICAL);
 
-	wxButton *ok_button = new wxButton (this, wxID_OK, "Cerrar");
+	wxButton *ok_button = new wxButton (this, wxID_OK, _Z("Cerrar"));
 	ok_button->SetDefault(); 
 	SetEscapeId(wxID_OK);
 	

@@ -1,4 +1,4 @@
-#include "mxProcess.h"
+ï»¿#include "mxProcess.h"
 #include "ConfigManager.h"
 #include "mxUtils.h"
 
@@ -12,9 +12,11 @@
 #include "mxDebugWindow.h"
 #include "CommunicationsManager.h"
 #include "Logger.h"
+#include "string_conversions.h"
 #include <wx/msgdlg.h>
 #include <wx/filedlg.h>
 #include <wx/txtstrm.h>
+#include <iostream>
 
 mxProcess *proc_list = NULL;
 
@@ -31,6 +33,9 @@ mxProcess *proc_for_killing = NULL;
 
 int mxProcess::cont = 0;
 
+static void AuditProcessLaunch(const char *mode, const wxString &command);
+static void AuditProcessStream(const char *tag, const wxString &line);
+
 static void CheckDeps(wxString cmd) {
 	_LOG("mxProcess::CheckDeps cmd="<<cmd);
 	wxArrayString ostd,oerr,ofin;
@@ -44,7 +49,7 @@ static void CheckDeps(wxString cmd) {
 	}
 	wxString msg;
 	msg<<"Puede que su sistema no tenga todas las bibliotecas necesarias para ejecutar PSeInt.\n";
-	msg<<"Instale las bibliotecas faltantes con el gestor de paquetes de su distribución.\n";
+	msg<<"Instale las bibliotecas faltantes con el gestor de paquetes de su distribuciï¿½n.\n";
 	msg<<"\nLas bibliotecas faltantes son:";
 	_LOG("mxProcess::CheckDeps ends missing deps");
 	for(unsigned int i=0;i<ofin.GetCount();i++) {
@@ -57,12 +62,12 @@ static void CheckDeps(wxString cmd) {
 
 mxProcess::mxProcess(mxSource *src) 
 #ifdef __APPLE__
-	// El redirect que sigue en teoría no debería ser necesario... pero sin esto
+	// El redirect que sigue en teorï¿½a no deberï¿½a ser necesario... pero sin esto
 	// no funciona el wxExecute en Mac OS 10.13 en adelante con wx 2.8
 	// Tal vez pueda sacarlo cuando migre a wx3??
 	: wxProcess(wxPROCESS_REDIRECT) 
-	// por otro lado, parece que a linux le es indiferente, pero en windows sí
-	// molesta el redirect si no corresponde (por alguna extraña razón hay que 
+	// por otro lado, parece que a linux le es indiferente, pero en windows sï¿½
+	// molesta el redirect si no corresponde (por alguna extraï¿½a razï¿½n hay que 
 	// lanzar 2 veces los procesos, solo la segunda funciona)
 #endif
 {
@@ -124,17 +129,29 @@ void mxProcess::OnTerminate(int pid, int status) {
 
 static void Execute(const wxString &command, wxArrayString &output) {
 	// ejecutar usando un wxProcess, y no pasandole el output a wxExecute
-	// porque en ese caso no se puede controlar la codificación de la
+	// porque en ese caso no se puede controlar la codificaciï¿½n de la
 	// salida y wxExecute simplemente se cuelga (al menos en GNU/Linux)
 	// cuando la salida no es utf8
 	wxProcess p; p.Redirect();
+	AuditProcessLaunch("check_only", command);
 	wxExecute(command, wxEXEC_SYNC, &p);
 	wxInputStream *i = p.GetInputStream();
 	if(i) {
-		wxTextInputStream t(*i, "\n",wxCSConv("ISO-8851"));
+		wxTextInputStream t(*i, "\n",wxCSConv("ISO-8859-1"));
 		while(!i->Eof()) {
 			wxString s = t.ReadLine();
-			if (!s.IsEmpty()) output.Add(s);
+			if (!s.IsEmpty()) {
+				output.Add(s);
+				AuditProcessStream("Stdout", s);
+			}
+		}
+	}
+	wxInputStream *e = p.GetErrorStream();
+	if (e) {
+		wxTextInputStream t(*e, "\n",wxCSConv("ISO-8859-1"));
+		while(!e->Eof()) {
+			wxString s = t.ReadLine();
+			if (!s.IsEmpty()) AuditProcessStream("Stderr", s);
 		}
 	}
 }
@@ -143,9 +160,28 @@ static bool IsError(const wxString &line) {
 	return line.Find(": ERROR ")!=wxNOT_FOUND;
 }
 
+static void AuditProcessLaunch(const char *mode, const wxString &command) {
+	wxString exe = command.BeforeFirst(' ');
+	if (exe.IsEmpty()) exe = command;
+	std::cerr << "KWTRACE PROCESS Launch"
+	          << " exe=" << _W2S(exe)
+	          << " args=" << _W2S(command)
+	          << " mode=" << mode
+	          << " cwd=" << _W2S(wxGetCwd())
+	          << std::endl;
+}
+
+static void AuditProcessStream(const char *tag, const wxString &line) {
+	std::cerr << "KWTRACE PROCESS " << tag << " " << _W2S(line) << std::endl;
+}
+
 bool mxProcess::CheckSyntax(wxString file, wxString extra_args) {
 	
 	if (what==mxPW_NULL) what=mxPW_CHECK;
+	std::cerr << "KWTRACE ENGINE Enter func=mxProcess::CheckSyntax"
+	          << " text=" << _W2S(file)
+	          << " mode=check_only"
+	          << std::endl;
 	
 	wxString command;	
 	command<<config->pseint_command<<_T(" --nouser --norun \"")<<file<<_T("\"");
@@ -175,7 +211,7 @@ bool mxProcess::CheckSyntax(wxString file, wxString extra_args) {
 			main_window->RTreeAdd(filename+wxString(": Sintaxis Incorrecta: ")<<output.GetCount()<<" errores.",mxMainWindow::RTAddType::TreeRoot);
 		if (source) source->SetStatus(STATUS_SYNTAX_CHECK_ERROR);
 		main_window->RTreeAdd("",mxMainWindow::RTAddType::OutOfTree);
-		main_window->RTreeAdd("Las lineas con errores se marcan con una cruz sobre el margen izquierdo. Seleccione un error para ver su descripción:",mxMainWindow::RTAddType::OutOfTree);
+		main_window->RTreeAdd("Las lineas con errores se marcan con una cruz sobre el margen izquierdo. Seleccione un error para ver su descripciï¿½n:",mxMainWindow::RTAddType::OutOfTree);
 		main_window->RTreeDone(true,true);
 		proc_for_killing = this;
 	} else {
@@ -204,6 +240,10 @@ bool mxProcess::CheckSyntax(wxString file, wxString extra_args) {
 }
 
 bool mxProcess::Run(wxString file, bool check_first) {
+	std::cerr << "KWTRACE ENGINE Enter func=mxProcess::Run"
+	          << " text=" << _W2S(file)
+	          << " mode=" << (check_first ? "check_and_run" : "run")
+	          << std::endl;
 	what = check_first?mxPW_CHECK_AND_RUN:mxPW_RUN;
 	source->StopReloadTimer();
 	if (check_first) return CheckSyntax(file);
@@ -221,6 +261,7 @@ bool mxProcess::Run(wxString file, bool check_first) {
 	if (source)	source->SetStatus(STATUS_RUNNING);
 	_LOG("mxProcess::Run this="<<this);
 	_LOG("    "<<command);
+	AuditProcessLaunch(check_first ? "check_and_run" : "run", command);
 	return wxExecute(command, wxEXEC_ASYNC|wxEXEC_MAKE_GROUP_LEADER, this)!=0;
 }
 
@@ -257,6 +298,7 @@ bool mxProcess::Debug(wxString file, bool check_first) {
 	source->DebugMode(true);
 	_LOG("mxProcess::Debug this="<<this);
 	_LOG("    "<<command);
+	AuditProcessLaunch(check_first ? "check_and_debug" : "debug", command);
 	pid = wxExecute(command, wxEXEC_ASYNC|wxEXEC_MAKE_GROUP_LEADER, this);
 	return pid!=0;
 }
@@ -274,6 +316,7 @@ bool mxProcess::DrawAndEdit(wxString file, bool check_first) {
 	command<<_T(" \"")<<source->GetTempFilenamePSD()<<_T("\"");
 	_LOG("mxProcess::DrawAndEdit this="<<this);
 	_LOG("    "<<command);
+	AuditProcessLaunch(check_first ? "check_and_drawedit" : "drawedit", command);
 	return wxExecute(command, wxEXEC_ASYNC, this)!=0;
 }
 
@@ -286,6 +329,7 @@ bool mxProcess::SaveDraw(wxString file, bool check_first) {
 	command<<" "<<GetDrawPostArgs();
 	_LOG("mxProcess::SaveDraw this="<<this);
 	_LOG("    "<<command);
+	AuditProcessLaunch(check_first ? "check_and_savedraw" : "savedraw", command);
 	return wxExecute(command, wxEXEC_ASYNC, this)!=0;
 }
 
@@ -302,11 +346,14 @@ bool mxProcess::ExportLang(wxString file, wxString lang, bool check_first) {
 	if (lang.size()) command<<" --lang="<<lang;
 	_LOG("mxProcess::ExportCpp this="<<this);
 	_LOG("    "<<command);
+	AuditProcessLaunch(check_first ? "check_and_export" : "export", command);
 	return wxExecute(command, wxEXEC_ASYNC|wxEXEC_HIDE_CONSOLE, this)!=0;
 }
 
 wxString mxProcess::GetProfileArgs() {
-	return wxString("--binprofile=")+cfg_lang.GetAsSingleString().c_str();
+	wxString args = wxString("--binprofile=")+cfg_lang.GetAsSingleString().c_str();
+	args << " --lang=" << LocalizationManager::Instance().GetCurrentLanguage();
+	return args;
 }
 
 wxString mxProcess::GetInputArgs() {
@@ -345,4 +392,3 @@ wxString mxProcess::GetDrawPreArgs ( ) {
 	command << "--preservecomments --draw --lazy_syntax=1 --force_semicolon=0 --allow_dinamyc_dimensions=1";
 	return command;
 }
-

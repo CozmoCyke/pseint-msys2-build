@@ -38,8 +38,8 @@ mxFindDialog::mxFindDialog(wxWindow* parent)
 	
 	check_word = utils->AddCheckBox(optSizer,this,_Z("Solo palabras completas"),false);
 	check_start = utils->AddCheckBox(optSizer,this,_Z("Solo al comienzo de la palabra"),false);
-	check_case = utils->AddCheckBox(optSizer,this,_Z("Distinguir mayúsculas y minúsculas"),false);
-	check_close = utils->AddCheckBox(optSizer,this,_Z("Cerrar este dialogo después de encontrar"),true);
+	check_case = utils->AddCheckBox(optSizer,this,_Z("Distinguir mayÃºsculas y minÃºsculas"),false);
+	check_close = utils->AddCheckBox(optSizer,this,_Z("Cerrar este dialogo despuÃ©s de encontrar"),true);
 	
 	replace_button = new wxButton (this, mxID_FIND_REPLACE, _Z("Reemplazar"));
 	replace_button->SetBitmap(*bitmaps->buttons.replace);
@@ -171,7 +171,7 @@ bool mxFindDialog::FindPrev() {
 			source->SetSelection(source->GetTargetStart(),source->GetTargetEnd());
 			return true;
 		} else { 
-			wxMessageBox(wxString(_Z("La cadena \""))<<last_search<<_Z("\" no se encontró."), _Z("Buscar"));
+			wxMessageBox(wxString(_Z("La cadena \""))<<last_search<<_Z("\" no se encontrÃ³."), _Z("Buscar"));
 			return false;
 		}
 	}
@@ -240,7 +240,7 @@ void mxFindDialog::OnFindNextButton(wxCommandEvent &event) {
 			combo_find->SetFocus();
 		}
 	} else {
-		wxMessageBox(wxString(_Z("La cadena \""))<<last_search<<_Z("\" no se encontró."), _Z("Buscar"));
+		wxMessageBox(wxString(_Z("La cadena \""))<<last_search<<_Z("\" no se encontrÃ³."), _Z("Buscar"));
 		Raise();
 	}
 	
@@ -254,7 +254,7 @@ void mxFindDialog::OnFindPrevButton(wxCommandEvent &event) {
 	}
 	
 	if (!main_window->notebook->GetPageCount()) {
-		wxMessageBox(_Z("No hay ningún archivo abierto actualmente."),_Z("Error"));
+		wxMessageBox(_Z("No hay ningÃºn archivo abierto actualmente."),_Z("Error"));
 		return;
 	}
 
@@ -277,7 +277,7 @@ void mxFindDialog::OnFindPrevButton(wxCommandEvent &event) {
 			combo_find->SetFocus();
 		}
 	} else
-		wxMessageBox(wxString(_Z("La cadena \""))<<last_search<<_Z("\" no se encontró."), _Z("Buscar"));
+		wxMessageBox(wxString(_Z("La cadena \""))<<last_search<<_Z("\" no se encontrÃ³."), _Z("Buscar"));
 }
 
 void mxFindDialog::OnReplaceButton(wxCommandEvent &event) {
@@ -288,7 +288,7 @@ void mxFindDialog::OnReplaceButton(wxCommandEvent &event) {
 	}
 
 	if (!main_window->notebook->GetPageCount()) {
-		wxMessageBox(_Z("No hay ningún archivo abierto actualmente."),_Z("Error"));
+		wxMessageBox(_Z("No hay ningÃºn archivo abierto actualmente."),_Z("Error"));
 		return;
 	}
 	
@@ -330,7 +330,7 @@ void mxFindDialog::OnReplaceAllButton(wxCommandEvent &event) {
 	}
 
 	if (!main_window->notebook->GetPageCount()) {
-		wxMessageBox(_Z("No hay ningún archivo abierto actualmente."),_Z("Error"));
+		wxMessageBox(_Z("No hay ningÃºn archivo abierto actualmente."),_Z("Error"));
 		return;
 	}
 	
@@ -385,9 +385,9 @@ void mxFindDialog::OnReplaceAllButton(wxCommandEvent &event) {
 	}
 
 	if (c==0)
-		wxMessageBox(_Z("No se realizó ningún reemplazo."), _Z("Reemplazar"));
+		wxMessageBox(_Z("No se realizÃ³ ningÃºn reemplazo."), _Z("Reemplazar"));
 	else if (c==1)
-		wxMessageBox(_Z("Se realizó un remplazo."), _Z("Reemplazar"));
+		wxMessageBox(_Z("Se realizÃ³ un remplazo."), _Z("Reemplazar"));
 	else
 		wxMessageBox(wxString(_Z("Se realizaron "))<<c<<_Z(" reemplazos."), _Z("Reemplazar"));
 

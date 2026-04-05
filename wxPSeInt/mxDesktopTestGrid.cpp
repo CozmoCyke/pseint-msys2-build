@@ -5,6 +5,7 @@
 #include "ids.h"
 #include "mxMainWindow.h"
 #include "DebugManager.h"
+#include "string_conversions.h"
 #include <wx/menu.h>
 
 mxDesktopTestGrid *desktop_test = NULL;
@@ -32,8 +33,8 @@ mxDesktopTestGrid::mxDesktopTestGrid(wxWindow *parent, wxWindowID id ):wxGrid(pa
 	editable=true;
 	sel_col=0;
 	CreateGrid(rows_num=0,PRECOLS);
-	SetColLabelValue(0,_T("Proceso/SubProceso"));
-	SetColLabelValue(1,_T("Linea(inst)"));
+	SetColLabelValue(0,_Z("Proceso/SubProceso"));
+	SetColLabelValue(1,_Z("Línea(inst)"));
 	SetColSize(0,wxGRID_AUTOSIZE);
 	SetColSize(1,wxGRID_AUTOSIZE);
 	SetRowLabelSize(0);
@@ -51,7 +52,7 @@ mxDesktopTestGrid::mxDesktopTestGrid(wxWindow *parent, wxWindowID id ):wxGrid(pa
 
 void mxDesktopTestGrid::OnLabelDblClick(wxGridEvent &event) {
 	if (!editable || event.GetCol()<PRECOLS) return;
-	wxString val=wxGetTextFromUser("Variable o expresi�n a evaluar:","Prueba de Escritorio",GetColLabelValue(event.GetCol()));
+	wxString val=wxGetTextFromUser(_Z("Variable o expresión a evaluar:"),_Z("Prueba de Escritorio"),GetColLabelValue(event.GetCol()));
 	if (val.size()) {
 		variables[event.GetCol()-PRECOLS]=val;
 		SetColLabelValue(event.GetCol(),val);
@@ -62,7 +63,7 @@ void mxDesktopTestGrid::OnLabelDblClick(wxGridEvent &event) {
 void mxDesktopTestGrid::OnLabelRightClick(wxGridEvent &event) {
 	if (!editable || event.GetCol()<PRECOLS) return;
 	
-	int res=wxMessageBox(wxString("�Eliminar la columna \"")<<GetColLabelValue(event.GetCol())<<"\" de la tabla?", "Prueba de escritorio", wxYES_NO,main_window);
+	int res=wxMessageBox(wxString(_Z("EEliminar la columna \""))<<GetColLabelValue(event.GetCol())<<_Z("\" de la tabla?"), _Z("Prueba de Escritorio"), wxYES_NO,main_window);
 	if (res==wxYES) {
 		variables.RemoveAt(event.GetCol()-PRECOLS);
 		SetCols();
@@ -165,9 +166,9 @@ void mxDesktopTestGrid::OnSelectCell(wxGridEvent &evt) {
 void mxDesktopTestGrid::OnCellRightClick (wxGridEvent & event) {
 	wxGrid::SetGridCursor(event.GetRow(),event.GetCol());
 	wxMenu menu;
-	menu.Append(mxID_DESKTOP_LIST_COPY_ONE,"Copiar esta celda");
-	menu.Append(mxID_DESKTOP_LIST_COPY_ALL,"Copiar toda la tabla");
-	menu.Append(mxID_DESKTOP_LIST_GOTO_LINE,"Marcar esta linea en el algoritmo");
+	menu.Append(mxID_DESKTOP_LIST_COPY_ONE,_Z("Copiar esta celda"));
+	menu.Append(mxID_DESKTOP_LIST_COPY_ALL,_Z("Copiar toda la tabla"));
+	menu.Append(mxID_DESKTOP_LIST_GOTO_LINE,_Z("Marcar esta línea en el algoritmo"));
 	PopupMenu(&menu);
 }
 
@@ -185,8 +186,8 @@ void mxDesktopTestGrid::AddDesktopVar (const wxString &val, bool force) {
 void mxDesktopTestGrid::OnClearVars ( ) {
 	ResetTest();
 	DeleteCols(PRECOLS,variables.GetCount(),false);
-	SetColLabelValue(0,_T("Proceso/SubProceso"));
-	SetColLabelValue(1,_T("Linea(inst)"));
+	SetColLabelValue(0,_Z("Proceso/SubProceso"));
+	SetColLabelValue(1,_Z("Línea(inst)"));
 	variables.Clear();
 }
 
@@ -225,4 +226,3 @@ void mxDesktopTestGrid::OnGotoLine (wxCommandEvent & event) {
 	if (pre.ToLong(&line) && line!=-1) 
 		debug->source->SelectInstruccion(line-1,inst-1);
 }
-

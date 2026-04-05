@@ -49,6 +49,7 @@ public:
 		void EnsureVisible();
 	} m_quick_help;
 	QuickHelpPanelPolicy &QuickHelp() { return m_quick_help; }
+	wxString m_last_quick_help_page;
 	
 	void EnableDebugButton(bool enable);
 	
@@ -123,6 +124,7 @@ public:
 	void OnHelpAbout(wxCommandEvent &evt);
 	void OnHelpIndex(wxCommandEvent &evt);
 	void OnHelpQuickHelp(wxCommandEvent &evt);
+	void RefreshQuickHelpFromSource(mxSource *source);
 	void OnHelpExamples(wxCommandEvent &evt);
 //	void OnHelpLogger (wxCommandEvent &event);
 	void OnHelpUpdates (wxCommandEvent &event);

@@ -46,7 +46,7 @@ static const long getCurrentVersion() {
 }
 
 	
-mxUpdatesChecker::mxUpdatesChecker(bool show) : wxDialog(main_window, wxID_ANY, "Buscar Actualizaciones", wxDefaultPosition, wxSize(450,150) ,wxALWAYS_SHOW_SB | wxALWAYS_SHOW_SB | wxDEFAULT_FRAME_STYLE | wxSUNKEN_BORDER) {
+mxUpdatesChecker::mxUpdatesChecker(bool show) : wxDialog(main_window, wxID_ANY, _Z("Buscar Actualizaciones"), wxDefaultPosition, wxSize(450,150) ,wxALWAYS_SHOW_SB | wxALWAYS_SHOW_SB | wxDEFAULT_FRAME_STYLE | wxSUNKEN_BORDER) {
 
 	_LOG("mxUpdatesChecker::mxUpdatesChecker show="<<(show?"true":"false"));
 	
@@ -56,15 +56,15 @@ mxUpdatesChecker::mxUpdatesChecker(bool show) : wxDialog(main_window, wxID_ANY, 
 	m_check = new wxCheckBox(this,wxID_ANY,_Z("Verificar periódicamente al iniciar"));
 	m_check->SetValue(config->check_for_updates);
 	
-	m_text = new wxStaticText(this,wxID_ANY,"Consultando web...",wxDefaultPosition,wxDefaultSize,wxALIGN_CENTRE|wxST_NO_AUTORESIZE);
+	m_text = new wxStaticText(this,wxID_ANY,_Z("Consultando web..."),wxDefaultPosition,wxDefaultSize,wxALIGN_CENTRE|wxST_NO_AUTORESIZE);
 	mySizer->AddStretchSpacer();
 	mySizer->Add(m_text,wxSizerFlags().Border(wxALL,5).Expand().Proportion(0));
 	mySizer->AddStretchSpacer();
 	mySizer->Add(m_check,wxSizerFlags().Border(wxALL,5));
 	
-	m_close_button = new wxButton (this,wxID_CANCEL,"&Cerrar");
+	m_close_button = new wxButton (this,wxID_CANCEL,_Z("&Cerrar"));
 	m_close_button->SetBitmap(*bitmaps->buttons.cancel);
-	m_changes_button = new wxButton (this,wxID_OK,"Ir al &sitio...");
+	m_changes_button = new wxButton (this,wxID_OK,_Z("Ir al &sitio..."));
 	m_changes_button->SetBitmap(*bitmaps->buttons.ok);
 //	proxy_button = new wxButton (this,wxID_FIND,"Conf. Proxy...");
 //	proxy_button->SetBitmap(*bitmaps->buttons.options);

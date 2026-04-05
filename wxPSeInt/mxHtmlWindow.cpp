@@ -3,6 +3,7 @@
 #include <wx/clipbrd.h>
 #include <wx/dataobj.h>
 #include <wx/menu.h>
+#include "string_conversions.h"
 
 BEGIN_EVENT_TABLE(mxHtmlWindow,wxHtmlWindow)
 	EVT_RIGHT_DOWN(mxHtmlWindow::OnRightClick)
@@ -17,7 +18,7 @@ mxHtmlWindow::mxHtmlWindow(wxWindow *parent, wxWindowID id, wxPoint  pos, wxSize
 
 void mxHtmlWindow::OnRightClick (wxMouseEvent & evt) {
 	wxMenu menu; 
-	menu.Append(wxID_COPY,"Copiar");
+	menu.Append(wxID_COPY,_Z("Copiar"));
 	PopupMenu(&menu);
 }
 

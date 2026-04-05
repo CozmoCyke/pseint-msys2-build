@@ -10,6 +10,7 @@
 #include <wx/filename.h>
 #include "mxArt.h"
 #include "Logger.h"
+#include "string_conversions.h"
 
 BEGIN_EVENT_TABLE(mxIconInstaller,wxDialog)
 	EVT_BUTTON(wxID_OK,mxIconInstaller::OnButtonOk)
@@ -17,7 +18,7 @@ BEGIN_EVENT_TABLE(mxIconInstaller,wxDialog)
 	EVT_CLOSE(mxIconInstaller::OnClose)
 END_EVENT_TABLE()
 
-mxIconInstaller::mxIconInstaller(bool first_run):wxDialog(NULL,wxID_ANY,"Iconos lanzadores") {
+mxIconInstaller::mxIconInstaller(bool first_run):wxDialog(NULL,wxID_ANY,_Z("Iconos lanzadores")) {
 
 	_LOG("mxIconInstaller::mxIconInstaller first_run="<<(first_run?"true":"false"));
 	
@@ -26,25 +27,25 @@ mxIconInstaller::mxIconInstaller(bool first_run):wxDialog(NULL,wxID_ANY,"Iconos 
 	wxString res = utils->GetOutput("xdg-desktop-menu --version");
 	if (!res.Len()||res.Find("bash")!=wxNOT_FOUND) { 
 		if (!first_run)
-			wxMessageBox("Debe instalar xdg-utils para tener acceso todas las funcionalidades","Iconos lanzadores");
+			wxMessageBox(_Z("Debe instalar xdg-utils para tener acceso a todas las funcionalidades"),_Z("Iconos lanzadores"));
 		xdg_not_found=true;
 //		return;
 	}
 	
 	wxBoxSizer *sizer=new wxBoxSizer(wxVERTICAL);
 	
-	if (first_run) sizer->Add(new wxStaticText(this,wxID_ANY,"¿Desea crear un icono para acceder a PSeInt desde el menu del sistema o el escritorio?"),wxSizerFlags().Border(wxALL,5).Proportion(0).Expand());
+	if (first_run) sizer->Add(new wxStaticText(this,wxID_ANY,_Z("¿Desea crear un icono para acceder a PSeInt desde el menú del sistema o el escritorio?")),wxSizerFlags().Border(wxALL,5).Proportion(0).Expand());
 	
-	desktop = utils->AddCheckBox(sizer,this,"Crear un icono en el escritorio",true);
-	menu = utils->AddCheckBox(sizer,this,"Crear un icono en el menu (en la categoria Programacion/Desarrollo)",!xdg_not_found);
+	desktop = utils->AddCheckBox(sizer,this,_Z("Crear un icono en el escritorio"),true);
+	menu = utils->AddCheckBox(sizer,this,_Z("Crear un icono en el menú (en la categoría Programación/Desarrollo)"),!xdg_not_found);
 	if (xdg_not_found) menu->Enable(false);
 //	psc = utils->AddCheckBox(sizer,this,"Asociar los archivos pseudocodigo (.psc)",true);
 	
 	wxBoxSizer *bottomSizer = new wxBoxSizer(wxHORIZONTAL);
 	
-	wxButton *cancel_button = new wxButton (this, wxID_CANCEL, "&Cancelar");
+	wxButton *cancel_button = new wxButton (this, wxID_CANCEL, _Z("&Cancelar"));
 	cancel_button->SetBitmap(*bitmaps->buttons.cancel);
-	wxButton *ok_button = new wxButton (this, wxID_OK, "&Aceptar");
+	wxButton *ok_button = new wxButton (this, wxID_OK, _Z("&Aceptar"));
 	ok_button->SetBitmap(*bitmaps->buttons.ok);
 	ok_button->SetMinSize(wxSize(ok_button->GetSize().GetWidth()<80?80:ok_button->GetSize().GetWidth(),ok_button->GetSize().GetHeight()));
 	ok_button->SetDefault(); 

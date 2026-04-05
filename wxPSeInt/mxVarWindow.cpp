@@ -154,7 +154,7 @@ void mxVarWindow::OnTreeClick2 (wxTreeEvent & evt) {
 	} else { // cuando no se depura muestra un menu contextual
 		wxMenu menu;
 		if (tree->GetItemParent(evt.GetItem())==tree_root) {
-			menu.Append(mxID_VARS_ADD_ALL_TO_DESKTOP_TEST,_Z("Agregar todas las variable a la Prueba de Escritorio"));
+			menu.Append(mxID_VARS_ADD_ALL_TO_DESKTOP_TEST,_Z("Agregar todas las variables a la Prueba de Escritorio"));
 		} else {
 			menu.Append(mxID_VARS_DEFINE,_Z("Definir variable..."));
 			menu.Append(mxID_VARS_RENAME,_Z("Renombrar variable..."));

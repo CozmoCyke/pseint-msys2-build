@@ -128,20 +128,20 @@ wxString mxUtils::GetVersion(wxString exe) {
 	if (wxFileName::FileExists(filename)) 
 		wxRemoveFile(filename);
 	if (wxFileName::FileExists(filename)) {
-		retval=exe+_Z(": error 1: No se pudo determinar la versi髇.");
+		retval=exe+_Z(": error 1: No se pudo determinar la versi贸n.");
 	} else {
 		wxExecute(exe+" --version \""+filename+"\"",out,wxEXEC_SYNC|wxEXEC_NODISABLE);
 		wxTextFile fil(filename);
 		if (!fil.Exists()) {
-			retval=exe+_Z(": error 2: No se pudo determinar la versi髇.");
+			retval=exe+_Z(": error 2: No se pudo determinar la versi贸n.");
 		} else {
 			fil.Open();
 			if (!fil.GetLineCount()) {
-				retval=exe+_Z(": error 3: No se pudo determinar la versi髇.");
+				retval=exe+_Z(": error 3: No se pudo determinar la versi贸n.");
 			} else {
 				retval=fil.GetFirstLine();
 				fil.Close();
-				if (!retval.Len()) retval=exe+_Z(": error 4: No se pudo determinar la versi髇");
+				if (!retval.Len()) retval=exe+_Z(": error 4: No se pudo determinar la versi贸n");
 			}
 		}
 	}
@@ -150,20 +150,21 @@ wxString mxUtils::GetVersion(wxString exe) {
 
 wxString mxUtils::GetExportLangName(int id) {
 	switch(id) {
-	case mxID_FILE_EXPORT_LANG_QBASIC: 	return _Z("C骴igo QBasic (.bas)");
-	case mxID_FILE_EXPORT_LANG_VB: 		return _Z("C骴igo Visual Basic .NET (vb)");
-	case mxID_FILE_EXPORT_LANG_C: 		return _Z("C骴igo C (c)");
-	case mxID_FILE_EXPORT_LANG_CSHARP: 	return _Z("C骴igo C# (cs)");
-	case mxID_FILE_EXPORT_LANG_CPP03: 	return _Z("C骴igo C++ (cpp)");
-	case mxID_FILE_EXPORT_LANG_PHP: 	return _Z("C骴igo PHP (php)");
-	case mxID_FILE_EXPORT_LANG_PY2: 	return _Z("C骴igo Python 2 (py)");
-	case mxID_FILE_EXPORT_LANG_PY3: 	return _Z("C骴igo Python 3 (py)");
-	case mxID_FILE_EXPORT_LANG_HTML: 	return _Z("P醙ina HTML (JavaScript embebido) (html)");
-	case mxID_FILE_EXPORT_LANG_JAVA: 	return _Z("C骴igo Java (java)");
-	case mxID_FILE_EXPORT_LANG_JS: 		return _Z("C骴igo JavaScript (js)");
-	case mxID_FILE_EXPORT_LANG_M: 		return _Z("C骴igo MatLab (m)");
+	case mxID_FILE_EXPORT_LANG_QBASIC: 	return _Z("C贸digo QBasic (.bas)");
+	case mxID_FILE_EXPORT_LANG_VB: 		return _Z("C贸digo Visual Basic .NET (vb)");
+	case mxID_FILE_EXPORT_LANG_C: 		return _Z("C贸digo C (c)");
+	case mxID_FILE_EXPORT_LANG_CSHARP: 	return _Z("C贸digo C# (cs)");
+	case mxID_FILE_EXPORT_LANG_CPP03: 	return _Z("C贸digo C++ (cpp)");
+	case mxID_FILE_EXPORT_LANG_PHP: 	return _Z("C贸digo PHP (php)");
+	case mxID_FILE_EXPORT_LANG_PY2: 	return _Z("C贸digo Python 2 (py)");
+	case mxID_FILE_EXPORT_LANG_PY3: 	return _Z("C贸digo Python 3 (py)");
+	case mxID_FILE_EXPORT_LANG_HTML: 	return _Z("P谩gina HTML (JavaScript embebido) (html)");
+	case mxID_FILE_EXPORT_LANG_JAVA: 	return _Z("C贸digo Java (java)");
+	case mxID_FILE_EXPORT_LANG_JS: 		return _Z("C贸digo JavaScript (js)");
+	case mxID_FILE_EXPORT_LANG_M: 		return _Z("C贸digo MatLab (m)");
 //	case mxID_FILE_EXPORT_LANG_PRG:		return _Z("Cisual Fox Pro (prg)");
-	case mxID_FILE_EXPORT_LANG_PAS: 	return _Z("C骴igo Pascal (pas)");
+case mxID_FILE_EXPORT_LANG_CBOT:	return _Z("Codigo CBOT (cbot)");
+	case mxID_FILE_EXPORT_LANG_PAS: 	return _Z("C贸digo Pascal (pas)");
 	default: return _Z("???");
 	}
 }
@@ -184,6 +185,7 @@ wxString mxUtils::GetExportLangCode(int id) {
 	case mxID_FILE_EXPORT_LANG_JS: 		return _T("js");
 	case mxID_FILE_EXPORT_LANG_M: 		return _T("m");
 //	case mxID_FILE_EXPORT_LANG_PRG:		return _T("prg");
+case mxID_FILE_EXPORT_LANG_CBOT:	return _T("cbot");
 	case mxID_FILE_EXPORT_LANG_PAS: 	return _T("pas");
 	default: return _Z("???");
 	}
