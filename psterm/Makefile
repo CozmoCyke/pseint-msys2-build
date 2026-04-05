@@ -13,6 +13,11 @@ all: ${OBJS_DIR} ../${BIN}/psterm${EXT}
 
 include Makefile.common
 
+OBJS+=${OBJS_DIR}/LocalizationManager.o
+
+${OBJS_DIR}/LocalizationManager.o: ../wxPSeInt/LocalizationManager.cpp
+	${GPP} ${CXXFLAGS} -c ../wxPSeInt/LocalizationManager.cpp -o $@
+
 clean:
 	rm -rf ${OBJS} ../${BIN}/psterm${EXT} ${ICON}
 

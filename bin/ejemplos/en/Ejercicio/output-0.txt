@@ -1,0 +1,7 @@
+Number of items:
+> 3
+Prices:
+> 245
+> 300
+> 290
+Amount to pay: $793.25

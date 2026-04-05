@@ -1,0 +1,8 @@
+// Approximate expected output for CBOTExporter V2
+
+extern void object::pruebaasignacion() {
+	int a;
+	float b;
+	a = 3;
+	b = a + 2.5;
+}

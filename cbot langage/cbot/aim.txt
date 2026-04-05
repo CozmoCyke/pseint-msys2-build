@@ -1,0 +1,24 @@
+\b;Instruction \c;aim\n;
+Syntaxe:
+\s;\c;aim ( y, x );\n;
+
+Cette instruction définit les angles verticaux et horizontaux du canon. Les robots suivants sont équipés de canons:
+o  \l;Robot tireur\u object\botfr;
+o  \l;Robot tireur organique\u object\botor;
+o  \l; Robot canon hachoir\u object\botphaz;
+
+Lorsqu'un robot est contrôlé par un programme, le canon peut aussi être tourné horizontalement en tournant le robot entier, avec l'instruction \c;\l;turn\u cbot\turn;\n;.
+
+\t;y: \c;\l;float\u cbot\float;\n;
+Angle en degrés du canon. Un angle positif oriente le canon vers le haut. Pour les robots tireur, la valeur doit être comprise entre \c;-10\n; et \c;+20\n; degrés. Pour les robots tireur organique, la valeur doit être comprise entre \c;-20\n; et \c;+20\n; degrés. Le robot hachoir accepte des valeurs comprises entre \c;-20\n; et \c;45\n; degrés.
+
+\t;x: \c;\l;float\u cbot\float;\n; (valeur par défaut : \c;0\n;)
+Angle en degrés du canon par rapport au robot. Une valeur positive oriente le canon vers la droite. L'angle doit être compris entre \c;-40\n; et \c;+40\n; degrés, pour tous les robots équipés.
+
+\t;Type du retour: \c;\l;entier (int)\u cbot\int;\n;
+Zéro si tout est ok, ou valeur non nulle si une erreur est intervenue.
+\c;== 0 \n;angle atteint
+\c;!= 0 \n;rotation impossible
+
+\t;Voir aussi
+\l;Programmation\u cbot;, \l;types\u cbot\type; et \l;catégories\u cbot\category;.

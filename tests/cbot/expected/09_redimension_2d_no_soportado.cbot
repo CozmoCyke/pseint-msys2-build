@@ -1,0 +1,14 @@
+// Approximate expected output for CBOTExporter V3
+
+// ADVERTENCIA: Dimension se refleja sobre todo en la declaracion del arreglo; la materializacion runtime exacta no se fuerza en V3.
+// ADVERTENCIA: los arreglos multidimensionales se declaran, pero su materializacion exacta en runtime queda diferida.
+// ADVERTENCIA: Redimensionar multidimensional no esta soportado en CBOTExporter V3.
+
+extern void object::pruebaredimension2d() {
+	int m[3][3];
+	// Dimension(m): las dimensiones quedan reflejadas en la declaracion.
+	// ADVERTENCIA: la materializacion exacta de arreglos multidimensionales no esta garantizada en V3.
+	// Redimensionar(m): caso multidimensional detectado.
+	// ADVERTENCIA: Redimensionar arreglos multidimensionales no esta soportado en CBOTExporter V3.
+	message("" + (1));
+}

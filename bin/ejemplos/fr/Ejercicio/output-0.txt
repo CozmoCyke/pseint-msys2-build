@@ -1,0 +1,7 @@
+Nombre d articles :
+> 3
+Prix :
+> 245
+> 300
+> 290
+Montant a payer : $793.25

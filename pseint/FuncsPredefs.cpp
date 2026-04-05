@@ -4,11 +4,12 @@
 #include "ErrorHandler.hpp"
 #include "LangSettings.h"
 #include "global.h"
+#include "LocalizationManager.h"
 
 DataValue func_rc(ErrorHandler &err_handler, DataValue *arg) {
 	double x = arg[0].GetAsReal();
 	if (x<0) {
-		err_handler.ErrorIfRunning(147,"Raíz cuadrada de número negativo.");
+		err_handler.ErrorIfRunning(147,LocalizationManager::Instance().Translate("Raíz cuadrada de número negativo."));
 		return DataValue::MakeEmpty(vt_numerica);
 	} 
 	return DataValue::MakeReal(std::sqrt(x));
@@ -22,7 +23,7 @@ DataValue func_abs(ErrorHandler &err_handler, DataValue *arg) {
 DataValue func_ln(ErrorHandler &err_handler, DataValue *arg) {
 	double x = arg[0].GetAsReal();
 	if (x<=0) {
-		err_handler.ErrorIfRunning(148,"Logaritmo de 0 o negativo.");
+		err_handler.ErrorIfRunning(148,LocalizationManager::Instance().Translate("Logaritmo de 0 o negativo."));
 		return DataValue::MakeEmpty(vt_numerica);
 	}
 	return DataValue::MakeReal(log(x));
@@ -38,7 +39,7 @@ DataValue func_sen(ErrorHandler &err_handler, DataValue *arg) {
 DataValue func_asen(ErrorHandler &err_handler, DataValue *arg) {
 	double x = arg[0].GetAsReal();
 	if (x<-1||x>+1) {
-		err_handler.ErrorIfRunning(312,"Argumento inválido para la función ASEN (debe estar en [-1;+1]).");
+		err_handler.ErrorIfRunning(312,LocalizationManager::Instance().Translate("Argumento inválido para la función ASEN (debe estar en [-1;+1])."));
 		return DataValue::MakeEmpty(vt_numerica);
 	}
 	return DataValue::MakeReal(asin(x));
@@ -47,7 +48,7 @@ DataValue func_asen(ErrorHandler &err_handler, DataValue *arg) {
 DataValue func_acos(ErrorHandler &err_handler, DataValue *arg) {
 	double x = arg[0].GetAsReal();
 	if (x<-1||x>+1) {
-		err_handler.ErrorIfRunning(312,"Argumento inválido para la función ACOS (debe estar en [-1;+1]).");
+		err_handler.ErrorIfRunning(312,LocalizationManager::Instance().Translate("Argumento inválido para la función ACOS (debe estar en [-1;+1])."));
 		return DataValue::MakeEmpty(vt_numerica);
 	}
 	return DataValue::MakeReal(acos(x));
@@ -68,7 +69,7 @@ DataValue func_atan(ErrorHandler &err_handler, DataValue *arg) {
 DataValue func_azar(ErrorHandler &err_handler, DataValue *arg) {
 	int x = arg[0].GetAsInt();
 	if (x<=0) {
-		err_handler.ErrorIfRunning(306,"Azar de 0 o negativo.");
+		err_handler.ErrorIfRunning(306,LocalizationManager::Instance().Translate("Azar de 0 o negativo."));
 		return DataValue::MakeEmpty(vt_numerica_entera);
 	} else
 		return DataValue::MakeInt(rand()%x);
@@ -165,7 +166,10 @@ DataValue func_atof(ErrorHandler &err_handler, DataValue *arg) {
 		if (!punto && s[i]=='.')
 			punto=true;
 		else if (s[i]<'0'||s[i]>'9') {
-			err_handler.ErrorIfRunning(311,std::string("La cadena (\"")+s+"\") no representa un número.");
+			std::string msg = LocalizationManager::Instance().Translate("La cadena (\"%s\") no representa un número.");
+			size_t pos = msg.find("%s");
+			if (pos!=std::string::npos) msg.replace(pos,2,s);
+			err_handler.ErrorIfRunning(311,msg);
 			return DataValue::MakeEmpty(vt_numerica);
 		}
 	}
@@ -193,7 +197,9 @@ void FuncsManager::LoadPredefs() {
 	m_predefs["LN"]        = std::make_unique<Funcion>(vt_numerica,func_ln,vt_numerica);
 	m_predefs["EXP"]       = std::make_unique<Funcion>(vt_numerica,func_exp,vt_numerica);
 	m_predefs["SEN"]       = std::make_unique<Funcion>(vt_numerica,func_sen,vt_numerica);
+	m_predefs["SIN"]       = std::make_unique<Funcion>(vt_numerica,func_sen,vt_numerica);
 	m_predefs["ASEN"]      = std::make_unique<Funcion>(vt_numerica,func_asen,vt_numerica);
+	m_predefs["ASIN"]      = std::make_unique<Funcion>(vt_numerica,func_asen,vt_numerica);
 	m_predefs["ACOS"]      = std::make_unique<Funcion>(vt_numerica,func_acos,vt_numerica);
 	m_predefs["COS"]       = std::make_unique<Funcion>(vt_numerica,func_cos,vt_numerica);
 	m_predefs["TAN"]       = std::make_unique<Funcion>(vt_numerica,func_tan,vt_numerica);

@@ -1,0 +1,27 @@
+<HTML>
+	<HEAD>
+		<TITLE>PSeudo Intérprete</TITLE>
+	</HEAD>
+	<BODY>
+		<B>Functions/Subprocesses</B>
+		<BR><BR>
+		&nbsp;&nbsp;&nbsp;If the selected language profile allows it (see <A href="perfiles_en.html">PSeudoCode Options</A>), new functions or subprocesses can be declared in a pseudocode algorithm. The syntax is as follows:<BR><BR>
+		<CODE>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Funcion variable_de_retorno &lt;- nombre_de_la_funcion ( argumento_1, argumento_2, ... )<BR>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;acción 1;<BR>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;acción 1;<BR>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.<BR>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.<BR>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.<BR>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;acción n;<BR>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FinFuncion</CODE><BR><BR>
+		&nbsp;&nbsp;&nbsp;It begins with the keyword <i>Funcion</I> (alternatively, <i>SubProceso</i> or <I>SubAlgoritmo</I> may be used; they are synonyms), followed by the return variable, the assignment sign, the subprocess name, and finally the list of arguments in parentheses. There are variants of this structure. If the function does not return a value, the return variable and assignment sign may be omitted. That is, the name and arguments may be written directly after the keyword <I>Funcion</I>. If the subprocess does not receive any values, the parentheses may be empty or omitted. The naming rules for subprocesses, return variables, and arguments are the same as for any <A href="variables_en.html">identifier</A> in pseudocode.<BR>
+		<BR>
+		&nbsp;&nbsp;&nbsp;Optionally, the keywords <I>Por Valor</I> or <I>Por Referencia</I> may be added to indicate the passing mode of each argument. If nothing is specified, arrays are passed by reference and the remaining expressions by value. Passing by reference means that if the function modifies the argument, it actually modifies the variable used in the call; passing by value means the function works with a copy of the variable, or of the result of the expression used in the call, so changes made inside the function are not reflected outside it.<BR>
+		<BR>
+		&nbsp;&nbsp;&nbsp;To invoke the function, use its name followed by the parameters in parentheses. Parameters may be expressions only if the passing mode allows it. A call may itself be an instruction, but if the function returns a value, it may also be used as an operand inside an expression.<BR>
+		<BR>
+		&nbsp;&nbsp;&nbsp;The <A href="example:Subprocesos.psc">SubProcesses</A> example shows a program that declares two functions: one returns a value and is then used inside an expression displayed on screen, and the other receives no arguments; the <A href="example:Potencia.psc">Power</A> example shows a recursive function; and the <A href="example:Promedio2.psc">Average</A> example shows a function that receives an array as an argument. <BR>
+		<BR><BR>
+	</BODY>
+</HTML>

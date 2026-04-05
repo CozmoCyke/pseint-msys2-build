@@ -1,0 +1,132 @@
+\b;Programmation - le langage CBOT
+Le langage CBOT est très proche du C++ et du Java. Il a été adapté pour COLOBOT, et est également adapté pour une approche pédagogique simple.
+Ce langage est constitué d'instructions, de \l;blocs\u cbot\bloc;, de \l;fonctions\u cbot\function;, de \l;classes\u cbot\class;, de \l;variables\u cbot\var;, de \l;tableaux\u cbot\array;, d'\l;expressions\u cbot\expr; et de \l;conditions\u cbot\cond;.
+
+\l;o\u cheats;  \c;\token;Instruction \norm;\n;
+Dans l'éditeur de programmes, une instruction du langage CBOT est toujours représentée ainsi: \token;instruction\norm;. Si une instruction n'est pas surlignée, elle a nécessairement été mal écrite. Les instructions sont toujours écrites en minuscules.
+
+o  \c;\type;Type\norm;\n;
+Le \l;type\u cbot\type; d'une variable apparaît ainsi: \type;type\norm;.
+
+o  \c;\const;Constantes\norm;\n;
+Les constantes telles que les \l;catégories\u cbot\category; sont affichées ainsi: \const;constante\norm;. 
+
+\t;Instructions générales du langage:
+\c;\l;extern\u cbot\extern;     \n;Indique la fonction principale
+\c;\l;if\u cbot\if;         \n;Branchement conditionnel
+\c;\l;else\u cbot\if;       \n;Branchement alternatif
+\c;\l;switch\u cbot\switch;     \n;Choix multiples
+\c;\l;case\u cbot\switch;       \n;Un choix
+\c;\l;default\u cbot\switch;    \n;Choix par défaut
+\c;\l;for\u cbot\for;        \n;Structure de boucle
+\c;\l;while\u cbot\while;      \n;Structure de contrôle
+\c;\l;do\u cbot\do;         \n;Structure de contrôle
+\c;\l;break\u cbot\break;      \n;Sortie d'une boucle
+\c;\l;continue\u cbot\continue;   \n;Continuer la boucle
+\c;\l;return\u cbot\return;     \n;Fin de la fonction
+\c;\l;sizeof\u cbot\sizeof;     \n;Taille d'un tableau
+
+\t;Instructions pour les robots:
+\c;\l;detect\u cbot\detect;     \n;Détection simple d'objets
+\c;\l;radar\u cbot\radar;      \n;Détection avancée d'objets
+\c;\l;radarall\u cbot\radarall;   \n;Détection avancée de plusieurs objets
+\c;\l;search\u cbot\search;     \n;Détection d’objets depuis un point spécifique
+\c;\l;direction\u cbot\direct;  \n;Calcule un angle de rotation
+\c;\l;distance\u cbot\dist;   \n;Calcule une distance
+\c;\l;distance2d\u cbot\dist2d; \n;Calcule une distance
+\c;\l;wait\u cbot\wait;       \n;Attend
+\c;\l;move\u cbot\move;       \n;Avance ou recule
+\c;\l;turn\u cbot\turn;       \n;Tourne
+\c;\l;goto\u cbot\goto;       \n;Va à une position donnée
+\c;\l;motor\u cbot\motor;      \n;Contrôle direct des moteurs
+\c;\l;jet\u cbot\jet;        \n;Contrôle direct des réacteurs
+\c;\l;message\u cbot\message;    \n;Affiche un message
+\c;\l;retobject\u cbot\retobj;  \n;Retourne un objet depuis une fonction
+\c;\l;errmode\u cbot\errmode;    \n;Contrôle du traitement des erreurs
+\c;\l;abstime\u cbot\abstime;    \n;Retourne le temps absolu
+\c;\l;pendown\u cbot\pendown;    \n;Démarre le dessin
+\c;\l;penup\u cbot\penup;      \n;Arrête le dessin
+\c;\l;pencolor\u cbot\pencolor;   \n;Change la couleur du stylo
+\c;\l;penwidth\u cbot\penwidth;   \n;Change l’épaisseur du stylo
+\c;\l;factory\u cbot\factory;    \n;Démarre la construction d’un robot
+\c;\l;research\u cbot\research;   \n;Démarre une recherche
+\c;\l;takeoff\u cbot\takeoff;    \n;Lance un vaisseau spatial
+\c;\l;isbusy\u cbot\isbusy;     \n;Vérifie si l’objet est occupé
+\c;\l;canresearch\u cbot\canresearch;\n;Vérifie si une technologie peut être recherchée
+\c;\l;researched\u cbot\researched; \n;Vérifie si une technologie est recherchée
+\c;\l;canbuild\u cbot\canbuild;   \n;Vérifie si un bâtiment peut être construit
+\c;\l;buildingenabled\u cbot\buildingenabled; \n;Vérifie si un bâtiment est disponible pendant la mission en cours
+
+\t;Instructions sur le terrain:
+\c;\l;space\u cbot\space;      \n;Calculer un espace libre
+\c;\l;flatspace\u cbot\flatspace;  \n;Calculer un espace plat libre
+\c;\l;topo\u cbot\topo;       \n;Retourne l'altitude d'une position
+\c;\l;flatground\u cbot\flatgrnd; \n;Retourne le rayon de l'espace plat disponible
+
+\t;Instructions spécifiques à certains robots:
+\c;\l;grab\u cbot\grab;       \n;Ramasse un objet
+\c;\l;drop\u cbot\drop;       \n;Dépose un objet
+\c;\l;sniff\u cbot\sniff;      \n;Sonde le sous-sol
+\c;\l;thump\u cbot\thump;      \n;Renverse des insectes extraterrestres
+\c;\l;recycle\u cbot\recycle;    \n;Recycle un robot abandonné
+\c;\l;shield\u cbot\shield;     \n;Déploie ou rétracte le bouclier
+\c;\l;fire\u cbot\fire;       \n;Tire avec le canon
+\c;\l;aim\u cbot\aim;        \n;Fait pivoter le canon
+\c;\l;build\u cbot\build;      \n;Construit un bâtiment
+\c;\l;flag\u cbot\flag;       \n;Plante un drapeau
+\c;\l;deflag\u cbot\deflag;     \n;Retire un drapeau
+
+\t;Instructions pour les station relais :
+\c;\l;receive\u cbot\receive;    \n;Reçoit une information
+\c;\l;send\u cbot\send;       \n;Envoie une information
+\c;\l;testinfo\u cbot\testinfo;   \n;Teste la présence d'une information
+\c;\l;deleteinfo\u cbot\delinfo; \n;Supprime une information
+
+\t;Instructions pour les classes:
+\c;\l;class\u cbot\class;      \n;Déclararion de classe
+\c;\l;public\u cbot\public;     \n;Déclare un membre publique d'une classe
+\c;\l;private\u cbot\private;    \n;Déclare un membre privé d'une classe
+\c;\l;protected\u cbot\protected;  \n;Déclare un membre protégé d'une classe
+\c;\l;static\u cbot\static;     \n;Déclare un membre statique d'une classe
+\c;\l;synchronized\u cbot\synchro; \n;Evite les exécutions simultanées
+\c;\l;new\u cbot\new;        \n;Crée une nouvelle instance
+\c;\l;this\u cbot\this;       \n;Réference à l'instance courante
+\c;\l;extends\u cbot\extends;    \n;Etend une classe
+\c;\l;super\u cbot\super;      \n;Donne accès à la classe mère
+
+\t;Instructions pour les chaînes de caractères:
+\c;\l;strlen\u cbot\strlen;     \n;Longueur d'une chaîne.
+\c;\l;strleft\u cbot\strleft;    \n;Extrait la partie gauche.
+\c;\l;strright\u cbot\strright;   \n;Extrait la partie droite.
+\c;\l;strmid\u cbot\strmid;     \n;Extrait la partie centrale.
+\c;\l;strfind\u cbot\strfind;    \n;Cherche une sous-chaîne.
+\c;\l;strval\u cbot\strval;     \n;Convertit en un nombre.
+\c;\l;strupper\u cbot\strupper;   \n;Convertit en majuscules.
+\c;\l;strlower\u cbot\strlower;   \n;Convertit en minuscules.
+
+\t;Instructions pour les fichiers:
+\c;\l;open\u cbot\open;       \n;Ouvre un fichier
+\c;\l;close\u cbot\close;      \n;Ferme un fichier
+\c;\l;writeln\u cbot\writeln;    \n;Ecrit une ligne
+\c;\l;readln\u cbot\readln;     \n;Lit une ligne
+\c;\l;eof\u cbot\eof;        \n;Teste la fin du fichier
+\c;\l;deletefile\u cbot\deletef; \n;Supprime un fichier
+
+\t;Fonctions mathématiques:
+\c;\l;rand\u cbot\rand;       \n;Retourne une valeur aléatoire
+\c;\l;pow\u cbot\pow;        \n;Retourne une puissance
+\c;\l;sqrt\u cbot\sqrt;       \n;Retourne une racine carrée
+\c;\l;floor\u cbot\floor;      \n;Retourne le plus grand entier qui précède
+\c;\l;ceil\u cbot\ceil;       \n;Retourne le plus petit entier qui suit
+\c;\l;round\u cbot\round;      \n;Retourne un arrondit
+\c;\l;trunc\u cbot\trunc;      \n;Retourne la partie entière d'un nombre
+\c;\l;sin\u cbot\sin;        \n;Retourne un sinus
+\c;\l;cos\u cbot\cos;        \n;Retourne une cosinus
+\c;\l;tan\u cbot\tan;        \n;Retourne une tangente
+\c;\l;asin\u cbot\asin;       \n;Retourne un arc-sinus
+\c;\l;acos\u cbot\acos;       \n;Retourne un arc-cosinus
+\c;\l;atan\u cbot\atan;       \n;Retourne un arc-tangente
+\c;\l;atan2\u cbot\atan2;      \n;Retourne un arc-tangente, à partir de deux arguments
+
+\t;Voir aussi
+\l;Types\u cbot\type; et \l;catégories\u cbot\category;.

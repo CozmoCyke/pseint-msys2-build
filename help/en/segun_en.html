@@ -1,0 +1,23 @@
+<HTML>
+	<HEAD>
+		<TITLE>PSeudo Intérprete</TITLE>
+	</HEAD>
+	<BODY>
+<B>According To</B>
+<BR><BR>
+<CENTER><img src="ps_segun.png"></TD></CENTER><BR>
+&nbsp;&nbsp;&nbsp;The sequence of instructions executed by an <i>Segun</i> instruction depends on the value of a numeric variable.<BR><BR>
+<code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Segun &lt;variable&gt; Hacer <BR>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   &lt;número1&gt;: &lt;instrucciones&gt; <BR>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   &lt;número2&gt;,&lt;número3&gt;:  &lt;instrucciones&gt; <BR>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &lt;...&gt; <BR>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; De Otro Modo: &lt;instrucciones&gt; <BR>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FinSegun <BR>
+</code><BR><BR>
+&nbsp;&nbsp;&nbsp;This instruction lets you execute one of several possible actions, depending on the value stored in a numeric variable. When it runs, the variable is evaluated and the sequence of instructions associated with that value is executed. <BR>
+&nbsp;&nbsp;&nbsp;Each option is formed by one or more numbers separated by commas, a colon, and a sequence of instructions. If an option includes several numbers, its instruction sequence is executed when the value of the variable matches any of those numbers.<BR>
+&nbsp;&nbsp;&nbsp;Optionally, you can add a final option called <i>De Otro Modo</i>, whose associated instruction sequence is executed only if the value stored in the variable does not match any of the previous options.<BR>
+<BR>
+&nbsp;&nbsp;&nbsp;The <A href="example:Menu.psc">Menu</A> example shows a very simple program that uses this control structure to choose what to display on screen according to the option selected by the user from a menu.<BR>
+<BR>
+</BODY></HTML>

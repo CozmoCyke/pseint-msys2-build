@@ -1,0 +1,3 @@
+Proceso
+FinProceso
+<!{[END_OF_INPUT]}!>

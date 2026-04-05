@@ -1,0 +1,13 @@
+\b;Instruction \c;thump\n;
+Syntaxe:
+\s;\c;thump ( );\n;
+
+Activer le système d'armement du \l;robot secoueur\u object\bottump;, cela fera trembler le sol et retournera les fourmis et les araignées sur le dos : les rendant complètement inoffensives pendant un certain temps.
+
+\t;Type du retour: \c;\l;entier (int)\u cbot\int;\n;
+Zéro si tout est ok, ou valeur non nulle si une erreur est intervenue.
+\c;== 0 \n;terrain secoué
+\c;!= 0 \n;opération impossible
+
+\t;Voir aussi
+\l;Programmation\u cbot;, \l;types\u cbot\type; et \l;catégories\u cbot\category;.

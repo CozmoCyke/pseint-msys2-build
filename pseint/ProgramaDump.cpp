@@ -106,6 +106,7 @@ Programa LoadPrograma(const std::string & fname) {
 			
 		case IT_DIMENSION: {
 			auto &impl = getImpl<IT_DIMENSION>(inst);
+			fin >> impl.redimension;
 			fin >> iaux; fin.ignore();
 			impl.nombres.resize(iaux);
 			impl.tamanios.resize(iaux);
@@ -261,7 +262,7 @@ bool SavePrograma(const std::string &fname, /*const*/ Programa &programa) {
 			
 		case IT_DIMENSION: {
 			auto &impl = getImpl<IT_DIMENSION>(inst);
-			fout << impl.nombres.size() << std::endl;
+			fout << impl.redimension << " " << impl.nombres.size() << std::endl;
 			for(size_t i=0;i<impl.nombres.size();++i) 
 				fout << impl.nombres[i] << std::endl
 				     << impl.tamanios[i] << std::endl;
@@ -320,6 +321,5 @@ bool SavePrograma(const std::string &fname, /*const*/ Programa &programa) {
 	}
 	return true;
 }
-
 
 

@@ -1,0 +1,19 @@
+5
+3 1 1 PROCESO PRUEBAESCRIBIR
+1 4
+
+PruebaEscribir
+
+9 2 1 DEFINIR NOMBRE COMO CADENA
+1
+nombre
+0 0 1 0
+6 3 1 NOMBRE <- 'Ada'
+nombre
+'Ada'
+7 4 1 ESCRIBIR 'Hola ', NOMBRE
+1 2
+'Hola '
+nombre
+4 5 1 FINPROCESO
+1 PruebaEscribir

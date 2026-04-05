@@ -1,0 +1,6 @@
+Proceso PruebaAcceso2D
+    Definir m Como Entero
+    Dimension m[2,3]
+    m[1,2] <- 42
+    Escribir m[1,2]
+FinProceso

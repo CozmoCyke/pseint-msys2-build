@@ -1,0 +1,33 @@
+9
+3 1 1 PROCESO PRUEBASUBINDICEEXPRESION
+1 8
+
+PruebaSubindiceExpresion
+
+9 2 1 DEFINIR I, J COMO ENTERO
+2
+i
+j
+0 1 0 1
+9 3 1 DEFINIR M COMO ENTERO
+1
+m
+0 1 0 1
+8 4 1 DIMENSION M(3,3)
+0 1
+m
+3,3
+6 5 1 I <- 1
+i
+1
+6 6 1 J <- 2
+j
+2
+6 7 1 M(I+1,J-1) <- 8
+m[i+1,j-1]
+8
+7 8 1 ESCRIBIR M(I+1,J-1)
+1 1
+m[i+1,j-1]
+4 9 1 FINPROCESO
+1 PruebaSubindiceExpresion

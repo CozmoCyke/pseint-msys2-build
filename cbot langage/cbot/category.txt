@@ -1,0 +1,120 @@
+\b;Valeur \c;catégorie\n;
+La catégorie détermine la nature d'un objet. Dans COLOBOT, tout est objet: les robots, les bâtiments, les matières premières, les éléments du décor, etc.
+
+Dans un programme, les catégories sont toujours affichées comme ça : \const;catégorie\norm;. Si une catégorie n'est pas surlignée, c'est qu'elle est mal orthographiée. Les majuscules et les minuscules doivent être conservées telles quelles.
+
+Vous trouverez ci-dessous les différentes catégories disponibles :
+
+\t;Bâtiments :
+
+\button 176;   \c;\l;Houston\u object\huston;          \n;Contrôle mission de Huston
+\button 171;   \c;\l;SpaceShip\u object\base;        \n;Vaisseau spacial
+\button 160;   \c;\l;BotFactory\u object\factory;       \n;Usine de robots
+\button 163;   \c;\l;ResearchCenter\u object\research;   \n;Centre de recherches
+\button 168;   \c;\l;RadarStation\u object\radar;     \n;Radar
+\button 172;   \c;\l;ExchangePost\u object\exchange;     \n;Station relais
+\button 169;   \c;\l;RepairCenter\u object\repair;     \n;Centre de réparations
+\button 165;   \c;\l;DefenseTower\u object\tower;     \n;Tour de défence
+\button 166;   \c;\l;AutoLab\u object\labo;          \n;Laboratoire mobile d'analyses
+\button 164;   \c;\l;PowerStation\u object\station;     \n;Station de recharges
+\button 167;   \c;\l;PowerPlant\u object\energy;       \n;Usine de batteries
+\button 170;   \c;\l;NuclearPlant\u object\nuclear;     \n;Centrale nucléaire
+\button 162;   \c;\l;Converter\u object\convert;        \n;Raffinerie
+\button 161;   \c;\l;Derrick\u object\derrick;          \n;Derrick
+\button 174;   \c;\l;PowerCaptor\u object\captor;      \n;Parafoudre
+\button 175;   \c;\l;Vault\u object\safe;            \n;Coffre
+       \c;\l;StartArea\u object\start;        \n;Plateau de départ
+       \c;\l;GoalArea\u object\goal;         \n;Plateau d'arrivée
+       \c;\l;Target1\u object\target1;          \n;Objectif volant
+       \c;\l;AlienNest\u object\nest;        \n;Nid alien
+
+
+\t;Objets transportables :
+
+       \c;\l;TitaniumOre\u object\titanore;    \n;Minerai de titane
+       \c;\l;UraniumOre\u object\uranore;     \n;Minerai d'uranium
+       \c;\l;Titanium\u object\titan;       \n;Titane
+       \c;\l;PowerCell\u object\power;      \n;Batterie standard
+       \c;\l;NuclearCell\u object\atomic;    \n;Pile atomique
+       \c;\l;OrgaMatter\u object\bullet;     \n;Matière organique
+       \c;\l;BlackBox\u object\bbox;       \n;Boîte noire
+       \c;\l;KeyA..D\u object\key;        \n;Clés A, B C et D
+       \c;\l;TNT\u object\tnt;            \n;Caisse d'explosif
+
+
+\t;Robots :
+
+\button 158;   \c;\l;PracticeBot\u object\bottr;         \n;Robot d'entraînement
+\button 173;   \c;\l;TargetBot\u object\bottarg;           \n;Robot cible
+
+\button 137;   \c;\l;WheeledGrabber\u object\botgr;      \n;Robot préhenseur
+\button 138;   \c;\l;TrackedGrabber\u object\botgc;\n;
+\button 139;   \c;\l;WingedGrabber\u object\botgj;\n;
+\button 150;   \c;\l;LeggedGrabber\u object\botgs;\n;
+
+\button 140;   \c;\l;WheeledSniffer\u object\botsr;      \n;Robot renifleur
+\button 141;   \c;\l;TrackedSniffer\u object\botsc;\n;
+\button 142;   \c;\l;WingedSniffer\u object\botsj;\n;
+\button 152;   \c;\l;LeggedSniffer\u object\botss;\n;
+
+\button 143;   \c;\l;WheeledShooter\u object\botfr;      \n;Robot tireur (de boules de feu)
+\button 144;   \c;\l;TrackedShooter\u object\botfc;\n;
+\button 145;   \c;\l;WingedShooter\u object\botfj;\n;
+\button 151;   \c;\l;LeggedShooter\u object\botfs;\n;
+
+\button 153;   \c;\l;WheeledOrgaShooter\u object\botor;  \n;Robot tireur organique
+\button 154;   \c;\l;TrackedOrgaShooter\u object\botoc;\n;
+\button 155;   \c;\l;WingedOrgaShooter\u object\botoj;\n;
+\button 156;   \c;\l;LeggedOrgaShooter\u object\botos;\n;
+
+\button 192; \c;\l;WheeledBuilder\u object\botbr; \n;Constructeur à roues
+\button 193; \c;\l;TrackedBuilder\u object\botbc; \n;Constructeur à chenilles
+ \button 194; \c;\l;WingedBuilder\u object\botbj; \n;Constructeur volant
+ \button 195; \c;\l;LeggedBuilder\u object\botbs; \n;Constructeur à pattes 
+
+\button 149;   \c;\l;Subber\u object\botsub;              \n;Robot sous-marin
+\button 148;   \c;\l;Recycler\u object\botrecy;            \n;Robot recycleur
+\button 146;   \c;\l;Thumper\u object\bottump;            \n;Robot secoueur
+\button 157;   \c;\l;Shielder\u object\botshld;            \n;Robot bouclier
+\button 147;   \c;\l;PhazerShooter\u object\botphaz;       \n;Robot hachoir
+
+
+\t;Ennemis
+
+       \c;\l;AlienQueen\u object\mother;      \n;Mère pondeuse
+       \c;\l;AlienEgg\u object\egg;        \n;Oeuf
+       \c;\l;AlienAnt\u object\ant;        \n;Fourmi
+       \c;\l;AlienSpider\u object\spider;     \n;Araignée
+       \c;\l;AlienWasp\u object\wasp;       \n;Guêpe
+       \c;\l;AlienWorm\u object\worm;       \n;Ver
+
+
+\t;Divers :
+
+\button 136;   \c;\l;Me\u object\human;              \n;You!
+       \c;\l;Mine\u object\mine;            \n;Mine
+       \c;\l;Barrier\u object\barrier;         \n;Barrier
+       \c;\l;Wreck\u object\wreck;           \n;Derelict bot
+       \c;\l;Ruin\u object\ruin;            \n;Derelict building
+       \c;\l;Bush\u object\bush;            \n;Greenery
+       \c;\l;GraviPlant\u object\gravi;      \n;Gravi-plant
+       \c;\l;Crystal\u object\crystal;         \n;Crystal
+       \c;\l;BrownMushroom\u object\bromush;   \n;Brown mushroom
+       \c;\l;GreenMushroom\u object\gremush;   \n;Poisonous green mushroom
+
+
+\t;Drapeaux et autres indicateurs :
+
+              \c;\l;BlueFlag\u object\flag;          \n;Drapeau bleu
+              \c;\l;RedFlag\u object\flag;           \n;Drapeau rouge
+              \c;\l;GreenFlag\u object\flag;         \n;Drapeau vert
+              \c;\l;YellowFlag\u object\flag;        \n;Drapeau jaune
+              \c;\l;VioletFlag\u object\flag;        \n;Drapeau violet
+              \c;\l;WayPoint\u object\waypoint;          \n;Point de passage
+              \c;\l;Target2\u object\target2;           \n;Point de passage aérien
+              \c;\l;PowerSpot\u object\enerspot;        \n;Énergie sous-terraine
+              \c;\l;TitaniumSpot\u object\stonspot;      \n;Strate de Titane
+              \c;\l;UraniumSpot\u object\uranspot;       \n;Strate d'Uranium
+
+\t;Voir aussi
+\l;Programmation\u cbot; et \l;types\u cbot\type;.

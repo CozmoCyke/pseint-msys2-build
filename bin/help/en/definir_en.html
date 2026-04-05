@@ -1,0 +1,21 @@
+<HTML>
+	<HEAD>
+		<TITLE>PSeudo Intérprete</TITLE>
+	</HEAD>
+	<BODY>
+<B>Explicit Definition</B>
+<BR><BR>
+&nbsp;&nbsp;&nbsp;The Define instruction makes the type of one or more variables explicit. This definition may be optional or mandatory depending on the <A href="perfiles_en.html">language configuration</A>. The syntax is:<BR><BR>
+<code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Definir &lt;var1&gt; , &lt;var2&gt; , ... , &lt;varN&gt;&nbsp; Como [REAL/ENTERO/LOGICO/CARACTER];
+</code><BR><BR>
+&nbsp;&nbsp;&nbsp; A variable must be defined before it is used for the first time. Arrays are defined by using their identifier (without indices or dimensions) before or after dimensioning them, and the type applies to all their elements because they are homogeneous data structures.<bR><BR>
+&nbsp;&nbsp;&nbsp; The possible types are NUMERO, NUMERICO, REAL, ENTERO, LOGICO, CARACTER, TEXTO, and CADENA.<bR><BR>
+&nbsp;&nbsp;&nbsp; NUMERO, NUMERICO, and REAL are synonyms for the basic numeric type, which can store both real numbers and integers. The ENTERO type is a specialization that stores only integer values; any non-integer value that is read or assigned to a variable of this type is truncated.<BR><BR>
+&nbsp;&nbsp;&nbsp; A variable of type LOGICO can only take the values VERDADERO and FALSO, but when a variable already defined as logical is read, the user may also enter the abbreviations V and F, or 0 and 1.<BR><BR>
+&nbsp;&nbsp;&nbsp; CARACTER, TEXTO, and CADENA are synonyms for defining string variables. They can contain zero, one, or more arbitrary characters and have no maximum length. If a variable of this type is declared and the user enters a number or a logical value in an input instruction, a string containing that text is assigned instead.<bR><BR>
+&nbsp;&nbsp;&nbsp; If you try to assign data of the wrong type to a variable that is already defined, a runtime error occurs.<bR><BR>
+&nbsp;&nbsp;&nbsp;When the <A href="perfiles_en.html">language configuration</A> enables <I>flexible syntax</I>, variable types can also be defined in a more colloquial alternative form using the keywords <I>Es</I> and <I>Son</I>, as follows:<BR><BR>
+<code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;var&gt; Es [REAL/ENTERO/LOGICA/CARACTER]; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;var1&gt; , &lt;var2&gt; , ... , &lt;varN&gt;&nbsp; Son [REALES/ENTEROS/LOGICAS/CARACTERES];
+</code><BR><BR>
+</BODY></HTML>

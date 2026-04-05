@@ -1,0 +1,521 @@
+Obligar a definir los tipos de variables
+Si esta opción está deshabilitada no se puede utilizar una variable sin previamente definir su tipo. Para esto se debe utilizar la palabra clave DEFINIR. Ej: "DEFINIR X COMO REAL". Los tipos posibles son ENTERO, NUMERICO/REAL, LOGICO, CARACTER/TEXTO.
+No permitir utilizar variables o posiciones de arreglos sin inicializar
+Si esta opción está deshabilitada se puede utilizar variables sin incializar (que nunca fueron leidas o asignadas) en expresiones o para mostrar en pantalla. En este caso asumen el valor por defecto 0, "", o FALSO segun el tipo que corresponda. Si esta opción está seleccionada escribir o evaluar una expresión que involucra una variable sin inicializar genera un error en tiempo de ejecución.
+Controlar el uso de ; al final de sentencias secuenciales
+Si esta opción está activada obliga a colocar punto y coma (;) al final de las instrucciones secuenciales, como se hace en lenguajes como C++ o Pascal (util para acostumbrarse antes de dar el salto desde el pseudocódigo a un lenguaje real). si está desactivada el uso del punto y coma es opcional.
+Utilizar indices en arreglos y cadenas en base 0
+Si esta opción esta activada, el primer elemento de un arreglo de N elementos será el 0 y el último el N-1, mientras que en caso contrario el primero será el 1 y el último el N
+Permitir concatenar variables de texto con el operador +
+Si esta opción esta activada se puede concatenar el contenido de dos variables de tipo caracter con el operador +. Por ejemplo: NombreCompleto <- Nombre+" "+Apellido;
+Usar diagramas de Nassi-Shneiderman
+Con esta opción activada, el editor de diagramas utilizará el formato de Nassi-Shneiderman
+en lugar del formato clásico de diagrama de flujo.
+Usar formas alternativas para Leer y Escribir en el diagrama
+Con esta opción activada, si se utiliza el diagrama de flujo clásico (no Nassi-Shneiderman), los bloques para las instruccionesLeer y Escribir serán diferentes entre sí, siguiendo una convención alternativa
+Permitir utilizar variables para dimensionar arreglos
+Si esta opción está seleccionada se puede utilizar una variable o una expresión que involucre variables para dimensionar un arreglo (por ejemplo, se puede pedir al usuario del programa el tamaño leyendo un numero y utilizarlo luego para crear el arreglo). Este suele ser el caso de los lenguajes interpretados, mientras que los lenguajes compilados suelen exigir que el tamaño de los arreglos estáticos sea una constante (por ejemplo, C y C++).
+Permitir redimensionar arreglos
+Si esta opción está seleccionada se puede utilizar la palabra clave redimensión (o redimensionar) para cambiarle el tamaño a un arreglo preexistente.
+Permitir asignar con el signo igual (=)
+Esta opcion habilita la asignación con el signo igual (Ej: x=0;). En muchos casos esta sintaxis de asignación no sepermite, ya que en muchos lenguajes no se utilia el mismo operador para asignar y comparar, como sucede al activaresta opción. En cualquier caso, las otras dos sintaxis de asignación (con <- y con :=) siguen siendo válidas.
+Permitir condiciones en lenguaje coloquial
+Esta opcion permite expresar las condiciones en un lenguaje más coloquial con construcciones como "X ES PAR", "X NO ES MULTIPLO DE 5", "X ES IGUAL A Y", "X ES ENTERO", etc. Esta opción activa además el uso de palabras clave para reemplazar operadores.
+Utilizar sintaxis flexible
+Esta opcion habilita variaciones opcionales en la sintaxis de ciertas instrucciones y estructuras de control. Por ejemplo, omitir la palabra HACER en un bucle MIENTRAS o PARA, utilizar la palabra DESDE para indicar el valor de inicio de un ciclo PARA, separar la expresiones/variables en una lectura/escritura con espacios en lugar de comas, escribir FinProceso como Fin Proceso, FinSi como Fin Si, etc.
+Permitir las palabras Y, O, NO y MOD para los operadores , |, ~ y %
+Con esta opción habilitada PSeInt acepta las palabras clave Y, O, NO, y MOD como sinónimos de los operadores , |, ~ y % respectivamente. Notar que en este caso estas palabras serán palabras reservadas y no se podrán utilizar como nombres de variables.
+Permitir definir funciones/subprocesos
+Con esta opción activada se permite definir subprocesos/funciones en pseudocódigo para mediante la palabra clase SubProceso.
+Habilitar funciones para el manejo de cadenas
+Esta opción habilita un conjunto de funciones predefinidas que sirven para operar sobre cadenas de caracteres. Las funciones son: Longitud, SubCadena, Mayusculas, Minusculas y Concatenar).
+Limitar la estructura Según a variables de control numéricas
+Muchos lenguajes solo permiten utilizar números enteros para las expresiones de control de la estructura de selección múltiple ("Según" en PSeInt). Si habilita esta opción, PSeInt aplicará esta restricción. En caso contrario, podrá utilizar también variables de tipo caracter.
+Permitir omitir el paso -1 en ciclos Para
+Con esta opción activa, si no se especifica el valor del "paso" en una estructura de tipo "Para", se utiliza +1 o -1 según corresponda. Se determina comparando los valores iniciales y finales, si el primero es mayor al segundo +1, o -1 en caso contrario. Si se desactiva esta opción, se utilizará siempre +1 como paso por defecto.
+Permitir utilizar acentos en nombres de variables
+Con esta opción activada, los identificadores de variables y funciones pueden incluir letras con acento, diéresis y/o la letra ñ. Si está desactivada, el uso de estas letras generará errores de "identificador no válido" y/o "caracter no válido".
+Preferir las palabras clave "Algoritmo" y "FinAlgoritmo"
+Con esta opción activada, al insertar plantillas, generar o autocompletar el pseudocódigo, se priorizará el uso de las palabras claves "Algoritmo" y "FinAlgoritmo" frente a "Proceso" y "FinProceso" respectivamente. Si la opción está desactivada se utilizarán por defecto las palabras clave "Proceso" y "FinProceso"
+Preferir las palabras clave "Función" y "FinFunción"
+Con esta opción activada, al insertar plantillas, generar o autocompletar el pseudocódigo, se priorizará el uso de las palabras claves "Función" y "FinFunción" frente a "SubProceso" y "FinSubProceso" (o "SubAlgoritmo" y "SubFinAlgoritmo") respectivamente.
+Permitir la variación "Repetir ... Mientras Que..."
+Habilita el uso de "Mientras que <condición>" en lugar de "Hasta que <condición>" para cerrar una estructura RepetirEsta construcción alternativa itera por verdadero en lugar de iterar por falso.
+Preferir "Repetir ... Mientras Que..."
+Con esta opción activada, al seleccionar la estructura de control "Repetir" desde el panel de comandos (tanto del editor de pseudocódigo como del editor de diagramas de flujo) se insertará la versión "Repetir ... Mientras que" (que itera por verdadero); mientras que si está desactivada se inserta la versión "Repetir ... Hasta que" (que itera por falso).
+Habilitar estructura "Para Cada..."
+Con esta opción habilitada se puede utilizar la versión alternativa de la estructura repetitiva "Para" que permite recorrer los elementos de un arreglo de forma más simple. Ej: "Para Cada Elemento de V Hacer ... FinPara".
+Proteger contador del Para
+Con esta opción habilitada no se puede modificar la variable que se utiliza como contador dentro de un para, y adicionalmente la variable deja de estar inicializada una vez finalizado el bucle.
+Buscar
+Texto a buscar:
+Reemplazar por:
+Solo palabras completas
+Solo al comienzo de la palabra
+Distinguir mayúsculas y minúsculas
+Cerrar este dialogo después de encontrar
+Reemplazar
+Reemplazar Todo
+Buscar Siguiente
+Buscar Anterior
+Cancelar
+Nuevo
+Abrir...
+Guardar
+Guardar Como...
+Editar Diagrama de Flujo...
+Imprimir...
+Vista previa...
+Código C (c)
+Código C++ (cpp)
+Código C# (cs)
+Página HTML (JavaScript embebido) (html)
+Código Java (java)
+Código JavaScript (js)
+Código MatLab (m)
+Código Pascal (pas)
+Código PHP (php)
+Código Python 2 (py)
+Código Python 3 (py)
+Código QBasic (.bas)
+Código Visual Basic .NET (vb)
+Pseudocódigo coloreado (html)...
+Diagrama de flujo (png, bmp o jpg)...
+Exportar
+Cerrar...
+Salir
+Archivo
+Deshacer
+Rehacer
+Cortar
+Copiar
+Pegar
+Mueve la o las lineas seleccionadas hacia arriba
+Mover Hacia Arriba
+Mueve la o las lineas seleccionadas hacia abajo
+Mover Hacia Abajo
+Buscar...
+Buscar Anterior
+Buscar Siguiente
+Reemplazar...
+Seleccionar Todo
+Duplicar Lineas
+Eliminar Lineas
+Comentar Lineas
+Descomentar Lineas
+Corregir Indentado
+Editar
+Utilizar Autocompletado
+Cerrar Repetitivas/Condicionales
+Resaltar bloques lógicos
+Utilizar Ayudas Emergentes
+Utilizar Indentado Inteligente
+Comprobar Sintaxis Mientras Escribe
+Mostrar Ayuda Rapida
+Asistencias
+Pantalla Completa
+Animar paneles
+Organizar Ventanas al Iniciar Paso a Paso
+Intercalar los mensajes de error en el pseudocódigo
+Utilizar símbolos unicode para representar operadores
+Utilizar colores al ejecutar en la terminal
+Colorear bloques según tipo en el diagrama de flujo
+Mostrar textos completos en el diagrama de flujo
+Utilizar fondo negro en este editor
+Utilizar fondo oscuro en el editor de diagramas
+Utilizar fondo negro en la terminal
+Íconos más grandes (p/pantallas HiDPI)
+Seleccionar fuentes...
+Presentación
+Opciones del Lenguaje (perfiles)...
+Utilizar diagramas Nassi-Shneiderman
+Configurar
+Ejecutar
+Ejecutar Paso a Paso
+Ejecución Explicada
+Verificar Sintaxis
+Predefinir Entrada...
+Ejecutar
+Indice...
+Ayuda Rapida
+Ejemplos...
+Comprueba a traves de Internet si hay versiones mas recientes de PSeInt disponibles...
+Buscar actualizaciones...
+Acerca de...
+Ayuda
+Nuevo
+Abrir...
+Guardar
+Guardar Como...
+Deshacer
+Rehacer
+Cortar
+Copiar
+Pegar
+Corregir Indentado
+Mostrar mensajes de error
+Buscar
+Buscar Anterior
+Buscar Siguiente
+Reemplazar
+Ejecutar...
+Ejecutar paso a paso...
+Dibujar Diagrama de Flujo...
+Ayuda...
+En esta sección se listan las variables que utiliza un algoritmo. El ícono a la izquierda del nombre indica los potenciales tipos de datos que determina el intérprete en caso de que el tipo de variable pueda deducirse antes de ejecutar el algoritmo. Puede seleccionar una para resaltarla en el pseudocódigo.
+Variables
+Op. Algebraicos
+Ej: A+B
+suma
+Ej: A-B
+resta
+Ej: A*B
+multiplicación
+Ej: A/B
+división
+Ej: A^N (A elevado a la N-esima potencia)
+potencia
+A%B (resto de dividir A por B)
+resto/modulo
+Op. Lógicos
+Ej: X>5 Y X<20 (Verdadero solo si ambas son Verdadero)
+conjunción
+Ej: X=0 O Z=5 (Verdadero si al menos una de las dos es Verdadero)
+disyunción
+Ej: NO X=5 (Invierte el resultado de la expresión lógica)
+negación
+Op. Relacionales
+Ej: A=B
+igual
+Ej: A!=B (equivalente a A<>B)
+distinto
+Ej: A<B
+menor
+Ej: A<=B
+menor o igual
+Ej: A>B
+mayor
+Ej: A>=B
+mayor o igual
+Func. Matemáticas
+abs(X) calcula el valor absoluto de x
+valor absoluto
+abs({expresión_numérica})
+trunc(X) devuelve la parte entera de X
+valor truncado
+trunc({expresión_numérica})
+redon(X) redondea X al entero más cercano
+valor redondeado
+redon({expresión_numérica})
+raiz(X) calcula la raiz cuadrada de X
+raíz cuadrada
+raiz({expr_num_no_negativa})
+sen(X) calcula el seno del angulo X (en radianes)
+seno
+sen({ángulo_en_radianes})
+cos(X) calcula el coseno del angulo X (en radianes)
+coseno
+cos({ángulo_en_radianes})
+tan(X) calcula la tangente del angulo X (en radianes)
+tangente
+tan({ángulo_en_radianes})
+asen(X) calcula el arcoseno (en radianes) de X
+arcoseno
+asen({expresión_numérica})
+acos(X) calcula el arcocoseno (en radianes) de X
+arcocoseno
+acos({expresión_numérica})
+atan(X) calcula el arcotangenta (en radianes) de X
+arcotangente
+atan({expresión_numérica})
+ln(X) calcula el logaritmo natural (base e) de X
+logaritmo natural
+ln({expr_numérica_positiva})
+exp(X) calcula la función exponencial e^X
+func. exponencial
+exp({expresión_numérica})
+Func. p/Cadenas
+Longutid(S) retorna la cantidad de caracteres de la cadena S
+Longitud({cadena})
+R<-Subcadena(S,I,J) retorna en R la cadena formada por los caracteres de la cadena S desde la posición I a la J inclusive
+SubCadena({cadena},{desde},{hasta})
+R<-Concatenar(S1,S2) retorna en R una sola cadena con los contenidos unidos de S1 y S2
+Concatenar({cadena},{cadena})
+S<-ConvertirANumero(N) recibe un valor/expresión numérico N, y retorna su equivalente de tipo cadena de caracteres en S
+ConvertirANumero({cadena})
+N<-ConvertirATexto(S) recibe una variable o expresión S de tipo cadena de caracteres que contiene un valor numérico, y obtiene ne N su equivalente de tipo numérico
+ConvertirATexto({número})
+MAY<-Mayusculas(S) retorna en MAY el contenido de la cadena S con sus letras minusculas reemplazadas por mayusculas
+Mayusculas({cadena})
+MIN<-Minusculas(S) retorna en MIN el contenido de la cadena S con sus letras mayusculas reemplazadas por minusculas
+Minusculas({cadena})
+Otras Funciones
+Ej: Azar(N) retorna un numero aleatorio entre 0 y N-1
+numero aleatorio
+Azar({expr_num_entera_positiva})
+Ej: Aleatorio(A,B) retorna un numero aleatorio entre A y B
+numero aleatorio
+Aleatorio({valor_minimo},{valor_maximo})
+Retorna un único numero entero con la hora del sistema en formato HHMMSS
+hora actual
+HoraActual()
+Retorna un único numero entero con la fecha del sistema en formato AAAAMMDD
+fecha actual
+FechaActual()
+Constantes
+PI o constante de Arquímides (equivale a 3.1415926...)
+E o constante de Euler (equivale a 2.7182818...)
+Operadores y Funciones
+Aquí se muestra el encadenamiento de llamadas entre el proceso/algoritmo principal y los diferentes subprocesos/funciones, para saber cómo se llegó al punto actual de la ejecución, y qué funciones quedaron pausadas a la espera de la finalización de la función actual.
+¿Dónde estoy?
+*Continuar*
+Puede utilizar este botón para evaluar una expresión o conocer el valor de una variable durante la ejecución paso a paso. Para ello debe primero pausar el algoritmo.
+Velocidad:
+Con este slider puede variar la velocidad con la que avanza automáticamente la ejecución paso a paso.
+Entrar en subprocesos
+Cuando esta opción está activada y el proceso llega a la llamada de una función entra en dicha función y muestra pasa a paso cómo se ejecuta la misma, mientras que si está desactivada ejecuta la llamada completa en un solo paso sin mostrar la ejecución de la misma.
+Mostrar trazado
+Cuando esta opción está activada, durante la ejecución paso a paso aparece un panel en la parte inferior de la ventana que muestra qué proceso fue invocando a qué otro subproceso/función hasta llegar al punto actual de la ejecución.
+Prueba de Escritorio
+Con esta opción puede configurar una tabla con un conjunto de variables o expresiones para que serán evaluadas en cada paso de la ejecución paso a paso y registradas en dicha tabla automáticamente para analizar luego la evolución de los datos y el algoritmo.
+Explicar en detalle c/paso
+Haga click en "Comenzar" para iniciar la ejecución paso a paso y leer en este panel los detalles de cada acción que realiza el intérprete.
+Ayuda...
+Haga click en "Comenzar" para iniciar la ejecución paso a paso y leer en este panel los detalles de cada acción que realiza el intérprete.
+Utilice este botón para que el algoritmo comience a ejecutarse automáticamente y paso a paso, señalando cada instrucción que ejecuta, según la velocidad definida en el menú configuración.
+Utilice este botón para ejecutar solo la primer instrucción del algoritmo y pausar inmediatamente la ejecución del mismo.
+Paso a paso
+Ejecución Paso a Paso
+Escribir
+Con estos botones puede insertar instrucciones o estructuras de control en el pseudocódigo. Al seleccionar uno se introduce en el algoritmo dicha instrucción o estructura, se marcan con recuadros los argumentos que debe completar, y se presenta en la parte inferior de la ventana una ayuda rápida acerca de la misma. Puede mantener presionada la tecla shift para insertar versiones alternativas o variantes de estos comandos y estructuras.
+Leer
+Asignar
+Si-Entonces
+Según
+Mientras
+Repetir
+Para
+Función
+Comandos
+Agregar...
+Limpiar
+Ayuda...
+Prueba de Escritorio
+PSeInt
+Resultados
+PSeInt
+Ayuda Rápida
+Bienvenido a PSeInt v
+(su perfil actual es:
+)
+Su perfil actual es:
+El pseudocódigo es correcto. Presione F9 para ejecutarlo.
+El pseudocódigo contiene errores. Presione F9 para una mejor descripción.
+El pseudocódigo contiene errores. Seleccione un error para ver su descripción.
+La sintaxis es correcta.
+Seleccione un error para ver su descripción.
+Este pseudocódigo está siendo editado como diagrama de flujo.
+El diagrama de flujo ha sido modificado. Click aquí para actualizar el pseudocódigo.
+El pseudocódigo está siendo ejecutado.
+El pseudocódigo ha cambiado. Presione F9 para ver los cambios en la ejecución.
+La ejecución se ha actualizado para reflejar los cambios.
+La ejecución ha finalizado sin errores.
+La ejecución ha sido interrumpida.
+Este es un ejemplo, no puede modificarlo.
+El pseudocódigo está siendo ejecutado paso a paso.
+La ejecución paso a paso ha sido pausada.
+La ejecución paso a paso ha sido detenida.
+La ejecución paso a paso ha finalizado.
+Buscando actualizaciones...
+Error al conectarse al servidor para buscar actualizaciones.
+No hay actualizaciones disponibles.
+Hay una nueva versión para descargar!
+Puede utilizar el panel de comandos y estructuras para añadir instrucciones.
+Debe completar los campos marcados con rectángulos.
+leer proceso definir como dimension dimensionar si entonces sino segun hacer hasta que para con paso repetir mientras de otro modo escribir finpara fin finproceso finsi finmientras finsegun verdadero falso algoritmo finalgoritmo numero número numeros números numerico numérico numerica numérica numericas numéricas numericos numéricos entero entera enteros enteras real reales caracter carácter caracteres texto cadena cadenas logico lógico logica lógica logicos lógicos logicas lógicas borrar limpiar pantalla borrarpantalla limpiarpantalla esperar tecla esperartecla segundos milisegundos segundo milisegundo sinsaltar sin saltar sinbajar bajar según finsegún dimensión dimensión subproceso finsubproceso función funcion finfunción finfuncion por referencia valor copia subalgoritmo finsubalgoritmo y no o mod es sies opcion caso desde imprimir cada mostrar opción son es par impar igual divisible multiplo distinto distinta de por cero positivo negativo negativa positiva entero mayor menor redimension redimensionar redimensión
+cos sen tan acos asen atan raiz rc ln abs exp aleatorio azar trunc redon pi euler concatenar longitud mayusculas minusculas subcadena mayúsculas minúsculas convertiranumero convertiratexto
+Proceso
+Algoritmo
+Función
+SubAlgoritmo
+SubProceso
+SubAlgoritmo
+Por Valor
+SubProceso
+Por Valor
+Función
+Por Valor
+SubAlgoritmo
+Por Referencia
+SubProceso
+Por Referencia
+Función
+Por Referencia
+FinProceso
+FinAlgoritmo
+Fin Proceso
+Fin Algoritmo
+FinSubProceso
+FinSubAlgoritmo
+FinFunción
+Fin SubAlgoritmo
+Fin Función
+Fin SubProceso
+Escribir
+Imprimir
+Mostrar
+Escribir
+Sin Saltar
+Mostrar
+Sin Saltar
+Imprimir
+Sin Saltar
+Leer
+Esperar
+Esperar
+Segundos
+Esperar
+Milisegundos
+Esperar
+Esperar Tecla
+Borrar Pantalla
+Limpiar Pantalla
+Dimensionar
+Redimensionar
+Definir
+Definir
+Definir
+Definir
+Definir
+Entonces
+Si
+Entonces
+SiNo
+FinSi
+Fin Si
+Mientras
+Mientras
+Hacer
+FinMientras
+Fin Mientras
+Para
+Para Cada
+Para
+Desde
+Para
+Hasta
+Para
+Con Paso
+Para
+Hacer
+Para
+FinPara
+Fin Para
+Repetir
+Hacer
+Hasta Que
+Mientras Que
+Según
+Opcion
+Caso
+De Otro Modo
+De Otro Modo
+FinSegún
+Fin Según
+{variable de retorno} <- {nombre} ( {lista de argumentos separados por coma} )
+{nombre} ( {lista de argumentos, separados por coma} )
+Función
+_áéíóúüñ
+_ÁÉÍÓÚÜÑ
+Función
+SubProceso
+SubAlgoritmo
+{una o mas variables, separadas por comas}
+Leer
+{una o mas variables, separadas por comas}
+Definir
+{"Tecla" o intervalo de tiempo}
+Esperar
+{una o mas expresiones, separadas por comas}
+Escribir
+{una o mas expresiones, separadas por comas}
+Mostrar
+Imprimir
+{condición, expresion lógica}
+Mientras
+{condición, expresion lógica}
+QUE
+{asignación inicial: variable <- valor}
+Para
+{valor inicial}
+Desde
+{valor final}
+Hasta
+{valor del paso}
+Paso
+{condicion, expresión lógica}
+Si
+{acciones por verdadero}
+Entonces
+{acciones por falso}
+SiNo
+{variable o expresión de control}
+Según
+Según
+{posible valor para la expresión de control}
+Opcion
+Opcion
+SiEs
+Caso
+Si Es
+{valor mínimo}, {valor máximo}
+ALEATORIO
+{expresión numérica entera positiva (máximo valor posible +1)}
+AZAR
+{expresión numérica}
+TRUNC
+{expresión numérica}
+REDON
+{expresión numérica no negativa}
+RC
+{expresión numérica no negativa}
+RAIZ
+{expresión numérica}
+ABS
+{expresión numérica}
+EXP
+{expresión numérica positiva}
+LN
+{ángulo en radianes}
+COS
+{ángulo en radianes}
+SIN
+{ángulo en radianes}
+TAN
+{expresión numérica (en el intervalo [-1;+1])}
+ACOS
+{expresión numérica (en el intervalo [-1;+1])}
+ASIN
+{expresión numérica}
+ATAN
+{cadena}
+CONVERTIRANÚMERO
+{cadena}
+CONVERTIRANUMERO
+{cadena}
+MAYUSCULAS
+{cadena}
+MAYÚSCULAS
+{cadena}
+MINUSCULAS
+{cadena}
+MINÚSCULAS
+{dos cadenas}
+CONCATENAR
+{cadena}
+LONGITUD
+{cadena}, {posición desde}, {posición hasta}
+SUBCADENA
+{expresión numérica}
+CONVERTIRATEXTO
+_áéíóúüñÁÉÍÓÚÜÑ

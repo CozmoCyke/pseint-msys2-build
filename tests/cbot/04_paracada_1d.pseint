@@ -1,0 +1,11 @@
+Proceso PruebaParaCada1D
+    Definir item Como Entero
+    Definir datos Como Entero
+    Dimension datos[3]
+    datos[1] <- 7
+    datos[2] <- 8
+    datos[3] <- 9
+    Para Cada item En datos Hacer
+        Escribir item
+    FinPara
+FinProceso

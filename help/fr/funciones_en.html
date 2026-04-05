@@ -1,0 +1,50 @@
+<HTML>
+	<HEAD>
+		<TITLE>PSeudo Intérprete</TITLE>
+	</HEAD>
+	<BODY>
+<B>Predefined Functions</B><BR><BR>
+&nbsp;&nbsp;&nbsp;Functions in pseudocode are used in a way similar to other languages. Their name is written followed by the arguments in parentheses (for example trunc(x)). They may be used inside any expression, and when the expression is evaluated they are replaced by the corresponding result. At present, all the available functions are mathematical or utility functions. The built-in functions available are listed below:<BR><BR>
+
+<table border=0> <TD>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD><TD>
+<table border="1" cellpadding="2" cellspacing="0">
+
+<tr ><td><i>Function</i> </td><td> <i>Meaning</i></td></tr>
+
+<tr ><td>RC(X) o Raiz(X)</td><td> Square Root of X</td></tr>
+<tr ><td>Abs(X) </td><td> Absolute Value of X</td></tr>
+<tr ><td>Ln(X) </td><td> Natural Logarithm of X</td></tr>
+<tr ><td>Exp(X) </td><td> Exponential Function of X</td></tr>
+<tr ><td>Sen(X) </td><td> Sine of X</td></tr>
+<tr ><td>Cos(X) </td><td> Cosine of X</td></tr>
+<tr ><td>Tan(X) </td><td> Tangent of X</td></tr>
+<tr ><td>ASen(X) </td><td> Arcsine of X</td></tr>
+<tr ><td>ACos(X) </td><td> Arccosine of X</td></tr>
+<tr ><td>ATan(X) </td><td> Arctangent of X</td></tr>
+<tr ><td>Trunc(X) </td><td> Integer Part of X</td></tr>
+<tr ><td>Redon(X) </td><td> Closest Integer to X</td></tr>
+<tr ><td>Azar(X) </td><td> Random integer in the range [0;x-1]</td></tr>
+<tr ><td>Aleatorio(A,B) </td><td> Random integer in the range [A;B]</td></tr>
+
+<tr ><td>Longitud(S) </td><td> Number of characters in string S</td></tr>
+<tr ><td>Mayusculas(S) </td><td> Returns a copy of S with all characters in uppercase</td></tr>
+<tr ><td>Minusculas(S) </td><td> Returns a copy of S with all characters in lowercase</td></tr>
+<tr ><td>Subcadena(S,X,Y) </td><td> Returns a new string consisting of the part of S that goes from position X to position Y, including both ends. Positions use the same base as arrays, so the first letter is 0 or 1 depending on the selected language profile.</td></tr>
+<tr ><td>Concatenar(S1,S2) </td><td> Returns a new string obtained by joining S1 and S2.</td></tr>
+<tr ><td>ConvertirANumero(X) </td><td> Receives a string containing a number and returns a numeric value with that number.</td></tr>
+<tr ><td>ConvertirATexto(S) </td><td> Receives a real value and returns its text representation as a string.</td></tr>
+
+<tr ><td>HoraActual() </td><td> Returns a 5- or 6-digit integer in HHMMSS format, where HH is the current system hour, MM the minutes, and SS the seconds.</td></tr>
+<tr ><td>FechaActual() </td><td> Returns an 8-digit integer in YYYYMMDD format, where YYYY is the year from the system date, MM the month, and DD the day.</td></tr>
+
+</table></TD></TABLE><BR>
+
+<BR><I>Notes:</I><UL>
+<LI>Modulo (the remainder of integer division) is not listed among the functions because it was implemented as an <A href="operadores_en.html">operator</A>.</LI>
+<LI>Trigonometric functions receive the angle in radians. To simplify conversions you can use the constant PI (for example, if A is an angle in degrees, its cosine is obtained with "cos(A*PI/180)").</LI>
+<LI>Functions that operate on strings are available only if the selected language profile allows them (see <A href="perfiles_en.html">PSeudoCode Options</A>).</LI>
+<LI>To create your own functions in pseudocode and use them from the main procedure, see the <A href="subprocesos_en.html">SubProcesses</A> section.</LI>
+<LI>To split the numbers returned by FechaActual and HoraActual, you can use the Mod operator and/or the Trunc function as shown in the <A href="example:FechaHora.psc">FechaHora example</A>.</LI>
+</UL><BR>
+</BODY>
+</HTML>

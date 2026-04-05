@@ -1,0 +1,67 @@
+<HTML>
+	<HEAD>
+		<TITLE>PSeudo Intérprete</TITLE>
+	</HEAD>
+	<BODY>
+
+<B>Operators</B>
+<BR><BR>
+&nbsp;&nbsp;&nbsp;This pseudo-language includes a basic set of operators that can be used to build more or less complex expressions.<BR><BR>
+The following tables show all the operators in this reduced language:<BR><BR>
+<table border=0> <TD>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD><TD>
+<table border=1>
+<tr >
+<td><i><center>Operator</center></i> </td><td><center><i>Meaning</i></center></td><td><center><i>Example</i></center></td></tr>
+<tr >
+<td><i>Relational</i></td><td> </td><td>
+</td></tr>
+<tr >
+<td><center>&gt;</center></td><td>&nbsp; Greater than </td><td>&nbsp; 3&gt;2
+</td></tr>
+<tr >
+<td><center>&lt;</center></td><td>&nbsp; Less than </td><td>&nbsp; 'ABC'&lt;'abc'
+</td></tr>
+<tr >
+<td><center>=</center></td><td>&nbsp; Equal to </td><td>&nbsp; 4=3
+</td></tr>
+<tr >
+<td><center>&lt;=</center></td><td>&nbsp; Less than or equal to </td><td>&nbsp; 'a'&lt;='b'
+</td></tr>
+<tr >
+<td><center>&gt;=</center></td><td>&nbsp; Greater than or equal to </td><td>&nbsp; 4&gt;=5
+</td></tr>
+<tr >
+<td><center>&lt;&gt;</center></td><td>&nbsp; Different from </td><td>&nbsp; 'a'&lt;&gt;'b'
+</td></tr>
+<tr >
+<td><i>Logical</i> </td><td></td><td>
+</td></tr>
+<tr >
+<td><center>&amp; ó Y</center></td><td>&nbsp; Conjunction (and). </td><td>&nbsp; (7&gt;4) &amp; (2=1) //false
+</td></tr>
+<tr >
+<td><center>| ó O</center></td><td>&nbsp; Disjunction (or). </td><td>&nbsp; (1=1 | 2=1) //true
+</td></tr>
+<tr >
+<td><center>~ ó NO</center></td><td>&nbsp; Negation (not). </td><td>&nbsp; ~(2&lt;5) //false
+</td></tr>
+<tr >
+<td><i>Algebraic</i> </td><td></td><td>
+</td></tr>
+<tr >
+<td><center>+</center></td><td>&nbsp; Addition </td><td>&nbsp; total &lt;- cant1 + cant2 </td></tr>
+<tr >
+<td><center>-</center></td><td>&nbsp; Subtraction </td><td>&nbsp; stock &lt;- disp - venta </td></tr>
+<tr >
+<td><center>*</center></td><td>&nbsp; Multiplication </td><td>&nbsp; area &lt;- base * altura</td></tr>
+<tr >
+<td><center>/</center></td><td>&nbsp; Division </td><td>&nbsp; porc &lt;- 100 * parte / total &nbsp;</td></tr>
+<tr >
+<td><center>^</center></td><td>&nbsp; Power </td><td>&nbsp; sup &lt;- 3.41 * radio ^ 2 </td></tr>
+<tr >
+<td><center>% ó MOD</center></td><td>&nbsp; Modulo (remainder of integer division) &nbsp;</td><td>&nbsp; resto &lt;- num MOD div</td></tr>
+</table> </TD></TABLE><BR>
+&nbsp;&nbsp;&nbsp;The precedence of mathematical operators is the same as in algebra, although it may be altered with parentheses. For the operators &amp; and |, evaluation is short-circuited. This means that if two expressions are joined by &amp; and the first one evaluates to false, or they are joined by | and the first one evaluates to true, the second one is not evaluated because it cannot change the result.<BR><BR>
+
+	</BODY>
+</HTML>

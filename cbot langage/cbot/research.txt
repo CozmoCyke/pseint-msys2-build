@@ -1,0 +1,20 @@
+\b;Instruction \c;research\n;
+Syntaxe:
+\s;\c;research ( type, object );\n;
+
+Démarre une \l;Recherche\u cbot\researches; d’un type donné.
+
+\t;type: \c;\l;int\u cbot\int;\n;
+\l;Research name\u cbot\researches;.
+
+\t;\l;object\u cbot\object;
+\l;ResearchCenter\u object\research; ou \l;AutoLab\u object\labo;. Centre de recherche le plus proche par défaut.
+
+\t;Type du retour: \c;\l;entier (int)\u cbot\int;\n;
+Normalement, une erreur arrête le programme. Vous pouvez empêcher le programme de s'arrêter en cas d'erreur en utilisant l'instruction \c;\l;errmode\u cbot\errmode;(0)\n;. Une valeur différente de zéro en cas d'erreur est alors retournée par \c;research()\n;.
+\c; == 0 \n;La recherche a bien démarré
+\c;!= 0 \n;  La recherche n'a pas pu démarrer (par exemple, cette recherche n'est pas active dans le niveau ou le centre de recherche n'a pas de courant)
+
+\t;Voir aussi
+\l;Noms des recherches\u cbot\researches;, \c;\l;canresearch\u cbot\canresearch;\n;, \c;\l;researched\u cbot\researched;\n;.
+\l;Programming\u cbot;, \l;types\u cbot\type; et \l;categories\u cbot\category;.

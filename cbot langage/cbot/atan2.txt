@@ -1,0 +1,17 @@
+\b;Instruction \c;atan2\n;
+Syntaxe:
+\s;\c;atan2 ( y, x );\n;
+
+L'intérêt d'utiliser deux arguments au lieu d'un est l'obtention de l'information sur les signes des entrées, afin de retourner le quadrant correct pour l'angle calculé, ce qui n'est pas possible avec la fonction \c;\l;atan();\u cbot\atan;\n; à un seul argument. Par exemple, pour un point \c;(-1, -1)\n;: \c;atan(-1/-1);\n; vaut \c;45.00\n; degrés, mais \c;atan2(-1, -1);\n; vaut \c;-135.00\n; degrés, ce qui est évidemment plus correct dans ce cas.
+
+\t;y: \c;\l;float\u cbot\float;\n;
+Nombre.
+
+\t;x: \c;\l;float\u cbot\float;\n;
+Nombre.
+
+\t;Type du retour: \c;\l;réel (float)\u cbot\float;\n;
+Arc tangente de \c;y/x\n; (en degrés).
+
+\t;Voir aussi
+\l;Programmation\u cbot;, \l;types\u cbot\type; et \l;expressions\u cbot\expr;.

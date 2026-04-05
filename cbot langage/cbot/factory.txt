@@ -1,0 +1,63 @@
+\b;Instruction \c;factory\n;
+Syntaxe:
+\s;\c;factory ( cat, program, object );\n;
+
+Démarre la construction d'un bot d'une \l;catégorie\u cbot\category; donnée et exécute un programme spécifié sur celui-ci une fois la construction terminée.
+
+\t;cat: \c;\l;int\u cbot\int;\n;
+\l;Catégorie\u cbot\category; du robot à construire.
+
+\t;program: \c;\l;string\u cbot\string;\n; (valeur par défaut: \c;""\n;)
+Programme qui sera exécuté sur le bot une fois la construction terminée en usine. Il peut s'agir d'une \l;fonction\u cbot\function; \l;publique\u cbot\public;, d'un nom de fichier ou d'un extrait de code.
+
+\t;\l;object\u cbot\object;
+\l;BotFactory\u object\factory;, le plus proche par défaut.
+
+\t;Type du retour: \c;\l;entier (int)\u cbot\int;\n;
+Normalement, une erreur arrête le programme. Vous pouvez empêcher le programme de s'arrêter en cas d'erreur en utilisant l'instruction \c;\l;errmode\u cbot\errmode;(0)\n;. Une valeur différente de zéro en cas d'erreur est alors retournée par \c;factory()\n;.
+\c;== 0 \n;La construction a démarré avec succès
+\c;!= 0 \n;La construction n'a pu démarrer (par ex. pas de \l;titane\u object\titan; dans l'usine ou le type de robot demandé n'a pas été recherché)
+
+\t;Examples
+
+Extrait de code:
+\c;
+\s; extern void New()
+\s; {
+\s;     factory(WheeledGrabber, "extern void Say123() { message(123); }");
+\s; }
+\n;
+
+Fonction publique:
+\c;
+\s; extern void New()
+\s; {
+\s;     factory(WheeledGrabber, "SayHello");
+\s; }
+\s;
+\s; public void SayHello()
+\s; {
+\s;     message("hello");
+\s; }
+\n;
+
+Nom du fichier:
+
+Enregistrez-le sous le nom say-foo.cbot. Remarque : assurez-vous de cocher la case « Public » lors de l'enregistrement - cela entraînera la présence de say-foo.cbot dans le dossier program/.
+\c;
+\s; extern void New()
+\s; {
+\s;     message("Foo");
+\s; }
+\n;
+
+Utilisez la fonction factory ceci:
+\c;
+\s; extern void New()
+\s; {
+\s;     factory(WheeledGrabber, "program/say-foo.cbot");
+\s; }
+\n;
+\t;Voir aussi
+\c;\l;researched\u cbot\researched;\n;, \c;\l;wait\u cbot\wait;\n;.
+\l;Programming\u cbot;, \l;types\u cbot\type; and \l;categories\u cbot\category;.

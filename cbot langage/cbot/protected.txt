@@ -1,0 +1,28 @@
+\b;Keyword \c;protected\n;
+Il s'agit d'un modificateur d'accès pour \l;membres de classe\u cbot\class;. Les membres de classe protégés sont accessibles dans la classe elle-même et dans ses classes enfant, mais ils ne sont pas accessibles en dehors des définitions de classes faisant partie de la même arborescence d'héritage (voir le mot clef \c;\l;extends\u cbot\extends;\n;).
+
+\t;Exemple
+\c;
+\s;public class Mere
+\s;{
+\s;	protected int champProtege = 0;
+\s;}
+\s;
+\s;public class Fille extends Mere
+\s;{
+\s;	void Print()
+\s;	{
+\s;		message(champProtege);
+\s;	}
+\s;}
+\s;
+\s;extern void object::Test()
+\s;{
+\s;	Fille enfant();
+\s;	enfant.Print(); // 0
+\s;	//enfant.champProtege = 1; // Erreur !
+\s;}
+\n;
+\t;Voir aussi
+\c;\l;class\u cbot\class;\n;, \c;\l;public\u cbot\public;\n;, \c;\l;private\u cbot\private;\n;, \c;\l;extends\u cbot\extends;\n;
+\l;Programmation\u cbot;, \l;types\u cbot\type; et \l;catégories\u cbot\category;.

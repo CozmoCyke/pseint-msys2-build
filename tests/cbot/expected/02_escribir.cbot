@@ -1,0 +1,7 @@
+// Approximate expected output for CBOTExporter V2
+
+extern void object::pruebaescribir() {
+	string nombre;
+	nombre = "Ada";
+	message("" + ("Hola ") + (nombre));
+}

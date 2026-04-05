@@ -21,6 +21,7 @@ private:
 	std::map<wxString,wxString> m_config; ///< palabras claves de config.txt, indican opciones de configuracion de como probar y mostrar los resultados
 	wxString m_base_psc; ///< codigo inicial a mostrar en el editor
 	wxString m_help_text; ///< texto de ayuda para el problema, opcional
+	bool m_help_from_html; ///< recuerda si la ayuda cargada proviene de help.html para priorizar el fallback historico
 	wxString m_profile; ///< perfil obligatorio para el ejercicio (o en blanco si no requiere ninguno en particular)
 	void ProcessFile(wxString name, wxString &content);
 	wxArrayString m_images;
@@ -48,4 +49,3 @@ public:
 };
 
 #endif
-

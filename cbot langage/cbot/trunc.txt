@@ -1,0 +1,13 @@
+\b;Instruction \c;trunc\n;
+Syntaxe:
+\s;\c;trunc ( value );\n;
+La troncature est une méthode d'approximation d'un nombre décimal en enlevant les décimales après un certain point sans arrondir. Pour les nombres positifs, il fonctionne comme la fonction \c;\l;floor();\u cbot\floor;\n;, et pour les nombres négatifs, il fonctionne comme la fonction \c;\l;ceil();\u cbot\ceil;\n;. On peut dire qu'il s'arrondit vers zéro.
+
+\t;valeur : \c;\l;float\u cbot\float;\n;
+Nombre.
+
+\t;Type du retour: \c;\l;réel (float)\u cbot\float;\n;
+\c;Valeur tronquée\n;. Par exemple, \c;trunc(-2.5)\n; donne\c;-2.00\n;.
+
+\t;Voir aussi
+\l;round\u cbot\round;, \l;programmation\u cbot;, \l;types\u cbot\type; et \l;expressions\u cbot\expr;.

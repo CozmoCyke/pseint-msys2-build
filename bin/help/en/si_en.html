@@ -1,0 +1,22 @@
+<HTML>
+	<HEAD>
+		<TITLE>PSeudo Intérprete</TITLE>
+	</HEAD>
+	<BODY>
+<B>If-Then</B>
+<BR><BR>
+<CENTER><img src="ps_si.png"></TD></CENTER><BR>
+&nbsp;&nbsp;&nbsp;The sequence of instructions executed by an If-Then-Else instruction depends on the value of a logical condition.<BR><BR>
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Si &lt;condición&gt; Entonces<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;instrucciones&gt;  <BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SiNo <BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;instrucciones&gt;<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FinSi
+</code><BR><BR>
+&nbsp;&nbsp;&nbsp;When this instruction is executed, the condition is evaluated and the corresponding instructions are run: the instructions after <i>Entonces</i> if the condition is true, or the instructions after <i>SiNo</i> if the condition is false. The condition must be a logical expression that, when evaluated, returns <i>Verdadero</i> or <i>Falso</i>. <BR>
+&nbsp;&nbsp;&nbsp;The <i>Entonces</i> clause must always appear, but the <i>SiNo</i> clause is optional. In that case, if the condition is false no instruction is executed and the program continues with the next instruction.<BR>
+<BR>
+&nbsp;&nbsp;&nbsp;The <A href="example:Triangulo.psc">Triangle</A> example reads the lengths of the three sides of a triangle and uses this structure to determine which side is the largest, and then verify whether it is a right triangle.<BR>
+<BR>
+</BODY></HTML>

@@ -1,0 +1,15 @@
+\b;Instruction \c;penwidth\n;
+Syntaxe:
+\s;\c;penwidth ( color );\n;
+L'instruction \c;penwidth();\n; demande au robot de changer la largeur de son trait de crayon.
+
+\t;width: \c;\l;float\u cbot\float;\n;
+Largeur du crayon. La largeur ne peut être supérieure à \c;1.0\n; et ne peut être inférieure à \c;0.0\n;. Si vous passez une valeur supérieure, la largeur sera la plus grande possible et si vous passez une valeur inférieure, la largeur sera la plus petite possible.
+
+\t;Type du retour: \c;\l;entier (int)\u cbot\int;\n;
+Normalement, une erreur arrête le programme Vous pouvez empêcher le programme de s'arrêter en cas d'erreur en utilisant l'instruction \c;\l;errmode\u cbot\errmode;(0)\n;. Une valeur différente de zéro en cas d'erreur est alors retournée par \c;penwidth();.
+\c;== 0 \n; La largeur du trait a été modifiée
+\c;!= 0 \n;  L'instruction ne fonctionne pas
+
+\t;Voir aussi
+\l;Programmation\u cbot;, \l;types\u cbot\type; et \l;catégories\u cbot\category;.

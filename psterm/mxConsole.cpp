@@ -11,6 +11,26 @@
 #include "../wxPSeInt/string_conversions.h"
 using namespace std;
 
+static void AuditPSTermProcessLine(const char *stream, const wxString &text) {
+	std::cerr << "KWTRACE PSTERM " << stream << " " << _W2S(text) << std::endl;
+}
+
+static void DrainProcessErrorOutput(mxConsole *console, bool refresh) {
+	if (!console->the_process || !console->the_process->GetErrorStream()) return;
+	wxTextInputStream input(*(console->the_process->GetErrorStream()));
+	wxString line;
+	int watchdog=0;
+	while (console->the_process->IsErrorAvailable() && ++watchdog<100000) {
+		line<<input.GetChar();
+	}
+	if (line.Len()) {
+		AuditPSTermProcessLine("stderr", line);
+		if (console->cur_event!=-1) console->SetTime(int(console->events.size()));
+		console->Process(line,true);
+		if (refresh) { console->Refresh(); console->Yield(); }
+	}
+}
+
 enum { CONSOLE_ID_BASE=wxID_HIGHEST, CONSOLE_ID_TIMER_SIZE, CONSOLE_ID_TIMER_CARET, CONSOLE_ID_TIMER_PROCESS, CONSOLE_ID_POPUP_PASTE, CONSOLE_ID_POPUP_COPY, CONSOLE_ID_POPUP_STAY_ON_TOP, CONSOLE_ID_POPUP_CLOSE_AFTER_RUN, CONSOLE_ID_POPUP_RESET, CONSOLE_ID_POPUP_CHANGE_INPUT, CONSOLE_ID_POPUP_FROM_HERE };
 
 BEGIN_EVENT_TABLE(mxConsole,wxPanel)
@@ -180,9 +200,9 @@ void mxConsole::OnPaint (wxPaintEvent & event) {
 		dc.DrawText(wxString()<<"|",margin+cur_x*char_w-char_w/2,margin+cur_y*char_h);
 	}
 	wxString status[2]; // una variable por linea porque en windows el drawtext no hace el salto de linea
-	if (dimmed) { status[0]=_Z("El algoritmo fue modificado."); status[1]=_Z("Click aquí para aplicar los cambios."); }
+	if (dimmed) { status[0]=_Z("El algoritmo fue modificado."); status[1]=_Z("Click aquï¿½ para aplicar los cambios."); }
 	else if (selection_is_input) { status[0]=_Z("Utilice doble click para"); status[1]=_Z("modificar solo esa lectura."); }
-	else if ( (want_input || wait_one_key) && cur_loc.IsValid()) status[1]<<_Z("línea ")<<cur_loc.line<<_Z(" instrucción ")<<cur_loc.inst;
+	else if ( (want_input || wait_one_key) && cur_loc.IsValid()) status[1]<<_Z("lï¿½nea ")<<cur_loc.line<<_Z(" instrucciï¿½n ")<<cur_loc.inst;
 	if (status[1].Len()) {
 		wxColour &ct=colors[16][0];
 		wxColour &cb=colors[16][1];
@@ -440,14 +460,22 @@ void mxConsole::CalcResize() {
 void mxConsole::Run (wxString command) {
 	this->command = command;
 	command << " --seed=" << fixed_rand_seed;
+	std::cerr << "KWTRACE PSTERM Launch"
+	          << " cwd=" << _W2S(wxGetCwd())
+	          << " command=" << _W2S(command)
+	          << std::endl;
 	KillProcess();
 	the_process=new wxProcess(this->GetEventHandler(),wxID_ANY);
 	the_process->Redirect();
 	the_process_pid=wxExecute(command,wxEXEC_ASYNC,the_process);
+	std::cerr << "KWTRACE PSTERM LaunchResult"
+	          << " pid=" << the_process_pid
+	          << std::endl;
 	if (the_process_pid>0) {
 		timer_process->Start(_PROCESS_TIME,false);
 		timer_caret->Start(_CARET_TIME,false);
 	} else {
+		std::cerr << "KWTRACE PSTERM LaunchFailed command=" << _W2S(command) << std::endl;
 		delete the_process;
 		the_process=NULL;
 	}
@@ -455,6 +483,7 @@ void mxConsole::Run (wxString command) {
 
 void mxConsole::OnTimerProcess (wxTimerEvent & event) {
 	GetProcessOutput();
+	DrainProcessErrorOutput(this,true);
 }
 
 void mxConsole::GetProcessOutput (bool refresh) {
@@ -466,6 +495,7 @@ void mxConsole::GetProcessOutput (bool refresh) {
 		line<<input.GetChar();
 	}
 	if (line.Len()) { 
+		AuditPSTermProcessLine("stdout", line);
 		if (cur_event!=-1) SetTime(int(events.size()));
 		Process(line,true/*,cur_event==-1*/); 
 		if (refresh) { Refresh(); Yield(); }
@@ -476,6 +506,11 @@ void mxConsole::GetProcessOutput (bool refresh) {
 void mxConsole::OnProcessTerminate( wxProcessEvent &event ) {
 	if (event.GetPid()==the_process_pid) {
 		GetProcessOutput(false);
+		DrainProcessErrorOutput(this,false);
+		std::cerr << "KWTRACE PSTERM Terminate"
+		          << " pid=" << event.GetPid()
+		          << " exitcode=" << event.GetExitCode()
+		          << std::endl;
 		want_input=false;
 		Refresh();
 		the_process->Detach();
@@ -643,14 +678,14 @@ void mxConsole::OnMouseRightDown (wxMouseEvent & evt) {
 	wxMenuItem *mpaste=menu.Append(CONSOLE_ID_POPUP_PASTE,_Z("&Pegar"));
 	if (!GetClipboardText().Len()) mpaste->Enable(false);
 	menu.AppendSeparator();
-//	menu.Append(CONSOLE_ID_POPUP_RESET,"Reiniciar ejecución");
-//	menu.Append(CONSOLE_ID_POPUP_FROM_HERE,"Continuar desde aquí");
+//	menu.Append(CONSOLE_ID_POPUP_RESET,"Reiniciar ejecuciï¿½n");
+//	menu.Append(CONSOLE_ID_POPUP_FROM_HERE,"Continuar desde aquï¿½");
 	if (popup_src_pos!=-1 && GetInputPositionFromBufferPosition(popup_src_pos)!=-1) {
 		menu.Append(CONSOLE_ID_POPUP_CHANGE_INPUT,_Z("Cambiar valor ingresado"));
 		menu.AppendSeparator();
 	}
 	menu.AppendCheckItem(CONSOLE_ID_POPUP_STAY_ON_TOP,_Z("Ventana siempre visible"))->Check(parent->GetStayOnTop());
-	menu.AppendCheckItem(CONSOLE_ID_POPUP_CLOSE_AFTER_RUN,_Z("Cerrar al finalizar la ejecución"))->Check(!parent->GetDoNotClose());
+	menu.AppendCheckItem(CONSOLE_ID_POPUP_CLOSE_AFTER_RUN,_Z("Cerrar al finalizar la ejecuciï¿½n"))->Check(!parent->GetDoNotClose());
 	PopupMenu(&menu);
 }
 
@@ -702,7 +737,7 @@ void mxConsole::GetSourceLocationFromOutput (int pos) {
 	while (selection_end+1<buffer_w*buffer_h && buffer[selection_end+1].loc==buffer[pos].loc) selection_end++;
 	// buscar en los eventos de entrada, si justo seleccionamos uno para ofrecer modificarla
 	selection_is_input = (buffer[pos].loc!=cur_loc||cur_loc.is_error) && GetInputPositionFromBufferPosition(pos)!=-1;
-	// mostrar seleccion y marcar en el pseudocódigo la instrucción correspondiente
+	// mostrar seleccion y marcar en el pseudocï¿½digo la instrucciï¿½n correspondiente
 	Refresh();
 	parent->SendLocation(buffer[pos].loc.line,buffer[pos].loc.inst);
 }

@@ -1,0 +1,16 @@
+\b;Instruction \c;researched\n;
+Syntaxe:
+\s;\c;researched ( research );\n;
+
+Vérifie si une \l;research\u cbot\researches; est terminée.
+
+\t;research: \c;\l;int\u cbot\int;\n;
+\l;Nom de la recherche\u cbot\researches;.
+
+\t;Type du retour: \c;\l;booléen (bool)\u cbot\bool;\n;
+\const;true\norm; si la recherche est terminée
+\const;false\norm; si la recherche n’est pas terminée
+
+\t;Voir aussi
+\l;Noms des recherches\u cbot\researches;, \c;\l;research\u cbot\research;\n;, \c;\l;canresearch\u cbot\canresearch;\n;, \c;\l;canbuild\u cbot\canbuild;\n;.
+\l;Programmation\u cbot;, \l;types\u cbot\type; et \l;catégories\u cbot\category;.

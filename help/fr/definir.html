@@ -1,0 +1,22 @@
+<HTML>
+	<HEAD>
+		<TITLE>PSeudo Int?rprete</TITLE>
+	</HEAD>
+	<BODY>
+<B>Definici?n de variables</B>
+<BR><BR>
+&nbsp;&nbsp;&nbsp;La instrucci?n definir permite explicitar el tipo de una o m?s variables. Esta definici?n puede ser opcional u obligatoria dependiendo de la <A href="perfiles.html">configuraci?n del lenguaje</A>. La sintaxis es:<BR><BR>
+<code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Definir &lt;var1&gt; , &lt;var2&gt; , ... , &lt;varN&gt;&nbsp; Como [REAL/ENTERO/LOGICO/CARACTER];
+</code><BR><BR>
+&nbsp;&nbsp;&nbsp; Una variable debe definirse antes de ser utilizada por primera vez. Los arreglos, se definen utilizando su identificador (sin sub?ndices ni dimensiones) antes o despu?s
+ de dimensionarlos, y el tipo aplica para todos los elementos del mismo (ya que se trata de una estructura de datos homog?nea).<bR><BR>
+&nbsp;&nbsp;&nbsp; Los tipos posibles son NUMERO, NUMERICO, REAL, ENTERO, LOGICO, CARACTER, TEXTO, CADENA.<bR><BR>
+&nbsp;&nbsp;&nbsp; NUMERO, NUMERICO y REAL son sin?nimos para el tipo de datos num?rico b?sico, que puede almacenar tanto n?meros reales como enteros. El tipo ENTERO es una especializaci?n que s?lo permite almacenar valores enteros; cualquier valor no entero que se lea o asigne en una variable de este tipo ser? truncado.<BR><BR>
+&nbsp;&nbsp;&nbsp; Una variable de tipo LOGICO s?lo puede tomar los valores VERDADERO y FALSO, pero cuando se lee una variable ya definida como l?gica, el usuario puede ingresar tambi?n las abreviaciones V y F, o 0 y 1.<BR><BR>
+&nbsp;&nbsp;&nbsp; CARACTER, TEXTO y CADENA son sin?nimos para definir variables de tipo car?cter. Estas pueden contener cero, uno o m?s caracteres arbitrarios y no tienen una longitud m?xima. Si se declara una variable de este tipo y en una lectura el usuario ingresa un n?mero o un valor l?gico, se asignar? una cadena que contiene el texto ingresado (ejemplo: "1", "VERDADERO", etc).<bR><BR>
+&nbsp;&nbsp;&nbsp; Si se intenta asignar a una variable ya definida un dato de un tipo incorrecto se producir? un error en tiempo de ejecuci?n.<bR><BR>
+&nbsp;&nbsp;&nbsp;Cuando la <A href="perfiles.html">configuraci?n del lenguaje</A> habilita la <I>sintaxis flexible</I>, se pueden definir tipos de variables de una forma alternativa y m?s coloquial, mediante las palabras claves <I>Es</I> y <I>Son</I>, como sigue:<BR><BR>
+<code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;var&gt; Es [REAL/ENTERO/LOGICA/CARACTER]; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;var1&gt; , &lt;var2&gt; , ... , &lt;varN&gt;&nbsp; Son [REALES/ENTEROS/LOGICAS/CARACTERES];
+</code><BR><BR>
+</BODY></HTML>

@@ -1,4 +1,4 @@
-OBJS=${OBJS_DIR}/SynCheck.o ${OBJS_DIR}/intercambio.o ${OBJS_DIR}/main.o ${OBJS_DIR}/Ejecutar.o ${OBJS_DIR}/global.o ${OBJS_DIR}/zockets.o ${OBJS_DIR}/utils.o ${OBJS_DIR}/zcurlib.o ${OBJS_DIR}/Evaluar.o ${OBJS_DIR}/new_memoria.o ${OBJS_DIR}/FuncsManager.o ${OBJS_DIR}/DataValue.o ${OBJS_DIR}/case_map.o ${OBJS_DIR}/zcurlib_lnx.o ${OBJS_DIR}/zcurlib_win.o ${OBJS_DIR}/LangSettings.o ${OBJS_DIR}/ErrorHandler.o ${OBJS_DIR}/FuncsPredefs.o ${OBJS_DIR}/ProgramaDump.o ${OBJS_DIR}/Keywords.o ${OBJS_DIR}/strFuncs.o 
+OBJS=${OBJS_DIR}/SynCheck.o ${OBJS_DIR}/intercambio.o ${OBJS_DIR}/main.o ${OBJS_DIR}/Ejecutar.o ${OBJS_DIR}/global.o ${OBJS_DIR}/zockets.o ${OBJS_DIR}/utils.o ${OBJS_DIR}/zcurlib.o ${OBJS_DIR}/Evaluar.o ${OBJS_DIR}/new_memoria.o ${OBJS_DIR}/FuncsManager.o ${OBJS_DIR}/DataValue.o ${OBJS_DIR}/case_map.o ${OBJS_DIR}/zcurlib_lnx.o ${OBJS_DIR}/zcurlib_win.o ${OBJS_DIR}/LangSettings.o ${OBJS_DIR}/ErrorHandler.o ${OBJS_DIR}/FuncsPredefs.o ${OBJS_DIR}/ProgramaDump.o ${OBJS_DIR}/Keywords.o ${OBJS_DIR}/strFuncs.o ${OBJS_DIR}/LocalizationManager.o ${OBJS_DIR}/KeywordForms.o
 
 ${OBJS_DIR}/SynCheck.o: SynCheck.cpp SynCheck.hpp Instruccion.hpp debug.h DataValue.h Code.h RunTime.hpp ErrorHandler.hpp Programa.hpp FuncsManager.hpp new_memoria.h new_memoria_inter.h global.h LangSettings.h Keywords.hpp ../wxPSeInt/string_conversions.h utils.h Evaluar.hpp intercambio.h zockets.h case_map.h strFuncs.hpp
 	${GPP} ${CXXFLAGS} -c SynCheck.cpp -o $@
@@ -62,4 +62,10 @@ ${OBJS_DIR}/Keywords.o: Keywords.cpp Keywords.hpp debug.h utils.h new_memoria.h 
 
 ${OBJS_DIR}/strFuncs.o: strFuncs.cpp strFuncs.hpp debug.h
 	${GPP} ${CXXFLAGS} -c strFuncs.cpp -o $@
+
+${OBJS_DIR}/LocalizationManager.o: LocalizationManager.cpp LocalizationManager.h
+	${GPP} ${CXXFLAGS} -c LocalizationManager.cpp -o $@
+
+${OBJS_DIR}/KeywordForms.o: KeywordForms.cpp KeywordForms.h Keywords.hpp LocalizationManager.h utils.h
+	${GPP} ${CXXFLAGS} -c KeywordForms.cpp -o $@
 

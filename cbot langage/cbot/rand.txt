@@ -1,0 +1,9 @@
+\b;Instruction \c;rand\n;
+Syntaxe:
+\s;\c;rand ( );\n;
+
+\t;Type du retour: \c;\l;réel (float)\u cbot\float;\n;
+Nombre pseudo-aléatoire entre 0 et 1 (0 inclus, mais 1 exclu).
+
+\t;Voir aussi
+\l;Programmation\u cbot;, \l;types\u cbot\type; et \l;expressions\u cbot\expr;.

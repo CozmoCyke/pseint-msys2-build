@@ -193,11 +193,15 @@ void Package::ProcessFile (wxString name, wxString &content) {
 		m_base_psc = content;
 	} else if (name=="help.html") {
 		m_help_text = content;
+		m_help_from_html = true;
 #ifdef ALLOW_MARKDOWN
 	} else if (name=="help.md") {
-		static wxCSConv cs("ISO-8859-1");
-		const auto data = content.mb_str(cs);
-		m_help_text = wxString(markdown2html(data,data.length()),cs);
+		// help.html keeps priority so existing packages retain the historical path.
+		if (!m_help_from_html) {
+			static wxCSConv cs("ISO-8859-1");
+			const auto data = content.mb_str(cs);
+			m_help_text = wxString(markdown2html(data,data.length()),cs);
+		}
 #endif
 	} else if (name=="config.ini") {
 		content.Replace("\r","",true);
@@ -247,6 +251,7 @@ Package::Package ( ) {
 void Package::Reset ( ) {
 	m_is_ok=false;
 	m_help_text.Clear();
+	m_help_from_html=false;
 	m_tests.clear();
 	m_base_psc.Clear();
 	m_config.clear();

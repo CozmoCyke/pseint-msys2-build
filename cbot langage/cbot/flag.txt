@@ -1,0 +1,20 @@
+\b;Instruction \c;flag\n;
+Syntaxe:
+\s;\c;flag ( color );\n;
+
+Plante un \l;drapeau coloré\u object\flag; devant le \l;sondeur\u object\botsr;.
+
+\t;color: \c;\l;int\u cbot\int;\n; (valeur par défaut : \c;Blue\n;)
+\c;Blue\n;
+\c;Red\n;
+\c;Green\n;
+\c;Yellow\n;
+\c;Violet\n;
+
+\t;Type du retour: \c;\l;entier (int)\u cbot\int;\n;
+Normalement, une erreur arrête le programme. Vous pouvez empêcher le programme de s’arrêter en cas d’erreur en utilisant l’instruction \c;\l;errmode\u cbot\errmode;(0)\n;. Une valeur différente de zéro en cas d’erreur est alors retournée par \c;flag();\n;.
+\c;== 0 \n;drapeau planté
+\c;!= 0 \n;impossible de planter un drapeau
+
+\t;Voir aussi
+\l;Programmation\u cbot;, \l;types\u cbot\type; et \l;catégories\u cbot\category;.

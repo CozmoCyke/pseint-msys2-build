@@ -1,0 +1,8 @@
+Proceso PruebaRedimension1D
+    Definir v Como Entero
+    Dimension v[3]
+    v[1] <- 7
+    Redimensionar v[5]
+    v[4] <- 9
+    Escribir v[4]
+FinProceso

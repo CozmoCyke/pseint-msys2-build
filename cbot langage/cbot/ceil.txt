@@ -1,0 +1,13 @@
+\b;Instruction \c;ceil\n;
+Syntaxe:
+\s;\c;ceil ( value );\n;
+Arrondir un nombre.
+
+\t;valeur : \c;\l;float\u cbot\float;\n;
+Nombre.
+
+\t;Type du retour: \c;\l;réel (float)\u cbot\float;\n;
+Valeur entière d'un nombre, c'est-à-dire le plus petit entier non inférieur à \c;valeur\n;. Par exemple, \c;ceil(2.1)\n; est \c;3.0\n;.
+
+\t;Voir aussi
+\l;round\u cbot\round;, \l;programmation\u cbot;, \l;types\u cbot\type; et \l;expressions\u cbot\expr;.

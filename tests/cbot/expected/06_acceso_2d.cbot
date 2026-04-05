@@ -1,0 +1,12 @@
+// Approximate expected output for CBOTExporter V3
+
+// ADVERTENCIA: Dimension se refleja sobre todo en la declaracion del arreglo; la materializacion runtime exacta no se fuerza en V3.
+// ADVERTENCIA: los arreglos multidimensionales se declaran, pero su materializacion exacta en runtime queda diferida.
+
+extern void object::pruebaacceso2d() {
+	int m[2][3];
+	// Dimension(m): las dimensiones quedan reflejadas en la declaracion.
+	// ADVERTENCIA: la materializacion exacta de arreglos multidimensionales no esta garantizada en V3.
+	m[0][1] = 42;
+	message("" + (m[0][1]));
+}

@@ -1,0 +1,21 @@
+\b;Instruction \c;private\n; (pour spécialistes)
+Il s'agit d'un modificateur d'accès pour \l;membres de classe\u cbot\class;. Les membres privés ne sont pas accessibles en dehors de la définition de la classe.
+
+\t;Exemple
+\c;
+\s;public class MaClasse
+\s;{
+\s;	int    b;                // public par défaut
+\s;	public int a;            // public aussi
+\s;	private point position;  // privé
+\s;}
+\s;void Test()
+\s;{
+\s;	MaClasse item;
+\s;	item.a = item.b = 12;      // ok
+\s;	message( item.position );  // erreur élément non accessible
+\s;}
+\n;
+\t;Voir aussi
+\c;\l;class\u cbot\class;\n;, \c;\l;public\u cbot\public;\n;, \c;\l;protected\u cbot\protected;\n;
+\l;Programmation\u cbot;, \l;types\u cbot\type; et \l;catégories\u cbot\category;.

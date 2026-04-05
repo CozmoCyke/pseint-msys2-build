@@ -1,0 +1,815 @@
+0
+  This error is a failure in PSeInt, and not necessarily in your algorithm. Please make sure you have the latest available version of the interpreter installed, and if the problem persists send the algorithm that produces this situation to zaskar_84@yahoo.com.ar so that it can be analyzed and fixed.
+
+1
+  The keyword ENTONCES must be placed immediately after the condition of an SI, separated by a space, or on the next line with no other instruction or expression in between.
+  * Check that the condition of the previous SI is correctly written.
+  * If there is no SI instruction before it, remove the keyword ENTONCES or include the SI and its corresponding condition.
+
+2
+  The keyword SINO is used in the SI-ENTONCES conditional structure and must be placed after the true-branch instructions (those that follow the word ENTONCES), on a new line.
+  * Check that the condition of the previous SI is correctly written.
+  * If there is no SI instruction before it, remove the keyword SINO or include the SI and its corresponding condition.
+  
+3
+  A comma was found where an expression or a keyword should appear according to the instruction being used. If the instruction receives parameters, you cannot omit any of them.
+  * If you meant to omit a parameter, use 0, FALSO, or "" instead depending on the data type (number, logical, and character respectively).
+  * If no parameter should be there, remove the comma.
+  
+4
+  A numeric constant cannot contain more than one dot. The dot is used to separate the integer part from the decimal part of the number, never as a thousands separator.
+  * Review the numeric constants in the expressions and remove the incorrect dot.
+
+5
+  A numeric constant may only include digits and one decimal dot. Some numeric constant includes a letter or a forbidden character such as a parenthesis or a quote mark.
+  * Check that constants are properly separated from keywords or other parameters with commas and/or spaces where appropriate.
+  * Check the correct formulation of the numeric constants in each expression on this line.
+  
+6
+  There is a character constant placed after some logical or mathematical symbol that does not belong there ( parenthesis, /,~,*,^,&amp;,|,.,+,&lt;,etc).
+  * Check that constants are properly separated from keywords or other parameters with commas and/or spaces where appropriate.
+  * Check the correct formulation of the character constants in each expression on this line.
+
+7
+  There is a character constant placed after a keyword or an identifier without the corresponding space or operator in between.
+  * Check that constants are properly separated from keywords or other parameters with commas and/or spaces where appropriate.
+  * Check the correct formulation of the character constants in each expression on this line.
+
+8
+  There is a character constant placed after a numeric constant without the corresponding space or operator in between.
+  * Check that constants are properly separated from keywords or other parameters with commas and/or spaces where appropriate.
+  * Check the correct formulation of the character constants in each expression on this line.
+
+9
+   There is some logical or mathematical symbol that does not belong there ( parenthesis, /,~,*,^,&amp;,|,.,+,&lt;,etc) placed after a character constant.
+  * Check that constants are properly separated from keywords or other parameters with commas and/or spaces where appropriate.
+  * Check the correct formulation of the character constants in each expression on this line.
+
+10
+  There is a keyword or identifier placed after a character constant without the corresponding space or operator in between.
+  * Check that constants are properly separated from keywords or other parameters with commas and/or spaces where appropriate.
+  * Check the correct formulation of the character constants in each expression on this line.
+
+11
+  There is a numeric constant placed after a character constant without the corresponding space or operator in between.
+  * Check that constants are properly separated from keywords or other parameters with commas and/or spaces where appropriate.
+  * Check the correct formulation of the character constants in each expression on this line.
+
+12
+  An unknown character was found on this line.
+  * Check that the operators used are valid and that the constants do not include any strange symbols.
+
+13
+  An identifier or reserved word was found after a dot. The dot is used only to separate decimals in a numeric constant, so a digit must follow it.
+  * Check that constants are properly separated from keywords or other parameters with commas and/or spaces where appropriate.
+  * Check that the numeric constants are correctly written.
+  * Insert the space, comma, or digit if it is missing, or remove the dot if it does not belong.
+  
+14
+  A dot was found after an identifier or reserved word. The dot is used only to separate decimals in a numeric constant, so it must always be preceded by a digit or a mathematical operator.
+  * Check that constants are properly separated from keywords or other parameters with commas and/or spaces where appropriate.
+  * Check that the numeric constants are correctly written.
+  * Insert the space, comma, or digit if it is missing, or remove the dot if it does not belong.
+  
+15
+  A symbol, character, or operator was found after a dot. The dot is used only to separate decimals in a numeric constant, so a digit must follow it.
+  * Check that constants are properly separated from keywords or other parameters with commas and/or spaces where appropriate.
+  * Check that the numeric constants are correctly written.
+  * Insert the space, comma, or digit if it is missing, or remove the dot if it does not belong.
+
+16
+  There is a comma followed by a logical or mathematical operator or the end of an instruction. The comma is used to separate parameters in instructions that accept more than one (such as LEER, ESCRIBIR), to separate two numeric constants to compare in the SEGUN structure, or to separate two or more indexes in an array.
+  * If it is an array, check the number of indexes and complete what is missing or remove the comma.
+  * If it is a LEER instruction, add the corresponding variable identifier or remove the comma.
+  * If it is an ESCRIBIR instruction or you are inside a SEGUN structure, check that the expressions are correct and that no element has been omitted.
+
+17
+  An incorrect or badly written operator was found. Somewhere on this line there is a greater-than sign (&gt;) followed by another character that does not belong there ( &lt; &gt; / * ^ ; , &amp; | ~ ) ). 
+  * Check that the expressions are correctly written: verify that no operand is missing and that the operators are valid.
+  * For a complete list of possible operators click <A href="operadores.html">here</A>.
+  
+18
+  An incorrect or badly written operator was found. Somewhere on this line there is a less-than sign (&lt;) followed by another character that does not belong there ( &lt; / * ^ ; , &amp; | ~ ) ). 
+  * Check that the expressions are correctly written: verify that no operand is missing and that the operators are valid.
+  * For a complete list of possible operators click <A href="operadores.html">here</A>.
+  
+19
+  An incorrect or badly written operator was found. Somewhere on this line there is an equals sign (=) followed by another character that does not belong there ( &lt; &gt; / * ^ &amp; , ; | ~ = ) ). 
+  * Check that the expressions are correctly written: verify that no operand is missing and that the operators are valid.
+  * For a complete list of possible operators click <A href="operadores.html">here</A>.
+  
+20
+  An incorrect or badly written operator was found. Somewhere on this line there is a pipe sign (|) followed by another character that does not belong there ( &lt; &gt; + - / * ^ ; , &amp; | ~ ( ) = ). 
+  * Check that the expressions are correctly written. (Check that no operand is missing, that the operators are valid, and that the required spaces are present).
+  * Remember that the logical disjunction operator (|) must be separated by spaces from the expressions to its left and right.
+  * For a complete list of possible operators click <A href="operadores.html">here</A>.
+  
+21
+  An incorrect or badly written operator was found. Somewhere on this line there is an ampersand sign (&amp;) followed by another character that does not belong there ( &lt; &gt; + - / * ^ ; , &amp; | ~ ( ) = ). 
+  * Check that the expressions are correctly written. (Check that no operand is missing, that the operators are valid, and that the required spaces are present).
+  * Remember that the logical conjunction operator (&amp;) must be separated by spaces from the expressions to its left and right.
+  * For a complete list of possible operators click <A href="operadores.html">here</A>.
+  
+22
+  An incorrect or badly written operator was found. Somewhere on this line there is a negation (~ or NO) followed by another character that does not belong there ( &lt; &gt; / * ^ &amp; | , ; ). 
+  * Check that the expressions are correctly written: verify that no operand is missing and that the operators are valid.
+  * For a complete list of possible operators click <A href="operadores.html">here</A>.
+  
+23
+  An incorrect or badly written operator was found. Somewhere on this line there is a plus sign (+) followed by another character that does not belong there ( &lt; &gt; - + ) / * ^ &amp; , ; | ~ = ). 
+  * Check that the expressions are correctly written: verify that no operand is missing and that the operators are valid.
+  * For a complete list of possible operators click <A href="operadores.html">here</A>.
+
+24
+  An incorrect or badly written operator was found. Somewhere on this line there is a minus sign (-) followed by another character that does not belong there ( &lt; &gt; - + ) / * ^ &amp; , ; | ~ = ). 
+  * Check that the expressions are correctly written: verify that no operand is missing and that the operators are valid.
+  * For a complete list of possible operators click <A href="operadores.html">here</A>.
+  
+25
+  An incorrect or badly written operator was found. Somewhere on this line there is an asterisk sign (*) followed by another character that does not belong there ( &lt; &gt; + ) / * ^ &amp; , ; | ~ = ). 
+  * Check that the expressions are correctly written: verify that no operand is missing and that the operators are valid.
+  * For a complete list of possible operators click <A href="operadores.html">here</A>.
+  
+26
+  An incorrect or badly written operator was found. Somewhere on this line there is a slash sign (/) followed by another character that does not belong there ( &lt; &gt; + ) / * ^ &amp; , ; | ~ = ). 
+  * Check that the expressions are correctly written: verify that no operand is missing and that the operators are valid.
+  * For a complete list of possible operators click <A href="operadores.html">here</A>.
+  
+27
+  An incorrect or badly written operator was found. Somewhere on this line there is a (^) sign followed by another character that does not belong there ( &lt; &gt; + / * ^ &amp; | , ; ) ). 
+  * Check that the expressions are correctly written: verify that no operand is missing and that the operators are valid.
+  * For a complete list of possible operators click <A href="operadores.html">here</A>.
+  
+28
+  An incorrect or badly written operator was found. Somewhere on this line there is a left parenthesis (() followed by another character that does not belong there ( &lt; &gt; / * ^ &amp; | = ). 
+  * Check that the expressions are correctly written. (Check that no operand is missing, that the operators are valid, and that the required spaces are present).
+  * Remember that some operators (such as &amp; and |) must be separated by spaces from the expressions to their left and right.
+  * For a complete list of possible operators click <A href="operadores.html">here</A>.
+  
+29
+  An incorrect or badly written operator was found. Somewhere on this line there is a right parenthesis ()) followed by another character that does not belong there ( &amp; | ~ ( ). 
+  * Check that the expressions are correctly written. (Check that no operand is missing, that the operators are valid, and that the required spaces are present).
+  * Remember that some operators (such as &amp; and |) must be separated by spaces from the expressions to their left and right.
+  * For a complete list of possible operators click <A href="operadores.html">here</A>.
+  
+31
+  An expression is missing on this line. This may be because there is no expression inside two parentheses or because the right-hand expression in an assignment is missing. 
+  * Check that there are no empty parentheses () on this line.
+  * If it is an assignment, complete the expression to be assigned.
+  
+32
+  After the condition in the SI instruction (or on the next line) you must place the keyword ENTONCES to indicate the beginning of the true-branch actions.
+  * Place the keyword ENTONCES at the end of the SI line or at the beginning of this one.
+
+33
+  After the SEGUN condition HACER line you must place the possible numeric expressions followed by a colon and the instructions to execute if the SEGUN expression matches that expression. 
+  Example:
+    SEGUN variable HACER
+       1: ESCRIBIR 'variable is 1.';
+       2: ESCRIBIR 'variable is 2.';
+       DE OTRO MODO: ESCRIBIR 'variable is neither 1 nor 2.';
+    FINSEGUN
+   * Complete the structure correctly by placing the numeric expressions followed by a colon and the corresponding instructions.
+
+34
+  After the SEGUN condition HACER line you must place the possible numeric expressions followed by a colon and the instructions to execute if the SEGUN expression matches that expression. 
+  Example:
+    SEGUN variable HACER
+       1: ESCRIBIR 'variable is 1.';
+       2: ESCRIBIR 'variable is 2.';
+       DE OTRO MODO: ESCRIBIR 'variable is neither 1 nor 2.';
+    FINSEGUN
+   * Complete the structure correctly by placing the numeric expressions followed by a colon and the corresponding instructions.
+
+35
+  One of the expressions used on this line is malformed because a parenthesis or bracket was closed without having been opened before.
+  * Check that the number of opening and closing parentheses is the same and that they are in the correct places.
+  * Check that the number of opening and closing brackets is the same and that they are in the correct places.
+  
+36
+  One of the expressions used on this line is malformed because a parenthesis or bracket was opened and then never closed.
+  * Check that the number of opening and closing parentheses is the same and that they are in the correct places.
+  * Check that the number of opening and closing brackets is the same and that they are in the correct places.
+
+37
+  One of the character constants used on this line is malformed because it was not correctly delimited with its quotation marks. 
+  * Check that every opening quote is also closed.
+  * Check that there are no extra quotes marking the beginning of a character constant where it should not be.
+  
+38
+  Sequential instructions such as LEER, ESCRIBIR, DIMENSION, DEFINIR, or assignment (&lt;-) must end with a semicolon (;). 
+  * Add a semicolon at the end of the line.
+  
+39
+  Only sequential instructions such as LEER, ESCRIBIR, DIMENSION, DEFINIR, or assignment (&lt;-) must end with a semicolon (;). 
+  * Remove the semicolon from the end of the line.
+
+40
+  The keyword PROCESO is used to define the name and beginning of the process, so it must be followed by that name.
+  * Complete the process name after the word PROCESO.
+  * Remember that valid identifiers are made up only of letters and digits, always beginning with a letter.
+
+41
+  The process name is not valid. Valid identifiers are made up only of letters and digits, always beginning with a letter.
+  * Correct the identifier used for the process name.
+  
+42
+  An expression or instruction was found where the process definition should be (that is, the keyword PROCESO followed by its name). Before this definition there may only be blank lines or comment lines. 
+  * Check that the word proceso is spelled correctly.
+  * If you defined the process name further down, move that line upward.
+  * If you did not define it, you must do so here or earlier to mark the beginning of the algorithm.
+
+43
+  The instructions that make up the algorithm are delimited by the keyword PROCESO followed by its name and FINPROCESO, so there must be no instruction after FINPROCESO.
+  * Remove this instruction or move it before the word FINPROCESO.
+  
+45
+  The DEFINIR instruction ends with a semicolon (;).
+  * Add a semicolon at the end of the line.
+
+48
+  The variable name is not valid. Valid identifiers are made up only of letters and digits, always beginning with a letter.
+  * Correct the variable name identifier.
+   
+49
+  The variable name is not valid. Valid identifiers are made up only of letters and digits, always beginning with a letter.
+  * Correct the variable name identifier.
+
+51
+  The keyword ENTONCES must be placed immediately after the condition of an SI, separated by a space, or on the next line with no other instruction or expression in between.
+  * Check that the condition of the previous SI is correctly written.
+  * If there is no SI instruction before it, remove the keyword ENTONCES or include the SI and its corresponding condition.
+
+53
+  The ESCRIBIR instruction must be followed by the expressions to display, separated by commas if there is more than one. Those expressions are missing on this line.
+  * Complete the line with the corresponding expressions.
+  * If you only want to display a blank line, you can use an empty character string (ESCRIBIR "").
+
+54
+  One of the expressions on this line is not correct because it is made up of two expressions, identifiers, or keywords separated by a space. If you want to display more than one expression, you must separate them with commas.
+  * Check that the expressions are correctly written.
+  * Check that no comma or operator is missing.
+  
+55
+  The keyword SINO is used in the SI-ENTONCES conditional structure and must be placed after the true-branch instructions (those that follow the word ENTONCES), on a new line.
+  * Check that the condition of the previous SI is correctly written.
+  * If there is no SI instruction before it, remove the keyword SINO or include the SI and its corresponding condition.
+
+56
+  To dimension an array you must use the word DIMENSION followed by the name or names of the array with their corresponding dimensions in parentheses and separated by commas if there is more than one. Optionally you may dimension more than one array on the same line by separating them with commas. 
+  Example: DIMENSION ArrayA(10,3),ArrayB(15),ArrayC(10,15,25);
+  * Complete the instruction by adding the identifiers of the arrays you want to dimension with their corresponding sizes in parentheses.
+  
+57
+  One of the variable identifiers on this line is not correct because it is composed of two expressions, identifiers, or keywords separated by a space. If you want to dimension more than one array, you must separate them with commas.
+  * Check that the identifiers and their dimensions are correctly written (in particular that the parentheses are placed correctly).
+  * If there is more than one array, check that they are all separated from each other by a comma.
+
+58
+  To dimension one or several arrays you must use the word DIMENSION followed by the name or names of the arrays with their corresponding dimensions in parentheses and separated by commas if there is more than one. Optionally you may dimension more than one array on the same line by separating them with commas. 
+  Example: DIMENSION ArrayA(10,3),ArrayB(15),ArrayC(10,15,25);
+  On this line, one of the array names does not have its corresponding dimensions in parentheses after it.
+  * Add the dimensions in parentheses next to the arrays that do not have them.
+
+59
+  One of the array names proposed on this line is not valid. Valid identifiers may only contain letters and digits and must always begin with a letter.
+  * Review the identifiers used and correct the ones that are not valid.
+  
+60
+  One of the array names proposed on this line is not valid. Valid identifiers may only contain letters and digits and must always begin with a letter.
+  * Review the identifiers used and correct the ones that are not valid.
+
+61
+  To dimension one or several arrays you must use the word DIMENSION followed by the name or names of the arrays with their corresponding dimensions in parentheses and separated by commas if there is more than one. Optionally you may dimension more than one array on the same line by separating them with commas. 
+  Example: DIMENSION ArrayA(10,3),ArrayB(15),ArrayC(10,15,25);
+  One of the arrays you are trying to dimension does not have all of its dimensions completed.
+  * Add the missing array dimensions, or remove the commas if they are extra.
+
+62
+  One of the dimensions proposed for the arrays on this line is not numeric.
+  * Correct the dimensions that are not numeric by replacing them with a constant of this type.
+  
+63
+  The leer instruction must be followed by one or more variables separated by commas. 
+  * Complete the instruction with the corresponding variable identifier or identifiers.
+
+64
+  One of the variable identifiers on this line is not correct because it is composed of two expressions, identifiers, or keywords separated by a space. If you want to read more than one variable, you must separate them with commas.
+  * Check that the identifiers and their dimensions are correctly written.
+  * Check that a comma is not missing or that there is not an extra space.
+
+65
+  The LEER instruction takes as parameters the list of variable identifiers where the read data will be stored. One of the parameters is not a valid variable identifier. Valid identifiers are made up only of letters and digits, always beginning with a letter.
+  * Check that all parameters are identifiers and not expressions or constants.
+  * Check that the identifiers are valid (that is, that they do not contain forbidden characters, spaces, or operators, and that they begin with a letter).
+
+66
+  The LEER instruction takes as parameters the list of variable identifiers where the read data will be stored. One of the parameters is not a valid variable identifier. Valid identifiers are made up only of letters and digits, always beginning with a letter.
+  * Check that all parameters are identifiers and not expressions.
+  * Check that the identifiers are valid (that is, that they do not contain forbidden characters, spaces, or operators, and that they begin with a letter).
+
+67
+  /* Unreachable error - Commented out in the code */
+
+68
+  This line contains some brace character ( "{" or "}" ). These characters are not valid in pseudocode. 
+  * Remove these characters and correct the expression(s).
+  * If you used the commands menu to insert this line, you must complete the instruction by replacing the fields marked between braces with the corresponding expressions or variable identifiers.
+  * Some profiles do not allow the use of accents or the letter ñ in identifiers or keywords. If you used one of these characters, try replacing it.
+
+69
+  One of the indexes used in the arrays on this line is not numeric. An index may be any numeric constant, variable, or expression.
+  * Check that the index expressions are correctly written and numeric.
+
+70
+  The PARA instruction must be followed by the initial assignment, the keyword HASTA, the final value, optionally the keyword CON PASO and the step value, and finally the word HACER. 
+  Ej: PARA iv-1 HASTA 15 CON PASO 2 HACER
+  * Complete the instruction.
+
+71
+  The PARA instruction must be followed by the initial assignment, the keyword HASTA, the final value, optionally the keyword CON PASO and the step value, and finally the word HACER. The keyword HACER is missing at the end of the line.
+  * Add the word HACER at the end of the line.
+    
+72
+  The PARA instruction must be followed by the initial assignment, the keyword HASTA, the final value, optionally the keyword CON PASO and the step value, and finally the word HACER. 
+  Ej: PARA iv-1 HASTA 15 CON PASO 2 HACER
+  The initial assignment is not correctly written or was omitted.
+  * Add the initial assignment after the word PARA.
+  * Remember that assignment uses the operator "&lt;-".
+    
+73
+  The initial assignment in this PARA is incomplete. The variable identifier or the expression to assign may be missing.
+  * Complete the assignment that goes after the word PARA.
+  
+74
+  The variable identifier in the PARA assignment is not correct. Valid identifiers are made up only of letters and digits, always beginning with a letter.
+  * Check that it is an identifier and not an expression.
+  * Check that it does not contain forbidden characters, spaces, or operators, and that it begins with a letter.
+
+76
+  The variable on the left and the expression on the right in the initial PARA assignment must be numeric.
+  * Check that the variable and the expression are numeric and correctly written.
+    
+77
+  The variable on the left and the expression on the right in the initial PARA assignment must be numeric.
+  * Check that the variable and the expression are numeric and correctly written.
+
+78
+  The PARA instruction must be followed by the initial assignment, the keyword HASTA, the final value, optionally the keyword CON PASO and the step value, and finally the word HACER. 
+  Ej: PARA i&lt;-1 HASTA 15 CON PASO 2 HACER
+  The final value between the keywords HASTA and HACER is missing.
+  * Add the final value after the initial assignment.
+  * Remember that this value must be a numeric constant or expression.
+  * If the instruction contains the word HASTA, check that it does not include any other word between the initial value and HASTA.
+  * If the instruction contains the word HASTA, check that the expression for the initial value is correct.
+
+79
+  The PARA instruction must be followed by the initial assignment, the keyword HASTA, the final value, optionally the keyword CON PASO and the step value, and finally the word HACER. 
+  Ej: PARA i&lt;-1 HASTA 15 CON PASO 2 HACER
+  The keyword HASTA is missing.
+  * Add the keyword HASTA together with the final value after the initial assignment.
+
+80
+  The final value in the PARA loop (the one after the keyword HASTA) must be numeric.
+  * Replace the final value with a numeric variable, constant, or expression.
+  
+81
+  The final value in the PARA loop (the one after the keyword HASTA) must be numeric.
+  * Replace the final value with a numeric variable, constant, or expression.
+  
+82
+  The PARA instruction must be followed by the initial assignment, the keyword HASTA, the final value, optionally the keyword CON PASO and the step value, and finally the word HACER. 
+  Ej: PARA i&lt;-1 HASTA 15 CON PASO 2 HACER
+  After the final value only the keywords CON PASO or HACER may continue.
+  * Check that the final value expression is correct.
+  * Check that the words CON PASO or HACER are correctly written.
+
+84
+  The step value in the PARA loop (the one after the keyword PASO) must be numeric.
+  * Replace the step value with a numeric variable, constant, or expression.
+  
+85
+  The identifier name of the variable to which the expression is to be assigned is missing.
+  * Add the variable identifier before the assignment operator.
+
+86
+  The variable identifier in the assignment is not correct. Valid identifiers are made up only of letters and digits, always beginning with a letter.
+  * Check that it is an identifier and not an expression.
+  * Check that it does not contain forbidden characters, spaces, or operators, and that it begins with a letter.
+  * Check that it does not match a reserved word, or the identifier of a process/algorithm or a function/subprocess.
+
+87
+  Some additional word or expression was found after the expression to assign.
+  * Check that the expression on the right is correct.
+
+88
+  In an assignment, the expression to be evaluated and assigned to the variable on the left must be placed to the right of the assignment operator (&lt;-). On this line more than one expression separated by a comma was written.
+  * Correct the expression on the right by turning it into a single parameter.
+  * Check that array indexes are placed between brackets.
+  * Check that the operators are correct and that there is no misplaced comma.
+  * Remember that the decimal separator is the dot, not the comma. Check that the numeric constants are written correctly.
+
+89
+  In an assignment, after the assignment operator (&lt;-) you must place the expression that will be evaluated and whose result will be assigned to the variable on the left. On this line the expression on the right is missing.
+  * Complete the expression to the right of the assignment operator.
+
+90
+  After the keyword SI you must place the condition to evaluate in order to decide which actions to execute.
+  * Complete the instruction by adding the condition after the word SI.
+  * The condition must be a logical variable or expression.
+
+91
+  After the keyword SI and the condition, the keyword ENTONCES must follow. On this line, after the condition there is another word/expression.
+  * Check that the condition is correctly written.
+  * Check that the keyword ENTONCES is spelled correctly.
+
+92
+  After the keyword SI you must place the condition to evaluate in order to decide which actions to execute. The condition must be a logical variable or expression.
+  * Correct the condition after the word SI. 
+
+93
+  The keyword HASTA QUE must be followed by the exit condition of the REPETIR loop.
+  * Add the exit condition after the keywords HASTA QUE.
+  * Remember that the exit condition is a logical expression that will be evaluated to determine whether the REPETIR loop exits when it is TRUE.
+
+94
+  The keyword HASTA QUE must be followed only by the exit condition of the REPETIR loop. On this line, after the condition there is another word/expression.
+  * Check that the condition is correctly written.
+
+95
+  The exit condition of the REPETIR loop that must be placed after the keywords HASTA QUE must be a logical expression.
+  * Check that the condition is correctly written and is logical.
+
+96
+  
+
+97
+  
+
+98
+  
+
+99
+  The instruction on this line is not recognized as a valid instruction. There may be typing mistakes.
+  * Check that the keyword is spelled correctly.
+  * Remember that FINPARA, FINSEGUN, FINMIENTRAS, FINSI, and FINPROCESO are written together, that is, without a space between FIN and the name of the structure.
+
+100
+  
+
+101
+  
+
+102
+  The correct syntax for the MIENTRAS control structure must include the word HACER after the condition, before the set of instructions to repeat.
+  Ej: MIENTRAS n&lt;&gt;0 HACER
+  * Check that you included it and that it is written correctly. Otherwise, correct it or add it.
+
+103
+  
+
+104
+  
+
+105
+  After the instructions FINPARA, FINSEGUN, FINSI, FINMIENTRAS, REPETIR, BORRARPANTALLA, and ESPERARTECLA you must not place any parameter. Check that after these keywords there is a line break or a dot, or use the semicolon to indicate the beginning of a new instruction on the same line.
+  
+106
+  The instruction on this line is not recognized as a valid instruction. There may be typing mistakes.
+  * Check that the keyword is spelled correctly.
+  * If it is an assignment, remember to use the operator "&lt;-" (or alternatively the = operator if your language <A href="perfiles.html">profile</A> allows it).
+
+107
+  The keyword FINSEGUN was found, but the last open control structure was not a SEGUN structure. 
+  * Check that your nested structures are correctly organized, that is, that their entry and exit points are well placed and that each one opens and closes at the same level.
+  * Move FINSEGUN to where it belongs, or close the nested structures inside this SEGUN first.
+
+108
+  The keyword FINPARA was found, but the last open control structure was not a PARA structure. 
+  * Check that your nested structures are correctly organized, that is, that their entry and exit points are well placed and that each one opens and closes at the same level.
+  * Move FINPARA to where it belongs, or close the nested structures inside this PARA first.
+
+109
+  The keyword FINMIENTRAS was found, but the last open control structure was not a MIENTRAS structure. 
+  * Check that your nested structures are correctly organized, that is, that their entry and exit points are well placed and that each one opens and closes at the same level.
+  * Move FINMIENTRAS to where it belongs, or close the nested structures inside this MIENTRAS first.
+
+110
+  The keyword FINSI was found, but the last open control structure was not an SI structure. 
+  * Check that your nested structures are correctly organized, that is, that their entry and exit points are well placed and that each one opens and closes at the same level.
+  * Move FINSI to where it belongs, or close the nested structures inside this SI first.
+
+111
+  The keyword HASTA QUE was found, but the last open control structure was not a REPETIR structure. 
+  * Check that your nested structures are correctly organized, that is, that their entry and exit points are well placed and that each one opens and closes at the same level.
+  * Move HASTA QUE to where it belongs, or close the nested structures inside this REPETIR first.
+
+112
+  The keyword FINPROCESO was found, but the last open control structure was not a PROCESO structure. 
+  * Check that your nested structures are correctly organized, that is, that their entry and exit points are well placed and that each one opens and closes at the same level.
+  * Move FINPROCESO to where it belongs, or close the nested structures inside this PROCESO first.
+
+114
+  The set of instructions repeated by the PARA loop is delimited by the FINPARA keyword at the end of it. This PARA instruction does not have its corresponding FINPARA (or it is misplaced).
+  * Check that the corresponding FINPARA exists for this PARA and that it is correctly written.
+  * Remember that FINPARA is written together if your language <A href="perfiles.html">profile</A> does not allow flexible syntax (not FIN PARA).
+  * Check that the nested control structures inside this PARA have been properly closed.
+
+115
+  The set of instructions repeated by the REPETIR-HASTA QUE loop is delimited by the keywords HASTA QUE and the exit condition at the end of it. This REPETIR instruction does not have its corresponding HASTA QUE (or it is misplaced).
+  * Check that the corresponding HASTA QUE exists for this PARA and that it is correctly written.
+  * Check that the nested control structures inside this PARA have been properly closed.
+  * If your language <A href="perfiles.html">profile</A> allows flexible syntax, remember that the words REPETIR and HACER mark the beginning of a loop that must end with the constructions HASTA QUE... or MIENTRAS QUE...
+
+116
+  The set of instructions repeated by the MIENTRAS loop is delimited by the FINMIENTRAS keyword at its end. This MIENTRAS instruction does not have its corresponding FINMIENTRAS (or it is misplaced).
+  * Check that the corresponding FINMIENTRAS exists for this MIENTRAS and that it is correctly written.
+  * Remember that FINMIENTRAS is written together if your language <A href="perfiles.html">profile</A> does not allow flexible syntax (not FIN MIENTRAS).
+  * Check that the nested control structures inside this MIENTRAS have been properly closed.
+  * If you were trying to use the word "MIENTRAS" to close a REPETIR...MIENTRAS QUE or HACER...MIENTRAS QUE loop, you must replace it with "MIENTRAS QUE" to avoid the ambiguity produced with the MIENTRAS...FINMINETRAS loop. This is only possible if your <A href="perfiles.html">profile</A> allows flexible syntax.
+
+117
+  The set of instructions that may be executed by the SI-ENTONCES conditional structure is delimited by the FINSI keyword at its end. This SI instruction does not have its corresponding FINSI (or it is misplaced).
+  * Check that the corresponding FINSI exists for this SI and that it is correctly written.
+  * Remember that FINSI is written together if your language <A href="perfiles.html">profile</A> does not allow flexible syntax (not FIN SI).
+  * Check that the nested control structures inside this SI have been properly closed.
+
+118
+  The set of instructions that may be executed by the SEGUN conditional structure is delimited by the FINSEGUN keyword at its end. This SEGUN instruction does not have its corresponding FINSEGUN (or it is misplaced).
+  * Check that the corresponding FINSEGUN exists for this SEGUN and that it is correctly written.
+  * Remember that FINSEGUN is written together if your language <A href="perfiles.html">profile</A> does not allow flexible syntax (not FIN SEGUN).
+  * Check that the nested control structures inside this SEGUN have been properly closed.
+
+119
+  The set of instructions that make up the process must be delimited by the keywords PROCESO followed by its name at the beginning, and FINPROCESO at the end.
+  * Remember that FINPROCESO is written together if your language <A href="perfiles.html">profile</A> does not allow flexible syntax (not FIN PROCESO).
+  * If you did not write it, add the keyword FINPROCESO at the end of the algorithm.    
+
+120
+  You have just entered a value for a variable that is not correct.
+  * if this is a typing error, you can double-click the entered value in the terminal to modify it,
+  The entered value is of a certain type (NUMERICO, LOGICO, or CARACTER), but the interpreter has determined (based on how it is used in other expressions) that this variable cannot be of that type.
+  * run the algorithm again entering a value of the appropriate type,
+  * or modify your algorithm, checking all the expressions in which this variable appears.
+
+124
+  You are trying to define the type of a variable that has already been initialized (this may be through a read, an assignment, or through dimensioning if it is an array). You must define variables before using them for the first time.
+
+125
+  You are trying to assign to a variable of a given data type a value of another type (for example, a text string into a numeric variable). Check that the data types on both sides of the assignment match. Remember that the data type of a variable is explicitly defined with the <A href="definir.html">DEFINIR</A> instruction, or inferred from the operators and operands that interact with the variable in expressions, or from the values assigned to or read into it.
+  
+134
+  The number of subscripts or parameters used in the expression for an array does not match the declared dimensions of that array. If it is a function:
+  * Check that it is a valid function and that it is written correctly.
+  * Remember that all functions take a single parameter.
+  If it is an array:
+  * Look higher up in your code for the line where you dimensioned the array and check that the number of dimensions matches what is used in the expression.
+  * If the array is dimensioned further down, move that line upward. The array must be dimensioned before it is used for the first time.
+  * If you did not dimension the array earlier, do so using the word Dimension followed by the name of the array and finally its dimensions in parentheses separated by commas.
+  * Remember that dimensions always go in parentheses and are separated by commas.
+  * If it was already dimensioned, check that the identifier is correctly written both on this line and on the line where it was dimensioned.
+
+140
+  The number of subscripts used in the expression for an array does not match the declared dimensions of that array.
+  * Look higher up in your code for the line where you dimensioned the array and check that the number of dimensions matches what is used in the expression.
+  * If the array is dimensioned further down, move that line upward. The array must be dimensioned before it is used for the first time.
+  * Remember that dimensions always go in parentheses and are separated by commas.
+
+147
+  The square root of a negative number cannot be calculated using real numbers. Its result can only be expressed with complex numbers. Since PSeInt's numeric data type can only store real numbers, this operation is not valid.
+  * Check that the argument for the RAIZ (or RC) function is a non-negative number (zero or positive).
+  
+148
+  The logarithm of a negative number cannot be calculated using real numbers. Its result can only be expressed with complex numbers. Since PSeInt's numeric data type can only store real numbers, this operation is not valid.
+  * Check that the argument for the LN function is a non-negative number (zero or positive).
+  
+149
+  You are using a variable name as an array, but it was not previously dimensioned.
+  * If you did not dimension the array earlier, do so using the word Dimension followed by the name of the array and finally its dimensions in parentheses separated by commas.
+  * If the array is dimensioned further down, move that line upward. The array must be dimensioned before it is used for the first time.
+  * Remember that dimensions always go in parentheses and are separated by commas.
+  * If it was already dimensioned, check that the identifier is correctly written both on this line and on the line where it was dimensioned.
+
+151
+  You are trying to use an element of an array (probably to write it, or in an expression) that has not yet been initialized.
+  * Check that the element is initialized (through a read or an assignment) before using it.
+  * Remember that you must initialize counters or accumulators to zero before using them.
+
+150
+  You are trying to use a variable (probably to write it, or in an expression) that has not yet been initialized or defined.
+  * Check that the variable is initialized (through a read or an assignment) before using it.
+  * Remember that you must initialize counters or accumulators to zero before using them.
+
+152
+  An expression is missing on this line. This may be because there is no expression inside two parentheses or because the right-hand expression in an assignment is missing. 
+  * Check that there are no empty parentheses or brackets [] () on this line.
+  * If it is an assignment, complete the expression to be assigned.
+
+153
+  The sizes of arrays must be numeric constants. You cannot use variables or functions to dimension them.
+  * Check that all indexes are constants and do not include any variable or function.
+  * If you do not know how many elements you will need, you will have to oversize the array with dimensions large enough for any case, and then use only the elements that are actually needed.
+
+154
+  Array indexes must be numeric. One or more indexes in some array on this line are logical or character values.
+  * Check that all expressions used as array indexes are numeric.
+
+200
+  The variable identifier that produced the error corresponds to an <A href="arreglos.html">array</A> (it is declared with the DIMENSION directive in your algorithm). However, on this line you are using it without the corresponding subscripts. Remember that you cannot read an entire array in one instruction; you must read each position one by one. On this line it was not specified which position to read.
+  * Add the subscripts that indicate which position of the array to use by placing them in parentheses after its name.
+  * If you do not want this variable to behave as an array, remove its declaration (look for the DIMENSION directive).
+
+201
+  The variable identifier that produced the error does not correspond to an <A href="arreglos.html">array</A> (it was not previously declared with the DIMENSION directive). However, on this line you are using it as if it were an array, placing one or more subscripts in parentheses after it.
+  * If the variable must be an array, add the DIMENSION directive to declare it before using it.
+  * If the variable must not be an array, check that you did not omit an operator or remove the parentheses and the subscripts after it.
+
+202
+  The variable that produced the error does not correspond to an <A href="arreglos.html">array</A> (it was not previously declared with the DIMENSION directive) nor to a function/subprocess. However, on this line you are using it as if it were an array (placing one or more subscripts in parentheses after it) or as if it were a function or subprocess (placing one or more arguments after it).
+  * If the variable must be an array, add the DIMENSION directive to declare it before using it.
+  * If the variable must not be an array, check that you did not omit an operator or remove the parentheses and the subscripts after it.
+  * If your intention was to use a <A href="funciones.html">function</A>, check that its name is correctly written.
+
+203
+  The possible options for the decision variable in the <A href="segun.html">SEGUN</I> structure must be, like that variable itself, numeric. In the entered expression there is some element indicating that the expression evaluates to a character or logical type.
+  * Check that the expression does not include logical or relational operators
+  * Check that the expression does not include character constants
+
+204
+  To place more than one possible value for the decision variable in the <A href="segun.html">SEGUN</A> structure, you must use the comma (,) as a separator. On this line there is more than one expression separated by spaces:
+  * If your intention was to place more than one possible expression, use the comma to separate them
+  * If your intention was to place only one expression, check that it is written correctly and that you did not omit any operator
+
+205
+  The expression placed after the keyword según is of an incorrect data type.
+  * The expression may be of type NUMERICA or CARACTER. 
+  * Check that the variables and operators involved generate an expression of one of these types.
+
+206
+  The expression placed after the keyword según is of an incorrect data type.
+  * The expression may be of type NUMERICA. 
+  * Check that the variables involved are numeric and the operators are algebraic.
+  * Text expressions can only be used in flexible-syntax <A href="perfiles.html">profiles</A>, but your current language profile does not allow it.
+
+207
+  You are trying to compare two expressions of different types.
+  * If you are using an explicit comparison (the operators &lt;, &lt;=, &gt;, &gt;=, &lt;&gt;, or =), check that the operands (the expressions on both sides of the operator) are of the same type:
+     * Check both the variables and the operators involved in the operands.
+     * Check the correct use of parentheses in the expression.
+  * This error may occur in an implicit comparison:
+     * If you are in a case of the SEGUN structure, check that the case candidate expression (before the colon) and the control expression (after the word SEGUN) are of the same type.
+
+208
+  You are trying to create a new variable, through a read, without having explicitly stated what type it will be. Your current language <A href="perfiles.html">profile</A> requires all variables to be defined before being used:
+  * You must use the <A href="definir.html">DEFINIR</A> instruction to explicitly state the variable type (CARACTER, NUMERICA, LOGICA) before using it for the first time.
+  * If it is an array, the type is defined once for the entire array.
+
+209
+  You are trying to create an array without having explicitly stated what type it will be. Your current language <A href="perfiles.html">profile</A> requires all variables and arrays to be defined before being used:
+  * You must use the <A href="definir.html">DEFINIR</A> instruction to explicitly state the data type that the array will store (CARACTER, NUMERICA, LOGICA) before dimensioning it.
+
+210
+  You are trying to use the variable in an expression without having explicitly stated what type it is. Your current language <A href="perfiles.html">profile</A> requires all variables to be defined before being used:
+  * You must use the <A href="definir.html">DEFINIR</A> instruction to explicitly state the variable type (CARACTER, NUMERICA, LOGICA) before using it for the first time.
+
+211
+  You are trying to create a new variable, through assignment, without having explicitly stated what type it will be. Your current language <A href="perfiles.html">profile</A> requires all variables to be defined before being used:
+  * You must use the <A href="definir.html">DEFINIR</A> instruction to explicitly state the variable type (CARACTER, NUMERICA, LOGICA) before using it for the first time.
+  * If it is an array, the type is defined once for the entire array.
+
+212
+  In the definir instruction, array identifiers must be written without subscripts, since a single type is defined for all of their elements.
+
+213
+  You are trying to use a mathematical operator (+,-,*,/,^,% or MOD) with two operands that are not numeric.
+  * Look for these operators in the expressions on this line and check that the operands they act on are numeric.
+  * If you are trying to concatenate strings with the + sign, the current language configuration does not allow it.
+
+214
+  The algorithm is being executed with predefined input (values entered for the LEER action), but this input contains fewer values than the algorithm actually needs to read.
+  * Modify the input with the "Predefinir Entrada" item in the "Ejecutar" menu.
+
+215
+  You are trying to use the value of the variable indicated in parentheses to display on screen or as part of an expression, but this variable does not have any value yet.
+  * Check that the variable name is written correctly.
+  * Use the LEER instruction or assignment to initialize the contents of the variable before using it.
+  * If this is a variable previously used as the counter of a Para loop, you should keep in mind that the variable might have been de-initialized to reinforce the idea that the counter's value only makes sense inside the Para, and should not be used outside it without being reinitialized. 
+
+216
+  In the <A href="para.html">PARA</A> structure, the step goes after the final value indicated by "HASTA &lt;val_final&gt;".
+  * Reorder the instruction following the form: PARA <I>counter</I>&lt;-<I>initial_value</I> HASTA <I>final_value</I> CON PASO <I>step</I> HACER
+
+217
+  Parameters are missing for the ESPERAR instruction. After the keyword ESPERAR you must place either a time interval or the keyword TECLA to wait for the user to press a key. The time interval must be a number followed by the unit (SEGUNDOS or MILISEGUNDOS).
+  
+218
+  After the keyword ESPERAR you must place a time interval (constant, variable, or numeric expression) followed by the unit (SEGUNDOS or MILISEGUNDOS).
+  * Check that the desired unit appears after the numeric expression.
+  * Check that the name of the time unit is written correctly.
+
+219
+  The number of seconds/milliseconds to wait must be numeric. 
+  * Check that the variable or expression used is numeric.
+
+220
+  The identifier that appears in parentheses in the error message is an array, since it was previously dimensioned with the directive "Dimension ...", but you are trying to use it in some expression or instruction without the corresponding subscripts. Remember that you cannot write or evaluate an entire array; you must do so position by position.
+  * Add the subscripts in parentheses specifying which element of the array you want to refer to.
+  * If you want to display or process the entire array, you will have to place the action inside some loop that varies the index or indexes to traverse all of its positions.
+
+221
+  The variable that appears in parentheses in the error message is an array, since it was previously dimensioned with the directive "Dimension ...", but you are trying to use it in some expression or instruction without the corresponding subscripts. Remember that you cannot read, write, or evaluate an entire array; you must do so position by position.
+  * Add the subscripts in parentheses specifying which element of the array you want to refer to.
+
+222
+  The arguments of a subprocess will be defined by the process/subprocess that makes the call, and therefore the subprocess will receive them with a type already defined. This is why you must not redefine the type of a variable that is an argument again inside the subprocess.
+  * Remove the type definition of the formal parameter from inside the subprocess.
+  * Check that the variable acting as the actual parameter (in the call) is previously defined.
+
+223
+  The arguments of a subprocess will be dimensioned by the process/subprocess that makes the call, and therefore the subprocess will receive them already dimensioned. This is why you must not dimension the type of a variable that is an argument again inside the subprocess.
+  * Remove the dimension instruction of the formal parameter from inside the subprocess.
+  * Check that the array acting as the actual parameter (in the call) is previously defined and dimensioned.
+
+252
+  The body of a process/algorithm is introduced with the word Proceso (or Algoritmo) followed only by its name. This error occurs because after the name of the process/algorithm there is something else.
+  * Check that the name of the process/algorithm is written correctly.
+  * The name is an identifier that follows the same rules as variable identifiers (for example, it cannot contain spaces).
+
+255
+  One of the arguments for the read action is the name of an array (it is declared with the DIMENSION directive at some earlier point in your algorithm), but the read action cannot read an entire array. Arrays must be read position by position (that is, one read action for each position). 
+  * Add the necessary subscripts to specify which position of the array you want to read.
+  * If you want to read the whole array, you must place this read action inside some loop that varies the index or indexes to traverse all of its positions.
+
+256
+  One of the arguments for the read action is being used as if it were an array (that is, including a set of indexes in parentheses or brackets), but it is not one (it is not declared with the DIMENSION directive in your algorithm).
+  * Declare the array beforehand using the <A href="arreglos.html">Dimensión</A> keyword.
+  * Or remove the subscripts if it is not one.
+
+260
+  The initial line of the PARA CADA structure must have the form "PARA CADA &lt;id_elemento&gt; DE &lt;id_arreglo&gt; HACER". 
+  * Check that the line has the 4 parts after PARA CADA: the element identifier, the keyword DE, the array identifier, and the keyword HACER (the latter may be omitted in some profiles).
+  * &lt;id_elemento&gt is the name that will represent each element of the array individually in each iteration
+  * &lt;id_arreglo&gt is the name of the array that you want to traverse with this structure.
+
+268
+  When passing by reference, the variable used as an argument in the function/subprocess will actually be the same variable indicated in the call to the function (two identifiers for one single variable). Therefore the function/subprocess will be able to modify that variable. For this to make sense, when invoking the function you must always use a variable as the argument, and not a constant or any other expression (since it would make no sense for the function to try to modify the value of a "constant", for example).
+  * Check that all arguments which are defined "by reference" in the function are variables in the invocation/call.
+  * If you need to pass a constant or a more general expression to the function, you must modify the function so that the argument in question is received by copy.
+ 
+279
+  The subprocess/function indicated in parentheses in the error receives, according to its declaration, a number of arguments/parameters different from the one provided in this call. When invoking a subprocess you must include in the call all the required arguments separated by commas.
+  * Check that the argument list is correctly written (each argument separated by a comma).
+  * Check that the declaration of the subprocess (using the SubProceso or Función keywords in the pseudocode) is correct.
+  * Check that the number of them is equal to the number declared when creating the mentioned subprocess.
+
+292
+  Two logical values can only be compared to determine whether they are equal, but there is no ordering relationship between the possible logical values (Verdadero and Falso). Therefore it is not possible to apply the operators &lt;, &gt;, &lt;=, and &gt;= to operands of this data type.
+  * Check that the entered expression is correct considering the precedence of the operators involved, and analyzing the type of operands and results for each of them.
+  * For example, the expression "3 &lt; x &lt; 7" is incorrect, because it is equivalent to "(3 &lt; x) &lt; 7". So first 3 &lt; x is resolved, which may yield Verdadero or Falso, and then that result (of logical type) is compared with 7.
+
+298  
+  The mod operator returns the remainder of an "integer" division, and therefore the operands must be integers. That is, the variables or expressions to the left and right of the operator must both be numeric and evaluate to an integer number. 
+  * If one of the operands is not, but you want to use only the integer part of that result, you can use the <A href="funciones.html">Trunc</A> function.
+
+308
+  The keyword FINPROCESO was found in a place where it was not expected. This may be due to one of the following three reasons:
+  * There are open control structures inside the process that still need to be closed before closing the process. Check that the process control structures are properly nested and closed with their respective FINXXX.
+  * The process had already been closed by a previous occurrence of FINPROCESO. Check that FINPROCESO appears only once in the algorithm, and that it is located at the end of a process.
+  * You are inside a function or subprocess, in which case you must use FINFUNCIÓN or FUNSUBPROCESO.
+
+310
+  Functions or subprocesses that return values must be used as part of expressions. Only subprocesses that do not return any value may be invoked directly.
+
+311
+  The string passed as an argument to the ConvertirANúmero function does not contain a number. The string must contain only digits and optionally a dot to separate decimals, and a plus or minus sign at the beginning to indicate whether it is a positive or negative number, but it must not contain spaces, letters, or other signs or operators. 
+  * Check that the value of that string (which is shown in parentheses in the error message) is a valid number.
+
+312
+  The ASEN (arc-sine) and ACOS (arc-cosine) functions calculate an angle from a sine or cosine value (their argument). Valid sine and cosine values are those greater than or equal to -1, and less than or equal to +1. You are invoking one of these two functions using an argument that is not in that range.
+  * Check the value of the variable or expression you use as the argument for the ASEN/ACOS function.
+
+313
+  You have just entered a value for a variable that is not correct.
+  * if this is a typing error, you can double-click the entered value in the terminal to modify it,
+  The entered value must be numeric and integer (because that is how the variable in which it will be stored has been defined).
+  * run the algorithm again entering a value of the appropriate type,
+  * or modify your algorithm, checking all the expressions and definitions in which this variable appears.
+
+320
+  One of the expressions on this line that uses the negation operator (NO/~) has an operand on its left. But the negation operator is unary and its only operand must be on the right.
+  For example, in "No 5==x", the result "5==x" will be its operand; but in an expression like "a no b" there is an error, since either the "a" should not be there ("no b" is correct), or an operand is missing ("a y no b" is also correct).
+  * Check whether there is an operand before the negation in the expression.
+  * Remove the operand or add the missing operator.
+  It may also happen that the problem is due to a misunderstanding of operator precedence.
+  * If the expression is complex, add parentheses to the subexpressions to alter/make explicit the desired precedence.
+
+321
+  The expression "De Otro Modo" is used only within a multiple-selection structure (<A href="segun.html">Según</A>). You are using "De Otro Modo" inside another type of structure, or outside any structure.
+  * Check the nesting of your data structures and the correct placement of their FinXXX terminators
+  Note: This expression must be placed after the different options for the control variable, and indicates the path to follow when its value does not match any of the options. 
+
+322
+  You are trying to modify, through a read or assignment, the value of a variable that you should not modify. This is usually the case for the counter of a Para loop. Since the structure handles the counter automatically, the programmer should not modify it.
+  * Check that you are not trying to read into or write to a variable that functions as the counter of a Para.
+  * If your intention really was to modify the counter in order to alter how the Para works, you should consider replacing it with a different structure: Mientras or Repetir.
+

@@ -1,0 +1,5 @@
+Proceso PruebaEscribir
+    Definir nombre Como Cadena
+    nombre <- "Ada"
+    Escribir "Hola ", nombre
+FinProceso

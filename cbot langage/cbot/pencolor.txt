@@ -1,0 +1,15 @@
+\b;Instruction \c;pencolor\n;
+Syntaxe:
+\s;\c;pencolor ( color );\n;
+L'instruction \c;pencolor();\n; demande au robot de changer la couleur de son crayon.
+
+\t;color: \c;\l;int\u cbot\int;\n; (valeur par défaut: \c;Black\n;)
+\l;Couleur\u cbot\colors;.
+
+\t;Type du retour: \c;\l;entier (int)\u cbot\int;\n;
+Normalement, une erreur arrête le programme. Vous pouvez empêcher le programme de s'arrêter en cas d'erreur en utilisant l'instruction \c;\l;errmode\u cbot\errmode;(0)\n;. Une valeur différente de zéro en cas d'erreur est alors retournée par \c;pencolor();\n;.
+\c;== 0 \n; La couleur a été modifiée
+\c;!= 0 \n;  L'instruction ne fonctionne pas
+
+\t;Voir aussi
+\l;Programmation\u cbot;, \l;types\u cbot\type; et \l;catégories\u cbot\category;.

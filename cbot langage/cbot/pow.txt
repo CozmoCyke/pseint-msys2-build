@@ -1,0 +1,15 @@
+\b;Instruction \c;pow\n;
+Syntaxe:
+\s;\c;pow ( x, y );\n;
+
+\t;x: \c;\l;float\u cbot\float;\n;
+Base. (mantisse)
+
+\t;y: \c;\l;float\u cbot\float;\n;
+Exposant.
+
+\t;Type du retour: \c;\l;réel (float)\u cbot\float;\n;
+x à la puissance y (x * x  * x ... y fois ).
+
+\t;Voir aussi
+\l;Programmation\u cbot;, \l;types\u cbot\type; et \l;expressions\u cbot\expr;.

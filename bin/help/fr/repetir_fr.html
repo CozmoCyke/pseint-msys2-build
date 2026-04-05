@@ -1,0 +1,22 @@
+<HTML>
+	<HEAD>
+		<TITLE>PSeudo Intérprete</TITLE>
+	</HEAD>
+	<BODY>
+<B>Repeat</B>
+<BR><BR>
+<CENTER><img src="ps_repetir.png"></TD></CENTER><BR>
+&nbsp;&nbsp;&nbsp;The <i>Repetir-Hasta Que</i> instruction executes a sequence of instructions until the condition becomes true.<BR><br>
+<code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Repetir <BR>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;instrucciones&gt; <BR>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hasta Que &lt;condición&gt; 
+</code><BR><BR>
+&nbsp;&nbsp;&nbsp;When this instruction is executed, the sequence of instructions that forms the loop body is run once and then the condition is evaluated. If the condition is false, the loop body is executed again and the condition is evaluated again. This repeats until the condition becomes true. <BR>
+&nbsp;&nbsp;&nbsp;Note that, because the condition is evaluated at the end, the instructions in the loop body are executed at least once. <BR>
+&nbsp;&nbsp;&nbsp;Also, to avoid infinite loops, the loop body must contain some instruction that modifies one or more variables involved in the condition so that eventually the condition becomes true and the loop ends.<BR>
+<BR>
+&nbsp;&nbsp;&nbsp;If flexible syntax is enabled (see <A href="perfiles_en.html">PSeudoCode Options</A>) you may optionally use <I>Mientras Que</I> instead of <I>Hasta Que</I>, so the actions inside the loop are executed while the condition is true. Note that the word <I>Que</I> is what distinguishes the use of <I>Mientras</I> in a Repeat structure from the <I>Mientras</I> structure itself. If that word is omitted, it is interpreted as the beginning of a <A href="mientras_en.html">While</A> loop rather than the end of a <I>Repeat</I> loop.<BR>
+<BR>
+&nbsp;&nbsp;&nbsp;The <A href="example:Menu.psc">Menu</A> example shows a very simple program that uses this control structure to display a menu repeatedly until the user chooses the exit option.<BR>
+<BR>
+</BODY></HTML>

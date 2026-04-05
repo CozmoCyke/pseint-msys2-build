@@ -1,0 +1,27 @@
+\b;Instruction \c;search\n;
+Syntaxe:
+\s;\c;search ( catégorie, pos );\n;
+
+Détecte l'objet de la catégorie donnée qui est le plus proche de la position donnée. Similaire à \c;\l;radar();\u cbot\radar;\n;, mais peut commencer à rechercher à partir du point spécifique au lieu de depuis la position actuelle du robot.
+
+\t;catégorie: \c;\l;int\u cbot\int;\n;
+o \l;Catégorie\u cbot\category; des objets qui doivent être détectés. Par exemple, lorsque vous cherchez une fourmi, écrivez \c;search(AlienAnt)\n;. 
+o \l;Tableau\u cbot\array; de catégories des objets à détecter. Par exemple, lorsque vous cherchez uniquement des préhenseurs; en commençant depuis un certain point du niveau :
+\c;\s;int bots[4];
+\s;bots[0] = WheeledGrabber;
+\s;bots[1] = TrackedGrabber;
+\s;bots[2] = WingedGrabber;
+\s;bots[3] = LeggedGrabber;
+\s;point p(50, 24, 0);
+\s;object grabberNearestThePoint = search(bots, p);\n;
+o Mot clef \const;Any\norm; si vous cherchez tous type d'objets (incluant les plantes etc.).
+
+\t;position: \c;\l;point\u cbot\point;\n; (valeur par défaut: \c;\l;this\u cbot\this;.\l;position\u cbot\object;\n;)
+Position à partir de laquelle s'effectue la recherche.
+
+\t;Type du retour: \c;\l;objet (object)\u cbot\object;\n;
+Objet trouvé. La valeur \c;\l;null\u cbot\null;\n; indique que rien n'a été trouvé.
+
+\t;Voir aussi
+\l;Programmation\u cbot;, \l;types\u cbot\type; et \l;catégories\u cbot\category;.
+

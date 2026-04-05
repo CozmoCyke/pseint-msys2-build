@@ -1,0 +1,5 @@
+329
+  En raison de la façon dont les nombres sont stockés en mémoire et parce que la taille d'une variable numérique est fixe, ils ne peuvent contenir qu'un certain nombre de chiffres. Si vous essayez de stocker un nombre avec davantage de chiffres (plus de 16), il peut être arrondi et, par conséquent, les calculs utilisant cette valeur peuvent devenir inexacts.
+
+333
+  Un tableau est utilisé à la place d'une variable simple lorsque vous voulez stocker ou organiser plusieurs valeurs liées au lieu d'une seule. Par conséquent, un tableau de taille 1 (ou dont l'une des dimensions vaut 1) ne semble pas avoir d'utilité pratique. Vous pouvez probablement supprimer cette dimension (et utiliser une variable normale si c'est la seule dimension), ou il peut aussi s'agir d'une erreur où un tableau est bien nécessaire mais sa taille devrait être plus grande.

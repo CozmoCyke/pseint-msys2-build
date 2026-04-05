@@ -1,0 +1,31 @@
+\b;Instruction \c;produce\n;
+Syntaxe:
+\s;\c;produce ( position, orientation, category, program, power );\n;
+oou
+\s;\c;produce ( category, power );\n;
+
+Créer immédiatement un \l;objet\u cbot\category;.
+
+\t;pos: \c;\l;point\u cbot\point;\n;
+Où l'objet sera créé. La seconde syntaxe crée l'objet à la position actuelle du robot.
+
+\t;orientation: \c;\l;float\u cbot\float;\n;
+Orientation (angle) de l'objet.
+
+\t;catégorie: \c;\l;int\u cbot\int;\n;
+\l;Catégorie\u cbot\category; de l'objet.
+
+\t;program: \c;\l;string\u cbot\string;\n;
+Programme pour l'objet. N'aura d'effet que pour les objets programmables comme les robots ou les aliens.
+
+\t;power: \c;\l;float\u cbot\float;\n;
+Niveau d'énergie.
+
+\t;Type du retour: aucun (\c;\l;void\u cbot\void;\n;)
+Rien.
+
+\b;Exemple d'utilisation
+Cette fonction est utilisée par \l;la reine mère alien\u object\mother; pour produire ses \l;œufs\u object\egg;.
+
+\t;Voir aussi
+\l;Programmation\u cbot;, \l;types\u cbot\type; et \l;catégories\u cbot\category;.

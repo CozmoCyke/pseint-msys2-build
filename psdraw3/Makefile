@@ -14,6 +14,14 @@ all: ${OBJS_DIR} ../${BIN}/psdraw3${EXT}
 
 include Makefile.common
 
+OBJS+=${OBJS_DIR}/LocalizationManager.o ${OBJS_DIR}/KeywordForms.o
+
+${OBJS_DIR}/LocalizationManager.o: ../wxPSeInt/LocalizationManager.cpp
+	${GPP} ${CXXFLAGS} -c ../wxPSeInt/LocalizationManager.cpp -o $@
+
+${OBJS_DIR}/KeywordForms.o: ../pseint/KeywordForms.cpp ../pseint/KeywordForms.h ../pseint/Keywords.hpp ../pseint/LocalizationManager.h ../pseint/utils.h
+	${GPP} ${CXXFLAGS} -c ../pseint/KeywordForms.cpp -o $@
+
 clean:
 	${RM} ${OBJS} ../${BIN}/psdraw3${EXT} ${ICON}
 

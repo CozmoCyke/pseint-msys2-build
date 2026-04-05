@@ -1,0 +1,22 @@
+6
+3 1 1 PROCESO PRUEBAACCESO2D
+1 5
+
+PruebaAcceso2D
+
+9 2 1 DEFINIR M COMO ENTERO
+1
+m
+0 1 0 1
+8 3 1 DIMENSION M(2,3)
+0 1
+m
+2,3
+6 4 1 M(1,2) <- 42
+m[1,2]
+42
+7 5 1 ESCRIBIR M(1,2)
+1 1
+m[1,2]
+4 6 1 FINPROCESO
+1 PruebaAcceso2D

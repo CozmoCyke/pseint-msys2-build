@@ -1,0 +1,5 @@
+329
+  Due to the way numbers are stored in memory, and because the size of a numeric variable is fixed, they can only store a certain number of digits. If you try to store a number with more digits (more than 16), it may be rounded, and consequently calculations using that value may become inaccurate.
+
+333
+  An array is used instead of a simple variable when you want to store/organize multiple related values instead of just one. Therefore, an array of size 1 (or with one of its dimensions of size 1) does not seem to have practical use. You can probably omit that dimension (and use a regular variable if it is the only dimension), or it may also be an error where an array is actually required but its size should be greater.

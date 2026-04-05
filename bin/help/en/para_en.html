@@ -1,0 +1,26 @@
+<HTML>
+	<HEAD>
+		<TITLE>PSeudo Intérprete</TITLE>
+	</HEAD>
+	<BODY>
+<B>For</B>
+<BR><BR>
+<CENTER><img src="ps_para.png"></TD></CENTER><BR>
+&nbsp;&nbsp;&nbsp;The <i>Para</i> instruction executes a sequence of instructions a fixed number of times.
+<br><BR>
+<code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Para &lt;variable&gt; &lt;- &lt;inicial&gt; Hasta &lt;final&gt; Con Paso &lt;paso&gt; Hacer <BR>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &lt;instrucciones&gt; <BR>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FinPara <BR>
+</code><bR><BR>
+&nbsp;&nbsp;&nbsp;When entering the block, variable &lt;variable&gt; receives the value &lt;inicial&gt; and the sequence of instructions in the loop body is executed. Then the variable is incremented by &lt;paso&gt; and it is checked whether the value stored in the variable has passed the value &lt;final&gt;. If it has not, the loop repeats until the variable goes beyond &lt;final&gt;. If the <i>Con Paso</i> clause is omitted, the variable is incremented by 1.<BR>
+<BR>
+&nbsp;&nbsp;&nbsp;If flexible syntax is enabled in the <A href="perfiles_en.html">language configuration</A>, two alternatives are available. The first replaces the assignment operator with the keyword <I>Desde</I>:<BR>
+<code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Para &lt;variable&gt; Desde &lt;inicial&gt; Hasta &lt;final&gt; Con Paso &lt;paso&gt; Hacer ... </code><bR>
+This makes the sentence easier to read. In addition, with flexible syntax, if no step is specified and the final value is smaller than the initial one, the loop traverses the values in reverse order as if the step were -1. The second variant is only for traversing one-dimensional or multidimensional arrays. It uses the construction <I>Para Cada</I> followed by an identifier, the keyword <I>De</I>, and another identifier:<BR>
+<code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Para Cada &lt;elemento&gt; De &lt;Arreglo&gt; Hacer ... </code><bR>
+The second identifier must refer to an array. The first one is the value that changes on each iteration. The loop performs as many iterations as the array contains elements, and in each one the first identifier refers to the current array element.<BR>
+<BR>
+&nbsp;&nbsp;&nbsp;The <A href="example:Promedio.psc">Average</A> example uses a loop of this type to read N numeric values and compute their average.<BR>
+&nbsp;&nbsp;&nbsp;The <A href="example:Para.psc">For</A> example uses the three variants of this kind of loop to traverse an array.<BR>
+<BR>
+</BODY></HTML>

@@ -1,0 +1,27 @@
+<HTML>
+	<HEAD>
+		<TITLE>PSeudo Intérprete</TITLE>
+	</HEAD>
+	<BODY>
+	<B>Algorithm Tracing</B>
+	<BR><BR>
+	&nbsp;&nbsp;&nbsp; Step-by-step execution allows a more detailed follow-up of an algorithm as it runs. In other words, it lets you observe in real time which instructions are executed, in what order, and what values variables or expressions take during the process.<BR>
+	<BR>
+	If the step-by-step execution panel is not visible, you can open it with the button on the right side of the window, or by starting step-by-step execution with the corresponding toolbar button or the F5 shortcut.<BR>
+	<BR>
+	&nbsp;&nbsp;&nbsp; The button that starts automatic tracing begins execution and advances one instruction at regular time intervals. Each instruction reached by the program flow is highlighted in the code, and the current line is indicated with a green or yellow arrow on the left margin of the pseudocode. The speed can be adjusted with the corresponding speed control in the panel.<BR>
+	<BR>
+	&nbsp;&nbsp;&nbsp; Another way to start step-by-step execution is the manual-step button in the same panel. This begins execution but, unlike automatic tracing, it stops on the first line of the program and waits for the user to advance each step manually with the same button.<BR>
+	<BR>
+	&nbsp;&nbsp;&nbsp; When the interpreter reaches an instruction that calls a subprocess, it can either move directly to the next line, executing the whole subprocess as a black box, or advance line by line inside the subprocess. This depends on the current stepping options.<BR>
+	<BR>
+	&nbsp;&nbsp;&nbsp; The pause button temporarily stops automatic execution and then resumes it. Pausing the algorithm is useful for examining the source code or checking the value of a variable or expression at a particular moment.<BR>
+	<BR>
+	&nbsp;&nbsp;&nbsp; To determine the value of a variable or expression, pause step-by-step execution and use the expression-evaluation button. A window appears where you can enter any variable name or arbitrary expression, including functions and operators, and then observe its value. A quick way to inspect a variable is to right-click it in the variables panel on the left side of the window.<BR>
+	<BR>
+	&nbsp;&nbsp;&nbsp; If you want to analyze how one or more variables evolve during execution, you can enable the "Desk Check" option. This generates a table in which columns represent variables or expressions, and rows represent the different program states as execution progresses. <A href="prueba_en.html">More information about desk checks...</A>.<BR>
+	<BR>
+	&nbsp;&nbsp;&nbsp; Finally, the detailed trace option shows a panel at the bottom of the window where the interpreter comments on the specific steps it performs while interpreting each instruction. It shows, for example, the expressions that are evaluated and their results, the variables that are read or assigned, and the decisions that control the flow inside control structures. This panel has its own manual-advance button and does not use automatic advance.<BR>
+	<BR>
+	<BR><BR>
+</BODY></HTML>

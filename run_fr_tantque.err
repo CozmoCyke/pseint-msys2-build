@@ -1,0 +1,131 @@
+LANGTRACE before_set_exepath
+LANGTRACE after_set_exepath
+LANGTRACE step=parse arg=fr
+LANGKW ALGORITMO=Algoritmo
+LANGKW FINALGORITMO=FinAlgoritmo
+LANGKW DEFINIR=Definir
+LANGKW COMO=Como
+LANGTRACE before_setlanguage_call lang_code=fr
+LANGTRACE SetLanguage requested=fr
+LANGTRACE SetLanguage try path=C:\msys64\home\Lenovo\src\ppp\bin/../lang/fr.txt
+LANGTRACE SetLanguage loaded path=C:\msys64\home\Lenovo\src\ppp\bin/../lang/fr.txt
+LANGTRACE after_setlanguage_call
+LANGTRACE postset ALGORITMO=Algoritmo
+LANGTRACE postset FINALGORITMO=FinAlgoritmo
+LANGTRACE postset DEFINIR=Definir
+LANGTRACE postset COMO=Como
+LANGTRACE set_current_lang before=es after=fr source=main
+KWFIX enter current_lang=fr
+KWFIX before ALGORITMO=Algoritmo
+KWFIX before FINALGORITMO=FinAlgoritmo
+KWFIX before SI=Si
+KWFIX before ENTONCES=Entonces
+KWFIX before SINO=SiNo
+KWFIX before FINSI=FinSi
+KWFIX before MIENTRAS=Mientras
+KWFIX before HACER=Hacer
+KWFIX before FINMIENTRAS=FinMientras
+KWFIX before DEFINIR=Definir
+KWFIX before COMO=Como
+KWFIX before LEER=Leer
+KWFIX before ESCRIBIR=Escribir
+KWFIX overlay path=keywords/fr.ini
+KWFIX loaded ALGORITMO=Algorithme
+KWFIX loaded FINALGORITMO=FinAlgorithme
+KWFIX loaded SI=Si
+KWFIX loaded ENTONCES=Alors
+KWFIX loaded SINO=Sinon
+KWFIX loaded FINSI=FinSi
+KWFIX loaded MIENTRAS=TantQue
+KWFIX loaded HACER=Faire
+KWFIX loaded FINMIENTRAS=FinTantQue
+KWFIX loaded LEER=Lire
+KWFIX loaded ESCRIBIR=Ecrire
+KWFIX loaded DEFINIR=Définir
+KWFIX loaded COMO=Comme
+KWFIX loaded TIPO_ENTERO=Entier
+KWFIX loaded TIPO_REAL=Réel
+KWFIX loaded TIPO_LOGICO=Logique
+KWFIX loaded TIPO_CARACTER=Caractère
+KWFIX after ALGORITMO=Algorithme
+KWFIX after FINALGORITMO=FinAlgorithme
+KWFIX after SI=Si
+KWFIX after ENTONCES=Alors
+KWFIX after SINO=Sinon
+KWFIX after FINSI=FinSi
+KWFIX after MIENTRAS=TantQue
+KWFIX after HACER=Faire
+KWFIX after FINMIENTRAS=FinTantQue
+KWFIX after DEFINIR=Définir
+KWFIX after COMO=Comme
+KWFIX after LEER=Lire
+KWFIX after ESCRIBIR=Ecrire
+KWFIX after TIPO_ENTERO=Entier
+KWFIX after TIPO_REAL=Réel
+KWFIX after TIPO_LOGICO=Logique
+KWFIX after TIPO_CARACTER=Caractère
+LANGTRACE engine current_lang=fr
+KWFIX LangSettings::Fix enter current_lang=fr
+KWFIX enter current_lang=fr
+KWFIX before ALGORITMO=Algorithme
+KWFIX before FINALGORITMO=FinAlgorithme
+KWFIX before SI=Si
+KWFIX before ENTONCES=Alors
+KWFIX before SINO=Sinon
+KWFIX before FINSI=FinSi
+KWFIX before MIENTRAS=TantQue
+KWFIX before HACER=Faire
+KWFIX before FINMIENTRAS=FinTantQue
+KWFIX before DEFINIR=Définir
+KWFIX before COMO=Comme
+KWFIX before LEER=Lire
+KWFIX before ESCRIBIR=Ecrire
+KWFIX loaded ALGORITMO=Algorithme
+KWFIX loaded FINALGORITMO=FinAlgorithme
+KWFIX loaded SI=Si
+KWFIX loaded ENTONCES=Alors
+KWFIX loaded SINO=Sinon
+KWFIX loaded FINSI=FinSi
+KWFIX loaded MIENTRAS=TantQue
+KWFIX loaded HACER=Faire
+KWFIX loaded FINMIENTRAS=FinTantQue
+KWFIX loaded LEER=Lire
+KWFIX loaded ESCRIBIR=Ecrire
+KWFIX loaded DEFINIR=Définir
+KWFIX loaded COMO=Comme
+KWFIX loaded TIPO_ENTERO=Entier
+KWFIX loaded TIPO_REAL=Réel
+KWFIX loaded TIPO_LOGICO=Logique
+KWFIX loaded TIPO_CARACTER=Caractère
+KWFIX after ALGORITMO=Algorithme
+KWFIX after FINALGORITMO=FinAlgorithme
+KWFIX after SI=Si
+KWFIX after ENTONCES=Alors
+KWFIX after SINO=Sinon
+KWFIX after FINSI=FinSi
+KWFIX after MIENTRAS=TantQue
+KWFIX after HACER=Faire
+KWFIX after FINMIENTRAS=FinTantQue
+KWFIX after DEFINIR=Définir
+KWFIX after COMO=Comme
+KWFIX after LEER=Lire
+KWFIX after ESCRIBIR=Ecrire
+KWFIX after TIPO_ENTERO=Entier
+KWFIX after TIPO_REAL=Réel
+KWFIX after TIPO_LOGICO=Logique
+KWFIX after TIPO_CARACTER=Caractère
+KWFIX LangSettings::Fix exit current_lang=fr
+LANGTRACE postfix current_lang=fr
+LANGTRACE postfix ALGORITMO=Algorithme
+LANGTRACE postfix FINALGORITMO=FinAlgorithme
+LANGTRACE postfix DEFINIR=Définir
+LANGTRACE postfix COMO=Comme
+LANGTRACE postfix LEER=Lire
+LANGTRACE postfix ESCRIBIR=Ecrire
+KWTRACE ENTER CheckVariable
+KWTRACE ENTER CheckVariable
+KWTRACE ENTER CheckVariable
+KWTRACE ENTER PalabraReservada
+KWTRACE ENTER PalabraReservada
+KWTRACE ENTER CheckVariable
+KWTRACE ENTER PalabraReservada

@@ -1,0 +1,21 @@
+Amélioration de wxPSEint
+- bouton vide le programme en préservant les balises de debut et de fin Algotritmo ou Proceso
+- bouton pour vider une structure dans le menu 
+
+- utiliser tab permet de parcourir les arguments entrés par le bouton raccourci au lieu d'effacer l'argument !
+- shift tab permet le sens inverse pour parcourrir les arguments.
+
+- un mode pseudocode en anglais avec aide localisé dans la alangue de l'apprenant!
+- un
+- un mode d'affichage par structure au lieu de lignes
+- un menu contextuel pour indentatation de structure au lieu d'une seule lignes
+- un menu contextuel pour le "comment" , "uncomment" d'une structure logique au lieu d'une seule ligne
+- un mode selection de structure au lieu de selectionner des lignes.
+- un mode suppression de structure au lieu de supprimer des lignes ou des caracteres
+- un mode de visualisation de structures de l'algoritmo au lieu de rien du tout !
+- un mode de remplacement par structure
+- un outil de refactoring pedagogique (boucles , while do <-> repeter jusque , for , suggestion de boucle si sequence repetees)
+- un outil de recherche
+- un mode projet
+
+

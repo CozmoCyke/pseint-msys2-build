@@ -1,0 +1,19 @@
+# Format :
+# [INSTRUCTIONS] / [FUNCTIONS]
+# cle=texte
+# cle|1=texte   -> afficher seulement si le mot n'est pas le premier de la ligne
+
+[INSTRUCTIONS]
+Funcion={variable de retour} <- {nom} ( {liste d'arguments s?par?s par des virgules} )\n{nom} ( {liste d'arguments, s?par?s par des virgules} )
+Funci?n={variable de retour} <- {nom} ( {liste d'arguments s?par?s par des virgules} )\n{nom} ( {liste d'arguments, s?par?s par des virgules} )
+SubProceso={variable de retour} <- {nom} ( {liste d'arguments s?par?s par des virgules} )\n{nom} ( {liste d'arguments, s?par?s par des virgules} )
+SubAlgoritmo={variable de retour} <- {nom} ( {liste d'arguments s?par?s par des virgules} )\n{nom} ( {liste d'arguments, s?par?s par des virgules} )
+Leer={une ou plusieurs variables, s?par?es par des virgules}
+Lire={une ou plusieurs variables, s?par?es par des virgules}
+Definir={une ou plusieurs variables, s?par?es par des virgules}
+Esperar={"Touche" ou intervalle de temps}
+Escribir={une ou plusieurs expressions, s?par?es par des virgules}
+Ecrire={une ou plusieurs expressions, s?par?es par des virgules}
+?crire={une ou plusieurs expressions, s?par?es par des virgules}
+Mostrar={une ou plusieurs expressions, s?par?es par des virgules}
+Imprimir={une ou plusieurs expressions, s?par?es par des virgules}

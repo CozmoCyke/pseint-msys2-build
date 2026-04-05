@@ -1,0 +1,30 @@
+\b;Instruction \c;detect\n;
+Avec l'instruction \c;detect();\n;, vous pouvez rechercher des objets comme des \l;ennemis\u object\mother;, des robots, des bâtiments ou de la matière première, qui sont devant le robot. C'est une version plus simple de \c;\l;radar\u cbot\radar;();\n;.
+
+\b;Pour spécialistes
+Syntaxe:
+\s;\c;detect ( cat );\n;
+
+Détecte l'objet le plus proche de la  \l;catégorie spécifiée\u cbot\category; étant devant le robot. Elle est similaire à l'instruction suivante :
+\s;\c;\l;radar\u cbot\radar;(cat, 0, 45, 0, 20);\n;
+
+\t;cat: \c;\l;int\u cbot\int;\n;
+o \l;Catégorie\u cbot\category; de l'objet qui doit être détecté. Par exemple, si vous cherchez une fourmi, écrivez \c;radar(AlienAnt)\n;.  
+
+o \l;Tableau\u cbot\array; de catégories des objets à détecter. Par exemple, lorsque vous cherchez uniquement des préhenseurs :\c;
+
+\s;int bots[4];
+\s;bots[0] = WheeledGrabber;
+\s;bots[1] = TrackedGrabber;
+\s;bots[2] = WingedGrabber;
+\s;bots[3] = LeggedGrabber;
+\s;object nearestGrabber = \l;radar\u cbot\radar;(bots);
+\n;
+o Mot clef \const;Any\norm; si vous cherchez tous type d'objets (incluant les plantes etc.).
+
+\t;Type du retour: \c;\l;booléen (bool)\u cbot\bool;\n;
+\const;true\norm; si l'objet a été trouvé
+\const;false\norm; sinon
+
+\t;Voir aussi
+\l;Programmation\u cbot;, \l;types\u cbot\type; et \l;catégories\u cbot\category;.

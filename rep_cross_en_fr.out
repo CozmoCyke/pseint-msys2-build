@@ -1,0 +1,24 @@
+Leyendo archivo y comprobando sintaxis...
+=== Line 1: SynError 43
+=== Line 1: SynError 106
+=== Line 2: SynError 68
+=== Line 2: SynError 68
+=== Line 2: SynError 43
+=== Line 2: SynError 106
+=== Line 3: SynError 43
+=== Line 4: SynError 68
+=== Line 4: SynError 68
+=== Line 4: SynError 68
+=== Line 4: SynError 68
+=== Line 4: SynError 43
+=== Line 4: SynError 106
+=== Line 5: SynError 43
+=== Line 5: SynError 106
+=== Line 6: SynError 43
+=== Line 7: SynError 43
+=== Line 7: SynError 106
+=== Line 8: SynError 43
+=== Line 8: SynError 106
+=== Line 1: SynError 273
+
+*** Se encontraron 21 errores. ***

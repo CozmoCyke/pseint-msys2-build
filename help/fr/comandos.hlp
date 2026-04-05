@@ -1,0 +1,8 @@
+ESCRIBIR
+  <UL>
+  <LI>{liste_d_expressions}: complétez ici la liste des expressions que vous voulez afficher en les séparant par des virgules(,).</LI>
+  </UL>
+LEER
+  <UL>
+  <LI>{liste_de_variables}: complétez ici la variable à lire, ou la liste des variables séparées par des virgules(,).</LI>
+  </UL>

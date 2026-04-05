@@ -1,0 +1,11 @@
+\b;Instruction \c;openfile\n;
+\c;openfile();\n; ouvre un fichier texte dans le dossier 'files/'. Il ne s'agit pas d'une méthode de la classe \c;\l;file\u cbot\file;\n; mais openfile retourne une \l;référence\u cbot\pointer; sur une nouvelle instance de la classe file. Il faut préciser deux paramètres: le nom du fichier et le mode d'ouverture.
+\c;
+\s;file handle = openfile("filename", "r");
+\n;
+\c;"r"\n; mode lecture : fichier ouvert pour lecture. 
+\c;"w"\n; mode écriture: fichier ouvert à l'écriture.\c;"a"\n; mode mise à jour: fichier ouvert pour ajout/modification.
+
+
+\t;Voir aussi
+\l;Programmation\u cbot;, \l;types\u cbot\type; et \l;catégories\u cbot\category;.

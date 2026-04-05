@@ -1,0 +1,6 @@
+Proceso PruebaAsignacion
+    Definir a Como Entero
+    Definir b Como Real
+    a <- 3
+    b <- a + 2.5
+FinProceso

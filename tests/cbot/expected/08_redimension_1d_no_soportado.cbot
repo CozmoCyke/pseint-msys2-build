@@ -1,0 +1,15 @@
+// Approximate expected output for CBOTExporter V3
+
+// ADVERTENCIA: Dimension se refleja sobre todo en la declaracion del arreglo; la materializacion runtime exacta no se fuerza en V3.
+// ADVERTENCIA: Redimensionar 1D no se traduce como operacion runtime; la declaracion final solo refleja el ultimo tamano observado.
+
+extern void object::pruebaredimension1d() {
+	int v[5];
+	// Dimension(v): se exporta principalmente en la declaracion del arreglo.
+	// ADVERTENCIA: CBOT materializa el arreglo al primer acceso o asignacion; V3 no fuerza esa inicializacion.
+	v[0] = 7;
+	// Redimensionar(v): la declaracion final reflejara el ultimo tamano observado.
+	// ADVERTENCIA: no se genera una operacion runtime real de redimensionamiento en CBOT.
+	v[3] = 9;
+	message("" + (v[3]));
+}

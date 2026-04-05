@@ -1,0 +1,22 @@
+<HTML>
+	<HEAD>
+		<TITLE>PSeudo Int?rprete</TITLE>
+	</HEAD>
+	<BODY>
+<B>Condicional Si-Entonces</B>
+<BR><BR>
+<CENTER><img src="ps_si.png"></TD></CENTER><BR>
+&nbsp;&nbsp;&nbsp;La secuencia de instrucciones ejecutadas por la instrucci?n Si-Entonces-SiNo depende del valor de una condici?n l?gica.<BR><BR>
+<code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Si &lt;condici?n&gt; Entonces<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;instrucciones&gt;  <BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SiNo <BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;instrucciones&gt;<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FinSi
+</code><BR><BR>
+&nbsp;&nbsp;&nbsp;Al ejecutarse esta instrucci?n, se eval?a la condici?n y se ejecutan las instrucciones que correspondan: las instrucciones que le siguen al <i>Entonces</i> si la condici?n es verdadera, o las instrucciones que le siguen al <i>SiNo</i> si la condici?n es falsa.  La condici?n debe ser una  expresi?n l?gica, que al ser evaluada retorna <i>Verdadero</i> o <i>Falso</i>. <BR>
+&nbsp;&nbsp;&nbsp;La cl?usula <i>Entonces</i> debe aparecer siempre, pero la clausula <i>SiNo</i> puede no estar. En ese caso, si la condici?n es falsa no se ejecuta ninguna instrucci?n y la ejecuci?n del programa contin?a con la instrucci?n siguiente.<BR>
+<BR>
+&nbsp;&nbsp;&nbsp;El ejemplo <A href="example:Triangulo.psc">Tri?ngulo</A> lee las medidas de los tres lados de un tri?ngulo y utiliza esta estructura para determinar cual es el mayor de los tres, y verificar luego si se trata de un tri?ngulo rect?ngulo o no.<BR>
+<BR>
+</BODY></HTML>

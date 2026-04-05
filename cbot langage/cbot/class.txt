@@ -1,0 +1,121 @@
+\b;Instruction \c;class\n; (pour spécialistes)
+Ce mot-clé vous permet de créer une définition de classe en utilisant la syntaxe suivante :
+\c;
+\s;public class NomDeLaClasse 
+\s;{
+\s;	déclarations;
+\s;}
+\n;
+\t;Toutes les classes sont publiques
+Les classes ne peuvent être que \l;publiques\u cbot\public;. Cela signifie qu'elles peuvent être utilisées par tous les robots dans une mission.
+
+\b;Membre des classes
+Les membres de la classe sont des champs (\l;variables\u cbot\var;) et des méthodes (\l;fonctions\u cbot\function;).
+
+Par exemple, la classe suivante intitulée \c;MyClass\n; contient 4 champs (\c;a\n;, \c;b\n;, \c;x\n; et \c;s\n;) et une méthode (\c;MyFunction\n;).
+\c;
+\s;public class MyClass
+\s;{
+\s;	int     a, b;
+\s;	float   x = 3.33;
+\s;	string  s = "hello";
+\s;	float   MyFunction(float value)
+\s;	{
+\s;		return (value * x) - 1;
+\s;	}
+\s;}
+\n;
+\b;Accès aux membres d'une classe
+Il est possible d'accéder aux membres de la classe en dehors de leur définition en utilisant l'opérateur \c;.\n;. Exemple :
+\c;
+\s;public class MyClass
+\s;{
+\s;	int myField = 0;
+\s;	int MyFunction()	{
+\s;		return myField * 2;
+\s;	}
+\s;}
+\s;
+\s;extern void object::Test()
+\s;{
+\s;	MyClass myObject();
+\s;	myObject.myField = 10;
+\s;	message(myObject.MyFunction()); // 20
+\s;	MyClass mySecondObject();
+\s;	mySecondObject.myField = myObject.myField - 2;
+\s;	message(mySecondObject.MyFunction()); // 16
+\s;}
+\n;
+Dans CBOT, les membres du classe sont \l;publics (public)\u cbot\public; par défaut, ce qui signifie qu'ils sont accessibles depuis l'exérieur de la classe. Ils peuvent également -et c'est conseillé- être déclarés comme \c;\l;privés (private)\u cbot\private;\n; ou \c;\l;protégé (protected)\u cbot\protected;\n;. Ces membres ne sont alors accessibles qu'à l'intérieur de la définition de classe.
+
+\t;Modification des membres de classe
+Les champs et méthodes peuvent également être déclarés comme \c;\l;statique (static)\u cbot\static;\n;. Les méthodes peuvent être déclarées en plus comme \c;\l;synchronisées (synchronized)\u cbot\synchro;\n;.
+
+\t;Initialisation de variable membre
+Comme montré dans l'exemple précédent, les membres de la classe peuvent être initialisés dans la définition de classe (\c;int x = 3.33;\n;).
+
+Une autre façon d'initialiser les champs est de définir un constructeur qui est une méthode spéciale ayant le même nom que la classe. Cette méthode sera appelée automatiquement à chaque \l;création\u cbot\new; d'une instance de la classe. Les constructeurs peuvent être \l;surchargés\u cbot\function;.
+
+Exemple:\c;
+\s;public class MyClass
+\s;{
+\s;	int  a, b;
+\s;	void MyClass()
+\s;	{
+\s;		a = 2;  b = 3;
+\s;	}
+\s;	void MyClass(int a, int b)
+\s;	{
+\s;		this.a = a;  this.b = b;
+\s;	}
+\s;}
+\n;
+
+\t;En utilisant\c;\l;this\u cbot\this;\n;
+Comme les noms des paramètres du second constructeur sont les mêmes que les noms des deux membres \c;a\n; et \c;b\n;, nous devons utiliser la \l;référence\u cbot\pointer; \c;\l;this\u cbot\this;\n; pour éviter la confusion avec les noms des paramètres.
+
+\b;Création d'objet
+Vous pouvez créer des objets de type \c;VotreClasse\n;en utilisant le mot-clé \c;\l;new\u cbot\new;\n;. Exemple :
+\c;
+\s;extern void object::Test()
+\s;{
+\s;	MyClass object1();       // Appelle le constructeur par défaut (sans paramètre)
+\s;	MyClass object2(4, 5);   // Appelle le constructeur avec deux paramètres entiers
+\s;	MyClass object3;         // Pas de constructeur appelé, l'object object3 vaut "null"
+\s;	object3 = new MyClass(); // Maintenant, initialise object3 avec le constructeur par défaut, ses membres existent et sont initialisés
+\s;}
+\n;
+
+\b;Destruction d'objet
+Vous pouvez également définir un destructeur. Il doit s'agir d'une fonction \c;\l;void\u cbot\void;\n; sans paramètres, qui porte le même nom que la classe mais préfixé par le caractère \c;~\n;. Le destructeur est appelé automatiquement dès que l'instance de classe n'est plus référencée, cad n'est plus sensée exister. Exemple :
+\c;
+\s;public class MyClass
+\s;{
+\s;	static private int counter = 0; // compteur d'instances
+\s;	void  MyClass( )
+\s;	{
+\s;		counter++;  // une nouvelle instance
+\s;	}
+\s;	void ~MyClass( )
+\s;	{
+\s;		counter--;  // une instance en moins
+\s;	}
+\s;}
+\s;extern void object::Test()
+\s;{
+\s;	                   // counter == 0
+\s;	MyClass item1( );  // counter == 1
+\s;	MyClass item2( );  // counter == 2
+\s;	item1 = null;      // counter == 1
+\s;}
+\s;// counter == 0
+\n;
+\b;Passage d'objet aux fonctions
+Les objets dans CBOT sont passés par \l;référence (:la zone où il est stocké en mémoire)\u cbot\pointer;. Cela signifie que lorsqu'un objet est passé à une fonction \l;fonction\u cbot\function;, la fonction reçoit une copie d'un pointeur vers l'instance, pas une copie de l'objet, donc toute modification sur l'objet aura un impact en dehors de la fonction, c'est l'objet réellement qui est modifié.
+
+\b;Héritage
+Une classe peut hériter des membres publiques et protégés d'une autre classe en utilisant le mot-clé \c;\l;extends\u cbot\extends;\n;.
+
+\t;Voir aussi
+\c;\l;public\u cbot\public;\n;, \c;\l;private\u cbot\private;\n;, \c;\l;protected\u cbot\protected;\n;, \c;\l;static\u cbot\static;\n;, \c;\l;synchronized\u cbot\synchro;\n;, \c;\l;new\u cbot\new;\n;, \c;\l;reference\u cbot\pointer;\n;, \c;\l;this\u cbot\this;\n;, \c;\l;super\u cbot\super;\n;, \c;\l;extends\u cbot\extends;\n;
+\l;Programmation\u cbot;, \l;types\u cbot\type; et \l;catégories\u cbot\category;.

@@ -1,0 +1,9 @@
+Proceso PruebaSubindiceExpresion
+    Definir i, j Como Entero
+    Definir m Como Entero
+    Dimension m[3,3]
+    i <- 1
+    j <- 2
+    m[i+1,j-1] <- 8
+    Escribir m[i+1,j-1]
+FinProceso

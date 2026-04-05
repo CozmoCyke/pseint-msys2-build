@@ -1,0 +1,8 @@
+Proceso PruebaParaCada2D
+    Definir item Como Entero
+    Definir m Como Entero
+    Dimension m[2,2]
+    Para Cada item En m Hacer
+        Escribir item
+    FinPara
+FinProceso

@@ -1,0 +1,27 @@
+<HTML>
+	<HEAD>
+		<TITLE>PSeudo Int?rprete</TITLE>
+	</HEAD>
+	<BODY>
+		<B>Funciones/Subprocesos en PSeInt</B>
+		<BR><BR>
+		&nbsp;&nbsp;&nbsp;Si el perfil de lenguaje seleccionado lo permite (ver <A href="perfiles.html">Opciones del Pseudoc?digo</A>), se pueden declarar nuevas funciones o subprocesos en un algoritmo en Pseudoc?digo. La sintaxis para ello es la siguiente:<BR><BR>
+		<CODE>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Funcion variable_de_retorno &lt;- nombre_de_la_funcion ( argumento_1, argumento_2, ... )<BR>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;acci?n 1;<BR>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;acci?n 1;<BR>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.<BR>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.<BR>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.<BR>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;acci?n n;<BR>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FinFuncion</CODE><BR><BR>
+		&nbsp;&nbsp;&nbsp;Comienza con la palabra clave <i>Funcion</I> (alternativamente puede utilizar<i>SubProceso</i> o <I>SubAlgoritmo</I>, son sin?nimos) seguida de la variable de retorno, el signo de asignaci?n, el nombre del subproceso, y finalmente, la lista de argumentos entre par?ntesis. Existen variantes para esta estructura. Si la funci?n no retorna ning?n valor, pueden omitirse la variable de retorno y el signo de asignaci?n. Es decir, se puede colocar directamente el nombre y los argumentos a continuaci?n de la palabra clave <I>Funcion</I>. Si el subproceso no recibe ning?n valor pueden colocarse los par?ntesis vac?os u omitirse, finalizando la primer l?nea con el nombre del subproceso. Las reglas para los nombres de subprocesos, variables de retorno y argumentos son las mismas que para cualquier <A href="variables">identificador</A> en pseudoc?digo.<BR>
+		<BR>
+		&nbsp;&nbsp;&nbsp;Adem?s, opcionalmente pueden agregarse las palabras claves <I>Por Valor</I> o <I>Por Referencia</I> para indicar el tipo de pasaje en cada argumento. Si no se indica, los arreglos se pasan por referencia, las dem?s expresiones por valor. El pasaje por referencia implica que si la funci?n modifica el argumento, se modificar? en realidad la variable que se utiliz? en la llamada, mientras que el pasaje por valor implica que la funci?n opera con una copia de la variable (o el resultado de la expresi?n) que se utiliz? en la llamada, por lo que las modificaciones que aplique la funci?n no se ver?n reflejadas fuera de la misma.<BR>
+		<BR>
+		&nbsp;&nbsp;&nbsp;Para invocar a la funci?n se debe utilizar su nombre y entre par?ntesis los par?metros, que podr?n ser expresiones s?lo si el tipo de pasaje es por referencia. Una llamada puede ser en s? una instrucci?n, pero si la funci?n retorna alg?n valor, tambi?n puede utilizarse como operando dentro de una expresi?n.<BR>
+		<BR>
+		&nbsp;&nbsp;&nbsp;El ejemplo <A href="example:Subprocesos.psc">Subprocesos</A>, muestra un programa que declara dos funciones, una que retorna un valor y se que es luego utilizado dentro de una expresi?n para mostrar en pantalla, y otra que no recibe argumentos; el ejemplo <A href="example:Potencia.psc">Potencia</A>, muestra una funci?n recursiva; y el ejemplo <A href="example:Promedio2.psc">Promedio</A> muestra una funci?n que recibe un arreglo como argumento. <BR>
+		<BR><BR>
+	</BODY>
+</HTML>

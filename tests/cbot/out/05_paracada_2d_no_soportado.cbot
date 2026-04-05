@@ -1,0 +1,19 @@
+// Este codigo ha sido generado por el modulo psexport 20230904-w32 de PSeInt.
+// Es posible que el codigo generado no sea completamente correcto. Si encuentra
+// errores por favor reportelos en el foro (http://pseint.sourceforge.net).
+
+// Exportador CBOT V3: soporte prudente para arreglos, con limites explicitados en comentarios.
+// ADVERTENCIA: ParaCada tiene soporte parcial y algunos casos quedan sin traducir.
+// ADVERTENCIA: ParaCada solo se reescribe automaticamente para arreglos CBOT de una dimension.
+// ADVERTENCIA: Dimension se refleja sobre todo en la declaracion del arreglo; la materializacion runtime exacta no se fuerza en V3.
+// ADVERTENCIA: los arreglos multidimensionales se declaran, pero su materializacion exacta en runtime queda diferida.
+
+extern void object::pruebaparacada2d() {
+	int item;
+	int m[2][2];
+	// Dimension(m): las dimensiones quedan reflejadas en la declaracion.
+	// ADVERTENCIA: la materializacion exacta de arreglos multidimensionales no esta garantizada en V3.
+	// ADVERTENCIA: ParaCada solo se soporta en V2 para arreglos de una dimension.
+	// ADVERTENCIA: caso omitido para m.
+}
+

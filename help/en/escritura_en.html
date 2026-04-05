@@ -1,0 +1,23 @@
+<HTML>
+	<HEAD>
+		<TITLE>PSeudo Intérprete</TITLE>
+	</HEAD>
+	<BODY>
+<B>Output</B>
+<BR><BR>
+<CENTER><img src="ps_escribir.png"></TD></CENTER><BR>
+&nbsp;&nbsp;&nbsp;The Write instruction lets you display values to the environment.<BR><BR>
+<code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Escribir &lt;expr1&gt; , &lt;expr2&gt; , ... , &lt;exprN&gt;&nbsp;;
+</code><BR><BR>
+&nbsp;&nbsp;&nbsp;This instruction outputs the values obtained by evaluating N expressions. Since it may include one or more expressions, it displays one or more values. If more than one expression is used, they are written one after another with no separator, so the algorithm must include the required spaces explicitly if it needs to distinguish the results.<BR>
+<BR>
+&nbsp;&nbsp;&nbsp;If the keywords "SIN SALTAR" or "SIN BAJAR" appear anywhere in the line, the values are shown on the screen but the cursor does not advance to the next line, so the next input or output action continues on the same line. Otherwise, a line break is added after the displayed expressions.<BR>
+<BR>
+<code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Escribir Sin Saltar &lt;expr1&gt;  , ... , &lt;exprN&gt;;<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Escribir &lt;expr1&gt; ,  ... , &lt;exprN&gt; Sin Saltar;
+</code><BR><BR>
+&nbsp;&nbsp;&nbsp;If the selected language profile allows flexible syntax, you can use Imprimir and Mostrar instead of Escribir. In that case, the expressions may also be separated with spaces instead of commas. This is configured in the <A href="perfiles_en.html">PSeudoCode Options</A> dialog.<BR>
+<BR>
+&nbsp;&nbsp;&nbsp;The <A href="example:Suma.psc">Sum</A> example shows a very simple program that reads two numbers, using the Write instruction to show the prompts for the user and the resulting sum.<BR>
+<BR>
+</BODY></HTML>

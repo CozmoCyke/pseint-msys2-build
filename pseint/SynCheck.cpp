@@ -12,6 +12,7 @@
 #include "debug.h"
 #include "ErrorHandler.hpp"
 #include "strFuncs.hpp"
+#include "LocalizationManager.h"
 
 // ULTIMO NRO DE ERROR UTILIZADO: 329
 
@@ -286,7 +287,7 @@ void Operadores(RunTime &rt, const int &x, std::string &cadena, InstructionType 
 	for (int i=0;i<(csize=(int)cadena.size());i++) {
 		char act=cadena[i]; 
 		if (act=='\'') {
-			if (!comillas && w==w_operand) err_handler.SyntaxError(304,"Falta operador (antes de la cadena de caracteres).");
+			if (!comillas && w==w_operand) err_handler.SyntaxError(304,LocalizationManager::Instance().Translate("Falta operador (antes de la cadena de caracteres)."));
 			else if (comillas) { w=w_operand; wext=w_string; }
 			comillas=!comillas;
 		} else if (!comillas) {
@@ -298,14 +299,14 @@ void Operadores(RunTime &rt, const int &x, std::string &cadena, InstructionType 
 						int j=i+2; while (EsLetra(cadena[j],true)) j++;
 						const std::string word=cadena.substr(i+1,j-i-1);
 						if (PalabraReservada(word) && word!=VERDADERO && word!=FALSO) 
-							err_handler.SyntaxError(237,MkErrorMsg("Falta operando (antes de $).",cadena.substr(i+1,j-i-1))); // hola+ ;
+							err_handler.SyntaxError(237,MkErrorMsg(LocalizationManager::Instance().Translate("Falta operando (antes de $)."),cadena.substr(i+1,j-i-1))); // hola+ ;
 						else { cadena.erase(i,1); i--; }
 					} else if ((next>='0'&&next<='9') || next=='.' || next=='\'' || next=='(' || next==':' || next==';') {
 						cadena.erase(i,1); i--;
 					} else {
 						what_extra type; int len; int ret=is_valid_operator(cadena[i+1],i+2<csize?cadena[i+2]:' ',len,type);
 						if (ret!=w_unary_op&&ret!=w_ambiguos_op) 
-							err_handler.SyntaxError(224,MkErrorMsg("Falta operando (despues de $).",std::string(1,cadena[i-1])));
+							err_handler.SyntaxError(224,MkErrorMsg(LocalizationManager::Instance().Translate("Falta operando (despues de $)."),std::string(1,cadena[i-1])));
 						else { cadena.erase(i,1); i--; }
 					}
 				} else if (w==w_operand) {
@@ -317,7 +318,7 @@ void Operadores(RunTime &rt, const int &x, std::string &cadena, InstructionType 
 							w=w_null;
 //							cadena.erase(i,1); i--;
 						} else {
-							err_handler.SyntaxError(225,"Falta operador o coma entre operandos.");
+							err_handler.SyntaxError(225,LocalizationManager::Instance().Translate("Falta operador o coma entre operandos."));
 						}
 					} else {
 						cadena.erase(i,1); i--;
@@ -328,7 +329,7 @@ void Operadores(RunTime &rt, const int &x, std::string &cadena, InstructionType 
 			} else if (act==';' || act==':') {
 				if (act==':' && instruction_type!=IT_OPCION) err_handler.SyntaxError(226,"Operador no válido (:).");
 				else if (w==w_operator) 
-					err_handler.SyntaxError(227,MkErrorMsg("Falta operando (antes de $).",std::string(1,act)));
+					err_handler.SyntaxError(227,MkErrorMsg(LocalizationManager::Instance().Translate("Falta operando (antes de $)."),std::string(1,act)));
 				w=w_null; wext=w_other;
 				if (act==';') {
 					// todo: ver si realmente puede llegar esto hasta aca, o se corta en otro lado
@@ -336,37 +337,37 @@ void Operadores(RunTime &rt, const int &x, std::string &cadena, InstructionType 
 					_expects(i+2==csize);
 				}
 			} else if (act==',') {
-				if (w==w_operator) err_handler.SyntaxError(228,"Falta operador.");
+				if (w==w_operator) err_handler.SyntaxError(228,LocalizationManager::Instance().Translate("Falta operador."));
 				else if (w==w_null && wext==w_comma) err_handler.SyntaxError(3,"Parámetro nulo."); // 35+;
 				w=w_null; wext=w_comma;
 			
 			} else if (act=='(') {
-				if (w==w_operand && wext!=w_id) err_handler.SyntaxError(229,"Falta operador."); // 123(21
+				if (w==w_operand && wext!=w_id) err_handler.SyntaxError(229,LocalizationManager::Instance().Translate("Falta operador.")); // 123(21
 				w=w_null; wext=w_other; parentesis++;
 			
 			} else if (act==')') {
-				if (w==w_operator) err_handler.SyntaxError(230,"Falta operando (antes de ')').");
+				if (w==w_operator) err_handler.SyntaxError(230,LocalizationManager::Instance().Translate("Falta operando (antes de ')')."));
 				w=w_operand; wext=w_expr; parentesis--;
 			
 			} else if (act>='0'&&act<='9') {
 				if (w!=w_operand) { w=w_operand; wext=w_number_int; }
-				else if (wext==w_string) err_handler.SyntaxError(305,"Falta operador (despues de la cadena de caracteres).");
-				else if (wext==w_expr) err_handler.SyntaxError(239,"Falta operador (despues de ')').");
+				else if (wext==w_string) err_handler.SyntaxError(305,LocalizationManager::Instance().Translate("Falta operador (despues de la cadena de caracteres)."));
+				else if (wext==w_expr) err_handler.SyntaxError(239,LocalizationManager::Instance().Translate("Falta operador (despues de ')')."));
 			
 			} else if (act=='.') {
 				if (w!=w_operand) { w=w_operand; wext=w_number_dec; }
 				else if (wext!=w_number_int) {
-					if (!ignore_logic_errors) err_handler.SyntaxError(231,"Constante numérica no válida.");
+					if (!ignore_logic_errors) err_handler.SyntaxError(231,LocalizationManager::Instance().Translate("Constante numérica no válida."));
 				} else wext=w_number_dec;
 			
 			} else if (EsLetra(act)) {
 				if (w==w_operand && wext!=w_id) {
 					if (wext==w_string)
-						err_handler.SyntaxError(233,"Falta operando (después de cadena de texto).");
+						err_handler.SyntaxError(233,LocalizationManager::Instance().Translate("Falta operando (después de cadena de texto)."));
 					else if (wext==w_expr)
-						err_handler.SyntaxError(307,"Falta operando (posiblemente después de ')').");
+						err_handler.SyntaxError(307,LocalizationManager::Instance().Translate("Falta operando (posiblemente después de ')')."));
 					else
-						if (!ignore_logic_errors) err_handler.SyntaxError(238,"Constante numérica no válida.");
+						if (!ignore_logic_errors) err_handler.SyntaxError(238,LocalizationManager::Instance().Translate("Constante numérica no válida."));
 				}
 				w=w_operand; wext=w_id;
 			
@@ -376,25 +377,25 @@ void Operadores(RunTime &rt, const int &x, std::string &cadena, InstructionType 
 				int ret=is_valid_operator(act,next,len,op_type);
 				if (ret!=w_no_op) {
 					if (ret==w_binary_op) {
-						if (w!=w_operand) err_handler.SyntaxError(234,MkErrorMsg("Falta operando (antes de $).",cadena.substr(i,len)));
+						if (w!=w_operand) err_handler.SyntaxError(234,MkErrorMsg(LocalizationManager::Instance().Translate("Falta operando (antes de $)."),cadena.substr(i,len)));
 						i+=len-1;
 					} else {
-						if (w==w_operator && wext==w_aritmetic_op) err_handler.SyntaxError(235,MkErrorMsg("Falta operando (antes de $).",cadena.substr(i,len)));
+						if (w==w_operator && wext==w_aritmetic_op) err_handler.SyntaxError(235,MkErrorMsg(LocalizationManager::Instance().Translate("Falta operando (antes de $)."),cadena.substr(i,len)));
 					}
 					w=w_operator; wext=op_type;
 				} else {
 					if (i==0 or (act!=cadena[i-1])) // si encuentra algo como "???" que marque un solo ?
-						err_handler.SyntaxError(68,MkErrorMsg("Caracter no válido ($).",std::string(1,act)));
+						err_handler.SyntaxError(68,MkErrorMsg(LocalizationManager::Instance().Translate("Caracter no valido ($)."),std::string(1,act)));
 					w = w_operand; // fuerzo a operando para que preserve espacios despues de esto (casos como "mientras ??? hacer", que no pegue ??? con hacer porque eso generar un error adicional "falta hacer").
 				}
 			}
 		}
 	}
-	if (w==w_operator) err_handler.SyntaxError(236,"Falta operando al final de la expresión");
+	if (w==w_operator) err_handler.SyntaxError(236,LocalizationManager::Instance().Translate("Falta operando al final de la expresion"));
 	// Posibles errores encontrados
 	if (parentesis<0) err_handler.SyntaxError(35,"Se cerraron parentesis o corchetes demás.");
-	if (parentesis>0) err_handler.SyntaxError(36,"Falta cerrar parentesis o corchete.");
-	if (comillas) err_handler.SyntaxError(37,"Falta cerrar comillas.");
+	if (parentesis>0) err_handler.SyntaxError(36,LocalizationManager::Instance().Translate("Falta cerrar parentesis o corchete."));
+	if (comillas) err_handler.SyntaxError(37,LocalizationManager::Instance().Translate("Falta cerrar comillas."));
 }
 
 static void FixAcentos(std::string &s) {
@@ -416,16 +417,16 @@ void InformUnclosedLoops(RunTime &rt, std::vector<int> &bucles) {
 	while (!bucles.empty())	{
 		InstructionType type = programa[bucles.back()].type;
 		CodeLocation loc = programa[bucles.back()].loc;
-		if      (type==IT_PARA || type==IT_PARACADA) err_handler.SyntaxError(114,"Falta cerrar PARA.",loc);
-		else if (type==IT_REPETIR) err_handler.SyntaxError(115,"Falta cerrar REPETIR.",loc);
-		else if (type==IT_MIENTRAS) err_handler.SyntaxError(116,"Falta cerrar MIENTRAS.",loc);
-		else if (type==IT_SI || type==IT_SINO) err_handler.SyntaxError(117,"Falta cerrar SI.",loc);
-		else if (type==IT_SEGUN) err_handler.SyntaxError(118,"Falta cerrar SEGUN.",loc);
+		if      (type==IT_PARA || type==IT_PARACADA) err_handler.SyntaxError(114,LocalizationManager::Instance().Translate("Falta cerrar PARA."),loc);
+		else if (type==IT_REPETIR) err_handler.SyntaxError(115,LocalizationManager::Instance().Translate("Falta cerrar REPETIR."),loc);
+		else if (type==IT_MIENTRAS) err_handler.SyntaxError(116,LocalizationManager::Instance().Translate("Falta cerrar MIENTRAS."),loc);
+		else if (type==IT_SI || type==IT_SINO) err_handler.SyntaxError(117,LocalizationManager::Instance().Translate("Falta cerrar SI."),loc);
+		else if (type==IT_SEGUN) err_handler.SyntaxError(118,LocalizationManager::Instance().Translate("Falta cerrar SEGUN."),loc);
 		else if (type==IT_PROCESO) {
 			if (getImpl<IT_PROCESO>(programa[bucles.back()]).principal)
-				err_handler.SyntaxError(119,"Falta cerrar ALGORITMO/PROCESO.",loc);
+				err_handler.SyntaxError(119,LocalizationManager::Instance().Translate("Falta cerrar ALGORITMO/PROCESO."),loc);
 			else
-				err_handler.SyntaxError(119,"Falta cerrar FUNCION/SUBPROCESO.",loc);
+				err_handler.SyntaxError(119,LocalizationManager::Instance().Translate("Falta cerrar FUNCION/SUBPROCESO."),loc);
 		}
 		bucles.pop_back();
 	}
@@ -760,7 +761,7 @@ void Instrucciones(RunTime &rt) {
 				memoria = (current_func->memoria = std::make_unique<Memoria>(current_func)).get();
 			}
 			if (!in_process && inst.type!=IT_NULL&&cadena!="") {
-				err_handler.SyntaxError(43,MkErrorMsg("Instrucción fuera de $.",
+				err_handler.SyntaxError(43,MkErrorMsg(LocalizationManager::Instance().Translate("Instruccion fuera de $."),
 													  kw2str(KW_ALGORITMO) +
 													  (lang[LS_ENABLE_USER_FUNCTIONS] ? "/"+kw2str(KW_SUBALGORITMO) : "") ));
 			}
@@ -1289,9 +1290,9 @@ void Instrucciones(RunTime &rt) {
 			}
 			if (inst.type==IT_ERROR && cadena!="" && cadena!=";") {
 				if (LeftCompare(cadena,"FIN "))
-					err_handler.SyntaxError(99,"Instrucción no válida.");
+					err_handler.SyntaxError(99,LocalizationManager::Instance().Translate("Instruccion no valida."));
 				else
-					err_handler.SyntaxError(106,"Instrucción no válida.");
+					err_handler.SyntaxError(106,LocalizationManager::Instance().Translate("Instruccion no valida."));
 			}
 			// llama directa a un subproceso
 			if (inst.type==IT_INVOCAR) {
@@ -1459,7 +1460,7 @@ bool SynCheck(RunTime &rt) {
 	}
 	Instrucciones(rt);
 	
-	if (not rt.funcs.HaveMain()) { Inter.SetLocation({1,1}); err_handler.SyntaxError(273,MkErrorMsg("Debe haber un $.",kw2str(KW_ALGORITMO))); }
+	if (not rt.funcs.HaveMain()) { Inter.SetLocation({1,1}); err_handler.SyntaxError(273,MkErrorMsg(LocalizationManager::Instance().Translate("Debe haber un $."),kw2str(KW_ALGORITMO))); }
 	else Inter.SetLocation({rt.funcs.GetMainFunc()->line_start,1});
 	
 	return err_handler.IsOk();

@@ -1,0 +1,30 @@
+\b;Valeur \c;Noms des recherches possibles\n;
+Les Noms des recherches possibles représentent les types de recherches disponibles dans le langage CBOT. Vous pouvez les utiliser pour contrôler \l;le centre de recherche\u object\research; en les passant aux instructions appropriées (par exemple \l;research\u cbot\research;, \l;canresearch\u cbot\canresearch;, \l;researched\u cbot\researched;).
+
+Dans un programme, les noms de recherche sont toujours affichés sur un fond \const;fond rouge\norm;. Si un nom de recherche n'est pas surligné en rouge, le robot ne la reconnaîtra pas : il est mal orthographié. Les majuscules et les minuscules doivent être conservées telles quelles.
+
+Vous trouverez ci-dessous les différents noms de recherche disponibles.
+
+\t;Effectuée par le \l;centre de recherche\u object\research;:
+\c;\const;ResearchTracked\norm;       \n;Tracked bots (e.g. \l;tracked grabber\u object\botgc;)
+\c;\const;ResearchWinged\norm;        \n;Winged bots (e.g. \l;winged grabber\u object\botgj;)
+\c;\const;ResearchShooter\norm;       \n;\l;Fireball cannon\u object\botfr;
+\c;\const;ResearchDefenseTower\norm;  \n;\l;Defense tower\u object\tower;
+\c;\const;ResearchNuclearPlant\norm;  \n;\l;Nuclear plant\u object\nuclear;
+\c;\const;ResearchThumper\norm;       \n;\l;Thumper\u object\bottump;
+\c;\const;ResearchShielder\norm;      \n;\l;Shielder\u object\botshld;
+\c;\const;ResearchPhazerShooter\norm; \n;\l;Phazer cannon\u object\botphaz;
+\c;\const;ResearchBuilder\norm;       \n;\l;Neutron gun\u object\botbr;
+
+\t;Effectuée par le \l;laboratoire d'analyse de matières organiques\u object\labo;:
+\c;\const;ResearchTarget\norm;        \n;\l;Target bot\u object\bottarg;
+\c;\const;ResearchLegged\norm;        \n;Legged bots (e.g. \l;legged grabber\u object\botgs;)
+\c;\const;ResearchOrgaShooter\norm;   \n;\l;Orgaball cannon\u object\botor;
+
+\t;Impossible d'effectuer la recherche :
+\c;\const;ResearchSniffer\norm;       \n;\l;Sniffer\u object\botsr;
+\c;\const;ResearchSubber\norm;        \n;\l;Subber\u object\botsub;
+\c;\const;ResearchRecycler\norm;      \n;\l;Recycler\u object\botrecy;
+
+\t;Voir aussi
+\l;CBOT Language\u cbot;, \l;Variables\u cbot\type; and \l;Categories\u cbot\category;.

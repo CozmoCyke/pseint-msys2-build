@@ -1,0 +1,16 @@
+// Approximate expected output for CBOTExporter V3
+
+// ADVERTENCIA: Dimension se refleja sobre todo en la declaracion del arreglo; la materializacion runtime exacta no se fuerza en V3.
+// ADVERTENCIA: los arreglos multidimensionales se declaran, pero su materializacion exacta en runtime queda diferida.
+
+extern void object::pruebasubindiceexpresion() {
+	int i;
+	int j;
+	int m[3][3];
+	// Dimension(m): las dimensiones quedan reflejadas en la declaracion.
+	// ADVERTENCIA: la materializacion exacta de arreglos multidimensionales no esta garantizada en V3.
+	i = 1;
+	j = 2;
+	m[i][j-2] = 8;
+	message("" + (m[i][j-2]));
+}

@@ -1,0 +1,47 @@
+<HTML>
+<HEAD>
+	<TITLE>PSeudo Intérprete</TITLE>
+</HEAD>
+<BODY>
+	<img src="../imgs/tools/32/flujo.png">&nbsp;&nbsp;<B>Flowchart Editing</B>
+	<BR>
+	<BR>
+	<A href="flow-quick_en.html">Quick help...</a></BR>
+	<BR>
+	<BR>
+	&nbsp;&nbsp;&nbsp; PSeInt allows you to edit an algorithm by modifying either its pseudocode or its flowchart. To use the second method, open the pseudocode of the algorithm you want to edit and click the item "Edit flowchart..." in the "File" menu, or the corresponding toolbar button. This opens a new window where you can view and edit the diagram.<BR>
+	<BR>
+	The toolbar in the flowchart editor window allows you to:<UL>
+		<LI><img src="../imgs/flow/32/tb_sub.png"> (F3): show the list of subprocesses of the current algorithm, choose which one to display and edit in the diagram, or add/delete subprocesses.<BR></LI>
+		<LI><img src="../imgs/flow/32/tb_run.png"> (F9): regenerate the pseudocode from the diagram to reflect the changes and try to execute it. If the generated algorithm is correct, it is executed; otherwise errors are marked with red icons on the entities that produce them and short descriptions are shown when you place the mouse over them.<BR></LI>
+		<LI><img src="../imgs/flow/32/tb_debug.png"> (F5): apply the changes made in the flowchart editor to the pseudocode in the main PSeInt window and start <B><A href="debug_en.html">step-by-step execution</A></B>.<BR></LI>
+		<LI><img src="../imgs/flow/32/tb_save.png">: export the diagram as an image file. A dialog box lets you modify the options used to generate the image.<BR></LI>
+		<LI><img src="../imgs/flow/32/tb_zoom.png"> (F12): fit the flowchart so it is fully visible in the window.<BR></LI>
+		<LI><img src="../imgs/flow/32/tb_fullscreen.png"> (F11): switch to fullscreen mode or return to windowed mode.<BR></LI>
+		<LI><img src="../imgs/flow/32/tb_style.png">: switch between the available diagram styles. To choose the default type, use the corresponding option in the Configure menu of the main PSeInt window.<BR></LI>
+		<LI><img src="../imgs/flow/32/tb_comments.png">: show or hide the comments in the algorithm.<BR></LI>
+		<LI><img src="../imgs/flow/32/tb_crop.png">: enable or disable cropped text mode, which shows only the first letters of each entity to keep long instructions from distorting the diagram too much.<BR></LI>
+		<LI><img src="../imgs/flow/32/tb_colors.png">: enable or disable coloring entities according to their type.<BR></LI>
+		<LI><img src="../imgs/flow/32/tb_help.png"> (F1): show this help window.<BR></LI>
+		<LI><img src="../imgs/flow/32/tb_close.png"> (Esc): close the editor, asking whether the pseudocode in the main window should be updated if there are unapplied changes.<BR></LI>
+	</UL><BR>
+	&nbsp;&nbsp;&nbsp; To add entities (instructions or control structures) to the diagram, select them from the entity bar that appears when you move the mouse to the right margin of the window, and drag them to the position where you want to insert them. Some entities have variants. For example, a comment may be attached to a point in the flow or to another instruction; Repetir-Mientras Que is the alternative to Repetir-Hasta Que; and Para Cada is a variant of the conventional Para. To insert a variant, keep the Shift key pressed while selecting the entity.<BR>
+	<BR>
+	&nbsp;&nbsp;&nbsp; You can also duplicate an entity by dragging it while holding Shift.<BR>
+	<BR>
+	&nbsp;&nbsp;&nbsp; To edit the text of an entity, double-click it with the left mouse button or single-click it with the right button.<BR>
+	<BR>
+	&nbsp;&nbsp;&nbsp; To delete an entity, drag it to the trash bin in the lower-left corner of the window. This trash bin is shown only while an entity is being dragged.<BR>
+	<BR>
+	&nbsp;&nbsp;&nbsp; To create a multiple selection, hold Shift and drag with the left mouse button. This action defines a rectangular area and groups any logically contiguous set of entities contained within it. A dashed border appears around them. That means that if you try to move, duplicate, or delete one of them, the action is actually applied to the whole group.<BR>
+	<BR>
+	&nbsp;&nbsp;&nbsp; You can use the mouse wheel to change the zoom gradually, or select an area with the middle button to zoom into that area. To move the view, drag the background with the left or right mouse button. You can also switch to fullscreen mode with F11.<BR>
+	<BR>
+	You can also use F7 to switch between view-only and edit modes. In view-only mode you cannot modify the algorithm. While editing, you can pin the entity panel on the right so it remains visible by using the Tab key.<BR>
+	<BR>
+	&nbsp;&nbsp;&nbsp; At any moment, if the algorithm has no errors, you can see its pseudocode conversion by returning the focus to the main PSeInt pseudocode editor. When you click the pseudocode, it is updated to reflect the changes generated in the diagram.<BR>
+	<BR>
+	&nbsp;&nbsp;&nbsp; Finally, note that errors are marked on the diagram only when the pseudocode is regenerated in the main window, not automatically after every change as happens in the code editor when the "Check syntax while typing" option is selected. However, you can regenerate the pseudocode at any time without running the algorithm by using F2.<BR>
+	<BR>
+	<BR><BR>
+</BODY></HTML>

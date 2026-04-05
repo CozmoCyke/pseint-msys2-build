@@ -1,0 +1,26 @@
+LANGTRACE before_set_exepath
+LANGTRACE after_set_exepath
+LANGTRACE step=parse arg=fr
+LANGKW ALGORITMO=Algoritmo
+LANGKW FINALGORITMO=FinAlgoritmo
+LANGKW DEFINIR=Definir
+LANGKW COMO=Como
+LANGTRACE before_setlanguage_call lang_code=fr
+LANGTRACE SetLanguage requested=fr
+LANGTRACE SetLanguage try path=C:\Users\CodexSandboxOffline\.codex\.sandbox\cwd\46d7de75d0340531\bin/../lang/fr.txt
+LANGTRACE SetLanguage loaded path=C:\Users\CodexSandboxOffline\.codex\.sandbox\cwd\46d7de75d0340531\bin/../lang/fr.txt
+LANGTRACE after_setlanguage_call
+LANGTRACE postset ALGORITMO=Algoritmo
+LANGTRACE postset FINALGORITMO=FinAlgoritmo
+LANGTRACE postset DEFINIR=Definir
+LANGTRACE postset COMO=Como
+LANGTRACE set_current_lang before=es after=fr source=main
+KWFIX overlay path=keywords/fr.ini
+LANGTRACE engine current_lang=fr
+LANGTRACE postfix current_lang=fr
+LANGTRACE postfix ALGORITMO=Algorithme
+LANGTRACE postfix FINALGORITMO=FinAlgorithme
+LANGTRACE postfix DEFINIR=Définir
+LANGTRACE postfix COMO=Comme
+LANGTRACE postfix LEER=Lire
+LANGTRACE postfix ESCRIBIR=Ecrire

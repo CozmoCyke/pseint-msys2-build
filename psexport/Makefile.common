@@ -1,4 +1,4 @@
-OBJS=${OBJS_DIR}/ProgramaDump.o ${OBJS_DIR}/utils.o ${OBJS_DIR}/global.o ${OBJS_DIR}/intercambio.o ${OBJS_DIR}/zcurlib.o ${OBJS_DIR}/Evaluar.o ${OBJS_DIR}/DataValue.o ${OBJS_DIR}/FuncsManager.o ${OBJS_DIR}/FuncsPredefs.o ${OBJS_DIR}/ExporterBase.o ${OBJS_DIR}/exportexp.o ${OBJS_DIR}/zcurlib_lnx.o ${OBJS_DIR}/zcurlib_win.o ${OBJS_DIR}/TiposExporter.o ${OBJS_DIR}/new_memoria.o ${OBJS_DIR}/psexport.o ${OBJS_DIR}/CppExporter.o ${OBJS_DIR}/ErrorHandler.o ${OBJS_DIR}/CSharpExporter.o ${OBJS_DIR}/QBasicExporter.o ${OBJS_DIR}/VBExporter.o ${OBJS_DIR}/JavaExporter.o ${OBJS_DIR}/JSExporter.o ${OBJS_DIR}/PythonExporter.o ${OBJS_DIR}/CExporter.o ${OBJS_DIR}/LangSettings.o ${OBJS_DIR}/HTMLExporter.o ${OBJS_DIR}/PhpExporter.o ${OBJS_DIR}/PascalExporter.o ${OBJS_DIR}/MatLabExporter.o ${OBJS_DIR}/Keywords.o ${OBJS_DIR}/strFuncs.o 
+OBJS=${OBJS_DIR}/ProgramaDump.o ${OBJS_DIR}/utils.o ${OBJS_DIR}/global.o ${OBJS_DIR}/intercambio.o ${OBJS_DIR}/zcurlib.o ${OBJS_DIR}/Evaluar.o ${OBJS_DIR}/DataValue.o ${OBJS_DIR}/FuncsManager.o ${OBJS_DIR}/FuncsPredefs.o ${OBJS_DIR}/ExporterBase.o ${OBJS_DIR}/exportexp.o ${OBJS_DIR}/zcurlib_lnx.o ${OBJS_DIR}/zcurlib_win.o ${OBJS_DIR}/TiposExporter.o ${OBJS_DIR}/new_memoria.o ${OBJS_DIR}/psexport.o ${OBJS_DIR}/CppExporter.o ${OBJS_DIR}/CBOTExporter.o ${OBJS_DIR}/ErrorHandler.o ${OBJS_DIR}/CSharpExporter.o ${OBJS_DIR}/QBasicExporter.o ${OBJS_DIR}/VBExporter.o ${OBJS_DIR}/JavaExporter.o ${OBJS_DIR}/JSExporter.o ${OBJS_DIR}/PythonExporter.o ${OBJS_DIR}/CExporter.o ${OBJS_DIR}/LangSettings.o ${OBJS_DIR}/HTMLExporter.o ${OBJS_DIR}/PhpExporter.o ${OBJS_DIR}/PascalExporter.o ${OBJS_DIR}/MatLabExporter.o ${OBJS_DIR}/Keywords.o ${OBJS_DIR}/strFuncs.o ${OBJS_DIR}/LocalizationManager.o ${OBJS_DIR}/KeywordForms.o
 
 ${OBJS_DIR}/ProgramaDump.o: ../pseint/ProgramaDump.cpp ../pseint/ProgramaDump.hpp ../pseint/Programa.hpp ../pseint/Instruccion.hpp ../pseint/debug.h ../pseint/DataValue.h ../pseint/Code.h ../pseint/case_map.h
 	${GPP} ${CXXFLAGS} -c ../pseint/ProgramaDump.cpp -o $@
@@ -27,6 +27,12 @@ ${OBJS_DIR}/FuncsManager.o: ../pseint/FuncsManager.cpp ../pseint/FuncsManager.hp
 ${OBJS_DIR}/FuncsPredefs.o: ../pseint/FuncsPredefs.cpp ../pseint/FuncsManager.hpp ../pseint/new_memoria.h ../pseint/new_memoria_inter.h ../pseint/DataValue.h ../pseint/debug.h ../pseint/ErrorHandler.hpp ../pseint/Code.h ../pseint/LangSettings.h ../pseint/Keywords.hpp ../wxPSeInt/string_conversions.h ../pseint/global.h
 	${GPP} ${CXXFLAGS} -c ../pseint/FuncsPredefs.cpp -o $@
 
+${OBJS_DIR}/LocalizationManager.o: ../pseint/LocalizationManager.cpp ../pseint/LocalizationManager.h
+	${GPP} ${CXXFLAGS} -c ../pseint/LocalizationManager.cpp -o $@
+
+${OBJS_DIR}/KeywordForms.o: ../pseint/KeywordForms.cpp ../pseint/KeywordForms.h ../pseint/Keywords.hpp ../pseint/LocalizationManager.h ../pseint/utils.h
+	${GPP} ${CXXFLAGS} -c ../pseint/KeywordForms.cpp -o $@
+
 ${OBJS_DIR}/ExporterBase.o: ExporterBase.cpp ExporterBase.hpp defines.h ../pseint/Instruccion.hpp ../pseint/debug.h ../pseint/DataValue.h ../pseint/Code.h ../pseint/FuncsManager.hpp ../pseint/new_memoria.h ../pseint/new_memoria_inter.h ../pseint/Evaluar.hpp ../pseint/utils.h ../pseint/Programa.hpp ../pseint/global.h ../pseint/LangSettings.h ../pseint/Keywords.hpp ../wxPSeInt/string_conversions.h ../pseint/RunTime.hpp ../pseint/ErrorHandler.hpp exportexp.h ../pseint/strFuncs.hpp version.h ../pseint/version_common.h
 	${GPP} ${CXXFLAGS} -c ExporterBase.cpp -o $@
 
@@ -45,11 +51,14 @@ ${OBJS_DIR}/TiposExporter.o: TiposExporter.cpp TiposExporter.hpp ExporterBase.hp
 ${OBJS_DIR}/new_memoria.o: ../pseint/new_memoria.cpp ../pseint/new_memoria.h ../pseint/new_memoria_inter.h ../pseint/DataValue.h ../pseint/debug.h ../pseint/FuncsManager.hpp
 	${GPP} ${CXXFLAGS} -c ../pseint/new_memoria.cpp -o $@
 
-${OBJS_DIR}/psexport.o: psexport.cpp ../pseint/FuncsManager.hpp ../pseint/new_memoria.h ../pseint/new_memoria_inter.h ../pseint/DataValue.h ../pseint/debug.h ../pseint/utils.h ../pseint/Programa.hpp ../pseint/Instruccion.hpp ../pseint/Code.h ../pseint/global.h ../pseint/LangSettings.h ../pseint/Keywords.hpp ../wxPSeInt/string_conversions.h defines.h version.h ../pseint/version_common.h ExporterBase.hpp ../pseint/Evaluar.hpp ../pseint/RunTime.hpp ../pseint/ErrorHandler.hpp exportexp.h ../pseint/strFuncs.hpp CppExporter.hpp CExporter.hpp JavaExporter.hpp JSExporter.hpp HTMLExporter.hpp VBExporter.hpp QBasicExporter.hpp PythonExporter.hpp PhpExporter.hpp PascalExporter.hpp MatLabExporter.hpp CSharpExporter.hpp ../pseint/ProgramaDump.hpp
+${OBJS_DIR}/psexport.o: psexport.cpp ../pseint/FuncsManager.hpp ../pseint/new_memoria.h ../pseint/new_memoria_inter.h ../pseint/DataValue.h ../pseint/debug.h ../pseint/utils.h ../pseint/Programa.hpp ../pseint/Instruccion.hpp ../pseint/Code.h ../pseint/global.h ../pseint/LangSettings.h ../pseint/Keywords.hpp ../wxPSeInt/string_conversions.h defines.h version.h ../pseint/version_common.h ExporterBase.hpp ../pseint/Evaluar.hpp ../pseint/RunTime.hpp ../pseint/ErrorHandler.hpp exportexp.h ../pseint/strFuncs.hpp CppExporter.hpp CBOTExporter.hpp CExporter.hpp JavaExporter.hpp JSExporter.hpp HTMLExporter.hpp VBExporter.hpp QBasicExporter.hpp PythonExporter.hpp PhpExporter.hpp PascalExporter.hpp MatLabExporter.hpp CSharpExporter.hpp ../pseint/ProgramaDump.hpp
 	${GPP} ${CXXFLAGS} -c psexport.cpp -o $@
 
 ${OBJS_DIR}/CppExporter.o: CppExporter.cpp CppExporter.hpp ExporterBase.hpp defines.h ../pseint/Instruccion.hpp ../pseint/debug.h ../pseint/DataValue.h ../pseint/Code.h ../pseint/FuncsManager.hpp ../pseint/new_memoria.h ../pseint/new_memoria_inter.h ../pseint/Evaluar.hpp ../pseint/utils.h ../pseint/Programa.hpp ../pseint/global.h ../pseint/LangSettings.h ../pseint/Keywords.hpp ../wxPSeInt/string_conversions.h ../pseint/RunTime.hpp ../pseint/ErrorHandler.hpp exportexp.h ../pseint/strFuncs.hpp version.h ../pseint/version_common.h TiposExporter.hpp
 	${GPP} ${CXXFLAGS} -c CppExporter.cpp -o $@
+
+${OBJS_DIR}/CBOTExporter.o: CBOTExporter.cpp CBOTExporter.hpp CppExporter.hpp ExporterBase.hpp defines.h ../pseint/Instruccion.hpp ../pseint/debug.h ../pseint/DataValue.h ../pseint/Code.h ../pseint/FuncsManager.hpp ../pseint/new_memoria.h ../pseint/new_memoria_inter.h ../pseint/Evaluar.hpp ../pseint/utils.h ../pseint/Programa.hpp ../pseint/global.h ../pseint/LangSettings.h ../pseint/Keywords.hpp ../wxPSeInt/string_conversions.h ../pseint/RunTime.hpp ../pseint/ErrorHandler.hpp exportexp.h ../pseint/strFuncs.hpp version.h ../pseint/version_common.h TiposExporter.hpp
+	${GPP} ${CXXFLAGS} -c CBOTExporter.cpp -o $@
 
 ${OBJS_DIR}/ErrorHandler.o: ../pseint/ErrorHandler.cpp ../pseint/ErrorHandler.hpp ../pseint/Code.h ../pseint/utils.h ../pseint/new_memoria.h ../pseint/new_memoria_inter.h ../pseint/DataValue.h ../pseint/debug.h ../pseint/Programa.hpp ../pseint/Instruccion.hpp ../pseint/global.h ../pseint/LangSettings.h ../pseint/Keywords.hpp ../wxPSeInt/string_conversions.h ../pseint/intercambio.h ../pseint/RunTime.hpp ../pseint/FuncsManager.hpp ../pseint/zockets.h
 	${GPP} ${CXXFLAGS} -c ../pseint/ErrorHandler.cpp -o $@
@@ -95,4 +104,3 @@ ${OBJS_DIR}/Keywords.o: ../pseint/Keywords.cpp ../pseint/Keywords.hpp ../pseint/
 
 ${OBJS_DIR}/strFuncs.o: ../pseint/strFuncs.cpp ../pseint/strFuncs.hpp ../pseint/debug.h
 	${GPP} ${CXXFLAGS} -c ../pseint/strFuncs.cpp -o $@
-

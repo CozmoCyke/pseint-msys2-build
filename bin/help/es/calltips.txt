@@ -1,0 +1,58 @@
+# Formato:
+# [INSTRUCTIONS] / [FUNCTIONS]
+# clave=texto
+# clave|1=texto   -> solo mostrar si la palabra no es la primera de la linea
+
+[INSTRUCTIONS]
+Funcion={variable de retorno} <- {nombre} ( {lista de argumentos separados por coma} )\n{nombre} ( {lista de argumentos, separados por coma} )
+Función={variable de retorno} <- {nombre} ( {lista de argumentos separados por coma} )\n{nombre} ( {lista de argumentos, separados por coma} )
+SubProceso={variable de retorno} <- {nombre} ( {lista de argumentos separados por coma} )\n{nombre} ( {lista de argumentos, separados por coma} )
+SubAlgoritmo={variable de retorno} <- {nombre} ( {lista de argumentos separados por coma} )\n{nombre} ( {lista de argumentos, separados por coma} )
+Leer={una o mas variables, separadas por comas}
+Definir={una o mas variables, separadas por comas}
+Esperar={"Tecla" o intervalo de tiempo}
+Escribir={una o mas expresiones, separadas por comas}
+Mostrar={una o mas expresiones, separadas por comas}
+Imprimir={una o mas expresiones, separadas por comas}
+Mientras={condición, expresion lógica}
+QUE={condición, expresion lógica}
+Para={asignación inicial: variable <- valor}
+Desde={valor inicial}
+Hasta|1={valor final}
+Paso={valor del paso}
+Si={condicion, expresión lógica}
+Entonces={acciones por verdadero}
+SiNo={acciones por falso}
+Segun={variable o expresión de control}
+Opcion={posible valor para la expresión de control}
+Opción={posible valor para la expresión de control}
+SiEs={posible valor para la expresión de control}
+Caso={posible valor para la expresión de control}
+Si Es={posible valor para la expresión de control}
+
+[FUNCTIONS]
+ALEATORIO={valor mínimo}, {valor máximo}
+AZAR={expresión numérica entera positiva (máximo valor posible +1)}
+TRUNC={expresión numérica}
+REDON={expresión numérica}
+RC={expresión numérica no negativa}
+RAIZ={expresión numérica no negativa}
+ABS={expresión numérica}
+EXP={expresión numérica}
+LN={expresión numérica positiva}
+COS={ángulo en radianes}
+SIN={ángulo en radianes}
+TAN={ángulo en radianes}
+ACOS={expresión numérica (en el intervalo [-1;+1])}
+ASIN={expresión numérica (en el intervalo [-1;+1])}
+ATAN={expresión numérica}
+CONVERTIRANUMERO={cadena}
+CONVERTIRANÚMERO={cadena}
+MAYUSCULAS={cadena}
+MAYÚSCULAS={cadena}
+MINUSCULAS={cadena}
+MINÚSCULAS={cadena}
+CONCATENAR={dos cadenas}
+LONGITUD={cadena}
+SUBCADENA={cadena}, {posición desde}, {posición hasta}
+CONVERTIRATEXTO={expresión numérica}

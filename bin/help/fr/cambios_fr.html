@@ -1,0 +1,1326 @@
+<HTML><HEAD><TITLE>PSeInt - Change Log</TITLE></HEAD><BODY>
+<UL>
+	
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Fixed some errors in the editor de diagrams that pod?an hacer that on some systems not se dibuje correctamente.</LI>
+	<LI>New mechanism to buscar updates (disponible only in GNU/Linux and macOS).</LI>
+	<LI>Added the profile CUDI.</LI>
+	
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>when the profile allows redimensionar arrays, it is accepted that a dimensi?n inicial sea 0.</LI>
+	<LI>Added the profiles CBTis155 e ITDurango.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Mejoras and fixes in the detecci?n de errors de the instructions Dimensionar and Redimensionar.</LI>
+	<LI>Fixed a error by the in some plataformas not were shown ciertas pop-up windows emergentes (by ej, the dialog to evaluar expresiones durante the step-by-step in Windows).</LI>
+	<LI>Fixed a error because were shown duplicados the errors in tiempo de ejecuci?n.</LI>
+	<LI>Fixed the problem because desaparec?an options de a SEGUN when trying reordenarlas in the flowchart.</LI>
+	<LI>Reorganizaci?n interna del c?digo del editor de diagramas.</LI>
+	<LI>Mejoras/cambios est?ticos menores in the flowchart.</LI>
+	<LI>Se can elegir a formato vectorial (SVG) al exportar a flowchart.</LI>
+	<LI>Fixed some details del funcionamiento del icono to eliminar a entidad in the editor de diagramas.</LI>
+	<LI>Al comenzar a editar a texto in the editor de diagrams de flow, the text cursor appears where the click was made.</LI>
+	<LI>the dialog de di?logo to predefinir inputs now incluye botones to load desde/save in a archivo de texto.</LI>
+	<LI>Improvements in the names de archivo sugeridos al exportar a algorithm a html or a otros languages mediante the window de view previa.</LI>
+	<LI>in the editor de diagrams de flow it is possible to mover the view with the cursor keys del keyboard and change the zoom with the keys m?s and less.</LI>
+	<LI>Added the profiles Areandina, CorazonDeMaria, ITSC, PCSantaAna, UAM, UPS, UTFV, CIISA, EPET12, ITSOEH, RamonCastilla, UMariana, USFX-SIS100, UTH-Cofradia, CNB-Saltillo, IEBrightonPamplona, Juan23-Souto, SENA-SIGEC, UPC-algorithms, USS-IAP-Patgonia, ColRosarioBogota, IPJucutuma, MalvarArganda, TecnologiaTecnica, UPN and UTCAM; Updated the profile UTNeza and EPET12.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Fixed the problems to iniciar the ejecuci?n step-by-step and the desk check.</LI>
+	<LI>Added the profiles UNICEQ, UNDAC-sistcomp, UPTulancingo, Unicafam, CBTA09, UdeM-Managua, UNISTMO-Ixtepec, UdeCaldas, UCSH, UTCH, UTSalamanca and UCSC.</LI>
+	
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Nueva opci?n to show the c?digo in screen complete (F11 or men? Configurar).</LI>
+	<LI>Improvements in the presentaci?n and the funcionamiento de the terminal de ejecuci?n in macOS.</LI>
+	<LI>Nueva opci?n in the men? contextual del editor de pseudoc?digo to ajustar the nivel de zoom de forma tal that the algorithm (or a conjunto de lineas seleccionadas) se vea completo and lo m?s grande posible in the window.</LI>
+	<LI>Mejorada the detecci?n de errors in the argumentos de the instrucci?n Leer when se involucran arrays.</LI>
+	<LI>now the int?rprete advierte in some casos when it is necessary to enter a n?mero (as constant in the c?digo, or mediante a lectura) with demasiados d?gitos (tal that muy probablemente the calculos se tornen inexactos).</LI>
+	<LI>Fixed a error because sometimes not se seleccionaban correctamente some values de entrada entered in psterm after haber modificado alguno otro previo individualmente.</LI>
+	<LI>Fixed a error because al marcar a instrucci?n in the editor (when se hace click in the consola, se genera a error de ejecuci?n, or se ejecuta paso paso), not se seleecionaba complete if conten?a characters special unicode.</LI>
+	<LI>Fixed a error because the recuperaci?n de algorithms after a close inesperado did not work in the mayor?a de the casos.</LI>
+	<LI>Fixed a error because pod?a cerrarse the editor al maximizar the window de ejecuci?n with doble-click sobre the barra de t?tulo.</LI>
+	<LI>Added a primitiva Redimensionar to modificar the tama?or de a array (desactivable desde the profile).</LI>
+	<LI>Added the word Dimensionar as sin?nimo de Dimensi?n.</LI>
+	<LI>Added the functions predefinidas FechaActual and HoraActual.</LI>
+	<LI>Fixed a error in the ejemplo Ta-Te-Ti.</LI>
+	<LI>Various improvements in the detecci?n de errors de syntax and sus mensajes.</LI>
+	<LI>Peque?as Improvements in the c?digo generado al exportar a some languages reales.</LI>
+	<LI>Reestructuraci?n interna del c?digo del int?rprete.</LI>
+	<LI>Reestructuraci?n de the scripts to compilar the distintas versiones desde the c?digo fuente.</LI>
+	<LI>Improvements in the velocidad de carga del dialog de selecci?n de profiles.</LI>
+	<LI>Added casos de prueba to psdraw in the paquete de fuentes.</LI>
+	<LI>Added documentaci?n sobre the proceso de release and otros details internos sen the paquete de source package (nuevo directorio docs).</LI>
+	<LI>Added the profiles CFT-Valparaiso, UCR-CI0202, UniMagdalena, IES-EnriqueTiernoGalvan, CEVaP, USergioArboleda, UAGRM-IntroInf, ET28, EETP480, UTSOE, FINESI-UNAP-Estricto, FINESI-UNAP-Flexible, UCLV-FIMI, CBTis118, UPC, UPTECMS, UCM, UNLa-IntroLS-EpyA, JMC, LevVygotsky, UTDFT, LeccionesConTIC, UMAR, ITST, UTA-FISEI-Jara, CPRAfundacion, FJR-Tampico, IUTIRLA-Maturin, UTN-FRM, UNTRM, UniGuajira, Motolinia, UTEC, PolitecnicoDeColombia, UEPillahuaso, UniSur, CETis156, UIDE, CEDUC, CETYS, Torremar and UNDAC-ingcivil.</LI>
+	<LI>Updated the profiles UNL-Fich, UTP-Panama, UCA-Nic and UNICAES-Ingenieria.</LI>
+	<LI>Renamed the profiles UTA-FISEI a UTA-FISEI-Paredes, and UNDAC a UNDAC-geo.</LI>
+	<LI>Removed the profile UTN-FRRe.</LI>
+	<LI>Added in the dialog de selecci?n de profiles a enlace a the instructions to generar and enviar a new profile.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Now the error is reported correctly the error when se quiere pasar a constant a a funci?n that recibe argumentos by referencia and retorna a valor (thanks a Nicolas Abram, quien encontr? the error and envi? the patch to the mismo).</LI>
+	<LI>Added a lower panel with informacion simil trazado inverso to durante the ejecucion paso a paso</LI>
+	<LI>the uso de for Cada tiene a opci?n espec?fica in the profile, ya not es parte de the syntax flexible.</LI>
+	<LI>Hay a opci?n new in the profile to elegir if se proh?be modificar the contador de a for, and if este it is possible to reusar sin reinicializar fuera del ciclo.</LI>
+	<LI>Se can ir al start de a subprocess haciendo doble click sobre the mismo in the panel de variables.</LI>
+	<LI>the uso de characters Unicode to representar operadores se toma in cuenta in the panel de operadores.</LI>
+	<LI>Al save a algorithm by first vez, sugerir the nombre del algorithm as nombre de archivo.</LI>
+	<LI>the tama?or de the numeros de linea cambia with the nivel zoom</LI>
+	<LI>Se uses the flecha de asignaci?n unicode tambi?n al definir a new funci?n</LI>
+	<LI>Correcciones in the highlighting de a variable or a subprocess seleccionado desde the panel de varialbes</LI>
+	<LI>the cursor and the scroll se colocan correctamente al final del texto new after pegar.</LI>
+	<LI>Fixed a problem al imprimir algorithms de m?s de a p?gina.</LI>
+	<LI>Resolved the race condition that inhabilitaba the boton de avanzar a paso al comenzar the ejecucion with the boton del primer paso</LI>
+	<LI>Added the constant de Euler as valor predefinido</LI>
+	<LI>Added the profiles DonOrioneVictoria, ETUSiemensUTN and ETecnicaRRoca.</LI>
+	
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Added the profiles IESTP-Vilcanota, IEHectorAbadGomez, IEVillaDeLaCandelaria and ESRN17.</LI>
+	<LI>Added a tema de colores with fondo oscuro to the editor de diagrams de flow.</LI>
+	<LI>the autocomplete sugiere the palabras clave "Hasta", "Hacer" and "Entonces" if estamos in the instrucci?n adecuada, al final de the linea and after the condici?n.</LI>
+	<LI>the configuraciones that se cambian in the editor de diagrams se reflejan in the men?es del editor de c?digo.</LI>
+	<LI>the tema de fondo oscuro tambi?n se aplica in the window de view previa to exportar a otros.</LI>
+	<LI>Al ejecutar by first vez, determinar autom?ticamente if se deben utilizar the combinaciones de colores de fondo oscuro in the terminal and in the editores.</LI>
+	<LI>Al imprimir, utilizar siempre the combinaci?n de colores de fondo claro.</LI>
+	<LI>Al pegar texto with characters not ascii ni reconocibles by PSeInt, se reemplazan by ? to hacerlos m?s evidentes.</LI>
+	<LI>now al exportar the flowchart a a archivo de imagen the accents and ?s se comentarios and candenas se exportan correctamente.</LI>
+	<LI>Restored the functionality to recuperar archivos sin save after a close abrupto del editor de c?digo.</LI>
+	<LI>Resolved the problem de the ?conos with fondo negro in the barra de herramientas del editor de diagrams in Windows.</LI>
+	<LI>Solved the problem because the editor de c?digo siempre advert?a sobre cambios antes de cerrar, aunque the c?digo haya sido guardado and not modificado.</LI>
+	<LI>Fixed the generaci?n de c?digo a partir del flowchart to a algorithm or funci?n vac?a.</LI>
+	<LI>Fixed the problem because in the versi?n to Windows hab?a dejado de funcionar the dialog de di?logo de Buscar and Reemplazar.</LI>
+	<LI>Fixed a error because the flowchart se dibujaba mal in ciertos casos with dos estrutucas Segun anidadas.</LI>
+	
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Added the profiles Inacap-Maipu and FIC-UAT. Updated the profile UNAB-ElSalvador.</LI>
+	<LI>Added a splash-screen.</LI>
+	<LI>Fixed a error because se analizaban mal the c?digos with characters "special" (not-ascii) a?n when estaban in comentarios.</LI>
+	<LI>Fixed a bug that pod?a provocar a segfault in the int?rprete durante the an?lisis de syntax.</LI>
+	<LI>Fixed the bug that hac?a fallar the b?squeda de updates.</LI>
+	<LI>Fixed a error because the step-by-step not se?alaba the entidad correcta in cada paso in the flowchart.</LI>
+	<LI>Now ... are replaced the operadores by characters Unicode tambi?n in the flowchart</LI>
+	
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Added the profiles CECEP, CECEYTE23-Tocumbo, CELPO, CETIS50, CTPCIT, EETP647, EFPIA-UNDAC, ENAP, IDEC, IELuisLopezDeMesa, IES-DuqueDeAlarcon, ITCC, ITL, PrepaGandhi, SanLuisRey, UNAB-ElSalvador, UNDAC, UNIAJC, UNSAM, UPPE, UPlayaAncha, URACCAN, UTN-FRRe, UniAtlantico and UniSon-LCC.</LI>
+	<LI>Resolved the problem de the font "Inconsolata" in the versi?n to macOS</LI>
+	<LI>Fixed a error because in some sistemas not se generaba the archivo de profile if the descripci?n conten?a accents.</LI>
+	<LI>Al autocompletar the word clave "Repetir" in the editor, se toma in cuenta the configuraci?n "Preferir Repetir...Mientras that..." del profile actual (antes era parte de "syntax flexible").</LI>
+	<LI>Hay a opci?n in the configuraci?n del profile to habilitar the variante "Repetir...Mientras that..." (antes era parte de "syntax flexible").</LI>
+	<LI>Implementado a workaround to poder ejecutar the editor de diagrams sobre Wayland.</LI>
+	<LI>Fixed the problem because the editor de diagrams not procesaba correctamente the keys combinadas with midificadores.</LI>
+	<LI>Fixed the problem because not se utilizaban the operadores unicode al pasar a algorithm desde the editor de diagrams al editor principal.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Added the profiles MartimCemere, CelestinoMarco, ColNacJMF and PolitecnicoJIC.</LI>
+	<LI>Added a ejemplo de self-contained exercise (archivo psz and directorio fuente) in the carpeta "ejemplos"</LI>
+	<LI>Several fixes in the tratamiento de characters not ascii in the self-contained exercises</LI>
+	<LI>Fixed the problem de the saltos de linea adicionales/incorrectos in the versi?n to Windows.</LI>
+	<LI>Fixed the problem because the evaluaci?n de a self-contained exercise not pod?a cancelarse in Windows.</LI>
+	<LI>Added a new configuraci?n to utilizar s?mbolos unicode to representar operadores.</LI>
+	<LI>Several fixes relacionadas al uso de accents and otros characters not ascii in the pseudoc?digo.</LI>
+	<LI>Improvements in the highlighting de syntax del editor principal.</LI>
+	<LI>the font by defecto to the c?digo in todos the m?dulos es now Inconsolata.</LI>
+	<LI>the highlighting de syntax uses verde to the constantes de texto in lugar de rojo (rojo se reserva to errors).</LI>
+	<LI>the tama?or de the font to impresi?n now es configurable.</LI>
+	<LI>Fixed a error because al imprimir c?digo fuente, pod?an generarse p?ginas in blanco.</LI>
+	<LI>A partir de esta versi?n PSeInt only podr? compilarse with the versiones 3.x in modo Unicode de wxWidgets.</LI>
+	<LI>Improvements in the anti-aliasing del texto del flowchart.</LI>
+	
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Added the profiles FACPYA-UANL, IES-AntonioGaudi, LMAC, TECSUP, UCAD, UEFAL, UGFilo, UTN-FRSN and UVM-Hispano.</LI>
+	<LI>Correcciones in the procesamiento de the mensajes de error de syntax in when trying ejecutar in sistemas that usan codificaci?n UTF8.</LI>
+	<LI>Correcciones in the input de self-contained exercises in sistemas that usan codificaci?n UTF8.</LI>
+	<LI>Correcciones est?ticas menores varias in the versi?n to macOS.</LI>
+	<LI>Correci?n de accents and otros errors in some mensajes error de syntax.</LI>
+	<LI>Nuevo bot?n in the barra de herramientas to alternar entre the dos formas de ver the mensajes de error in tiempo real.</LI>
+	<LI>the pop-up windows del editor de diagrams and de the terminal de ejecuci?n now tiene ?conos.</LI>
+	<LI>Icono de the aplicaci?n de mayor resoluci?n in the paquete to macOS.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Improvements in the renderizado de texto in the editor de diagrams de flow.</LI>
+	<LI>the c?digo that se genera desde the editor de diagrams de flow agrega lineas in blanco dentro de the estructuras de control that hayan quedado vac?as.</LI>
+	<LI>when se modifica the flowchart, the pseudoc?digo desUpdated in the window principal se torna gris hasta that se actualice to enfatizar the diferencia.</LI>
+	<LI>Ajustar the tama?or del texto seg?n the opcion de iconos grandes in the editor de diagrams de flow</LI>
+	<LI>Al show a caso fallido de a self-contained exercise in comparaci?n with the output esperada se resaltan with diferentes colores the lineas that cambian.</LI>
+	<LI>Fixed a problem because when trying editar a entrada in the terminal mediante doble click not se seleccionaba the adecuada if a ejecuci?n previa hab?a generado m?s inputs that the necesarias in the actual.</LI>
+	<LI>Now it is possible to compilar todo PSeInt with the versiones 3.x unicode de wxWidgets.</LI>
+	<LI>Nuevo paquete to macOS de 64bits, utilizando wxWidgets 3.1 unicode.</LI>
+	<LI>in GNU/Linux de 64bits the interfaz intenta wxWidgets 3.1 Unicode with GTK+3, if not funciona se vuelve a wxWidgets 2.8 Ansi sobre GTK+-2 (the paquete incluyen binarios to ambas versiones)</LI>
+	<LI>Removed the dependencia with the biblioteca freeglut.</LI>
+	<LI>Nuevos scripts to generar and empaquetar the versiones to GNU/Linux and macOS.</LI>
+	<LI>Added the profiles poligran, cobae-plantel11, FACENA-UNNE, UDEC, CATCE, FINESI, ESCRio3, UVIM, Prepa-UAZ, NesMeyTutoriales, Py-UTEC, CBM, JeanPiaget, UJAT-DAIA, TESI, UTNayarit, UNIDA, UNITEC-ni, ColegioIntelecto e ICAP.</LI>
+	<LI>Renamed the profile UNITEC a UNITEC-ve.</LI>
+	<LI>Updated the profiles UNICEN-FIO and USalesiana.</LI>
+	
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Fixed the adaptaci?n del men? de entidades in the editor de diagrams a the variantes disponibles in formas de tipos de diagramas.</LI>
+	<LI>Added the profiles Babar, COBAY, FAH-USAC, LaMision, PrepaMexico ULSaOaxaca, UNorte, UPTelesup, UTA-FISEI and UniIncca.</LI>
+	<LI>Desactivada the funcionalidad to buscar updates in Windows to reducir the falsos positivos in anti-virus.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Fixed a problem because sometimes era necesario lanzar 2 veces the ejecuci?n in Windows ya that in the first the terminal not era visible.</LI>
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Solucionados the problems that imped?an the lanzamiento de the terminal de ejecuci?n, del editor de diagramas, or de the prueba de a self-contained exercise in the versiones m?s recientes de Mac OS X (10.13 in adelante).</LI>
+	<LI>Se agreg? a p?gina de ayuda sobre the reporte de errors, with a link al foro and otro especial to reiniciar PSeInt in modo log.</LI>
+	<LI>Se can lanzar the creador de self-contained exercises desde a link in the p?gina de ayuda that describe c?mo utilizarlo.</LI>
+	<LI>Luego de a for, the valor del contador queda indefinido (as a variable not inicializada) to evitar that se use fuera del mismo.</LI>
+	<LI>Fixed a error in the editor de diagrams de flow that pod?a generar a cuelgue al arrastrar a selecci?n.</LI>
+	<LI>Added the profiles cbtis53, PUCP, UJGH, Unifranz, ITP-Ecuador, UNI-Nicaragua, UAI-CL, EST50, ElPilar, U-TAD, IFD-CoronelOviedo, Inacap-Valparaiso, MadreVedrunaCastellon, UNAD, ITSR_advan, ITSR_basic, ITSAV-AARS, UCAB, UNCP-FIE, COAR-Puno, and UTFixedra; and Renamed the profile ITSAV a ITSAV-CLC, and the profile Inacap a Inacap-Osorno.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>M?nimo soporte to pantallas HiDPI in Windows and GNU/Linux, and a new tama?or alternativo de ?conos/im?genes de mayor resoluci?n.</LI>
+	<LI>Actualizaci?n del tema de ?conos/im?genes.</LI>
+	<LI>Cambios in the dialog to seleccionar the profile durante the primer ejecuci?n.</LI>
+	<LI>Correcciones in the verificaci?n de unaricidad and precedencia del operador de negaci?n.</LI>
+	<LI>Se informa correctamente the error when se uses "De Otro Modo" in a estructura de control that not sea "Segun".</LI>
+	<LI>Fixed the error because the opci?n de profile to limitar the uso del seg?n a variables num?ricas not se aplicaba correctamente in todos the casos.</LI>
+	<LI>now se visualizan correctamente the accents in Mac OS in the m?dulos relacionados al flowchart and a self-contained exercises.</LI>
+	<LI>Added the profiles TLS, ITESM-PrepaTec, UG, 111mil, UNSa-Oran, ITSCC-JJSN, ESPOCH, ITG, BeehiveSchool, IEFelixHenao, CLRM, UAE, facet, EudoroGranada, UniQuindio, VicenteFierro, URosario, ITSAV, UTHH, UTUsumacinta, UES21, ITCelaya, MadreVedrunaCastellon, UACJ, CPereyra, UTMach, IESNestorAlmendros, Euded-CPV, Avansys, UniPiloto, UNFV, CENSA-Basico, CENSA-Avanzado, USCancun, Euded-MARM, CECyTEA and Luzac.<</LI>
+	<LI>Fixed some errors (cierres anormales) al utilizar the editor de diagrams de flow in a screen t?ctil.</LI>
+	<LI>Correcciones in the traducci?n de the instruccion esperar al exportar a otros languages.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Siempre that a self-contained exercise falla se muestra the caso de prueba in the that falla (sin preguntar, if es that estaba configurado to mostrarlo).</LI>
+	<LI>Fixed a error because not siempre se mostraba the resultado de evaluar a self-contained exercise in Mac OS.</LI>
+	<LI>a self-contained exercise can exigir the uso de a profile determinado.</LI>
+	<LI>now the configuraci?n recuerda correctamente if the window estaba maximizada, and reajusta posici?n and tama?or if the values guardados de the ?ltima ejecuci?n ya not est?n dentro de the l?mites de the screen actual.</LI>
+	<LI>Reemplazado "Sino" by "SiNo" in ejemplos, ayuda and to the generacion de pseudocodigo.</LI>
+	<LI>Ya not se muestran the functions de string in the panel de operadores and functions if not estan habilitadas by the profile.</LI>
+	<LI>Improvements in the combinaci?n de colores de fondo oscuro.</LI>
+	<LI>Added the profiles ITA, ITESO-AYP, SENA-CGMLTI, UNJu, UCuenca, UTalca-IIE and UNHEVAL-FICA, and Updated the profile EIA.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Improvements in the verificaci?n de tipos relacionada al uso de subprocesss.</LI>
+	<LI>Fixed the nro de linea that se muestra in the terminal al volver with the scroll al tiempo 0.</LI>
+	<LI>Fixed a error because not se detectaba as error al uso de "Sino" fuera de a proceso or funci?n.</LI>
+	<LI>Cambios internos in the funci?n Trunc to intentar esconder some efectos not deseados de the aritm?tica with precisi?n finita.</LI>
+	<LI>Se agreg? a opci?n in the men? de configuraci?n del editor to utilizar a coloreado de syntax alternativa with texto claro sobre fondo oscuro.</LI>
+	<LI>in the editor de pseudoc?digo, al colocar the cursor de texto sobre a par?ntesis or a llave, se resalta the complementario.</LI>
+	<LI>Added the profiles UTM, PUCE, UCM, UTCD e ITMina; and Updated the profile UNL-FICH.</LI>
+	
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Fixed the error because the "for" ignoraba the cambios a the variable de control hechos durante a iteraci?n by the c?digo contenido in the estructura.</LI>
+	<LI>Fixed the error when trying generar soluciones to a self-contained exercise utilizando a carpeta with espacios in su ruta.</LI>
+	<LI>Fixed the problem because al exportar the pseudoc?digo a html formateado in some sistemas se generaba interlineado doble</LI>
+	<LI>Fixed the visualizaci?n de accents when se uses the terminal del sistema in sistemas Windows</LI>
+	<LI>Fixed the error because the editor de diagrams de flow not generaba correctamente the c?digo de asignaciones m?ltiples (varias asignaciones in a sola entidad del diagrama)</LI>
+	<LI>Correcciones in the versi?n to Mac OS relacionadas a problems with the uso de teclados Espa?ol ISO.</LI>
+	<LI>Added the profiles UDO-Anzoategui, UNaM-FIO, USM, UNITEK-PUNO and UTNeza; and Updated the profile UETS.</LI>
+	
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Fixed a problem relacionado a the opci?n "Cerrar repetitivas/condicionales" (that entre otras cosas hac?a that in mac siempre apereciera "FinFunci?n" after a comentario)</LI>
+	<LI>Peque?as Improvements in the interfaz de the window de ayuda</LI>
+	<LI>Fixed a error in the input de variables de tipo l?gico that hac?a that cualquier entrada se considerara as Falso</LI>
+	<LI>Correcciones varias in the versi?n to Mac OS, relacionadas al comportamiento del men? de autocomplete, and the visualizaci?n de accents and otros characters special.</LI>
+	<LI>Fixed the indentado de the asignaci?n when se usa the operador :=</LI>
+	<LI>Fixed the comportamiento del bot?n "subprocess" del panel de comandos</LI>
+	<LI>Added the profiles FIUBA-Schwarz-Sosa, UAT-FMeISCdeM, UTEtchojoa, UPQ, ITSMisantla and UNID.</LI>
+	<LI>Al encontrar a actualizaci?n in Windows, PSeInt now avisa that se debe cerrar the versi?n actual antes de instalar the new and ofrece hacerlo.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Fixed the problem because not were shown correctamente the accents in the barra de estado del editor de diagramas.</LI>
+	<LI>Se can configurar the source package by defecto to the editor de pseudoc?digo and to the terminal de ejecuci?n desde the men? "Configurar".</LI>
+	<LI>Se can mantener presionada the tecla shift mientras se selecciona a instrucci?n or estructura de control del panel de comandos del editor de pseudoc?digo to introducir versiones alternativas de dichos comandos and estructuras.</LI>
+	<LI>Se can indicar in the profile that se prefiere the versi?n alternativa del Repetir ("Repetir ... Mientras that..." in lugar de "Repertir ... Hasta that...").</LI>
+	<LI>Fixed a error al load a flowchart that generaba a segfault in the editor when encontraba determinados patrones de anidamientos de estructuras de control.</LI>
+	<LI>Now it is possible to utilizar markdown as alternativa al html to generar the enunciados de the self-contained exercises.</LI>
+	<LI>Fixed the error because the operador de asignaci?n se reemplazaba by ESC al generar the pseudoc?digo de a subprocess a partir de su flowchart.</LI>
+	<LI>Fixed a problem because se parseban mal the dimensiones de arrays if empezaban with a par?ntesis.</LI>
+	<LI>Fixed the c?lculo de the m?rgenes al exportar a flowchart a a imagen.</LI>
+	<LI>Fixed the precedencia del operador Mod, now es igual a the de the multiplicaci?n and de the divisi?n, as in the mayor?a de the languages de programaci?n.</LI>
+	<LI>some Improvements in the determinaci?n and verificaci?n de tipos de expresiones and variables.</LI>
+	<LI>Varios cambios internos in the int?rprete relacionados a the forma de representar values de variables and resultados de expresiones, and de operar with the mismos.</LI>
+	<LI>Fixed the problem because the operador != not se traduc?a correctamente al exportar a some languages.</LI>
+	<LI>Fixed the problems that duplicaban some operadores al exportar a algorithm that uses operadores tipo C (&amp;&amp; and || al generar the flowchart, == and != al exportar a otro lenguaje).</LI>
+	<LI>Added the profiles CUNSUROC, DaVinci, IESTP-FVV, SISE-Arequipa, UPDS, UPSIN, IPLeones, UTA-Iquique, UADY, ElJazmin, UniValle, EET322, ULagos-Ancud, ITSM-TC1001, UPSO, Conalep-Cuernavaca, UAMex-UAPT e ITSAcayucan.</LI>
+	
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>in the ayudas emergentes now se incluyen ayudas to the argumentos de the functions predefinidas.</LI>
+	<LI>the preferencia definida in the profile entre the palabras claves Proceso, algorithm and Funci?n se tiene in cuenta al load the ejemplos de the ayuda.</LI>
+	<LI>in the editor de diagrams se can agrupar entidades (with shift + click and arrastrar) to moverlas, copiarlas or borrarlas in grupo.</LI>
+	<LI>in the editor de diagrams it is possible to fijar (mantener siempre visible and extendida) the paleta de comandos/entidades with the tecla tab.</LI>
+	<LI>the editor de diagrams aplica coloreado de syntax in the etiquetas de the entidades.</LI>
+	<LI>the editor de diagrams aplica autom?ticamente some correciones al editar asignaciones.</LI>
+	<LI>the editor de diagrams de flow uses a s?mbolo especial to the asignaci?n that representa a flecha in lugar de simplemente concatenar a menor and a less (aunque se sigue ingresando as menor+less).</LI>
+	<LI>in the editor de diagrams se use nuevamente the letras "V" and "F" in lugar de "if" and "not" to indicar the caminos de output de a condici?n.</LI>
+	<LI>the editor de diagrams tiene in cuenta the preferencia entre the palabras claves Proceso, algorithm and Funci?n al generar the pseugo-c?digo.</LI>
+	<LI>Al pasar de pseudoc?digo a diagrams de flow se use corchetes to the dimensiones e ?ndices de the arrays.</LI>
+	<LI>Fixed a error in the editor de diagrams de flow al duplicar entidades in with m?s entidades anidadas.</LI>
+	<LI>Corregio the errror because editor de diagrams agregaba par?ntesis adicionales in the asignaciones sobre arrays.</LI>
+	<LI>Mejorada the forma de dibujar c?rculos and semic?rculos in the flowchart (now al momento de exportar se incrementa the precisi?n).</LI>
+	<LI>Al exportar a diagram deseleccionando the opci?n de colorear the entidades se use only escalas de grises.</LI>
+	<LI>Varias improvements internas in the c?digo del editor de diagrams de flow.</LI>
+	<LI>some improvements de interfaz relacionadas a the generaci?n and the uso de self-contained exercises.</LI>
+	<LI>Mejorado the sistema de encriptaci?n de self-contained exercises.</LI>
+	<LI>Fixed a error because the operador Mod reportaba as not enteros operandos enteros mayores a 2^31.</LI>
+	<LI>the atajos to subir and bajar l?neas de pseudoc?digo (Ctrl+T and Ctrl+Shift+T) corrigen autom?ticamente the indentado de the lineas modificadas.</LI>
+	<LI>the view previa del mecanismo de exportaci?n de algorithms a languages reales uses a font monospace.</LI>
+	<LI>Ya not se allows lanzar dos ejecuciones step-by-step in simult?neo.</LI>
+	<LI>Se can renombrar a variable in the editor de pseudoc?digo haciendo click derecho sobre the misma.</LI>
+	<LI>if se intenta redefinir mediante a opci?n de a men? contextual a variable ya definida, the acci?n not tiene efecto.</LI>
+	<LI>in the panel se can distinguir the tipos definidos expl?citamente de aquellos deducidos by the int?rprete seg?n the ?cono (the expl?citos now se remarcan).</LI>
+	<LI>Varios cambios internos in the c?digo del editor de diagrams de flow to facilitar su mantenimiento.</LI>
+	<LI>Se corrigi? a error the formato de the archivos de profiles generados.</LI>
+	<LI>Added the profile ETI, CECYTEO-Pl1, UCA-Nic and ColegioNuevoGimnasio.</LI>
+	
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>(only in the versi?n de prueba wx3) Se agreg? a opci?n in the submen? presentaci?n to that the mensajes de the errors de syntax se intercalen in the c?digo, in lugar de aparecer emergentes only al posicionarse sobre the error.</LI>
+	<LI>(only in the versi?n de prueba wx3) Se can abrir pseudoc?digos with codificaciones de characters diferentes a the iso-8859.</LI>
+	<LI>Se agregaron the palabras clave algorithm, Finalgorithm, Subalgorithm and FinSubalgorithm as sin?nimos de Proceso, FinProceso, subprocess and Finsubprocess respectivamente.</LI>
+	<LI>Se can agregar todas the variable de a proceso de a funci?n a the tabla de desk check haciendo click derecho sobre the mismo in the panel de variables.</LI>
+	<LI>Se corrigi? the orden in the men? de autocomplete (the options not siempre aparec?an alfab?ticamente).</LI>
+	<LI>Improvements in the politica de visualizaci?n and actualizaci?n del panel de ayuda r?pida.</LI>
+	<LI>Se can ocultar the panel de ayuda r?pida with the tecla Escape.</LI>
+	<LI>Se allows especificar in the profile the preferencia entre the palabras claves Proceso, algorithm and Funci?n.</LI>
+	<LI>Varios cambio internos in the c?digo del an?lisis sint?ctico del int?rprete to mejorar the eficiencia and facilitar the mantenimiento.</LI>
+	<LI>Fixed some errors in the close autom?tico de estructuras de control al escribir the pseudoc?digo, and in the marcado de errors in tiempo real.</LI>
+	<LI>Fixed the problem because the ayuda r?pida de a word clave not mostraba the contenido correcto.</LI>
+	<LI>not se tienen in cuenta to se?alar errors in tiempo real the instructions with campos (partes marcadas with recuadros) sin reemplazar.</LI>
+	<LI>Fixed the indentado autom?tico de "Fin Seg?n" when se escribe separado.</LI>
+	<LI>Se agreg? a opci?n in the profile exclusivamente to the posibilidad de utilizar accents and e?es in identificadores de functions and variables (era parte de "syntax flexible").</LI>
+	<LI>Fixed some problems tanto in the interpretaci?n as in the interfaz relacionados al uso de accents in palabras claves.</LI>
+	<LI>Added the profiles UContinental, UniCauca, COBAO, UMBVirtual, UTalca-Videojuegos, UESucumbios, UNAJ-PUNO and EEST1-Saladillo.</LI>
+	<LI>Fixed a problem because the directorio de temporales quedaba mal configurado if se renombraba the usuario in the sistema operativo cambiando as? the ruta a su home.</LI>
+	<LI>Se modific? the m?dulo de interfaz principal (wxPSeint) to that pueda ser compilado with wxWidgets 3.x tanto in version Ansi as in Unicode (experimental).</LI>
+	
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Se agregaron ?conos to the botones del panel de ejecuci?n paso a paso.</LI>
+	<LI>Fixed the error because not se pod?a modificar the ?ltima entrada de the ejecuci?n with doble click in the terminal if esta hab?a generado a error de tipos.</LI>
+	<LI>the editor de diagrams de flow ya not se cierra when hay comentarios in a seg?n antes de the first opci?n.</LI>
+	<LI>Mejorada the utilizaci?n de colores del sistema to reducir the problems in temas de escritorio with colores de fondo oscuros.</LI>
+	<LI>Fixed the aplicaci?n de transparencias in the im?genes de botones with texto e im?genes.</LI>
+	<LI>Fixed the intervalo in the cual se validan the argumentos to ASin and ACos.</LI>
+	<LI>Se mejor? the mecanismo de detecci?n and reemplazo de expresiones coloquiales to detectar some errors that antes not se detectaban.</LI>
+	<LI>the funci?n ConvertirANumero aplica the mismos redondeos that escribir to ocultar the errors de precisi?n num?rica.</LI>
+	<LI>Added the profiles IParralense, COLVIA, IUP-Tabasco e IATF-OBI, CETis42, CUC, CUNORI, SENATI, UABJO, UPONIC, UPTNMLS, UTA, ITCuliacan, UNACH and UAEM-FCQeI. Updated the profiles UManizales and UNL-FICH.</LI>
+	
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Mejorada the detecci?n de tipos to the caso in that se realiza a asignaci?n sobre a variable with tipo conocido, pero not se conocen the tipos de todas the variables de the expresi?n de the derecha.</LI>
+	<LI>Fixed a error in the guardado de the algorithms in Mac OS X that hac?a that se genere the error "caracter not v?lido" when trying ejecutarlos.</LI>
+	<LI>Mejorada the forma in the that se determina if a entrada es de tipo num?rica.</LI>
+	<LI>Se marca correctamente the error when falta a operando to a condici?n coloquial.</LI>
+	<LI>Fixed the error because the expresi?n "not not Verdadero" se evaluaba as "Falso".</LI>
+	<LI>Added the profiles UManizales, ICESI, UdeMM, Agustiniano and UNN.</LI>
+	
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Fixed a error because the comentarios previos a a proceso or subprocess pod?an aparecer duplicados al exportar the algorithm a otros languages.</LI>
+	<LI>Added the profiles TESJo, UNAP, EPN, UnADM, ITS-Tequila, TecTijuana, UPBicentenario, IAMayllen, and UCC.</LI>
+	<LI>Se corrigieron errors in the comando to agregar the definici?n de a variable haciendo click derecho sobre the misma in the pseudoc?digo that pod?an provocar the close the editor or evitar the correcta determinaci?n del tipo.</LI>
+	<LI>Se can ver the valor de a variable durante the step-by-step with only poner the mouse encima in the pseudoc?digo</LI>
+	<LI>Fixed a problem al utilizar cero as segundo operando to Mod.</LI>
+	<LI>if se cierra the barra de herramientas, se recupera al reiniciar the editor.</LI>
+	
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>now se generan correctamente the comentarios previos a a proceso/subprocess al convertir a diagram in pseudoc?digo.</LI>
+	<LI>Fixed a error that generaba falsos errors de syntax al incluir lineas with comentarios vacios.</LI>
+	<LI>Fixed a error that provocaba the close de editor de diagrams al crear entidades usando the modo Nassi-Shneiderman.</LI>
+	<LI>Fixed the error because not se guardaba correctamente the opci?n "Permitir omitir the paso -1 in ciclos for" in the archivos de configuraci?n de profiles.</LI>
+	<LI>Added the profile AntonioSacco, and Fixed the opci?n "Permitir omitir the paso -1 in ciclos for" in varios profiles recientes.</LI>
+	
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>now the editor intenta recuperar the algortimos abiertos after finalizar anormalmente by a error propio.</LI>
+	<LI>Se agreg? in the ayuda a p?gina with ejemplos del formato HTML aceptado to the enunciados de the self-contained exercise.</LI>
+	<LI>Se can incluir imagenes png in the html de descripci?n de a self-contained exercise.</LI>
+	<LI>Se corrigi? a problem al leer inputs/salidas de self-contained exercises with diferentes formatos de fin de linea.</LI>
+	<LI>in the panel de variables se muestran siempre the argumentos and the valor de retorno de a funci?n as variables "locales".</LI>
+	<LI>in the editor de diagramas, al editar a etiqueta, the view se desplaza autom?ticamente to garantizar that the cursor de texto sea visible.</LI>
+	<LI>Se can cambiar the configuraci?n del flowchart desde the new barra de herramientas.</LI>
+	<LI>Se reemplaz? the men? del editor de flowcharts by a barra de herramientas.</LI>
+	<LI>Fixed some problems al editar the options de the estructura Segun in the editor de diagrams de flow.</LI>
+	<LI>now tambi?n se can utilizar colores in the diagrams de flow de Nassi-Shneirman.</LI>
+	<LI>Improvements in the presentaci?n de diagrams de flow cl?sicos.</LI>
+	<LI>Se corrigieron some errors al exportar the algorithms a Basic.</LI>
+	<LI>Al exportar the algorithms a otros languages se incluyen tambi?n the comentarios.</LI>
+	<LI>in the diagram cl?sico hay a new figura to the llamadas a subprocesss.</LI>
+	<LI>Fixed the mal-funcionamiento del evento del doble click in the editor de diagrams de flow.</LI>
+	<LI>Now it is possible ton insertar comentarios in the editor de diagrams de flow.</LI>
+	<LI>Se cambi? the font del the editor de diagrams flow by Deja Vu Sans Mono.</LI>
+	<LI>by defecto, the editor de diagrams de flow not muestras the expresiones completas in cada entidad if son demasiado largas, only when dicha etiqueta se edita (se can desactivar desde the men? configuraci?n).</LI>
+	<LI>Added the profiles SENA-tadsi-Caqueta, EIA, USACH-IE-DMCC, Conalep-NicolasRomero, UNICAES-Ingenieria, ColegioAvances, UPCH, IEBO26, Upanama, ISTP-AbacoChiclayo, UPTNM and ULibertadores.</LI>
+	<LI>Al truncar a n?mero negativo mayor that -1 se quita the signo "-" del resultado.</LI>
+	<LI>Fixed the problem de foco in the editor de diagrams de flow and the window de evaluaci?n de self-contained exercises in the versi?n to Mac OS.</LI>
+	
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Fixed the segfault al cerrar the dialog de di?logo de "Acerca de" antes de that muestre the versiones de cada componente.</LI>
+	<LI>Added the profiles UDLA, IPSS and USPBarranca.</LI>
+	<LI>Al crear a self-contained exercise, se guarda the configuraci?n del mismo in the directorio de entrada.</LI>
+	<LI>Now it is possible to exportar the pseudoc?digo a c?digo QBasic (thanks a the ejemplos enviados by Jaime Fernando Meza).</LI>
+	<LI>Se agreg? a new funci?n predefinida "Aleatorio(a,b)" to generar a n?mero aleatorio entero in a rango dado [a;b].</LI>
+	<LI>Se agregan al men? de autocomplete the identificadores de variables listados in the panel de variables (pero sin control de ?mbito/funci?n a the that pertenecen), and the identificadores de subprocesss.</LI>
+	<LI>Fixed a error al anidar a estructura "Repetir-Mientras that" dentro de a "Mientras-Fin Mientras".</LI>
+	<LI>Fixed the comportamiento del bot?n "Cancelar" al evaluar a self-contained exercise.</LI>
+	<LI>Fixed a problem that pod?a causar a segfault in the editor de pseudoc?digo al producirse a error de ejecuci?n de a algorithm in the terminal de ejecuci?n propia.</LI>
+	<LI>Added a men? contextual in the grilla de the desk check that allows copiar the values de a celda or de toda the tabla.</LI>
+	<LI>Se can copiar a error del panel de errors/ayuda r?pida with click derecho sobre the mismo.</LI>
+	<LI>Fixed the problem de the colores de fondo de the entidades al exportar a flowchart.</LI>
+	
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Added the profiles UNAM-LCPI, Inacap and Bethlemitas.</LI>
+	<LI>Se corrigi? the problem because in some sistemas the terminal propia parece not ejecutar the algorithm.</LI>
+	<LI>Ya not se requiere the biblioteca libpng12 to ejecutar correctamente in GNU/Linux.</LI>
+	<LI>Se corrigi? a error in the window de personalizaci?n del profile.</LI>
+	
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Se verifica that the valor a asignar in a variable declarada num?rica entera sea efectivamente entero antes de asignarlo in a asignaci?n or input (if se quiere convertir se debe usar Trunc or Redon).</LI>
+	<LI>now se allows editar the flowchart aunque algorithm contenga errors that not alteren su forma (ej: errors de tipos in expresiones).</LI>
+	<LI>Se desdobl? the opci?n de profile "syntax flexible" in tres options diferentes, to a control m?s fino del mismo.</LI>
+	<LI>Se modific? the forma in that se le pasan the argumentos del profile al verdadero int?rprete in the linea comandos.</LI>
+	<LI>now se detecta correctamente as error a a instrucci?n fuera de todo proceso/subprocess ubicada al final del algorithm.</LI>
+	<LI>Implementado the drag and drop del texto seleccionado in the editor de pseudoc?digo.</LI>
+	<LI>now se verifica if the argumento de the functions ASEN and ACOS es v?lido antes de calcularlas.</LI>
+	<LI>Se can abrir archivos de ejercicios special that can contener a plantilla de pseudoc?digo, a enunciado and casos de prueba with sus soluciones to that PSeInt verifique the funcionamiento del algorithm autom?ticamente.</LI>
+	<LI>Se agreg? a opci?n in the men? Configurar to that the editor de diagrams de flow utilice diferentes colores to cada tipo de acci?n or estructura (basado in contribuciones de Martin Nicol?s Carbone).</LI>
+	<LI>Se corrigieron some errors in the exportaci?n de algorithms a languages reales.</LI>
+	<LI>Added the profiles UniMinuto and UDI-Colombia, and Updated the profile CEL.</LI>
+	<LI>Se agreg? a ?tem al men? de configuraci?n in GNU/Linux to crear/actualizar the ?cono de PSeInt in the escritorio/men? de aplicaciones del sistema.</LI>
+	<LI>Se mejor? the men? contextual de the terminal de ejecuci?n agregando some options new (for controlar the window and the ejecuci?n).</LI>
+	<LI>Se agreg? a opci?n a the terminal propia to evitar that se close al finalizar the ejecuci?n, and otra to that se mantenga siempre visible.</LI>
+	<LI>Al modificar a entrada pasada in the terminal de ejecuci?n, or retroceder a a punto anterior, ya not cambian the n?meros aleatorios that gener?/generar? the algorithm ejecutado.</LI>
+	<LI>Se agreg? a new window to previsualizar the conversi?n de a algorithm a a lenguaje de programaci?n real.</LI>
+	<LI>Se corrigi? a error because not se detectaban as incorrectas constantes num?ricas with m?s de a separador de decimales.</LI>
+	<LI>Al finalizar a ejecuci?n, esta it is possible to reiniciar directamente desde the terminal.</LI>
+	<LI>Al hacer doble click sobre the valor de a entrada in the terminal de ejecuci?n se allows rehacer the ejecuci?n cambiando only ese valor.</LI>
+	<LI>now se verifica if the argumento that recibe the funci?n ConvertirAN?mero es correcto antes de ejecutarla.</LI>
+	<LI>Fixed a error in the interpretaci?n de names de subprocesss that incluyen n?meros.</LI>
+	<LI>Se cambi? the men? contextual by defecto del editor de pseudoc?digo by uno propio that incluye acciones special al hacer click derecho sbore identificadores de variables (acciones to agregarlas a the desk check, and to definirlas explicitamente).</LI>
+	
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Al hacer click in a linea in the terminal de ejecuci?n propia, se selecciona in the pseudoc?digo the instrucci?n that gener? esa entrada/salida.</LI>
+	<LI>Ya not deja de responder the terminal de ejecuci?n propia when the algorithm entra in a bucle that produce infinitas salidas consecutivas.</LI>
+	<LI>Now it is possible to exportar the pseudoc?digo a c?digo C# (thanks a the ejemplos enviados by the Ing. Jos? Antonio Espino L?pez).</LI>
+	<LI>Fixed the problem because al exportar a flowchart a a archivo de im?gen not se consideraba the nombre de archivo seleccionado by the usuario.</LI>
+	<LI>Se cambi? the pol?tica with that se actualiza autom?ticamente the panel de ayuda r?pida.</LI>
+	<LI>Se implement? a tolerancia impl?cita in the comparaciones entre reales to absorber peque?os errors de precisi?n num?rica.</LI>
+	<LI>Added the profiles CBTis45, IUTM-Machiques, UNMSM-FII, UniMoron, UNICEN-FIO, PIO-IX, UNAN-Managua, UNT, ESPE, StoTomas, UNAULA, UDI, ITC, ITNL, UAnahuac, UDOYM, TESJI, ITNL, CIAF, ISTP, ITCG, ElValleColegio, ISTPanuco, ITIZ, USBMed, UNIVES, ITSZO, ITSSY-Oxkutzcab e IPLosLagos.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>in the flowchart se use "if" and "not" in lugar de "V" and "F" to identificar the posibles caminos in a decisi?n.</LI>
+	<LI>Se corrigi? a bug that in determinadas condiciones ocasionaba cuelgues in the editor de pseudoc?digo al utilizar the verificaci?n de syntax in tiempo real and mantener oculto the panel de variables.</LI>
+	<LI>some improvements al exportar algorithms a c?digo MatLab.</LI>
+	<LI>Se corrigi? the comportamiento de the funci?n Redon to n?meros with parte decimal igual a 1/2.</LI>
+	<LI>Added the profiles UTH, IUTLL, EAFIT, UACM-CL, UAGRM, UAEH-ESTi, UNACHI, UNI, UBioBio and UTN-FRSFco.</LI>
+	<LI>Fixed the c?lculo del tama?or de the entidad Proceso in the flowchart.</LI>
+	<LI>Fixed the problem de the characters that se ingresan with AltGr in Windows.</LI>
+	
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Fixed varios problems in the editor de diagrams (as the imposibilidad to escribir accents, or some problems in the diagram Nassi-Shneiderman).</LI>
+	<LI>Now it is possible to exportar the pseudoc?digo a c?digo MatLab (thanks a the ejemplos enviados by Jaime Meza).</LI>
+	<LI>Se can insertar the versiones alternativas de Repetir-Hasta (Repetir-Mientras) and for (for Cada) in the flowchart manteniendo presionada the tecla Shift.</LI>
+	<LI>Se mejor? the verificaci?n del uso de the palabras claves Entonces and Sino dentro de a estructura if-Entonces to detectar some errors that antes se ignoraban.</LI>
+	<LI>now the int?rprete verifica that the identificador del proceso principal not se utilice tambi?n as identificador de variable.</LI>
+	<LI>Al descomentar a conjunto de lineas with the atajo de keyboard, estas se indentan automaticamente.</LI>
+	<LI>Ya not aparecen variables sin nombre (_variable_desconocida_) al exportar a otros languages.</LI>
+	<LI>Fixed a problem because the editor se cerraba with errors al cerrar a pesta?a muy poco tiempo despu?s de haber recibido the foco.</LI>
+	<LI>the paleta de formas del editor se adapta now al tipo de diagram configurado, and uses texturas in todas the plataformas.</LI>
+	<LI>Se agreg? a representaci?n alternativa to the bloques de Lectura and Escritura in the flowchart (configurable desde the profile).</LI>
+	<LI>Fixed some errors in the verificaci?n de syntaxis frente al mal uso u omisi?n de the palabras clave Entonces and Sino.</LI>
+	<LI>Se invirti? the sentido del zoom al utilizar the rueda del mouse in the editores and in the terminal, to that se comporte de forma similar a the mayor?a de the navegadores and otros programas populares.</LI>
+	<LI>Fixed the indetanci?n autom?tica de the options del seg?n to the variantes de the syntax flexible.</LI>
+	<LI>some improvements and fixes menores in the sistemas de sugerencias and autocomplete.</LI>
+	<LI>Added the profiles IJME, UNICAES, CULTCA-VE and UTJ, SENA-vhcg, ConaluepCuautla and UAN; Updated and Renamed the profile SENA a SENA-hm.</LI>
+	
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Fixed the problem because the desk check pod?a generar errors in the ejecuci?n with some profiles al definir variables.</	LI>
+	<LI>Fixed the error because the for did not work if se utilizaba the igual to the asignaci?n dejando espacios entre the contador and dicho signo.</LI>
+	<LI>Fixed a problem that pod?a ocasionar that the ejecuci?n step-by-step entrara in estados incorrectos.</LI>
+	<LI>Now it is possible to exportar the pseudoc?digo a c?digo Pascal, Python 2, Python 3 and JavaScript (todos thanks a the ejemplos enviados by Martin Nicol?s Carbone).</LI>
+	<LI>Added the profile UPES.</LI>
+	<LI>Fixed the problem because not se pod?a exportar algorithms a languages reales when the profile utilizaba indices de arrays in base 0.</LI>
+	<LI>now the terminal propia tiene dos esquemas de colores, se uses by defecto the new esquema de fondo blanco, it is possible to volver al anterior desde the men? Configurar del editor.</LI>
+	
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Fixed a error in the int?rprete al utilizar names de subprocesss that comienzan with the word clave Hacer.</LI>
+	<LI>Fixed the problem because not se dibujaba the circulo del for al exportar the flowchart a a imagen.</LI>
+	<LI>Fixed varios errors al exportar the pseudoc?digo a c?digo C++.</LI>
+	<LI>Now it is possible to exportar the pseudoc?digo a c?digo C.</LI>
+	<LI>Now it is possible to exportar the pseudoc?digo a c?digo Visual Basic .NET (thanks a the ejemplos enviados by Tito Marcos Sanchez Gutierrez).</LI>
+	<LI>Now it is possible to exportar the pseudoc?digo a c?digo PHP (thanks a the ejemplos enviados by Hector Boveri).</LI>
+	<LI>Now it is possible to exportar the pseudoc?digo a c?digo Java (thanks a the ejemplos enviados by the Ing. Felipe de J. Ni?or de the Cruz).</LI>
+	<LI>the flowchart allows dejar in blanco the paso de a estructura for.</LI>
+	<LI>Se muestra m?s informaci?n contextual in the barra de estado del editor de diagramas.</LI>
+	<LI>Added the profiles CSM, SENA, UTP, ITZacatecas and MB-UNC.</LI>
+	<LI>Fixed a problem al redimensionar the panel de ayuda r?pida when the animaciones est?n habilitadas.</LI>
+	
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>now the versiones to GNU/Linux tambi?n use the ?conos de the interfaz principal in the editor de diagrams de flow.</LI>
+	<LI>Added the profiles Yucatan, UIGV, UPTex, EPET12, UTMarT, UNAPEC and UNANLeon.</LI>
+	
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Added the profiles UPVE, UATF-II, IUTAJS, CNTAutachi, CFGS-DAW e ICEL.</LI>
+	<LI>Fixed a error introducido in the ?ltima versi?n that not permit?a utilizar the instructions that not llevan argumentos.</LI>
+	<LI>if the editor de pseudoc?digo falla when trying lanzar the editor de diagrama, verifica if faltan dependencias and avisa cu?les.</LI>
+	<LI>if the wrapper that lanza the interfaz in GNU/Linux falla, now verifica if faltan dependencias and avisa cu?les with a mensaje in consola.</LI>
+	<LI>Fixed the problem because in some ocasiones the entidades del flowchart se mov?an sin raz?n mientras estaban siendo arrastradas.</LI>
+	<LI>Mejorada the interfaz del editor de flowcharts: now usa the mismos ?conos that the editor de pseudoc?digo.</LI>
+	<LI>Updated the profile UNSM-FISI.</LI>
+	<LI>Fixed a problem because some variables se declaraban m?s de a vez al exportar a algorithm a C++.</LI>
+	<LI>now se exportan correctamente a C++ the constantes Verdadero and Falso.</LI>
+	<LI>now se exportan correctamente a C++ the functions predefinidas.</LI>
+	<LI>Fixed a falso error de syntax that se generaba al negar a variable de tipo l?gico cuyo identificador constaba de a only caracter.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Fixed the error by the that not se conservaban the configuraciones de a profile personalizado al reiniciar wxPSeInt.</LI>
+	<LI>in syntax flexible, it is possible to definir variables with the palabras clave Es and Son (ej: "x Es Real" or "a,b,c Son Cadenas").</LI>
+	<LI>Fixed the problem by the that when trying ejecutar in the new terminal PSeInt not encuentra the archivo temporal, in Windows when the ruta al mismo contains characters special.</LI>
+	<LI>Added the profiles UABC-II, CECyTEMichoacan, UTS, UPEC, CoDisOl, UNLa, ITZ and UTPP.</LI>
+	<LI>Updated the profile InstitutoGottau.</LI>
+	<LI>Ya not se modifica the flowchart al actualizar the pseudoc?digo when the diagram contains entidades vac?as.</LI>
+	
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Fixed varios errors de tipeo and ortograf?a in the ayuda.</LI>
+	<LI>Fixed a error al cerrar a pesta?a de pseudoc?digo that not sea the actual utilizando the bot?n del medio del rat?n.</LI>
+	<LI>Fixed a error al exportar the instrucci?n definir desde the pseudoc?digo al flowchart.</LI>
+	<LI>Added the profiles FP-UNE, UETS, UNIFIP e ITChilpancingo.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Updated the profile UNSM-FISI.
+	<LI>Fixed problems in the terminal propia al ejecutar desde the interfaz that se produc?an al actualizar pseint desde versiones muy antiguas or mover the directorio de instalaci?n.</LI>
+	<LI>the errors de syntax tambi?n se marcan in the flowchart.</LI>
+	<LI>Al generar the flowchart, the palabras claves that aparecen in the entidades (as Dimension, or Definir) se muestran now with solamente su inicial in may?sculas.</LI>
+	<LI>Added the profiles FIME-UANL, UniTru, UNI-FIC, ULatino and UDEA.</LI>
+	<LI>Al redimensionar the window del editor de diagrams de flow the zoom and the panning se reajustan autom?ticamente.</LI>
+	<LI>Al modificar the flowchart se indica in the barra de estado that the pseudoc?digo queda desUpdated; al volver the foco al pseudoc?digo ?ste se actualizar autom?ticamente.</LI>
+	<LI>now the ejecuci?n step-by-step it is possible to ver tambi?n in the flowchart (se van resaltando the entidades ejecutadas).</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Se mejor? the sistema de log interno and se agreg? a new ejecutable/script (log.exe/log.sh) to facilitar the reporte de errors.</LI>
+	<LI>Added the profiles CECyTEM, UACM-SLT, FCA-UNAM, UARM-TIC, CUFM e ITTux.</LI>
+	<LI>Added the profile CESCA-JKDRC and Renamed the anterior profile CESCA a CESCA-HNTG.</LI>
+	<LI>Fixed a error that hac?a that PSeInt se cerrase al salir del dialog de di?logo de b?squeda de updates.</LI>
+	<LI>when the verificaci?n de syntax in tiempo real est? activa ya not se uses to ninguna acci?n the panel de resultados.</LI>
+	<LI>Al identificar the errors in tiempo real se resaltan in the margen del pseudoc?digo the lineas with uno or m?s errors.</LI>
+	<LI>Al posicionarse sobre a error (del marcado in tiempo real) with the panel de ayuda r?pida visible, the panel muestra the detalle del error.</LI>
+	<LI>Se agreg? in the ayuda a ejemplo simple to the estructuras Seg?n and Repetir (Men?).</LI>
+	<LI>Fixed a error in the indentado del pseudoc?digo when Seg?n se escribe with acento.</LI>
+	<LI>Fixed the desincronizaci?n in some casos entre the mensaje de the barra de estados and the resultados de the verificaci?n de syntax in tiempo real.</LI>
+	<LI>Se agregaron animaciones to when se muestran or se ocultan the paneles acoplables in the editor.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Fixed the ejecuci?n step-by-step in the versi?n to Mac.</LI>
+	<LI>Fixed the dibujado de the botones that muestran the paneles laterales the the versi?n to Mac.</LI>
+	<LI>Fixed the problem de foco al lanzar the terminal or the di?logo to exportar the flowchart in the versi?n to Mac.</LI>
+	<LI>Fixed a error in the terminal propia that pod?a ocasionar a segfault in some sistemas.</LI>
+	<LI>Added a argumento "--logger" al ejecutable de the interfaz to obtener details to futuros reportes de error.</LI>
+	<LI>Fixed a problem al utilizar subprocesss in profiles with definici?n de tipos obligatoria.</LI>
+	<LI>Fixed a cuelgue the iniciar the programa in some sistemas.</LI>
+	<LI>Added the profile UValencia.</LI>
+	<LI>Disponible the new editor de diagrams de flow now tambi?n in the versiones to Mac.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Fixed a bug that produc?a cuelgues al abrir ejemplos with the verificaci?n de syntax in tiempo real activada.</LI>
+	<LI>Fixed the funcionamiento del bot?n Cancelar in the dialog de selecci?n de profiles.</LI>
+	<LI>A?adidos the profiles IUPSM-Guayana, CUL and UNE.</LI>
+	<LI>the cursor del mouse cambia de acuerdo al contexto in the editor de diagrams de flow.</LI>
+	<LI>Al pasar the mouse sobre a entidad seleccionable in the editor de diagrams de flow, the entidad cambia the color.</LI>
+	<LI>Ya not it is possible to editar the texto de the entidad de FinProceso in the editor de diagrams de flow.</LI>
+	<LI>Ya not se can arrastrar the entidades Proceso and FinProceso in the editor de diagrams de flow.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Added the profiles CESCA, IUGT and UTalca.</LI>
+	<LI>Fixed the verificaci?n de that the variables de the condici?n de a if-Entonces est?n definidas previamente if the profile obliga a definir todas the variables.</LI>
+	<LI>the diagrams de flow se exportan now sin sombra in the entidades (for a mejor conversi?n a blanco and negro if es necesario imprimirlos as?).</LI>
+	<LI>when hay a error in tiempo de ejecuci?n dentro de a subprocess, the lineas de the pila de llamadas in the mensaje de error se coloca as hijos del ?tem del error in the ?rbol de errors/resultados.</LI>
+	<LI>Fixed a bug al pasar a elemento de a array by referencia a a subprocess.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>in the tipo de dato to the instrucci?n Definir se can utilizar accents.</LI>
+	<LI>Se can agregar the definici?n del tipo de a variable with the men? contextual del panel de variables.</LI>
+	<LI>now se muestra the profile seleccionado in the barra de estado al iniciar.</LI>
+	<LI>Fixed a error al generar the flowchart de the instrucci?n escribir when tiene the Added "Sin Bajar" or "Sin Saltar".</LI>
+	<LI>Renamed the profile UNAB a UNAB-CruzNaranjo and Added the profile UNAB-Olivares.</LI>
+	<LI>Added the profiles FPUNA, UNSL-FCFMN and UNLPam.</LI>
+	<LI>now se muestran correctamente todas the versiones in the dialog de "Acerca de..." and se allows copiar the texto to adjuntar in a reporte de error.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Added the profile IUTOMS-VE.</LI>
+	<LI>some updates in the secciones de the ayuda correspondientes a the interfaz del editor.</LI>
+	<LI>Simplificada the interfaz to the desk check.</LI>
+	<LI>Removed a mensaje de depuraci?n that aparec?a by error al ejecutar paso a paso.</LI>
+	<LI>Fixed a error al exportar a C++ the instrucci?n Escribir when hay argumentos nulos.</LI>
+	<LI>Fixed a error al exportar a C++ the operador de comparaci?n alternativo (==).</LI>
+	<LI>Fixed a error al exportar a C++ the operador de negaci?n.</LI>
+	<LI>now se determinan correctamente the tipos de argumentos and values de retorno al declarar functions in the c?digos exportados a c++.</LI>
+	<LI>the ejemplos abiertos desde the ayuda se recargan autom?ticamente al modificar the profile.</LI>
+	<LI>Se corrigieron some errors in the ejemplos de the ayuda to determinadas configuraciones.</LI>
+	<LI>now se exportan a C++ correctamente the llamadas a subprocesss.</LI>
+	<LI>Added the car?cter de escape al exportar a C++ constantes de tipo car?cter lo contienen.</LI>
+	<LI>Fixed a problem al evaluar the operador mayor that generaba identificadores de variables incorrectos.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Fixed some details est?ticos in the paneles laterales del editor.</LI>
+	<LI>now the ejecuci?n step-by-step se pausa correctamente al activar the modo explicado.</LI>
+	<LI>Ya not it is possible to invocar directamente (fuera de expresiones) a subprocesss or functions that retornan values.</LI>
+	<LI>Fixed the problem because not se actualizaba the panel de variables if not estaba visible al iniciar the editor.</LI>
+	<LI>Added a new panel with the lista operadores and functions predefinidas disponibles.</LI>
+	<LI>Al cambiar the profile se actualiza the correcci?n de syntax and the panel de variables to the pesta?a de pseudoc?digo actual.</LI>
+	<LI>Fixed the problem that generaba a cuelgue if se intentaba ejecutar a algorithm justo when the editor estaba analizando su syntax to marcar the errors in tiempo real or completar the ?rbol de procesos and variables.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Fixed a error al exportar a seg?n with m?s de a opci?n to a mismo conjunto de acciones.</LI>
+	<LI>Fixed a error al exportar expresiones compuestas a c++.</LI>
+	<LI>now se exportan correctamente a C++ the llamadas a subprocesss fuera de expresiones.</LI>
+	<LI>Added the profiles CSS, UNAMBA, USS-ICI, SISE and BiffiLaSalle.</LI>
+	<LI>Fixed a error de syntax al declarar arrays in the c?digo C++ exportados.</LI>
+	<LI>Al analizar expresiones with arrays se marcan the variables that intervienen in the sub?ndices as num?ricas.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>now the bot?n to ir al sitio del dialog de di?logo that informa sobre updates carga a p?gina especial with the enlace de descarga to the plataforma that corresponda and the Change Log.</LI>
+	<LI>Fixed a problem al presionar enter in the new terminal when the interprete espera only a tecla.</LI>
+	<LI>Now it is possible ton definir the subprocesss in cualquier orden dentro del pseudoc?digo.</LI>
+	<LI>Added the soporte to functions de manejo de cadenas al exportar a C++.</LI>
+	<LI>Added the soporte to subprocesss al exportar a C++.</LI>
+	<LI>now allows elegir cual subprocess exportar al save the flowchart.</LI>
+	<LI>Al hacer click sobre the mensajes de error de the verificaci?n in tiempo real se abre the descripci?n complete del mismo.</LI>
+	<LI>Added the profile ITP-Putumayo.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Added the desinstalador in the paquete to Windows.</LI>
+	<LI>Simplificado the men? configurar del editor de pseudoc?digo.</LI>
+	<LI>the dialog de di?logo to evaluar variables and expresiones in the step-by-step ya not se oculta al avanzar a paso.</LI>
+	<LI>the int?rprete ya not consume the 100% de CPU when se pausa the ejecuci?n paso a paso.</LI>
+	<LI>now se recuerda correctamente the ?ltimo directorio utilizado to the cuadros de abrir/save.</LI>
+	<LI>if the profile actual not obliga a colocar punto and coma, al insertar a instrucci?n desde the panel de comandos.</LI>
+	<LI>if the profile actual not obliga a colocar punto and coma, al exportar a flowchart not se agregan autom?ticamente.</LI>
+	<LI>the puntos and coma colocados in the instructions secuenciales in the flowchart ya not aparecen dos veces in the pseudoc?digo al aplicar the cambios.</LI>
+	<LI>if se dejan campos in blanco in the editor de diagrams de flow, al aplicar the cambios estos aparecen as campos a completar in the pseudoc?digo.</LI>
+	<LI>Se agre? a dialog de b?squeda a the window de selecci?n del profile.</LI>
+	<LI>the lista de profiles se ordena alfab?ticamente sin distinguir may?sculas de min?sculas.</LI>
+	<LI>Added the profiles UniAmazonia and UIN.</LI>
+	<LI>Fixed a error al detectar expresiones/constantes pegadas (sin operandos or comas in medio).</LI>
+	<LI>Added a mensaje alusivo that indica when the new terminal de ejecuci?n muestra informaci?n desUpdated respecto al editor.</LI>
+	<LI>Fixed the codificaci?n de characters in the mensajes de informaci?n al ejecutar in the terminal del sistema de Windows.</LI>
+	<LI>Fixed a problem de acceso a memoria al utilizar the instrucci?n to limpiar the screen in the terminal propia.</LI>
+	<LI>Fixed a problem al calcular the scroll in the new terminal when the ejecuci?n del int?rprete finaliza antes de that the terminal complete su inicializaci?n.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Cambiada the font to the men?s in the editor de diagrams de flow.</LI>
+	<LI>Fixed a segfault al insertar a estructura Seg?n in a diagram Nassi-Shneiderman.</LI>
+	<LI>Fixed the problem de refresco because the terminal aparece with characters de escape al iniciar the ejecuci?n in some sistemas.</LI>
+	<LI>Fixed a segfault al cerrar the editor.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Mejorados the mensajes de error in the casos in that faltan par?metros in the estructuras de control.</LI>
+	<LI>Ya not se allows pasar (err?neamente) arrays a the functions predefinidas.</LI>
+	<LI>Correcciones in the c?lculos de tama?os de the etiquetas de proceso and finproceso del flowchart.</LI>
+	<LI>Implementado a New mechanism de exportaci?n de diagrams de flow a im?genes PNG, JPG or BMP.</LI>
+	<LI>Now it is possible to usar PI as constant to the numero 3.14159...</LI>
+	<LI>now the ejecuci?n se actualiza autom?ticamente if cambi? the pseudoc?digo al activar the window de ejecuci?n.</LI>
+	<LI>Now it is possible to exportar the pseudoc?digo a HTML desde the men? Archivo.</LI>
+	<LI>the terminal de ejecuci?n propia muestra the nombre del proceso in the barra de t?tulo.</LI>
+	<LI>Se can copiar and pegar mediante a men? contextual in the new terminal de ejecuci?n.</LI>
+	<LI>Fixed the problem by the that not marcaba correctamente the errors when faltaban the condiciones in the estructuras de control.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Removeds the options de velocidad de ejecuci?n step-by-step del men? Configurar (now se define siempre desde the panel).</LI>
+	<LI>Added a opci?n al men? configurar to that acomode autom?ticamente the pop-up windows al iniciar the ejecuci?n step-by-step (maximiza the c?digo, and ubica the terminal a the derecha and siempre visible).</LI>
+	<LI>Fixed a error importante in the evaluaci?n de expresiones relacionado al operador - afectando a a t?rmino entre par?ntesis.</LI>
+	<LI>Fixed the posici?n de the ramas del bloque if-Entonces in the diagram de Nassi-Shneiderman.</LI>
+	<LI>Fixed a error al exportar a C++ the instrucci?n Definir.</LI>
+	<LI>Fixed a loop infinito al exportar a C++ a algorithm that usa the operador de comparaci?n ~.</LI>
+	<LI>Added the profile UPEL-IPC.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Al ejecutar step-by-step with explicaci?n, the instructions de input vuelven the foco a the terminal.</LI>
+	<LI>the editor de diagrams de flow genera pseudoc?digo indentado with tabs in lugar de espacios.</LI>
+	<LI>Ya not se eval?a dos veces the misma condici?n antes de entrar in a ciclo Mientras.</LI>
+	<LI>Ya not se agregan err?neamente names de subprocesss as variables internas de a (sub)proceso in the panel de variables.</LI>
+	<LI>Fixed a error al ejecutar condicionales if-Entonces in the that se omite the word Entonces and se colocan the acciones in the misma linea that the condici?n.</LI>
+	<LI>Now it is possible to mover the scroll in the new terminal with the rueda del rat?n.</LI>
+	<LI>Fixed some errors in the new an?lisis de expresiones, Added tests correspondientes, and Fixed the ejemplo de matem?ticas to ajustarse a the new reglas.</LI>
+	<LI>Se ha redise?ado the verificaci?n de syntax de expresiones to mejorar the detecci?n de expresiones incorrectas.</LI>
+	<LI>now se aceptan the operadores == (equivalente al =), and != (equivalente al &lt;&gt;), &amp;&amp; (equivalente al &amp;), || (equivalente al |) and ! (equivalente al ~).</LI>
+	<LI>Added the profile UCSP-MPR; the profile UCSP ha sido Renamed as UCSP-APV.</LI>
+	<LI>Se eliminaron todos the errors and advertencias detectadas by cppcheck and se aplicaron peque?os cambios to mejorar the eficiencia del int?rprete.</LI>
+	<LI>now se cierran the ejecuciones in curso if cambia the profile de lenguaje.</LI>
+	<LI>Fixed a potencial segfault in the int?rprete al verificar the syntax in tiempo real.</LI>
+	<LI>the new terminal uses colores m?s apagados when su contenido est? desUpdated respecto del editor.</LI>
+	<LI>Se agregaron botones to save and load profiles personalizados desde archivos in the dialog de configuraci?n del profile del editor.</LI>
+	<LI>Added the profile UNLZ to the Universidad Nacional de Lomas de Zamora.</LI>
+	<LI>Now it is possible to editar the rango del for haciendo doble click sobre the values iniciales, finales and del paso in the editor de diagrams de flow.</LI>
+	<LI>the eventos de drag in the editor de diagrams now se activan despu?s de mover the mouse m?s de a distancia m?nima, ya not al hacer the primer click.</LI>
+	<LI>Fixed the verificaci?n de tipos in the evaluaciones de posiciones in arrays.</LI>
+	<LI>Fixed the flickering de the new terminal in Windows and some redibujados innecesarios.</LI>
+	<LI>Fixed the comportamiento del ?tem to elegir the terminal in the men? de configuraci?n.</LI>
+	<LI>Fixed the valor by defecto to the comando to llamar a psdraw in GNU/Linux.</LI>
+	<LI>Added the profile USTATUNJA to the Facultad de Ingenier?a Civil de Universidad Santo Tom?s seccional Tunja, Colombia.</LI>
+	<LI>now al seleccionar a variable de the Lista de variables to resaltar, se tiene in cuenta the ?mbito de valid?z de the misma (su proceso or subprocess).</LI>
+	<LI>Fixed the highlighting de bloques to the estructura for Cada.</LI>
+	<LI>Fixed errors in the lineas that marcaba the ejecuci?n step-by-step to some estructuras.</LI>
+	<LI>the autocomplete del editor now mira the tipo de instrucci?n to determinar the posibles options.</LI>
+	<LI>Mejorados the tiempos de respuesta in the comunicaci?n entre the int?rprete and the editor in the ejecuci?n paso a paso.</LI>
+	<LI>Added dos new functions to convertir datos entre the tipos num?rico and car?cter.</LI>
+	<LI>the new terminal now allows hacer zoom with control and the rueda del mouse.</LI>
+	<LI>now the terminal propia es capaz de volver in the tiempo and retomar the ejecuci?n desde a punto in the pasado.</LI>
+	<LI>Now it is possible to modificar the pseudoc?digo de a programa in ejecuci?n and observar sobre the misma ejecuci?n.</LI>
+	<LI>now se uses a terminal propia to ejecutar the algorithms.</LI>
+	<LI>Implementada a new barra de estado m?s funcional.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>now se detecta as error antes de ejecutar the intento de redimensionar or redefinir a variable that se recibe as argumento de a subprocess.</LI>
+	<LI>Fixed the input de posiciones de arrays dentro de a subprocess.</LI>
+	<LI>Mejorado the an?lisis de condiciones in lenguaje coloquial, and Fixed some errors relacionados.</LI>
+	<LI>Fixed a problem al verificar if se usan posiciones sin inicializar in a array that recibe a subprocess.</LI>
+	<LI>the lista de profiles de languages incluye ?conos.</LI>
+	<LI>Added the profile COEES.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Fixed the problem that evitaba save the cambios after editar a flowchart.</LI>
+	<LI>Fixed the bug that hac?a inusable the versi?n 20121107.</LI>
+	<LI>Aplicado a workaround to evitar that the characters as ?s and accents produzcan incongruencias in some GNU/Linux.</LI>
+	<LI>Ya not se colorean in verde the lineas that comienzan with numeral, and se colorean correctamente the names de the new functions to manejo de cadenas.</LI>
+	<LI>Se agreg? a new profile de lenguaje to the "Centro de Estudios Latinoamericano".</LI>
+	<LI>now se colorean correctamente the names de functions predefinadas to manejo de cadenas.</LI>
+	<LI>Fixed a error al evaluar expresiones with par?ntesis dentro de a cadena de characters in the instrucci?n Escribir.</LI>
+	<LI>Al producirse a error in tiempo de ejecuci?n dentro de a subprocess se indica junto al mensaje c?mo se lleg? a ese subprocess (se muestra the pila de llamadas).</LI>
+	<LI>now the functions can recibir arrays correctamente (siempre by referencia).</LI>
+	<LI>some cambios menores in the apariencia del panel de ejecuci?n step-by-step and the pol?tica de visibilidad de the dem?s paneles in the editor de pseudoc?digo.</LI>
+	<LI>Todas the rutas del archivo de configuraci?n to temporales son now relativas.</LI>
+	<LI>first implementaci?n de the Ejecuci?n Paso a Paso Explicada (that consiste in informar to cada instrucci?n qu? acciones espec?ficas realiza the int?rprete).</LI>
+	<LI>Ya not se convierten todos the identificadores a may?sculas al pasar del pseudoc?digo pasar al flowchart.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>now the tipo de variable that retorna a subprocess se aplica correctamente a the expresi?n that lo invoc?.</LI>
+	<LI>Fixed some errors in the evaluaci?n de options to the estructura Seg?n.</LI>
+	<LI>the options de comprobaci?n de syntax in tiempo real, highlighting de bloques, and lista de variables in the editor son now independientes.</LI>
+	<LI>the desk check, adem?s de show the nombre de the funci?n actual muestra tambi?n a n?mero that indica su profundidad in the pila de llamadas.</LI>
+	<LI>Fixed the problem de the pseudoc?digos muy largos in the editor when the comprobaci?n de syntax in tiempo real est? activa.</LI>
+	<LI>Fixed the tama?or de the iconos de proceso and subprocess in the panel de variables.</LI>
+	<LI>Fixed the error that genera the int?rprete al final de the ejecuci?n paso a paso.</LI>
+	<LI>the window de evaluaci?n de the ejecuci?n step-by-step muestra the tipo de the expresi?n evaluada.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Ya it is possible to crear and eliminar subprocesss desde the flowchart.</LI>
+	<LI>the ejecuci?n step-by-step marca the lineas Proceso/subprocess and Funci?n/FinFunci?n, to poder ver the estado antes and despu?s de ejecutar a funci?n.</LI>
+	<LI>the desk check muestra a columna adicional with the nombre de the funci?n actual.</LI>
+	<LI>Se agreg? a casilla de verificaci?n al panel de Ejecuci?n Paso a Paso to elegir if the misma debe entrar in the subprocesss or pasarlos by alto.</LI>
+	<LI>Se corrigi? a error in the exportaci?n a C++ de expresiones that involucran potencias.</LI>
+	<LI>Se agregaron some ejemplos new in the ayuda.</LI>
+	<LI>now the int?rprete uses evaluaci?n in cortocircuito al analizar expresiones l?gicas in tiempo de ejecuci?n.</LI>
+	<LI>Updated the ayuda relacionada a functions de manejo de cadenas.</LI>
+	<LI>Updated the ayuda relacionada a subprocesss.</LI>
+	<LI>now the editor de diagrams de flow allows elegir qu? proceso/subprocess editar.</LI>
+	<LI>Fixed the problem de the tooltips muy largos in Windows.</LI>
+	<LI>the lista de options to the autocomplete now var?a seg?n the profile del lenguaje.</LI>
+	<LI>Mejorado the autocomplete and the ayudas emergentes del editor de pseudoc?digo to the syntax de subprocesss.</LI>
+	<LI>Now it is possible ton pasar argumentos by referencia a a subprocess.</LI>
+	<LI>Added the profile ITP-ISIC.</LI>
+	<LI>the subprocesss that not requieren argumentos se can invocar sin par?ntesis.</LI>
+	<LI>the panel Lista de variables muestra the variables by proceso/subprocess in forma de ?rbol.</LI>
+	<LI>now the subprocesss se can invocar fuera de a expresi?n, as a instrucci?n m?s, colocando sus argumentos entre par?ntesis.</LI>
+	<LI>Added soporte experimental to the definici?n de subprocesss in the int?rprete (falta adecuar the GUI).</LI>
+	<LI>Added the functions Longitud, SubCadena, Concatenar, Mayusculas and Minusculas to operar sobre cadenas de characters.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Fixed the problem de the accents and e?es in the editor de diagrams de flow.</LI>
+	<LI>Se agreg? the profile UNINORTE to the Universidad del Norte (Barranquilla, Colombia).</LI>
+	<LI>Se agreg? the profile InstMacedoMartinez to the Instituto Macedo Martinez (Formosa, Argentina).</LI>
+	<LI>Se mejor? the forma in that se aplican the tipos a the variables in the estructuras de control durante the preproceso.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>now se cierra correctamente the subprocess that realiza the verificaci?n de syntax in tiempo real, and se corrigi? adem?s a problem grave with the manejo de memoria.</LI>
+	<LI>Fixed the problem because not se insertaba autom?ticamente the word "FinMientras" after abrir a bucle Mientras in the editor de pseudoc?digo.</LI>
+	<LI>now se resaltan the lineas that componen a bloque l?gico (a estructura if/for/Mientras/Repetir/Segun) in the editor de pseudoc?digo al posicionar the cursor de texto sobra su primer or ?ltima linea.</LI>
+	<LI>Fixed the problem with the estructuras Segun anidadas al exportar a C++.</LI>
+	<LI>now se reemplaza correctamente the operador de negaci?n al exportar a C++.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Ya not se allows escribir Fin if, Fin for, Fin Mientras or Fin Segun separado if not est? activada the syntax flexible.</LI>
+	<LI>Fixed a problem de tipos al concatenar variables de tipo car?cter in a asignaci?n.</LI>
+	<LI>Se agregaron botones in the m?rgenes derecho e izquierdo to acceder f?cilmente a the paneles de variables, Ejecuci?n Paso a Paso, and Comandos.</LI>
+	<LI>Correcciones varias in the c?lculos de tama?os and posiciones in the diagrams Nassi-Shneiderman.</LI>
+	<LI>now the interprete determina the tama?or de the arrays in the preproceso to show in the lista de variables del editor.</LI>
+	<LI>now the tipo de variable se muestra as ?cono in lugar de estar as texto entre par?ntesis in the panel de variables.</LI>
+	<LI>now se fija correctamente the tipo de the variables de a estructura for as num?rico durante the verificaci?n de syntax.</LI>
+	<LI>Fixed a problem because not determinaba correctamente the tipo del segundo operando de a suma.</LI>
+	<LI>Mejorada the detecci?n de variables and tipos in the etapa de verificaci?n de syntax.</LI>
+	<LI>Added a panel in wxPSeInt with the lista de variables de a algorithm.</LI>
+	<LI>Ya not se muestra the men? de autocomplete al escribir Es or Fin in a comentario.</LI>
+	<LI>now the autocomplete reconoce mejor the diferencias entre syntax flexible and estricta.</LI>
+	<LI>Ya not aparece a error al cambiar the profile del lenguaje with the verificaci?n de syntax in tiempo real activada.</LI>
+	<LI>Now it is possible to configurar the tipo de diagram desde the profile del lenguaje and desde the men? "Configurar".</LI>
+	<LI>Fixed the efecto de desplazamiento al hacer zoom sobre a flowchart.</LI>
+	<LI>now the edito can graficar diagrams Nassi-Scheiderman in lugar de the diagrams de flow cl?sicos.</LI>
+	<LI>Now it is possible to crear a ?cono in the escritorio or in the men? del sistema in GNU/Linux durante the primer ejecuci?n.</LI>
+	<LI>Se corrigi? the exportaci?n de the palabras clave Verdadero and Falso a C++.</LI>
+	<LI>Se agreg? the profile UNITEC to the "Universidad Tecnol?gica del Centro", Venezuela.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>now se muestran the errors de the verificaci?n in tiempo real al colocar the mouse sobre the mismos.</LI>
+	<LI>Fixed the makefiles to compilar m?s f?cilmente desde Windows.</LI>
+	<LI>now al abrir a estructura repetitiva or condicional se agrega only the "Fin..." or "Hasta that..." if not estaba and the indentado de the siguiente linea not nula coincide.</LI>
+	<LI>Added the profile ITSX, to the asignatura de "Programaci?n I" de the carrera "Ingenier?a Electr?nica" del "Instituto Tecnol?gico Superior de Xalapa".</LI>
+	<LI>now al exportar a C++ se declaran as int the variables that se usen as ?ndices to arrays.</LI>
+	<LI>Ya not se repiten the declaraciones de the contadores de the estructuras for al exportar a C++.</LI>
+	<LI>Fixed the traducci?n a C++ de expresiones that involucra the constantes Verdadero and Falso.</LI>
+	<LI>Al detectarse a identificador not v?lido in alguna instrucci?n se incluye now the nombre in the mensaje de error.</LI>
+	<LI>Added a opci?n in the men? "Configurar" to that the errors de syntax se resalten autom?ticamente mientras se escribe the pseudoc?digo.</LI>
+	<LI>now se verifica that the Entonces de the estructura if se encuentre inmediatamente despu?s de the condici?n.</LI>
+	<LI>Now it is possible to utilizar Mientras Hacer seguido de the instructions a repetir in a misma linea.</LI>
+	<LI>Al marcar the errors and in the punto actual in the ejecuci?n step-by-step se distinguen distintas instructions dentro de a misma linea.</LI>
+	<LI>Added the profile UDO-Anaco, to the asignatura de "Programaci?n Orientada a Objetos" utilizado in the Universidad de Oriente, Extensi?n Anaco, Anzo?tegui, Venezuela.</LI>
+	<LI>Fixed the ejemplo del TaTeTi to some configuraciones de lenguaje.</LI>
+	<LI>Fixed the problem to show elementos de matrices multidimensionales despu?s del cambio del 20120420.</LI>
+	<LI>now se marca as error when in a instrucci?n se use varias expresiones separadas by coma donde ir?a only a.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Fixed a problem with the anidamiento de estructuras Segun.</LI>
+	<LI>Fixed the problem al utilizar the igual to the asignaci?n del for when the profile lo allows.</LI>
+	<LI>Fixed the problem with the asignaciones in arrays introducido with the cambios del 20120414.</LI>
+	<LI>now se colorea the flecha de asignaci?n igual that the palabras clave in the editor.</LI>
+	<LI>now se consideran correctamente accents and e?es to the coloreado de syntax.</LI>
+	<LI>Se permiten ?s and accents in the variables when se habilita the syntax flexible (pero a?n not se colorean correctamente in the editor).</LI>
+	<LI>Added a argumento especial al int?rprete to corregir the codificaci?n de accents and e?es to the consola de Windows.</LI>
+	<LI>Added in the coloreado and in the autocomplete some diferencias entre syntax flexible activada and desactivada.</LI>
+	<LI>now se verifica correctamente that not falten operandos al start or al final de a expresi?n.</LI>
+	<LI>Fixed the problem de the palabras claves pegadas a the expresiones with par?ntesis.</LI>
+	<LI>
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Parcheados the makefiles to Mac to that moment?neamente se compile sin the editor de diagrams de flow hasta that logre compilar the dependencias.</LI>
+	<LI>now se permiten arrays de a only elemento.</LI>
+	<LI>Updated the informaci?n in the window de Acerca De...</LI>
+	<LI>Fixed a problem al evaluar expresiones with restas donde the operandos tienen par?ntesis.</LI>
+	<LI>Added a variante to the instrucci?n Esperar to esperar a tiempo dado in segundos or milisegundos.</LI>
+	<LI>Fixed the comportamiento extra?or al redimensionar the columnas de the tabla de desk check.</LI>
+	<LI>Ya not deja de ser de only input a ejemplo after visualizar su flowchart.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>now se muestra the nombre del proceso in the t?tulo de the window del editor de diagrams de flow.</LI>
+	<LI>Al presionar Ctrl+Z after indentar a bloque se deshace todo the indentado as a sola acci?n.</LI>
+	<LI>Al save to editar the diagram or ejecutar and luego presionar Ctrl+Z ya not se mueve the cursor al start del pseudoc?digo.</LI>
+	<LI>Fixed a error al dibujar diagrams de flow with estructuras Segun anidadas.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>now se use colores to marcar the expresiones that cambiaron or that not pudieron ser evaluadas in the desk check.</LI>
+	<LI>in the flowchart se use palabras in lugar de some operadores if the profile del lenguaje lo allows.</LI>
+	<LI>Fixed the estado in that queda the panel de ejecuci?n step-by-step when finaliza the algorithm.</LI>
+	<LI>now se indica with a flecha in the margen and a fondo de color the linea actual durante the ejecuci?n paso a paso.</LI>
+	<LI>now se eval?an the inspecciones in the ejecuci?n step-by-step exactamente igual that the a pseudoc?digo.</LI>
+	<LI>some improvements visuales in the editor al arrastrar or clickear a entidad.</LI>
+	<LI>Mejorada the forma in that se inicia the comunicaci?n entre the GUI and the editor de diagramas.</LI>
+	<LI>now the editor de flowchart allows editar a texto with doble click.</LI>
+	<LI>now funciona correctamente the opci?n del men? Configurar to definir the velocidad alta de ejecuci?n paso a paso.</LI>
+	<LI>now se quitan the par?ntesis adicionales in the asignaciones al pasar del pseudoc?digo al flowchart.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Al analizar a pseudoc?digo sin errors se esconde the panel de ayuda r?pida.</LI>
+	<LI>Ya not cambia de pesta?a al ejecutar a pseudoc?digo correcto after intentar ejecutar otro incorrecto in otra pesta?a.</LI>
+	<LI>Now it is possible to invertir the orden del "with PASO" and the "HASTA" in a for if se activa the syntax flexible.</LI>
+	<LI>Fixed the verificaci?n de syntax in the estructura for.</LI>
+	<LI>Fixed a error with the estructura for when the paso es negativo.</LI>
+	<LI>now al editar a pseudoc?digo with the estructura mientras in the editor de diagrams de flow the condici?n se lee correctamente.</LI>
+	<LI>Se actualizaron the makefiles and scripts to generar the instaladores.</LI>
+	<LI>Improvements in the indentado autom?tico when hay comentarios.</LI>
+	<LI>Various improvements in the editor de diagrams de flow.</LI>
+	<LI>the ejecuci?n step-by-step ya not consume the 100% de the CPU.</LI>
+	<LI>Added a opci?n to editar diagrams de flow in the men? Archivo.</LI>
+	<LI>Fixed a error al analizar the options de a Segun when se usa a word clave (CASO, OPCION, etc) antes del valor.</LI>
+	<LI>Added a new visualizador and editor to diagrams de flow, that ser? invocado desde wxPSeInt.</LI>
+	<LI>Fixed a error in the evaluaci?n de some expresiones algebraicas with m?s de a t?rmino (by ejemplo, the resolvente).</LI>
+	<LI>Se agreg? a ?tem in the men? "Ejecutar" de the GUI to predefinir the entrada that va a tener a algorithm (the values that va a leer).</LI>
+	<LI>Se agreg? a argumento a the linea de comandos del int?rprete to especificar the entrada del algorithm.</LI>
+	<LI>Se corrigieron some errors in the verificaci?n de tipos.</LI>
+	<LI>now se verifica correctamente if se intenta volver a dimensionar a array ya dimensionado.</LI>
+	<LI>Now it is possible to definir the tipo de a array antes or despu?s de dimensionarlo.</LI>
+	<LI>Se genera a error when trying dimensionar a array sin haber definido su tipo if the definici?n es obligatoria.</LI>
+	<LI>now the enlaces in the ayudas r?pidas to the errors se abren correctamente and in the window de ayuda.</LI>
+	<LI>Fixed some errors and warnings detectados by CppCheck in the int?rprete and the GUI.</LI>
+	<LI>now se acepta the construcci?n HACER...MIENTRAS that... or HACER...HASTA that if est? habilitada the syntax flexible (es decir, it is possible to escribir HACER in lugar de REPETIR).</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>now marca a error if aparecen dos puntos (:) in otro lugar that not sea a caso de the estructura Segun.</LI>
+	<LI>now marca a error when the condici?n del mientras termina in punto and coma.</LI>
+	<LI>Added tests to todas the estructuras de control escritas de formas validas.</LI>
+	<LI>Added tests to diferentes tipos de expresiones l?gicas.</LI>
+	<LI>the panel with the ayuda r?pida de a error aparece autom?ticamente if the algorithm interrumpe su ejecuci?n by a error, and desaparece only if the ejecuci?n finaliza sin problems.</LI>
+	<LI>in the interfaz, in the descripci?n de a error, Now ... are replaced the llaves and dem?s characters special de HTML that not sal?an in the texto final.</LI>
+	<LI>Updated the scripts de testing autom?tico. A partir de now the ejemplos de algorithms that evidencian bugs pasaran a formar parte de the bater?a de tests autom?ticos.</LI>
+	<LI>Fixed the problem because the interfaz not abr?a the archivos that se le pasaban in the linea de comandos when not se lanzaba desde the directorio de pseint.</LI>
+	<LI>Added a argumento in the linea de comandos del interprete to that evite mensajes explicativos and de a output fija to comparar in tests autom?ticos.</LI>
+	<LI>Fixed the separaci?n de argumentos in the escribir when se hace with espacios and hay operadores l?gicos.</LI>
+	<LI>Fixed the evaluaci?n de expresiones with par?ntesis, donde in some casos eliminaba the ultimo car?cter.</LI>
+	<LI>if se activa the syntax flexible in the profile del lenguaje it is possible to utilizar the estructura opcional REPETIR...MIENTRAS that...</LI>
+	<LI>Fixed the syntax del for al exportar a C++ (hab?a llave donde iba par?ntesis in some casos).</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Fixed the comportamiento de the estructura Segun when hay m?ltiples values to a mismo bloque de acciones.</LI>
+	<LI>now se colocan the #include de the bibliotecas cstdlib and cmath al exportar a c?digo C++ when son necesarios.</LI>
+	<LI>Fixed the verificaci?n de tipos in the variable de decisi?n de the estructura Segun.</LI>
+	<LI>Se agreg? the profile "DoucUC" to the c?tedra "Programaci?n de algorithms" de the "Escuela de Inform?tica and Telecomunicaciones" de "Duoc UC Puente Alto".</LI>
+	<LI>now the ejemplos de the ayuda contienen a cabecera de dos lineas advirtiendo that only deben abrirse desde the ayuda (in cuyo caso the mensaje se elimina al abrir).</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Now it is possible ton graficar algorithms with the estructura for CADA.</LI>
+	<LI>Now it is possible ton exportar a C++ algorithms with the estructura for CADA.</LI>
+	<LI>the tipos de the instrucci?n definir se can poner tambi?n in plural.</LI>
+	<LI>Al load a ejemplo de the ayuda se reemplazan the operadores by palabras clave if esta opci?n est? activa in the configuraci?n del lenguaje.</LI>
+	<LI>Al load a ejemplo de the ayuda se agregan or quitan the definiciones de variables and the punto and coma dependiendo del profile del lenguaje.</LI>
+	<LI>Se agreg? a profile Estricto configurado de forma that the pseudolenguaje se asemeje m?s a a lenguaje de programaci?n real.</LI>
+	<LI>Fixed the aplicaci?n de tipos in expresiones with operadores l?gicos.</LI>
+	<LI>Se agregaron comentarios in the cabecera de the c?digo exportados a C++ with aclaraciones sobre the uso de strings.</LI>
+	<LI>Fixed the condici?n del while al exportar a C++ a algorithm with the estructura repetir.</LI>
+	<LI>Se agreg? a profile to the "Programaci?n I" de the carrera "Ingenier?a in Sistemas" de the "Universidad Central del Ecuador" (UCE).</LI>
+	<LI>Se agreg? lxterminal entre the terminales conocidas in GNU/Linux.</LI>
+	<LI>now in the seg?n se can introducir expresiones de tipo car?cter if se habilita the syntax flexible.</LI>
+	<LI>now the for detecta only when the paso not est? explicitado pero debe ser negativo (ej: for I DESDE 10 HASTA 1 HACER...) if se admite syntax flexible.</LI>
+	<LI>Added a forma new del for when se uses syntax flexible that allows recorrer todos the elementos de a array (ej: for CADA ELEMENTO DE A HACER..., donde ELEMENTO va tomando the values guardados in the array A).</LI>
+	<LI>Updated the lista de palabras clave to the ayuda r?pida.</LI>
+	<LI>now todos the m?dulos reportan su versi?n and arquitectura de the misma forma (aaaammdd-xxx).</LI>
+	<LI>the m?dulo that exporta a C++ now tiene in cuenta the definici?n explicita de tipos de variables.</LI>
+	<LI>Se actualiz? the ayuda to incluir the new variantes del lenguaje and se agreg? a ejemplo new that the uses.</LI>
+	<LI>Added the instrucci?n "ESPERAR TECLA" to that the algorithm espere a that the usuario pulse cualquier tecla.</LI>
+	<LI>Now it is possible to ingresar only "v", "f", "0" or "1" al leer a variable ya definida de tipo l?gica.</LI>
+	<LI>Se agreg? a opci?n in the configuraci?n del lenguaje to controlar the definici?n de tipos variables.</LI>
+	<LI>Now it is possible to ingresar n?meros or constantes l?gicas in a variable definida de tipo CARACTER, and toman the valor de the cadena equivalente.</LI>
+	<LI>Se agreg? the tipo ENTERO/ENTERA to the definici?n de a variable. the reales that se lean or asignen a a variable de este tipo ser?n truncados.</LI>
+	<LI>Se agregaron sin?nimos to the posibles tipos to DEFINIR. now son NUMERO=NUMERICO=NUMERICA=REAL, TEXTO=CARACTER=CADENA, LOGICA=LOGICO.</LI>
+	<LI>now show, IMPRIMIR e INFORMAR son sin?nimos de ESCRIBIR if est? activada the syntax flexible.</LI>
+	<LI>Se agreg? a verificaci?n al usar the operador MOD that controla that the operandos sean enteros.</LI>
+	<LI>Fixed the aplicaci?n del operador de negaci?n when the expresi?n a negar est? entre par?ntesis.</LI>
+	<LI>Se agreg? a opci?n al profile to permitir condiciones with a lenguaje m?s coloquial (the new construcciones son: "X ES and", "X ES IGUAL A and", "X ES PAR", "X ES IMPAR", "X ES DIVISIBLE by and", "X ES MULTIPLO DE and", "X ES DISTINTO DE and", "X ES POSITIVO", "X ES NEGATIVO", "X ES CERO", "X ES ENTERO", "X ES MAYOR that and", "X ES MAYOR or IGUAL A and", "X ES MENOR that and", "X ES MENOR or IGUAL A and", and some variaciones menores. in todas it is possible to reemplazar "ES" by "not ES" to obtener the opuesta.</LI>
+	<LI>Al save desde the GUI, if not se especifica extensi?n se agrega autom?ticamente ".psc".</LI>
+	<LI>now the lista de palabras reservadas a resaltar in azul in the editor se ajusta al profile de lenguaje seleccionado.</LI>
+	<LI>Mejorado the acoplamiento entre the indentado inteligente and the autocomplete.</LI>
+	<LI>now al presionar enter se indentan the 2 lineas (the that estaba the cursor and the nueva).</LI>
+	<LI>Mejorado the algorithm de indentado inteligente to the estructura SEGUN.</LI>
+	<LI>Now it is possible to asignar with := and if se activa in the options, tambi?n with =.</LI>
+	<LI>Added a verificaci?n to not permitir utilizar the negaci?n (~ or not) sin operando in estructuras condicionales or repetitivas.</LI>
+	<LI>Al limpiar the pantalla, se coloca the cursor nuevamente in the esquina superior izquierda.</LI>
+	<LI>now se aceptan the comandos "LIMPIAR PANTALLA" and "BORRAR PANTALLA" with and sin espacio entre the palabras.</LI>
+	<LI>Fixed the indentado inteligente when the word FIN se escribe separada.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Se actualizaron some ?tems in the ayuda and se agregaron some ejemplos.</LI>
+	<LI>Al abrir a ejemplo de the ayuda, se pasa the foco a the window with the pseudoc?digo, and if the window de ayuda estaba maximizada se restaura to evitar that oculte a the window principal.</LI>
+	<LI>Fixed the indentado inteligente to bucles Segun.</LI>
+	<LI>now se uses the misma l?gica de indentado in the indentado inteligente mientras se escribe the c?digo and in the ?tem "Corregir Indentado" del men? "Editar".</LI>
+	<LI>Added tooltips to the options del dialog de personalizaci?n del pseudoc?digo.</LI>
+	<LI>Fixed the problem de the estructura REPETIR a the condici?n se le agrega the punto and coma final.</LI>
+	<LI>Luego de a ejecuci?n exitosa, the foco vuelve siempre al c?digo.</LI>
+	<LI>Ya not se muestra a ?tem de error vac?or in the ?rbol de resultados de the GUI after a ejecuci?n exitosa.</LI>
+	<LI>Now it is possible to colocar varias variables or expresiones to the instructions LEER and ESCRIBIR separadas only by espacios.</LI>
+	<LI>the syntax flexible now se habilita by defecto in the int?rprete (desde the GUI not hay cambio).</LI>
+	<LI>Now it is possible to poner varios values in a mismo caso in the estructura SEGUN separ?ndolos with the word clave or (that es sin?nimo de the coma, that ya estaba disponible).</LI>
+	<LI>Now it is possible to utilizar the palabras clave CASO, if ES u OPCION antes de a valor candidato in the estructura SEGUN.</LI>
+	<LI>now in the estructura for se acepta tambi?n the word clave DESDE in lugar the asignaci?n del valor inicial (ej: for i DESDE 1 HASTA 10 HACER...).</LI>
+	<LI>Fixed the syntax del for al exportar a C++ (hab?a llave donde iba par?ntesis).</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Added the directivas SIN SALTAR, BORRAR PANTALLA and LIMPIAR PANTALLA al coloreado de c?digo and al men? de autocomplete.</LI>
+	<LI>now se utilizar escribir sin that avance de linea agregando "SIN SALTAR" or "SIN BAJAR" antes or despu?s de the argumentos.</LI>
+	<LI>Now it is possible to utilizar "FIN if" in lugar de "FINSI", "FIN SEGUN" in lugar de "FINSEGUN", "FIN PROCESO" in lugar de "FINPROCESO", "FIN MIENTRAS" in lugar de "FINMIENTRAS" and "FIN for" in lugar de "FINPARA".</LI>
+	<LI>Now it is possible to borrar the screen with the instructions "BORRAR PANTALLA" or "LIMPIAR PANTALLA".</LI>
+	<LI>Added the word reservada IMPRIMIR as sin?nimo de ESCRIBIR</LI>
+	<LI>now se interpretan correctamente palabras clave as ENTONCES or HACER when tienen comentarios pegados a continuaci?n.</LI>
+	<LI>Added the profile de the carrera "Tecnolog?a in Computaci?n" perteneciente a the facultad de "Ingenier?a de the Universidad de Nari?or" (UDENAR).</LI>
+	<LI>Fixed varios problems de ?ndices fuera de rango in the checkeo de syntax that pod?an provocar violaciones de segmento in lineas vac?as or with comentarios.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Fixed a error because todos the numero, aun enteros, were shown with coma (esto hacia that not se pudiera usar variables to indexar arrays).</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Se agreg? a wrapper to lanzar the GUI in GNU/Linux to definir some variables de entorno.</LI>
+	<LI>evitar the problems de the new interfaz de Ubuntu (men?s that not se muestran and problem de redibujado al hacer scroll).</LI>
+	<LI>Now it is possible to imprimir the pseudoc?digos coloreados desde the interfaz.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Added a tiempo muerto in the loop principal del visor de diagrams de flow to evitar that consuma excesivos ciclos de CPU sin hacer nada.</LI>
+	<LI>Fixed the comportamiento de the keys + and - to hacer zoom in the visor de diagrams de flow.</LI>
+	<LI>the archivos manifest to Windows now se incluyen dentro del ejecutable as recurso.</LI>
+	<LI>Fixed the conversi?n a texto de values num?ricos muy peque?os.</LI>
+	<LI>Added a archivo manifest al programa that busca the updates to evitar alertas de seguridad innecesarias in Windows 7.</LI>
+	<LI>Ya not se declaran by error functions as arrays or variables in the c?digos exportados a C++.</LI>
+	<LI>Fixed the problems al exportar asignaciones in arrays a C++.</LI>
+	<LI>Fixed the archivos de profiles donde esta mal escrita the word clave that define the uso de arrays in base 0.</LI>
+	<LI>Al exportar a C++ se tiene in cuenta if the pseudoc?digo est? configurado to utilizar base 0.</LI>
+	<LI>Fixed the doble declaraci?n de arrays al exportar a C++.</LI>
+	<LI>Added the profile de the Universidad Nacional de Educaci?n de Per? (UNE-LaCantuta).</LI>
+	<LI>Fixed the c?digo de wxPSeInt to that pueda compilarse with the versiones Unicode de wxWidgets.</LI>
+	<LI>the comentario acerca de the variables sin tipo al exportar only aparece if efectivamente hay variables sin tipo.</LI>
+	<LI>Fixed the cuelgue al exportar a c++ pseudoc?digos that use arrays.</LI>
+	<LI>Fixed a potencial problem in the b?squeda de updates if the puerto del proxy es incorrecto.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>now the interfaz llama correctamente al int?rprete a?n when se instala in directorios with espacios in GNU/Linux.</LI>
+	<LI>Implementado a new sistema to notificar autom?ticamente the disponibilidad de updates in the sitio.</LI>
+	<LI>Al save a ejemplo with otro nombre pierde the atributo de only lectura.</LI>
+	<LI>Removed the mensaje de advertencia de only input al ejecutar ejemplos.</LI>
+	<LI>the pseudoc?digos de the ejemplos that use arrays se adaptan a the base seleccionada in the profile.</LI>
+	<LI>Fixed the aplicaci?n de some par?metros del profile in the ejecuci?n (arrays in base 0, concatenaci?n de cadenas and dimensionamiento with expresiones variables).</LI>
+	<LI>Added a verificaci?n extra to evitar that in a expresi?n after a array se coloque otra variable sin operador in medio.</LI>
+	<LI>Added a verificaci?n to comprobar that the dimensiones de a array sean siempre positivas.</LI>
+	<LI>now the uso de palabras reservadas as variables in expresiones se detecta siempre antes de ejecutar.</LI>
+	<LI>Now it is possible to colocar the instructions by verdadero to a if in the misma linea that the if tambi?n when se omite ENTONCES.</LI>
+	<LI>Ya not se advierte when se coloca punto and coma donde not es necesario.</LI>
+	<LI>now se detecta the error when se coloca algo extra after the condici?n de a if or a mientras with the opci?n de omitir HACER/ENTONCES activada.</LI>
+	<LI>Fixed the problem because the opci?n de permitir omitir HACER or ENTONCES estaba siempre activa.</LI>
+	<LI>Fixed the iconos de deshacer and rehacer in the barra de herramientas.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Fixed the omisi?n del caso "DE OTRO MODO" de the estructura "SEGUN" when the instrucci?n se encuentra in the misma linea.</LI>
+	<LI>Fixed the comprobaci?n de presencia/ausencia de subindices in lecturas and escrituras de variables/arrays.</LI>
+	<LI>Added the versi?n del paquete in the barra de estado de the interfaz.</LI>
+	<LI>Added the evento del doble-click to the lista de profiles.</LI>
+	<LI>Added the profile de the asignatura "Computaci?n Aplicada" de the carrera "Ingenier?a in Mec?nica" de the "Universidad de the Frontera" (UFRO).</LI>
+	<LI>Added the profile del instituto "Taller de Inform?tica" de Uruguay (TInformatica).</LI>
+	<LI>Al seleccionar a profile primero se cargan the values by defecto to evitar problems if the profile not contempla todas the variables.</LI>
+	<LI>Added the profile de the Universidad Salesiana de Bolivia (USalesiana).</LI>
+	<LI>Added the profile de the Universidad Cat?lica de Temuco (UCTemuco).</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>now al pegar a bloque de c?digo se corrige the indentado autom?ticamente.</LI>
+	<LI>Fixed the visualizaci?n de estructuras for in the diagrams de flow.</LI>
+	<LI>now if the GUI encuentra a archivo de configuraci?n (config.here) in su propia carpeta uses ese.</LI>
+	<LI>Fixed the problem by the that the GUI not permit?a editar a algorithm despu?s de ejecutar step-by-step in some casos.</LI>
+	<LI>Fixed the indentado de the estructura REPETIR.</LI>
+	<LI>now in the diagrams de flow se reemplazan operadores by palabras.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Fixed the indentado de estructuras to and mientras.</LI>
+	<LI>Fixed the evaluaci?n de ?ndices in arrays multidimensionales.</LI>
+	<LI>Added a verificaci?n to dar a error m?s espec?fico if in a mismo archivo hay m?s de a declaraci?n de proceso.</LI>
+	<LI>now the lista de profiles se muestra ordenada.</LI>
+	<LI>Fixed the warnings in the compilaci?n de the interfaz and the errors al compilar in versi?n Unicode.</LI>
+	<LI>Added atajos de keyboard in the interfaz to cambiar de pesta?a (Ctrl+Tab, Ctrl+AvPag, Ctrl+Shift+Tab, Ctrl+RePag).</LI>
+	<LI>Added the profile de the Universidad Cat?lica San Pablo (UNCSP).</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Updated the ?conos de the barra de Herramientas.</LI>
+	<LI>Fixed the problem de the asignaciones a elementos de a array.</LI>
+	<LI>Updated the dialog de "Acerca De...".</LI>
+	<LI>Added a opci?n in the men? "Editar" to corregir autom?ticamente the indentado de a bloque de pseudoc?digo.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Fixed the problem by the that not detectaba some palabras clave if ten?an punto and coma innecesario inmediatamente pegado.</LI>
+	<LI>Fixed the control de that haya a opci?n inmediatamente despu?s de a SEGUN.</LI>
+	<LI>Added the profile de the Universidad Capit?n General Gerardo Barrios (UGB).</LI>
+	<LI>Fixed the archivo manifest to that the interfaz tome the estilo correcto tambi?n in sistemas de 64 bits.</LI>
+	<LI>Fixed the calculo de tama?os de textos in the graficador when se incluyen accents u otros characters special.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Fixed the tama?or de the imagen exportada when the diagram es mas chico that the potencial window.</LI>
+	<LI>Fixed the violaci?n de segmento al esperar a tecla after the ejecuci?n in the int?rprete.</LI>
+	<LI>Added a mensaje de advertencia in the versi?n to Mac acerca de the options a?n not disponibles.</LI>
+	<LI>the interprete ya not uses fondo negro in the ejecuci?n in Mac (the terminal not limpia correctamente the pantalla).</LI>
+	<LI>the interprete ya not espera a tecla in the ejecuci?n in Mac (the terminal lo hace sola).</LI>
+	<LI>Fixed the apariencia de the botones with ?cono in Mac OS and Windows view/7.</LI>
+	<LI>now wxPSeInt verifica siempre al iniciar that terminal conviene ejecutar.</LI>
+	<LI>Fixed the comando to lanzar a ejecuci?n in gnome-terminal.</LI>
+	<LI>Fixed the comando to lanzar a ejecuci?n in konsole de kde4 and Added a mensaje de advertencia (esta versi?n trae problems).</LI>
+	<LI>the interfaz now es capaz de detectar the rutas correctas if se encuentra in a paquete to Mac (dmg).</LI>
+	<LI>Mejorada the verificaci?n de the options to the estructura SEGUN.</LI>
+	<LI>Added the profile de the Universidad Nacional del Litoral (UNL-FICH).</LI>
+	<LI>Added the dialog de selecci?n de profile in the interfaz to configurar r?pidamente the pseudolenguaje.</LI>
+	<LI>Added a opci?n in the int?rprete to that not genere a error if se omiten the palabras clave ENTONCES and HACER al final de a linea.</LI>
+	<LI>Fixed the an?lisis de syntax to evitar that the presencia de palabras clave in comentarios genere errors adicionales.</LI>
+	<LI>now the graficador uses characters de ancho variable to the textos.</LI>
+	<LI>Portado the c?digo del graficador a the ?ltima versi?n de CImg (1.4.8).</LI>
+	<LI>the graficador ya not limita ni var?a autom?ticamente the tama?or de the window donde dibuja.</LI>
+	<LI>Added a patch to evitar that the proceso del graficador not finalice after cerrar the window.</LI>
+	<LI>the graficador de diagrams de flow evita now redibujar constantemente the diagram if the view not cambia.</LI>
+	<LI>Fixed the problem de the perdida de referencia al arrastrar the imagen del graficador in some sistemas.</LI>
+	<LI>Al graficar the flowchart de the estructura Segun siempre se dibuja the caso by defecto (De Otro Modo....) aunque not est? explicitado in the c?digo.</LI>
+	<LI>Updated the scripts de compilaci?n and reorganizado the empaquetado del c?digo fuente.</LI>
+	<LI>the interfaz wxPSeInt now can compilarse tambi?n with versiones Unicode de wxWidgets.</LI>
+	<LI>Implementada the tolerancia a errors num?ricos al comparar with igual (se desprecian errors menores a 1e-10).</LI>
+	<LI>Fixed the conversi?n a C++ de the estructura Segun (ten?a problems in the condici?n by ser float in lugar de int).</LI>
+	<LI>Fixed the representaci?n de reales in screen (now se truncan in 10 decimales, aunque the precisi?n interna es mucho mayor).</LI>
+	<LI>Fixed the parseo de par?ntesis in the determinaci?n and aplicaci?n de tipos in expresiones.</LI>
+	<LI>Integrado the new evaluador de expresiones in the m?dulo psexport (exportaci?n a C++).</LI>
+	<LI>Fixed the verificaci?n de tipos in asignaciones.</LI>
+	<LI>Added a dialog de dialogo to configurar the options del lenguaje desde the interfaz.</LI>
+	<LI>Implementado a control to evitar that the interfaz se cuelgue if not encuentra the descripci?n de a error to the ayuda r?pida.</LI>
+	<LI>Implementado the funcionamiento b?sico de arrays in the new evaluador de expresiones.</LI>
+	<LI>Integrado the new evaluador de expresiones.</LI>
+	<LI>Fixed the interpretaci?n de m?s de a estructura Segun anidadas.</LI>
+	<LI>now se muestra a mensaje alusivo when se quiere editar a pseudoc?digo that se est? ejecutando paso a paso.</LI>
+	<LI>Fixed the consideraci?n de par?ntesis dentro de constantes de characters in the evaluaci?n de expresiones.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>the to ya not se ejecuta nunca if in the primer iteraci?n the contador not cumple the condici?n.</LI>
+	<LI>Fixed the comprobaci?n de tipos in the limites de a for.</LI>
+	<LI>Fixed the verificaci?n de the dimensiones de arrays as constantes.</LI>
+	<LI>Fixed some errors in the exportaci?n a c?digo C++.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Ya not se can dimensionar arrays utilizando variables or functions. the expresiones de the ?ndices deben ser constantes.</LI>
+	<LI>Added a signo mayor a modo de prompt when the int?rprete espera a entrada de datos (LEER).</LI>
+	<LI>Fixed the violaci?n de segmento al aceptar the dialog de dialogo de variables to the desk check with the lista vac?a.</LI>
+	<LI>Fixed the comportamiento de the opci?n "Permitir palabras clave as operadores" al ejecutar paso a paso.</LI>
+	<LI>Added a opci?n al graficador de diagrams de flow to generar im?genes de mayor resoluci?n.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Added a opci?n in the men? Ayuda to buscar updates utilizando Internet.</LI>
+	<LI>Added a opci?n in the men? Configurar to ver the interpretaci?n in colores.</LI>
+	<LI>Fixed the comportamiento de the opci?n "Permitir palabras clave as operadores" al ejecutar.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Fixed a error al evaluar productos and divisiones with variables negativas.</LI>
+	<LI>now wxPSeInt can lanzarse desde a carpeta that not sea the propia.</LI>
+	<LI>Cambiado the tipo de socket to comunicar interprete and GUI to the ejecuci?n step-by-step to that not requiera privilegios de administrador in GNU/Linux.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Mejorada the combinaci?n de autocomplete+indentado inteligente, to reacomodar the palabras that cierran bloques (as FINPARA, HASTA that, etc).</LI>
+	<LI>Implementadas the ayudas emergentes (se muestra a globo tipo calltip indicando that se debe ingresar, seg?n cada instrucci?n).</LI>
+	<LI>Cambiada the forma in that se muestran the segmentos de c?digo a reemplazar in the plantillas to cada instrucci?n.</LI>
+	<LI>Fixed the error al utilizar the funci?n AZAR with a variable.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>the primer error de the lista se selecciona autom?ticamente if not se pudo ejecutar, and if the ejecuci?n se interrumpi? by a error.</LI>
+	<LI>Fixed the bug that afectaba a the paras with paso negativo.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Fixed the problems de evaluaci?n de determinadas expresiones l?gicas.</LI>
+	<LI>the selecci?n de puertos to the comunicaci?n de depuraci?n es aleatoria, to poder correr m?s de a instancia de PSeInt in a misma m?quina, and evitar problems if se bloquea a puerto.</LI>
+	<LI>Mejorada the comunicaci?n de estados to the depuraci?n entre the interfaz and the interprete.</LI>
+	<LI>Now it is possible to iniciar the depuraci?n par?ndola in the primer paso with the bot?n "Primer Paso".</LI>
+	<LI>Al hacer doble click sobre a rengl?n de the desk check se selecciona the linea de c?digo correspondiente.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Ya not se can modificar the algorithms durante the ejecuci?n paso a paso.</LI>
+	<LI>now the ejemplos se can abrir directamente desde the window de ayuda.</LI>
+	<LI>Added a bot?n in the panel de depuraci?n to evaluar a expresi?n arbitraria.</LI>
+	<LI>Added the desk check al panel de depuraci?n.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Fixed the exportaci?n a c++ de bucles for.</LI>
+	<LI>Fixed the control de the depuraci?n in Windows.</LI>
+	<LI>Modificados the filtros de dialog de dialogo to save the flowchart to permitir save as BMP or PNG adem?s de JPG.</LI>
+	<LI>Ya not se necesita convert de ImageMagick to save the diagrams de flow in JPG or PNG.</LI>
+	<LI>Fixed the errors al dibujar diagrams de flow (ancho de the estructuras if and posici?n del dibujo final).</LI>
+	<LI>Implementada the habilitaci?n and deshabilitaci?n de the botones del panel de depuraci?n seg?n the estado del depurador.</LI>
+	<LI>Solucionado provisoriamente the cuelgue al iniciar the ejecuci?n sin cerrar a depuraci?n in proceso.</LI>
+	<LI>Fixed the close de the aplicaci?n when todav?a se est?n ejecutando procesos.</LI>
+	<LI>Implementado the panel de ejecuci?n step-by-step (estado, control de velocidad, pausa, and paso manual).</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Fixed the operador modulo to not colgar the interprete if the divisor es cero.</LI>
+	<LI>Added a ejemplo del uso del new operador MOD (or %).</LI>
+	<LI>Fixed the servidor to depuraci?n in the int?rprete to Windows.</LI>
+	<LI>Implementado the operador modulo (% or MOD).</LI>
+	<LI>Now it is possible ton utilizar the palabras and, or and not in lugar de the operadores l?gicos.</LI>
+	<LI>Implementada the ejecuci?n step-by-step (autom?tica).</LI>
+	<LI>Fixed the nombre de the window de the consola.</LI>
+	<LI>Reordenada the lista de autocomplete to su correcto despliegue.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Fixed the visualizaci?n del paso del for in the flowchart.</LI>
+	<LI>Added as ejemplo the juego de the torres de Hanoi.</LI>
+	<LI>Fixed the control de dimensiones de arrays in determinadas expresiones.</LI>
+	<LI>Fixed the reemplazo de variables in expresiones l?gicas.</LI>
+	<LI>Fixed the evaluaci?n de expresiones l?gicas compuestas donde intervienen variables de distinto tipo.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Al salir the GUI ya recuerda the directorio donde abri?/guard? the ultimo archivo.</LI>
+	<LI>the GUI now can ejecutar varios algorithms al mismo tiempo sin conflictos.</LI>
+	<LI>Se agrego a par?metro to definir if se controla or not the uso del punto and coma.</LI>
+	<LI>Se agrego a par?metro to verificar that not se intente acceder a variables not inicializadas.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Nuevo icono ;).
+	<LI>Fixed the definici?n del coloreado de syntax (now es abren mas r?pido the pesta?as).	<LI>
+	<LI>Now it is possible ton abrir archivos arrastr?ndolos a the window de wxPSeInt.</LI>
+	<LI>Now it is possible ton abrir archivos al load the GUI if se the pasa as par?metros.</LI>
+	<LI>Added a historial with the ?ltimos cinco archivos abiertos.</LI>
+	<LI>Se corrigi? the incremento del contador in the for al exportar a cpp a to with paso 1.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Se corrigi? the visualizaci?n del autocomplete.</LI>
+	<LI>Se agregaron ejemplos simples nuevos.</LI>
+	<LI>Se agrego a opci?n to abrir ejemplos in the men? ayuda.</LI>
+	<LI>Se corrigi? the determinaci?n de tipos al comparar n?meros le?dos de consola.</LI>
+	<LI>the GUI now tambi?n muestra the errors in tiempo de ejecuci?n.</LI>
+	<LI>Se agregaron in the base de datos de ayuda r?pida de errors the mensajes to errors relacionados a the dimensiones de a array.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Se completo the first versi?n new interfaz.
+	<LI>Se agregaron the new functions (tan, asen, acos) al exportador a pseudoc?digo.</LI>
+	<LI>Se agregaron new par?metros al pseint to interactuar with the new GUI.</LI>
+	<LI>Se comenz? a programar the new interfaz basada in wxWidgets.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Se mejoro the determinaci?n de tipos in the input and evaluaci?n de expresiones.</LI>
+	<LI>Se corrigi? the funcionamiento de the estructura Segun.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Se corrigi? the codificaci?n de characters in the GUI to Linux.</LI>
+	<LI>Se agregaron the functions trigonom?tricas TAN, ASEN and ACOS.</LI>
+	<LI>Now it is possible to utilizar the gui?n bajo in the names de variables.</LI>
+	<LI>Se corrigi? the manejo interno de n?meros with notaci?n exponencial.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Se corrigieron varios memory leaks and errors in the dimensionamiento de the arrays.</LI>
+	<LI>Se implemento the primer aproximaci?n a the determinaci?n de tipos in psexport.</LI>
+	<LI>Se incorporo the modulo psexport al paquete (allows exportar the algorithms a c?digo c++).</LI>
+	<LI>Se colocaron correctamente the dependencias in the makefiles to Linux.</LI>
+	<LI>Se agregaron the makefiles to Windows.</LI>
+	<LI>Se corrigi? the remplazo de names de variable de mayor longitud that su contenido.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Se corrigi? the evaluaci?n de literales tipo car?cter (caso 'q0').</LI>
+	<LI>Se corrigi? the log de output del instalador to Linux.</LI>
+	<LI>Se corrigi? the syntax del cambio de permisos in the script de instalaci?n to Linux.</LI>
+	<LI>Se colorearon the mensajes del instalador to Linux.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Se agregaron the functions to the keys ESC and the flechas in the new psdraw.</LI>
+	<LI>Se centro the posici?n inicial del diagram in the t?tulo del proceso.</LI>
+	<LI>Se corrigi? the funci?n StrToDbl de utils.h to the correcta representaci?n de n?meros precedidos by the signo +.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Se agreg? the opci?n to exportar diagrams de flow in GPSeInt.</LI>
+	<LI>Se modific? the script de instalaci?n to Linux.: if not funciona the graficador nuevo, se intenta utilizar the viejo.</LI>
+	<LI>Se agreg? the opci?n to exportar diagrams de flow in VPSeInt.</LI>
+	<LI>Se agreg? the dialog de di?logo reemplazar in VPSeInt.</LI>
+	<LI>Se reescribi? psdraw utilizando the librer?a CImg.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Nuevamente it is possible to utilizar the operador de potenciaci?n '^'.</LI>
+	<LI>Se corrigi? the separaci?n de the expresi?n and the identificador de variable al ejecutar the asignaci?n.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Se cambio the forma de dibujo in psdraw to Windows (now se hace a vez and se copia with BitBlt).</LI>
+	<LI>Se optimiz? the espacio in the dibujo de the estructura SEGUN in psdraw.</LI>
+	<LI>Se corrigi? the problem with the lineas derecha e izquierda del MIENTRAS in psdraw.</LI>
+	<LI>Se array the copia de the im?genes in the script de instalaci?n to Linux.</LI>
+	<LI>Se corrigi? the control del error 84 (demasiados par?metros) in the asignaci?n.</LI>
+	<LI>Se corrigi? the control del tipo de expresi?n to the valor del paso in a for.</LI>
+	<LI>Se corrigi? the control de the presencia de the condici?n in HASTA that.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Se agrego the men? de comandos in VPSeInt.
+	<LI>Se agregaron the options to abrir and volver ejecutar the ultimo algorithm ejecutado in VPSeInt.</LI>
+	<LI>Se cambiaron the iconos de VPSeInt by the utilizados in GPSeInt.</LI>
+	<LI>Se corrigieron problems de espaciado and margenes in PSDraw.</LI>
+	<LI>Se porto PSDraw a Windows and se integro a VPSeInt.</LI>
+	<LI>the dialog de ayuda r?pida can utilizar now a barra de desplazamiento in GPSeInt.</LI>
+	<LI>Se agrego the primero borrador de the ayuda r?pida de comandos.</LI>
+	<LI>Se agrego the men? de comandos in GPSeInt.</LI>
+	<LI>Se corrigi? the control de car?cter not v?lido in the int?rprete.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Se reemplazo the funci?n gets by getline in the interpretaci?n de LEER in pseint.</LI>
+	<LI>Se comenz? the optimizaci?n de espacio in PSDraw.</LI>
+	<LI>Se completo a the first versi?n de prueba de PSDraw.</LI>
+	<LI>Se agrego the opci?n ver flowchart in GPSeInt.</LI>
+	<LI>Se le agrego the opci?n --draw al interprete to generar the archivo de entrada a PSDraw.</LI>
+	<LI>Se cambio the orden in that se copian the archivos in the script instalar.</LI>
+	<LI>Se matan the procesos del pseint antes de instalar in the script instalar.</LI>
+	<LI>Se agrego the opci?n ver flowchart in the GUI.</LI>
+	<LI>Se le agrego the opci?n --draw al interprete to generar the archivo de entrada a PSDraw.</LI>
+	<LI>Creaci?n de PSDraw, programa to graficar diagrams de flow.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Se corrigi? the control de the presencia de the expresi?n del SEGUN.</LI>
+	<LI>Se corrigi? the linea in the that marca the estructuras de control that not se cerraron.</LI>
+	<LI>Se agrego the ayuda r?pida in VPSeInt.</LI>
+	<LI>Se corrigi? the control de the ENTONCES and SINO fuera de if.</LI>
+	<LI>GPSeInt recuerda correctamente now the options del men? Configuraci?n.</LI>
+	<LI>Se comenz? the redacci?n de the ayuda r?pida.</LI>
+	<LI>Se agrego the window de ayuda r?pida a GPSeInt.</LI>
+	<LI>the interprete diferencia the errors by numero.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Se corrigi? the expresi?n a evaluar in the SEGUN.</LI>
+	<LI>Se corrigi? the comportamiento in the keys de edici?n modificadas in GPSeInt.</LI>
+	<LI>Se corrigi? the problem de the variables tipo car?cter with n?meros in su identificador.</LI>
+	<LI>
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Se corrigieron errors in the coloreado de c?digo de GPSeInt.</LI>
+	<LI>Se cambio the directorio temporal de VPSeInt to evitar problems de permisos.</LI>
+	<LI>Se corrigieron the warnings de VPSeInt.</LI>
+	<LI>Se optimizo (pero todav?a falta mucho mas) the coloreado del c?digo in the GPSeInt.</LI>
+	<LI>Se agregaron DEFINIR and as a the lista de palabras reservadas.</LI>
+	<LI>Se corrigi? the lista de palabras reservadas a resaltar in GPSeInt.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Se the orden de the archivos recientemente utilizados in GPSeInt.</LI>
+	<LI>Se corrigi? the problem de the comparaciones num?ricas(a "==" mal puesto in expresiones.h).</LI>
+	<LI>Se agrego the highlighting de palabras claves in GPSeInt.</LI>
+	<LI>Se comenz? the highlighting de syntax in GPSeInt.</LI>
+	<LI>Se agregaron the options del ancho del tabulado al men? de configuraci?n in GPSeInt.</LI>
+	<LI>Se alter? the comportamiento de the keys inicio, shift+tab and backspace in GPSeInt.</LI>
+	<LI>Se corrigi? the atajo de keyboard to cerrar archivo in the GPSeInt.</LI>
+	<LI>Se alter? the comportamiento de the keys tab and enter in GPSeInt.</LI>
+	<LI>Ya not se uses GtkSourceBuffer in GPSeInt.</LI>
+	<LI>Se corrigi? the atajo de keyboard to salir in GPSeInt.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Se corrigi? del problem del ENTONCES only al final del if.</LI>
+	<LI>DE OTRO MODO can ir tambi?n sin the dos puntos al final.</LI>
+	<LI>Correcci?n del problem de restar a variable or expresi?n negativa.</LI>
+	<LI>Correcci?n de the comparaci?n with operadores compuestos.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Correcci?n de the errors de redondeo.</LI>
+	<LI>Se incorporo the posibilidad de recuperar the ultimo c?digo ejecutado in GPSeInt.</LI>
+	<LI>Se completaron the atajos de keyboard in GPSeInt.</LI>
+	<LI>Se suprimieron the warnings de GTK al cerrar pesta?as in GPSeInt.</LI>
+	<LI>Se modifico the barra de herramientas in the GPSeInt.</LI>
+	<LI>Se agregaron the ?ltimos archivos utilizados al men? archivo in GPSeInt.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Se corrigi? the problem de the comparaciones with variables vac?as.</LI>
+	<LI>Se corrigi? the problem de the comparaciones with constantes l?gicas.</LI>
+	<LI>the entrada de a variable l?gica with LEER es now case insensitive.</LI>
+	<LI>Se corrigi? a bug al adivinar tipo de datos to a array.</LI>
+	<LI>Se corrigi? a bug al devolver a dato not definido de a array.</LI>
+	<LI>Se can utilizar corchetes to the ?ndices and dimensiones de the arrays.</LI>
+	<LI>the script de instalaci?n to Linux now controla the problems de compilaci?n e intenta utilizar the binarios precompilados.</LI>
+	<LI>GPSeInt it is possible to compilar now sin GtkSourceView.</LI>
+	<LI>the paquete to Linux now tambi?n es autoextraible.</LI>
+	<LI>GPSeInt only muestra the nombre del archivo sin the path in the pesta?as.</LI>
+	<LI>Ya not aparece in consola the error del GtkSourceView al crear a new archivo in GPSeInt.</LI>
+	<LI>Al seleccionar a error in the lista de errors se selecciona the linea in the algorithm now tambi?n in GPSeInt.</LI>
+	<LI>Se corrigieron the permisos to archivos and carpetas in the script de instalaci?n to Linux.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Se corrigi? the punto de output de the estructura SEGUN.</LI>
+	<LI>Se corrigi? the cambio del if-ENTONCES del 20060331.</LI>
+	<LI>Se corrigi? the largo del vector prog_lines.</LI>
+	<LI>Modificaci?n de some mensajes de error.</LI>
+	<LI>GPSeInt graba su posici?n and tama?or aunque not salgamos with Archivo->Salir.</LI>
+	<LI>GPSeInt ya acepta archivos a abrir as par?metro.</LI>
+	<LI>Se corrigi? the problem de the signos +/- al comienza the expresi?n in the asignaci?n del for.</LI>
+	<LI>Se mejoraron the Makefiles.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Se reemplazaron the vectores bucles and bucles_line del int?rprete by pilas.</LI>
+	<LI>ENTONCES now can estar in the misma linea that the if.</LI>
+	<LI>Se corrigi? the problem de the signos +/- al comienza the expresi?n in the asignaci?n.</LI>
+	<LI>Se agreg? the control de existencia de output by verdadero to the condicional if.</LI>
+	<LI>Indentado by tabs in the font del int?rprete.</LI>
+	<LI>Se agregaron the options "deshacer" and "rehacer" a GPSeInt.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Se agrego the instrucci?n DEFINIR to explicitar the tipo de variable.</LI>
+	<LI>Se agregaron atajos de keyboard to ejecutar in GPSeInt.</LI>
+	<LI>Se corrigi? the problem de the expresiones with &lt; ? &gt; and espacios.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Se corrigi? the problem de the n?meros negativos after palabras reservadas (with PASO, and HASTA that).</LI>
+	<LI>Se fijo a 3 the ancho del indentado in GPSeInt.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Se actualizo the documentaci?n de the versi?n to Linux.</LI>
+	<LI>Se agregaron the n?meros de linea in the window de edici?n.</LI>
+	<LI>Se cambio the widget TextView by SourceView in GPSeInt to facilitar the indentado.</LI>
+
+</UL><BR><BR><B>Change Log</B><BR><UL>
+	<LI>Added control de operador incorrecto when hay espacios.</LI>
+	<LI>Se suprimieron the options de optimizaci?n de the makefiles.</LI>
+	<LI>Actualizaci?n de the imagen del dialog Acerca de.</LI>
+	<LI>Mejoras al script de instalaci?n to Linux.</LI>
+	<LI>Incorporaci?n de archivos Makefiles.</LI>
+	<LI>Mayor modularizaci?n del c?digo to mejorar su input and mantenimiento.</LI>
+	<LI>Correcciones varias in the control del uso de arrays and variables with the mismo nombre.</LI>
+	<LI>Ya not es necesario the ';' al final de the instructions secuenciales.</LI>
+	<LI>Added funci?n AZAR(n) that devuelve a entero aleatorio entre 0 and n-1.</LI>
+	<LI>Correcci?n de bug in names de variables de the forma LetrasNumerosLetras.</LI>
+	<LI>Added control de identificador not v?lido to the nombre del proceso.</LI>
+	<LI>Correcci?n in the first ejecuci?n de a bucle REPETIR ... HASTA that.</LI>
+	<LI>Correcci?n de error (by the divisi?n with punto flotante) in the funci?n DblToString().</LI>
+	<LI>Creaci?n del Change Log ;).</LI>
+
+</UL><BR><BR><B>Change Log</B><BR>
+<BR><BR>
+</BODY></HTML>
+

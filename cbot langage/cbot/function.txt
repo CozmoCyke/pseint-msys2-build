@@ -1,0 +1,167 @@
+\b;Les fonctions
+Une fonction : une instruction créée par vous.
+
+\b;Fonction principale
+Vous savez probablement déjà comment créer une fonction. Chaque programme du CBOT doit avoir une fonction principale, qui ressemble à ceci :
+\c;
+\s;extern void object::nomFonctionPrincipale()
+\s;{
+\s;	
+\s;	;// ..instructions.. (sans oublier les ';')
+\s;	
+\s;}
+\n;
+Rien d'autre qu'un nom ne peut être changé dans la fonction principale. Il faut qu'elle respecte le prototype fixé. 
+Le mot-clé \c;\l;extern\u cbot\extern;\n; distingue la fonction principale des autres.
+
+\b;Utilisation courante
+Grâce aux fonctions, vous pouvez diviser votre programme en plusieurs parties plus simple. Chacune d'elles exécutera une tâche spécifique. Par exemple :
+\c;
+\s;extern void object::Remote()
+\s;{
+\s;	send("order", 1, 100);
+\s;	wait(5);
+\s;	send("order", 3, 100);
+\s;	wait(5);
+\s;	send("order", 2, 100);
+\s;	wait(5);
+\s;	send("order", 4, 100);
+\s;	wait(5);
+\s;}
+\n;
+\c;\l;send\u cbot\send;\n; et \c;\l;wait\u cbot\wait;\n; sont répétés plusieurs fois. Ce serait donc une bonne chose si nous créions une fonction qui exécute ces deux instructions :
+\c;
+\s;void SendToPost(float op)
+\s;{
+\s;	send("order", op, 100);
+\s;	wait(5);
+\s;}
+\s;
+\s;extern void object::Remote()
+\s;{
+\s;	SendToPost(1);
+\s;	SendToPost(3);
+\s;	SendToPost(2);
+\s;	SendToPost(4);
+\s;}
+\n;
+Maintenant, le programme est beaucoup plus facile à lire. C'est une bonne pratique de diviser le programme en plusieurs fonctions avec des noms auto-descriptifs.
+
+\b;Syntaxe
+\c;
+\s;TypeResultat nomFonction(parametresOptionnels)
+\s;{
+\s;	contenu;
+\s;}
+\n;
+\l;TypeResultat\u cbot\type; doit être précisé comme \l;void\u cbot/void; si la fonction ne retourne rien. Contenu est un ensemble d'instructions. NomFonction doit être choisi comme un nom de \l;variable\u cbot\var;, sans espace...
+
+\t;Paramètres
+Une fonction peut avoir des paramètres:
+\c;
+\s;void exemple(int a, float x, string s)
+\s;{
+\s;	message(a);
+\s;	message(x);
+\s;	message(s);
+\s;}
+\n;
+La fonction \c;exemple\n; recevra un \l;entier\u cbot\int; \c;a\n;, un \l;réel\u cbot\float; \c;x\n; et une \l;chaîne\u cbot\ string; \c;s\n;. Les paramètres sont "passés par valeur", c'est-à-dire que les valeurs des variables paramètres dans une fonction sont des copies des valeurs que l'appelant a spécifiées comme variables. Si vous passez un \c;\l;int\u cbot\int;\n; à une fonction, son paramètre est une copie de n'importe quelle valeur passée en argument, et la fonction peut changer sa valeur de paramètre sans affecter les valeurs du code qui a appelé la fonction.
+
+Par contre, si vous passez une instance de \l;classe\u cbot\class; ou un \l;tableau\u cbot\array; en paramètre d'une fonction, la fonction reçoit seulement une \l;référence\u cbot\pointer; à l'instance ou au tableau. Cela signifie que si vous modifiez l'instance ou le tableau dans la fonction, l'instance ou le tableau qui a été spécifié par l'appelant sera effectivement modifié.
+
+\t;Résultat
+Une fonction peut aussi retourner un résultat avec l'instruction \c;\l;return\u cbot\return;\n;. Par conséquent, la fonction ne doit plus être déclarée comme \c;\l;void\u cbot\void;\n; mais comme retournant une valeur d'un autre \l;type\u cbot\type; :
+\c;
+\s;float Average(float a, float b)
+\s;{
+\s;	return (a+b)/2;
+\s;}
+\s;
+\s;extern void object::Test( )
+\s;{
+\s;	float value;
+\s;	value = Average(2, 6);
+\s;	message(value);  // affichera 4
+\s;}
+\n;
+Quelques autres exemples :
+\c;
+\s;float Pi()
+\s;{
+\s;	return 3.1415;
+\s;}
+\s;
+\s;string Sign(float a)
+\s;{
+\s;	if (a > 0)  return "positive";
+\s;	if (a < 0)  return "negative";
+\s;	return "null";
+\s;}
+\n;
+
+\b;Surcharge
+Vous pouvez déclarer plusieurs fonctions avec le même nom, mais avec des paramètres différents :
+\c;
+\s;float Pythagoras(float a, float b)
+\s;{
+\s;	return sqrt((a*a)+(b*b));
+\s;}
+\s;
+\s;float Pythagoras(float a, float b, float c)
+\s;{
+\s;	return sqrt((a*a)+(b*b)+(c*c));
+\s;}
+\n;
+CBOT appellera l'une ou l'autre fonction en fonction des paramètres passés. Ils doivent pouvoir être distingués, c'est-à-dire que vous ne pouvez pas déclarer deux fonctions avec le même nom et les mêmes types de paramètres dans le même ordre exact, par exemple en déclarant \c;int Pythagoras(float b, float a)\n; entraînera une erreur. Notez que le type de résultat n'a pas d'importance.
+
+\b;Fonctions publiques
+Il est aussi possible de déclarer une fonction \l;public\u cbot\public; pour lui permettre d'être utilisée par d'autres robots.
+
+\b;object::
+Déclarer une fonction comme faisant partie de l'espace de nommage \l;object\u cbot\object; lui donne accès au pointeur \l;pointeur\u cbot\pointer; \c;\l;this\u cbot\this;\n; , c'est-à-dire à toutes les propriétés disponibles du robot où le programme est exécuté.
+\c;
+\s;void object::Example()
+\s;{
+\s;	message(this.category);
+\s;}
+\n;
+
+\b;Paramètres par défaut
+Les derniers paramètres des fonction peuvent avoir des valeurs par défaut qui peuvent être omises lors de l'appel.
+\c;
+\s;float Add(float a = 0.0, float b = 0.0)
+\s;{
+\s;	return a + b;
+\s;}
+\s;
+\s;// Plus loin, dans le programme ou dans une autre fonction...
+\s;val=Add(); // val vaut 0.0
+\s;val=Add(2.0); // val vaut 2.0
+\s;val=Add(2.0, 3.0); // val vaut 5.0
+\s;// ...
+\n;
+
+\t;Paramètres par défaut et surcharge
+Les fonctions avec des paramètres par défaut peuvent encore être surchargées, il faut seulement s'assurer que les appels de fonction ne sont pas ambigus. Par exemple, considérez le code suivant :
+\c;
+\s;float Add(float a = 0.0, float b = 0.0)
+\s;{
+\s;	return a + b;
+\s;}
+\s;
+\s;string Add(string a = "", string b = "")
+\s;{
+\s;	return a + b;
+\s;}
+\s;
+\s;// plus loin dans une autre fonction...
+\s;Add(); // Erreur de compilation : appel ambigu
+\s;Add(""); // Ok
+\s;Add(0.0); // Ok
+\s;// ...
+\n;
+Notez que dans l'exemple ci-dessus, la surcharge rend le premier paramètre par défaut inutile car l'appelant doit le passer de toute façon pour pouvoir distinguer les deux fonctions.
+
+\t;Voir aussi
+\l;Programmation\u cbot;, \l;types\u cbot\type; et \l;catégories\u cbot\category;.

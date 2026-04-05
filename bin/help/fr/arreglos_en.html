@@ -1,0 +1,32 @@
+<HTML>
+	<HEAD>
+		<TITLE>PSeudo Intérprete</TITLE>
+	</HEAD>
+	<BODY>
+<B>Arrays</B>
+<BR><BR>
+&nbsp;&nbsp;&nbsp;Arrays are homogeneous data structures (all their values have the same type) that let you store a certain number of values under a single identifier and later refer to them using one or more subscripts. Arrays can be thought of as vectors, matrices, and similar structures. To use an array, it must first be dimensioned; that is, you must declare the ranges of its subscripts, which determines how many elements it stores and how they are accessed.
+<BR><BR>
+<B>Arrays</B>
+<BR><BR>
+&nbsp;&nbsp;&nbsp;The Dimensionar instruction (or Dimensión) declares an array by indicating its dimensions.<br><BR>
+<code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dimensionar &lt;identificador&gt;[&lt;max1&gt;,...,&lt;maxN&gt;];
+</code><br><BR>
+&nbsp;&nbsp;&nbsp;This instruction defines an array with the name given in &lt;identificador&gt; and N dimensions. The N parameters indicate the number of dimensions and the maximum value of each one. The number of dimensions may be one or more, and each maximum number of elements must be a positive numeric expression.<BR>
+&nbsp;&nbsp;&nbsp;If zero-based arrays are used, declaring an array with, for example, 15 elements means the valid indices go from 0 to 14; if one-based arrays are used, the valid indices go from 1 to 15. This is configured in the <A href="perfiles_en.html">PSeudoCode Options</A> dialog.<BR>
+&nbsp;&nbsp;&nbsp;More than one array may be declared in the same instruction, separating them with a comma (,).<br><BR>
+<code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dimensionar Vec[10], Mat[5,8]
+</code><br><BR>
+&nbsp;&nbsp;&nbsp;The <A href="example:Mayores.psc">Largest Values</A> example shows how to load data into an array and then find the greatest value among those data.<BR>
+&nbsp;&nbsp;&nbsp;The <A href="example:Sucursales.psc">Branches</A> example uses a two-dimensional array (matrix) to store a company's sales broken down by product and branch office.<BR>
+<BR>
+<B>Arrays</B><BR>
+<BR>
+&nbsp;&nbsp;&nbsp;Depending on the <a href="perfiles_en.html">language customization</a>, it may be possible to resize an array with the keyword Redimensionar (or Redimensión). When an array is resized, the original number of dimensions must be preserved, but the size of each dimension may change.<BR>
+<BR>
+<code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dimensionar Lista[10];<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // ...<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Redimensionar Lista[20];<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // ...</code><br><BR>
+<BR>
+</BODY></HTML>

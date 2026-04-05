@@ -1,0 +1,45 @@
+<HTML>
+	<HEAD>
+		<TITLE>PSeudo Int?rprete</TITLE>
+	</HEAD>
+	<BODY>
+	<B>Creaci?n de ejercicios autocontenidos</B><BR><BR>
+	Esta secci?n describe c?mo crear un <A href="ejercicios.html">ejercicio autocontenido</A>. Para ello debe:
+	<OL>
+	<LI>Fuera de PSeInt, crear un directorio vac?o en cualquier ubicaci?n (al que llamaremos "directorio base") y colocar en el mismo los siguientes archivos:
+	<UL>
+		<LI><B>base.psc</B>: un archivo con el pseudoc?digo inicial que PSeInt mostrar? al alumno al iniciar el ejercicio. Si se omite este archivo PSeInt utilizar? la misma plantilla que utilizar al crear un nuevo algoritmo.</LI>
+		<LI><B>input-*.txt</B>: todo archivo de extensi?n txt cuyo nombre comience con "input" ser? considerado como entrada para un caso de prueba. Como nombre del caso de prueba se tomar? el resto del nombre del archivo. El archivo debe contener las entradas que leer? el algoritmo, una por linea.</LI>
+		<LI>Una de las dos siguientes opciones:<UL>
+			<LI><B>output-*.txt</B>: archivos con las salidas que deber?a arrojar la soluci?n correcta para cada caso de prueba. El nombre las mismas reglas que el archivo de entrada, cambiando "input" por "output".</LI>
+			<LI><B>solution.psc</B>: un archivo con el pseudoc?digo de la soluci?n correcta. No ser? directamente incluido en el ejercicio, pero se podr? utilizar luego para generar las salidas correctas para los casos de prueba.</LI>
+		</UL></LI>
+		<LI><B>help.html ? help.md</B>: un archivo opcional con el enunciado del problema, con formato html b?sico (si es help.html, <A href="html_format.html">m?s detalles sobre el formato</A>) o markdown (si es help.md), que ser? mostrado en el panel de ayuda r?pida al abrir el ejercicio.<UL>
+			<LI><B>*.png</B>: todo archivo de extensi?n png ser? incluido en el ejercicio, y podr? ser utilizado desde help.html/help.md mediante una direcci?n especial (<A href="html_format.html">detalles y ejemplos</A>).</LI>
+		</UL></LI>
+	</UL></LI>
+	<LI>Desde PSeInt:<OL>
+		<LI>Abrir el archivo especial <A href="cmd:creator">creator.psz</a> (con el comando "Abrir" del men? "Archivo") ubicado en el directorio de instalaci?n de PSeInt. Esta acci?n abrir? una nueva ventana con opciones para generar un archivo de ejercicio.
+		<LI>Deber? completar la configuraci?n del ejercicio en la nueva ventana. Esta ventana presenta los siguientes controles:<UL>
+			<LI><B>Directorio de entrada</B>: aqu? debe introducir la ruta completa del directorio que cre? en el primer paso, o seleccionarlo utilizando el bot?n de los tres puntos. Una vez seleccionado un directorio correctamente, se habilitar?n los dem?s controles, y se cargar? en el mismo la configuraci?n inicial del problema.</LI>
+			<LI><B>Mensaje en caso de ?xito</B>: introduzca aqu? el mensaje que PSeInt mostrar? al alumno si al evaluar su soluci?n todos los casos de prueba se resuelven correctamente.</LI>
+			<LI><B>Mensaje en caso de error</B>: introduzca aqu? el mensaje que PSeInt mostrar? al alumno si al evaluar su soluci?n todos alguno de los casos de prueba no se resuelven correctamente.</LI>
+			<LI><B>Mostrar casos fallidos</B>: si activa esta opci?n, cuando el alumno eval?e una soluci?n incorrecta y falle un caso de prueba, PSeInt le ofrecer? visualizar el/los casos de prueba fallidos. La forma de visualizaci?n depende de los siguiente dos controles:</LI>
+			<LI><B>Solo el primero que falle</B>: Si se selcciona esta configuraci?n, cuando el alumno haga click en evaluar, la evaluaci?n se interrumpir? cuando se encuentre el primer caso fallido, y se ofrecer? al alumno visualizar solo ese. En caso contrario, se procesar?n todos los casos, y al final se ofrecer? visualizar todos los que hayan fallado.</LI>
+			<LI><B>Mostrar soluciones correctas</B>: Si esta opci?n est? habilitada, la ventana que permite visualizar los casos que fallaron en una evaluaci?n muestra en sus dos paneles la salida del algoritmo del alumno, y la salida esperada. En caso contrario, se muestra la salida del alumno, y solo la entrada del caso de prueba, pero no la salida correcta. Notar que en la "salida" de un algoritmo se pueden ver tambi?n los valores de entrada, ya que se entiende por salida todo lo que el int?rprete mostrar?a en la terminal de ejecuci?n.</LI>
+			<LI><B>Casos de prueba</B>: Este campo muestra la cantidad de casos de prueba (archivos input-*.txt) encontrados en el directorio base. No puede ser modificado, es solo para obtener informaci?n sobre los datos cargados para el ejercicio.</LI>
+			<LI><B>Probar casos en orden aleatorio</B>: Esta opci?n determina si el orden en que se prueban los casos es fijo (cuando est? desactivada por nombre) o aleatorio (cuando est? activada, en cada evaluaci?n de un mismo ejercicio se genera un nuevo orden aleatorio).</LI>
+			<LI><B>Incluir pseudoc?digo base</B>: Este campo se encontrar? activado si el directorio base incluye el archivo base.psc con la plantilla inicial de pseudoc?digo para el ejercicio. No puede ser modificado, es solo para obtener informaci?n sobre los datos cargados para el ejercicio.</LI>
+			<LI><B>Incluir ayuda/enunciado html</B>: Este campo se encontrar? activado si el directorio base incluye el archivo help.html con la descripci?n/enunciado a mostrar en el panel de ayuda r?pida al abrir el ejercicio. No puede ser modificado, es solo para obtener informaci?n sobre los datos cargados para el ejercicio.</LI>
+			<LI><B>Generar soluciones</B>: Este bot?n se habilita cuando el directorio base seleccionado contiene el archivo solution.psc, con el algoritmo soluci?n del ejercicio, y se utiliza para ejecutar el algoritmo con cada caso de prueba y generar y ver las salidas que correspondan. Si el ejercicio ya ten?a un conjunto de salidas (por ejemplo, le?das de los archivos output-*.txt), estas ser?n reemplazadas. El algoritmo soluci?n se relee cada vez que se utiliza este bot?n, por lo que no es necesario recargar el programa o el directorio base si se modifica el algoritmo.</LI>
+			<LI><B>Contrase?a</B>: Si quiere que el ejercicio solicite una contrase?a antes de comenzar, debe seleccionar este campo e ingresar la misma. El objetivo de poder incorporar una contrase?a es permitirle al docente distribuir el ejercicio a todos los estudiantes previo al momento de la evaluaci?n, y lograr que todos comiencen a resolverlos al mismo tiempo cuando el docente publique la contrase?a.</LI>
+			<LI><B>Requerir perfil</B>: Si se ingresa aqu? el nombre de un perfil de lenguaje el parcialito solo podr? abrirse si el entorno est? configurado para usar ese perfil (en caso de tener otra configuraci?n se muestra un mensaje indicando el perfil necesario). Si se deja en blanco, se acepta cualquier perfil o configuraci?n personalizada.</LI>
+			<LI><B>Cifrado mejorado</B>: Las primeras versiones de PSeInt que incluian soporte para ejercicios autocontenidos utilizaban un mecanismo de cifrado para el cual en ciertos casos la contrase?a pod?a ser descubierta con relativa facilidad inspeccionando el archivo del ejercicio (generalmente cuanda hab?a muchos casos de prueba peque?os). Si se desactiva esta opci?n se utiliza ese cifrado, considerado mucho m?s d?bil que el actual. Esta opci?n se mantendr? por algunas versiones para poder generar generar ejercicios que puedan abrirse con versiones de PSeInt desactualizadas. Sin embargo, se recomienda mantener PSeInt actualizado y utilizar el nuevo mecanismo siempre que sea posible.</LI>
+		</UL></LI>
+		<LI>Una vez finalizada la configuraci?n, utilice el bot?n "Generar" para efectivamente crear y guardar el archivo de ejercicio. Al utilizar este bot?n el programa le permitir? elegir la ubicaci?n final para el archivo de ejercicio. Debe tener en cuenta que no puede elegir la extensi?n del archivo: deber? ser .psz para ejercicios sin contrase?a, y .psx para ejercicios con contrase?a. Luego de elegir la ubicaci?n, se generar? el archivo final de ejercicio, y se guardar? la configuraci?n seleccionada (con la excepci?n de la contrase?a) en el archivo config.txt del directorio del ejercicio. Este archivo servir? para recargar las configuraciones seleccionadas la pr?xima vez que intente recrear el ejercicio a partir del mismo directorio.</LI>
+	</OL></LI>
+	</OL>
+<BR><BR>
+Puede encontrar una <A href="open:ejemplos/Ejercicio.psz">archivo de ejercicio de ejemplo</A>, junto con la <A href="explore:ejemplos/Ejercicio">carpeta con todos los archivos necesarios para crealo</A> (descriptos en esta p?gina) en el directorio "ejemplos" de su instalaci?n de PSeInt.<BR>
+<BR><BR>
+</BODY></HTML>

@@ -1,0 +1,28 @@
+# Aide contextuelle localisee pour wxPSeInt.
+# Format : mot_cle=page.html
+
+leer=lectura.html
+lectura=lectura.html
+lire=lectura.html
+escribir=escritura.html
+escritura=escritura.html
+ecrire=escritura.html
+imprimir=escritura.html
+mostrar=escritura.html
+si=si.html
+entonces=si.html
+sino=si.html
+sinon=si.html
+finsi=si.html
+para=para.html
+pour=para.html
+finpara=para.html
+mientras=mientras.html
+tantque=mientras.html
+finmientras=mientras.html
+repetir=repetir.html
+repeter=repetir.html
+segun=segun.html
+selon=segun.html
+finsegun=segun.html
+funciones=funciones.html

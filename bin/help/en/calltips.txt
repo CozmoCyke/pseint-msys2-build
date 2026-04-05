@@ -1,0 +1,58 @@
+# Formato:
+# [INSTRUCTIONS] / [FUNCTIONS]
+# clave=texto
+# clave|1=texto   -> solo mostrar si la palabra no es la primera de la linea
+
+[INSTRUCTIONS]
+Funcion={return variable} <- {name} ( {list of arguments separated by comma} )\n{name} ( {list of arguments, separated by comma} )
+Función={return variable} <- {name} ( {list of arguments separated by comma} )\n{name} ( {list of arguments, separated by comma} )
+SubProceso={return variable} <- {name} ( {list of arguments separated by comma} )\n{name} ( {list of arguments, separated by comma} )
+SubAlgoritmo={return variable} <- {name} ( {list of arguments separated by comma} )\n{name} ( {list of arguments, separated by comma} )
+Leer={one or more variables, separated by commas}
+Definir={one or more variables, separated by commas}
+Esperar={"Key" or time interval}
+Escribir={one or more mort expressions, separated by commas}
+Mostrar={one or more expressions, separated by commas}
+Imprimir={one or more expressions, separated by commas}
+Mientras={condition, logical expression}
+QUE={condition, logical expression}
+Para={initial assignment: variable <- value}
+Desde={initial value}
+Hasta|1={final value}
+Paso={step value}
+Si={condition, logical expression}
+Entonces={actions if true}
+SiNo={actions if false}
+Segun={control variable or expression}
+Opcion={possible value for the control expression}
+Opción={possible value for the control expression}
+SiEs={possible value for the control expression}
+Caso={possible value for the control expression}
+Si Es={possible value for the control expression}
+
+[FUNCTIONS]
+ALEATORIO={minimum value}, {maximum value}
+AZAR={positive integer numeric expression (maximum possible value +1)}
+TRUNC={numeric expression}
+REDON={numeric expression}
+RC={non-negative numeric expression}
+RAIZ={non-negative numeric expression}
+ABS={numeric expression}
+EXP={numeric expression}
+LN={positive numeric expression}
+COS={angle in radians}
+SIN={angle in radians}
+TAN={angle in radians}
+ACOS={numeric expression (in the interval [-1;+1])}
+ASIN={numeric expression (in the interval [-1;+1])}
+ATAN={numeric expression}
+CONVERTIRANUMERO={string}
+CONVERTIRANÚMERO={string}
+MAYUSCULAS={string}
+MAYÚSCULAS={string}
+MINUSCULAS={string}
+MINÚSCULAS={string}
+CONCATENAR={two strings}
+LONGITUD={string}
+SUBCADENA={string}, {start position}, {end position}
+CONVERTIRATEXTO={numeric expression}

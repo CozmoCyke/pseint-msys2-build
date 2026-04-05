@@ -1,0 +1,21 @@
+<HTML>
+	<HEAD>
+		<TITLE>PSeudo Intérprete</TITLE>
+	</HEAD>
+	<BODY>
+<B>While</B>
+<BR><BR>
+<CENTER><img src="ps_mientras.png"></TD></CENTER><BR>
+&nbsp;&nbsp;&nbsp;The <i>Mientras</i> instruction executes a sequence of instructions while a condition remains true.
+<BR><BR>
+<code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Mientras &lt;condición&gt; Hacer <BR>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;instrucciones&gt; <BR>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FinMientras
+</code><BR><BR>
+When this instruction runs, the condition is evaluated. If it is true, the sequence of instructions that forms the loop body is executed once. At the end of the loop body, the condition is evaluated again and, if it is still true, execution repeats. These steps continue while the condition remains true. <BR>
+&nbsp;&nbsp;&nbsp;Note that the instructions in the loop body may never execute if the condition is false the first time it is evaluated. <BR>
+&nbsp;&nbsp;&nbsp;If the condition is always true, this instruction creates an infinite loop. To avoid that, the loop body must contain some instruction that modifies one or more variables involved in the condition, so that it eventually becomes false and the loop ends.<BR>
+<BR>
+&nbsp;&nbsp;&nbsp;The <A href="example:AdivinaNumero.psc">Guess the Number</A> example gives the user 10 attempts to guess a randomly generated number, using this structure to check whether the user guessed correctly or whether the attempts run out.<BR>
+<BR>
+</BODY></HTML>

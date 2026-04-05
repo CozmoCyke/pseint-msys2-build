@@ -1,0 +1,108 @@
+\b;Keyword \c;extends\n;
+Ce mot-clé est utilisé dans une définition de \c;\l;classe\u cbot\class;\n; quand on veut que la classe hérite des membres d'une autre classe. La classe qui est étendue appelée habituellement classe mère, un parent ou une base. Elle étend la classe que nous appelons un enfant ou classe fille.
+
+\t;Exemple
+\c;
+\s;public class Parent
+\s;{
+\s;	void foo()
+\s;	{
+\s;		message("foo");
+\s;	}
+\s;}
+\s;
+\s;public class Child extends Parent
+\s;{
+\s;	void bar()
+\s;	{
+\s;		message("bar");
+\s;	}
+\s;}
+\s;
+\s;extern void object::Test()
+\s;{
+\s;	Child child();
+\s;	child.foo(); // Affiche "foo"
+\s;	child.bar(); // Affiche "bar"
+\s;}
+\n;
+
+\b;Membres hérités
+Seuls les membres \c;\l;publics\u cbot\public;\n; et \c;\l;protégés\u cbot\protected;\n; sont hérités. Les membres \c;\l;privés\u cbot\private;\n; sont inaccessibles directement même pour un enfant, bien qu'ils puissent être accessibles indirectement par des méthodes héritées.
+
+Les constructeurs et les destructeurs ne sont pas hérités, cependant, ils peuvent être surchargés (remplacés).
+
+\b;Surcharges de méthode
+Les méthodes héritées peuvent être redéfinies dans la définition de classe enfant. Exemple :
+\c;
+\s;public class Parent
+\s;{
+\s;	void foo()
+\s;	{
+\s;		message("foo");
+\s;	}
+\s;}
+\s;
+\s;public class Child extends Parent
+\s;{
+\s;	void foo()
+\s;	{
+\s;		message("bar");
+\s;	}
+\s;}
+\s;
+\s;extern void object::Test()
+\s;{
+\s;	Child child();
+\s;	child.foo(); // Affichera : "bar"
+\s;}
+\n;
+La méthode de la classe mère peut être appelée à l'intérieur d'une méthode surchargée en utilisant le mot-clé \c;\l;super\u cbot\super;\n;.
+
+\b;Polymorphisme
+Les \c;\l;références\u cbot\pointer;\n; de type Parent peuvent pointer vers un objet de type enfant.
+Cependant, un tel pointeur ne peut pas être utilisé pour accéder à un membre enfant. Pour accéder à un enfant membre, il faut s'assurer que la référence à Parent pointe réellement vers un objet Enfant. Si c'est le cas, il peut être copié en toute sécurité sur un pointeur de type Child, qui a accès aux membres de l'enfant.
+
+\t;Exemple
+\c;
+\s;public class Parent
+\s;{
+\s;	void foo()
+\s;	{
+\s;		message("foo");
+\s;	}
+\s;}
+\s;
+\s;public class Child extends Parent
+\s;{
+\s;	void foo()
+\s;	{
+\s;		message("bar");
+\s;	}
+\s;	void bar()
+\s;	{
+\s;		message("foo bar");
+\s;	}
+\s;}
+\s;
+\s;extern void object::Test()
+\s;{
+\s;	Parent people[2];
+\s;	people[0] = new Parent();
+\s;	people[1] = new Child();
+\s;	for (int i = 0; i < 2; ++i)
+\s;	{
+\s;		people[i].foo();
+\s;	}
+\s;	//people[1].bar(); // Erreur
+\s;	Child child = people[1];
+\s;	child.bar(); // OK
+\s;}
+\n;
+
+\b;Héritage multiple
+Un enfant ne peut pas avoir plusieurs parents, mais un parent peut avoir plusieurs enfants.
+
+\t;Voir aussi
+\c;\l;class\u cbot\class;\n;, \c;\l;public\u cbot\public;\n;, \c;\l;private\u cbot\private;\n;, \c;\l;protected\u cbot\protected;\n;, \c;\l;new\u cbot\new;\n;, \c;\l;reference\u cbot\pointer;\n;, \c;\l;this\u cbot\this;\n;, \c;\l;super\u cbot\super;\n;
+\l;Programmation\u cbot;, \l;types\u cbot\type; et \l;catégories\u cbot\category;.

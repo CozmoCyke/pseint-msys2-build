@@ -50,7 +50,10 @@ void ExporterBase::bloque(t_output &prog, t_proceso_it r, t_proceso_it q, std::s
 		} break;
 		case IT_DIMENSION: {
 			auto &impl = getImpl<IT_DIMENSION>(*r);
+			bool prev_redimension = current_dimension_is_redimension;
+			current_dimension_is_redimension = impl.redimension;
 			dimension(prog,impl.nombres,impl.tamanios,tabs);
+			current_dimension_is_redimension = prev_redimension;
 		} break;
 		case IT_DEFINIR: {
 			auto &impl = getImpl<IT_DEFINIR>(*r);

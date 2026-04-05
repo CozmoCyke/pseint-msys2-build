@@ -1,0 +1,131 @@
+LANGTRACE before_set_exepath
+LANGTRACE after_set_exepath
+LANGTRACE step=parse arg=en
+LANGKW ALGORITMO=Algoritmo
+LANGKW FINALGORITMO=FinAlgoritmo
+LANGKW DEFINIR=Definir
+LANGKW COMO=Como
+LANGTRACE before_setlanguage_call lang_code=en
+LANGTRACE SetLanguage requested=en
+LANGTRACE SetLanguage try path=C:\msys64\home\Lenovo\src\ppp\bin/../lang/en.txt
+LANGTRACE SetLanguage loaded path=C:\msys64\home\Lenovo\src\ppp\bin/../lang/en.txt
+LANGTRACE after_setlanguage_call
+LANGTRACE postset ALGORITMO=Algoritmo
+LANGTRACE postset FINALGORITMO=FinAlgoritmo
+LANGTRACE postset DEFINIR=Definir
+LANGTRACE postset COMO=Como
+LANGTRACE set_current_lang before=es after=en source=main
+KWFIX enter current_lang=en
+KWFIX before ALGORITMO=Algoritmo
+KWFIX before FINALGORITMO=FinAlgoritmo
+KWFIX before SI=Si
+KWFIX before ENTONCES=Entonces
+KWFIX before SINO=SiNo
+KWFIX before FINSI=FinSi
+KWFIX before MIENTRAS=Mientras
+KWFIX before HACER=Hacer
+KWFIX before FINMIENTRAS=FinMientras
+KWFIX before DEFINIR=Definir
+KWFIX before COMO=Como
+KWFIX before LEER=Leer
+KWFIX before ESCRIBIR=Escribir
+KWFIX overlay path=keywords/en.ini
+KWFIX loaded ALGORITMO=Algorithm
+KWFIX loaded FINALGORITMO=EndAlgorithm
+KWFIX loaded SI=If
+KWFIX loaded ENTONCES=Then
+KWFIX loaded SINO=Else
+KWFIX loaded FINSI=EndIf
+KWFIX loaded MIENTRAS=While
+KWFIX loaded HACER=Do
+KWFIX loaded FINMIENTRAS=EndWhile
+KWFIX loaded LEER=Read
+KWFIX loaded ESCRIBIR=Write
+KWFIX loaded DEFINIR=Define
+KWFIX loaded COMO=As
+KWFIX loaded TIPO_ENTERO=Integer
+KWFIX loaded TIPO_REAL=Real
+KWFIX loaded TIPO_LOGICO=Logical
+KWFIX loaded TIPO_CARACTER=Character
+KWFIX after ALGORITMO=Algorithm
+KWFIX after FINALGORITMO=EndAlgorithm
+KWFIX after SI=If
+KWFIX after ENTONCES=Then
+KWFIX after SINO=Else
+KWFIX after FINSI=EndIf
+KWFIX after MIENTRAS=While
+KWFIX after HACER=Do
+KWFIX after FINMIENTRAS=EndWhile
+KWFIX after DEFINIR=Define
+KWFIX after COMO=As
+KWFIX after LEER=Read
+KWFIX after ESCRIBIR=Write
+KWFIX after TIPO_ENTERO=Integer
+KWFIX after TIPO_REAL=Real
+KWFIX after TIPO_LOGICO=Logical
+KWFIX after TIPO_CARACTER=Character
+LANGTRACE engine current_lang=en
+KWFIX LangSettings::Fix enter current_lang=en
+KWFIX enter current_lang=en
+KWFIX before ALGORITMO=Algorithm
+KWFIX before FINALGORITMO=EndAlgorithm
+KWFIX before SI=If
+KWFIX before ENTONCES=Then
+KWFIX before SINO=Else
+KWFIX before FINSI=EndIf
+KWFIX before MIENTRAS=While
+KWFIX before HACER=Do
+KWFIX before FINMIENTRAS=EndWhile
+KWFIX before DEFINIR=Define
+KWFIX before COMO=As
+KWFIX before LEER=Read
+KWFIX before ESCRIBIR=Write
+KWFIX loaded ALGORITMO=Algorithm
+KWFIX loaded FINALGORITMO=EndAlgorithm
+KWFIX loaded SI=If
+KWFIX loaded ENTONCES=Then
+KWFIX loaded SINO=Else
+KWFIX loaded FINSI=EndIf
+KWFIX loaded MIENTRAS=While
+KWFIX loaded HACER=Do
+KWFIX loaded FINMIENTRAS=EndWhile
+KWFIX loaded LEER=Read
+KWFIX loaded ESCRIBIR=Write
+KWFIX loaded DEFINIR=Define
+KWFIX loaded COMO=As
+KWFIX loaded TIPO_ENTERO=Integer
+KWFIX loaded TIPO_REAL=Real
+KWFIX loaded TIPO_LOGICO=Logical
+KWFIX loaded TIPO_CARACTER=Character
+KWFIX after ALGORITMO=Algorithm
+KWFIX after FINALGORITMO=EndAlgorithm
+KWFIX after SI=If
+KWFIX after ENTONCES=Then
+KWFIX after SINO=Else
+KWFIX after FINSI=EndIf
+KWFIX after MIENTRAS=While
+KWFIX after HACER=Do
+KWFIX after FINMIENTRAS=EndWhile
+KWFIX after DEFINIR=Define
+KWFIX after COMO=As
+KWFIX after LEER=Read
+KWFIX after ESCRIBIR=Write
+KWFIX after TIPO_ENTERO=Integer
+KWFIX after TIPO_REAL=Real
+KWFIX after TIPO_LOGICO=Logical
+KWFIX after TIPO_CARACTER=Character
+KWFIX LangSettings::Fix exit current_lang=en
+LANGTRACE postfix current_lang=en
+LANGTRACE postfix ALGORITMO=Algorithm
+LANGTRACE postfix FINALGORITMO=EndAlgorithm
+LANGTRACE postfix DEFINIR=Define
+LANGTRACE postfix COMO=As
+LANGTRACE postfix LEER=Read
+LANGTRACE postfix ESCRIBIR=Write
+KWTRACE ENTER CheckVariable
+KWTRACE ENTER CheckVariable
+KWTRACE ENTER CheckVariable
+KWTRACE ENTER PalabraReservada
+KWTRACE ENTER PalabraReservada
+KWTRACE ENTER CheckVariable
+KWTRACE ENTER PalabraReservada

@@ -1,0 +1,18 @@
+\b;Instruction \c;receive\n;
+Syntaxe:
+\s;\c;receive ( name, power );\n;
+
+Reçoit une information de la \l;station relais\u object\exchange; la plus proche.
+
+\t;name: \c;string\n;
+Nom de l'information à lire dans la station relais. Ce nom est une chaîne de caractères; il doit donc être donné entre guillemets "".
+
+\t;power: \c;float\n;
+Puissance du récepteur, qui correspond à la distance maximale jusqu'où peut être la station relais. La valeur par défaut est de 10 mètres.
+
+\t;Type du retour: \c;\l;réel (float)\u cbot\float;\n;
+Valeur de l'information lue. Si aucune station relais n'est à proximité, ou si le nom de l'information à lire n'existe pas dans la station, la valeur \c;nan\n; est retournée.
+
+\t;Voir aussi
+\c;\l;send\u cbot\send;\n;, \c;\l;testinfo\u cbot\testinfo;\n; et \c;\l;deleteinfo\u cbot\delinfo;\n;.
+\l;Programmation\u cbot;, \l;types\u cbot\type; et \l;catégories\u cbot\category;.

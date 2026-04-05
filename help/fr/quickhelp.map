@@ -1,0 +1,12 @@
+# Aide contextuelle localisée pour wxPSeInt.
+# Format : mot_cle=page.html
+
+leer=lectura.html
+lectura=lectura.html
+lire=lectura.html
+escribir=escritura.html
+escritura=escritura.html
+ecrire=escritura.html
+mostrar=escritura.html
+imprimir=escritura.html
+écrire=escritura.html

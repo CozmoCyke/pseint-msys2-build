@@ -1,0 +1,15 @@
+// Approximate expected output for CBOTExporter V3
+
+// ADVERTENCIA: Dimension se refleja sobre todo en la declaracion del arreglo; la materializacion runtime exacta no se fuerza en V3.
+// ADVERTENCIA: los arreglos multidimensionales se declaran, pero su materializacion exacta en runtime queda diferida.
+// ADVERTENCIA: ParaCada tiene soporte parcial y algunos casos quedan sin traducir.
+// ADVERTENCIA: ParaCada solo se reescribe automaticamente para arreglos CBOT de una dimension.
+
+extern void object::pruebaparacada2d() {
+	int item;
+	int m[2][2];
+	// Dimension(m): las dimensiones quedan reflejadas en la declaracion.
+	// ADVERTENCIA: la materializacion exacta de arreglos multidimensionales no esta garantizada en V3.
+	// ADVERTENCIA: ParaCada solo se soporta en V2 para arreglos de una dimension.
+	// ADVERTENCIA: caso omitido para m.
+}

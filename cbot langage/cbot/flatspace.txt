@@ -1,0 +1,26 @@
+\b;Instruction \c;flatspace\n;
+Syntaxe:
+\s;\c;flatspace ( center, flatmin, rmin, rmax, dist );\n;
+
+Détermine la position de l'espace libre le plus proche avec au moins \c;flatmin\n; de terrain plat autour d'une position donnée. Fonctionne comme \c;\l;space();\u cbot\space;\n;. Utile pour trouver une place pour un \l;bâtiment\u cbot\category;.
+
+\t;center: \c;\l;point\u cbot\point;\n;
+Position centrale autour de laquelle la recherche est effectuée.
+
+\t;flatmin: \c;\l;réel\u cbot\float;\n;
+Rayon minimum du sol plat autour de la position désirée.
+
+\t;rmin: \c;\l;float\u cbot\float;\n; (valeur par défaut \c;10\n;)
+Rayon minimal à partir duquel la recherche est effectuée.
+
+\t;rmax: \c;\l;float\u cbot\float;\n; (valeur par défaut \c;50\n;)
+Rayon maximal après lequel la recherche est stoppée.
+
+\t;dist: \c;\l;float\u cbot\float;\n; (valeur par défaut \c;4\n;)
+Distance requise entre deux emplacements libres.
+
+\t;Type du retour: \c;\l;point\u cbot\point;\n;
+Position libre.
+
+\t;Voir aussi
+\l;Programmation\u cbot;, \l;types\u cbot\type; et \l;catégories\u cbot\category;.

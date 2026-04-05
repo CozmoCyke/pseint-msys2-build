@@ -8,24 +8,85 @@
 #include "FuncsManager.hpp"
 #include "RunTime.hpp"
 #include "strFuncs.hpp"
+#include "LocalizationManager.h"
+#ifdef FOR_WXPSEINT
+#include "../wxPSeInt/KeywordForms.h"
+#endif
 #include <cmath>
+
+#ifdef FOR_WXPSEINT
+static bool IsAuditKeywordForm(const std::string &form) {
+	std::string normalized = form;
+	for (char &c : normalized) c = Normalize(c);
+	return normalized == "READ" || normalized == "LIRE" || normalized == "WRITE" || normalized == "ECRIRE"
+		|| normalized == "LEER" || normalized == "ESCRIBIR"
+		|| normalized == "DEFINE" || normalized == "AS" || normalized == "DEFINIR" || normalized == "COMME" || normalized == "COMO";
+}
+
+static void LogAuditWord(const char *stage, const std::string &raw, bool final_reserved) {
+	if (!IsAuditKeywordForm(raw)) return;
+	std::string lower = ToLower(raw);
+	std::string normalized = raw;
+	for (char &c : normalized) c = Normalize(c);
+	bool runtime_leer = IsKeywordRuntimeWord(KW_LEER, raw);
+	bool runtime_escribir = IsKeywordRuntimeWord(KW_ESCRIBIR, raw);
+	bool runtime_definir = IsKeywordRuntimeWord(KW_DEFINIR, raw);
+	bool runtime_como = IsKeywordRuntimeWord(KW_COMO, raw);
+	std::cerr << "KWTRACE " << stage
+	          << " raw=" << raw
+	          << " lower=" << lower
+	          << " normalized=" << normalized
+	          << " runtime_leer=" << (runtime_leer ? "yes" : "no")
+	          << " runtime_escribir=" << (runtime_escribir ? "yes" : "no")
+	          << " runtime_definir=" << (runtime_definir ? "yes" : "no")
+	          << " runtime_como=" << (runtime_como ? "yes" : "no")
+	          << " legacy=no"
+	          << " reserved=" << (final_reserved ? "yes" : "no")
+	          << " result=" << (final_reserved ? "rejected" : "accepted")
+	          << std::endl;
+}
+#endif
+
+static bool IsPseintAuditKeywordForm(const std::string &form) {
+	std::string normalized = form;
+	for (char &c : normalized) c = Normalize(c);
+	return normalized == "READ" || normalized == "LIRE" || normalized == "WRITE" || normalized == "ECRIRE"
+		|| normalized == "LEER" || normalized == "ESCRIBIR";
+}
+
+static void LogPseintAuditWord(const char *stage, const std::string &raw, bool final_reserved) {
+	if (!IsPseintAuditKeywordForm(raw)) return;
+	std::string lower = ToLower(raw);
+	std::string normalized = raw;
+	for (char &c : normalized) c = Normalize(c);
+	std::cerr << "KWTRACE " << stage
+	          << " raw=" << raw
+	          << " lower=" << lower
+	          << " normalized=" << normalized
+	          << " runtime_leer=" << (IsKeywordAlternative(lang.keywords[KW_LEER], raw) ? "yes" : "no")
+	          << " runtime_escribir=" << (IsKeywordAlternative(lang.keywords[KW_ESCRIBIR], raw) ? "yes" : "no")
+	          << " legacy=" << (IsKeywordAlternative(lang.keywords[KW_LEER], raw) || IsKeywordAlternative(lang.keywords[KW_ESCRIBIR], raw) ? "yes" : "no")
+	          << " reserved=" << (final_reserved ? "yes" : "no")
+	          << " result=" << (final_reserved ? "rejected" : "accepted")
+	          << std::endl;
+}
 
 void show_user_info(std::string msg) {
 	if (fix_win_charset) fixwincharset(msg);
 	if (colored_output) setForeColor(COLOR_INFO);
-	if (with_io_references) Inter.SendErrorPositionToTerminal(); // para que no asocie el error/mensaje con la ˙ltima entrada/salida
+	if (with_io_references) Inter.SendErrorPositionToTerminal(); // para que no asocie el error/mensaje con la ÔøΩltima entrada/salida
 	std::cout << msg << std::endl;
 }
 
 void show_user_info(std::string msg1, int num, std::string msg2) {
 	if (fix_win_charset) { fixwincharset(msg1); fixwincharset(msg2); }
 	if (colored_output) setForeColor(COLOR_INFO);
-	if (with_io_references) Inter.SendErrorPositionToTerminal(); // para que no asocie el error/mensaje con la ˙ltima entrada/salida
+	if (with_io_references) Inter.SendErrorPositionToTerminal(); // para que no asocie el error/mensaje con la ÔøΩltima entrada/salida
 	std::cout << msg1 << num << msg2 << std::endl;
 }
 
 
-// ***************** Control de Errores y DepuraciÛn **********************
+// ***************** Control de Errores y DepuraciÔøΩn **********************
 
 void WarnError_impl(int num, std::string s, bool runtime) {
 	if (runtime!=Inter.IsRunning()) return;
@@ -61,19 +122,19 @@ void ExeError_impl(int num, std::string s) {
 		std::cout << "Lin " << Inter.GetLocation().linea << " (inst " << Inter.GetLocation().instruccion << "): ERROR " << num << ": " << s << std::endl;
 		for(int i=Inter.GetBacktraceLevel()-1;i>0;i--) {  
 			FrameInfo fi=Inter.GetFrame(i);
-			std::cout << "...dentro del subproceso " << fi.func_name << ", invocado desde la lÌnea " << fi.loc.linea << "." << std::endl;
+			std::cout << "...dentro del subproceso " << fi.func_name << ", invocado desde la linea " << fi.loc.linea << "." << std::endl;
 		}
 		if (ExeInfoOn) {
 			ExeInfo << "Lin " << Inter.GetLocation().linea << " (inst " << Inter.GetLocation().instruccion << "): ERROR " << num << ": " << s << std::endl;
 			for(int i=Inter.GetBacktraceLevel()-1;i>0;i--) {  
 				FrameInfo fi=Inter.GetFrame(i);
 				ExeInfo << "Lin " << fi.loc.linea<<" (inst " << fi.loc.instruccion<<"): ";
-				ExeInfo << "...dentro del subproceso " << fi.func_name << ", invocado desde aquÌ." << std::endl;
+				ExeInfo << "...dentro del subproceso " << fi.func_name << ", invocado desde aquÔøΩ." << std::endl;
 			}
 			ExeInfo << "*** Ejecucion Interrumpida. ***" << std::endl;
 		} 
 		if (wait_key) {
-			show_user_info("*** EjecuciÛn Interrumpida. ***");
+			show_user_info("*** EjecuciÔøΩn Interrumpida. ***");
 		}
 //		Inter.AddError(s,Inter.GetLocation().linea);
 		if (ExeInfoOn) ExeInfo.close();
@@ -101,7 +162,7 @@ void SynError_impl(int num, std::string s, CodeLocation loc) {
 		Inter.SetError(std::string("<<")+s+">>");
 	} else {
 		if (colored_output) setForeColor(COLOR_ERROR);
-		if (with_io_references) Inter.SendErrorPositionToTerminal(); // para que no asocie el error con la ˙ltima entrada/salida
+		if (with_io_references) Inter.SendErrorPositionToTerminal(); // para que no asocie el error con la ÔøΩltima entrada/salida
 		std::cout << "Lin " << loc.linea;
 		if (loc.instruccion>0) std::cout << " (inst " << loc.instruccion << ")";
 		std::cout << ": ERROR " << num << ": " << s << std::endl;
@@ -120,6 +181,7 @@ void SynError_impl(int num, std::string s, CodeLocation loc) {
 //  funciones predefinidas.
 // ------------------------------------------------------------
 bool CheckVariable(RunTime &rt, std::string str, int errcode) { 
+	std::cerr << "KWTRACE ENTER CheckVariable" << std::endl;
 	size_t pi=str.find("(",0);
 	if (pi!=std::string::npos && str[str.size()-1]==')') {
 		CheckDims(rt,str);
@@ -131,17 +193,34 @@ bool CheckVariable(RunTime &rt, std::string str, int errcode) {
 			ret=false;
 	}
 	// Comprobar que no sea palabra reservada
+	bool reserved = false;
 	if (rt.funcs.IsFunction(str)) 
-		ret=false;
-	else if (str=="LEER" || str=="ESCRIBIR" || str=="MIENTRAS" || str=="HACER" || str=="SEGUN" || str=="VERDADERO" || str=="FALSO" || str=="PARA")
-		ret=false;
+		reserved = true, ret=false;
+	else if (
+#ifdef FOR_WXPSEINT
+		IsKeywordRuntimeWord(KW_LEER, str) || IsKeywordRuntimeWord(KW_ESCRIBIR, str) || IsKeywordRuntimeWord(KW_DEFINIR, str) || IsKeywordRuntimeWord(KW_COMO, str) ||
+#else
+		IsKeywordAlternative(lang.keywords[KW_LEER], str) || IsKeywordAlternative(lang.keywords[KW_ESCRIBIR], str) || IsKeywordAlternative(lang.keywords[KW_DEFINIR], str) || IsKeywordAlternative(lang.keywords[KW_COMO], str) ||
+#endif
+		str=="MIENTRAS" || str=="HACER" || str=="SEGUN" || str=="VERDADERO" || str=="FALSO" || str=="PARA")
+		reserved = true, ret=false;
 	else if (str=="REPETIR" || str=="SI" || str=="SINO" || str=="ENTONCES" || str=="DIMENSION" || str=="PROCESO" || str=="FINSI" ||  str=="" || str=="FINPARA")
-		ret=false;
-	else if (str=="FINSEGUN" || str=="FINPROCESO" || str=="FINMIENTRAS" || str=="HASTA" || str=="DEFINIR" || str=="COMO")
-		ret=false;
-	else if (lang[LS_ENABLE_USER_FUNCTIONS] && (str=="FINSUBPROCESO" || str=="SUBPROCESO" ||str=="FINFUNCION" || str=="FUNCION" ||str=="FINFUNCI”N" || str=="FUNCI”N") )
-		ret=false;
-	if (!ret && errcode!=-1) rt.err.SyntaxError(errcode,std::string("Identificador no v·lido (")+str+")."); 
+		reserved = true, ret=false;
+	else if (str=="FINSEGUN" || str=="FINPROCESO" || str=="FINMIENTRAS" || str=="HASTA"
+#ifdef FOR_WXPSEINT
+		|| IsKeywordRuntimeWord(KW_DEFINIR, str) || IsKeywordRuntimeWord(KW_COMO, str)
+#else
+		|| IsKeywordAlternative(lang.keywords[KW_DEFINIR], str) || IsKeywordAlternative(lang.keywords[KW_COMO], str)
+#endif
+		)
+		reserved = true, ret=false;
+	else if (lang[LS_ENABLE_USER_FUNCTIONS] && (str=="FINSUBPROCESO" || str=="SUBPROCESO" ||str=="FINFUNCION" || str=="FUNCION" ||str=="FINFUNCION" || str=="FUNCION") )
+		reserved = true, ret=false;
+	LogPseintAuditWord("CheckVariable", str, reserved);
+	#ifdef FOR_WXPSEINT
+	LogAuditWord("CheckVariable", str, reserved);
+	#endif
+	if (!ret && errcode!=-1) rt.err.SyntaxError(errcode,std::string(LocalizationManager::Instance().Translate("Identificador no va¬≤lido ("))+str+")."); 
 	return ret;
 }
 
@@ -194,7 +273,7 @@ bool CheckVariable(RunTime &rt, std::string str, int errcode) {
 // ----------------------------------------------------------------------
 //bool MidCompareNC(string a, string b, int from) { 
 //	unsigned int to=from+a.size();
-//	// controla los tamaÒos y corta la parte de interes
+//	// controla los tamaÔøΩos y corta la parte de interes
 //	if (b.size()<to) return false;
 //	b.erase(to,b.size());
 //	b.erase(0,from);
@@ -284,46 +363,48 @@ bool parteDePalabra(char c) {
 
 void fixwincharset(std::string &s, bool reverse) {
 	if (!fix_win_charset) return;
+	auto ReplaceAll = [](std::string &text, const std::string &from, const std::string &to) {
+		if (from.empty()) return;
+		std::string::size_type pos = 0;
+		while ((pos = text.find(from, pos)) != std::string::npos) {
+			text.replace(pos, from.size(), to);
+			pos += to.size();
+		}
+	};
 	if (reverse) {
-		for(unsigned int i=0;i<s.size();i++) { 
-			char &c=s[i];
-			if (c==-96) c='·';
-			else if (c==-126) c='È';
-			else if (c==-95) c='Ì';
-			else if (c==-94) c='Û';
-			else if (c==-93) c='˙';
-			else if (c==-75) c='¡';
-			else if (c==-112) c='…';
-			else if (c==-42) c='Õ';
-			else if (c==-32) c='”';
-			else if (c==-23) c='⁄';
-			else if (c==-92) c='Ò';
-			else if (c==-91) c='—';
-			else if (c==-83) c='°';
-			else if (c==-88) c='ø';
-			else if (c==-127) c='¸';
-			else if (c==-102) c='‹';
-		}
+		ReplaceAll(s, std::string(1, static_cast<char>(-96)),  "\xC3\xA1"); // √°
+		ReplaceAll(s, std::string(1, static_cast<char>(-126)), "\xC3\xA9"); // √©
+		ReplaceAll(s, std::string(1, static_cast<char>(-95)),  "\xC3\xAD"); // √≠
+		ReplaceAll(s, std::string(1, static_cast<char>(-94)),  "\xC3\xB3"); // √≥
+		ReplaceAll(s, std::string(1, static_cast<char>(-93)),  "\xC3\xBA"); // √∫
+		ReplaceAll(s, std::string(1, static_cast<char>(-75)),  "\xC3\xB1"); // √±
+		ReplaceAll(s, std::string(1, static_cast<char>(-112)), "\xC3\x91"); // √ë
+		ReplaceAll(s, std::string(1, static_cast<char>(-42)),  "\xC3\x9C"); // √ú
+		ReplaceAll(s, std::string(1, static_cast<char>(-32)),  "\xC3\x81"); // √Å
+		ReplaceAll(s, std::string(1, static_cast<char>(-23)),  "\xC3\x89"); // √â
+		ReplaceAll(s, std::string(1, static_cast<char>(-92)),  "\xC3\x8D"); // √ç
+		ReplaceAll(s, std::string(1, static_cast<char>(-91)),  "\xC3\x93"); // √ì
+		ReplaceAll(s, std::string(1, static_cast<char>(-83)),  "\xC3\x9A"); // √ö
+		ReplaceAll(s, std::string(1, static_cast<char>(-88)),  "\xC3\xBC"); // √º
+		ReplaceAll(s, std::string(1, static_cast<char>(-127)), "\xC3\xA0"); // √†
+		ReplaceAll(s, std::string(1, static_cast<char>(-102)), "\xC3\xA7"); // √ß
 	} else {
-		for(unsigned int i=0;i<s.size();i++) { 
-			char &c=s[i];
-			if (c=='·') c=-96;
-			else if (c=='È') c=-126;
-			else if (c=='Ì') c=-95;
-			else if (c=='Û') c=-94;
-			else if (c=='˙') c=-93;
-			else if (c=='¡') c=-75;
-			else if (c=='…') c=-112;
-			else if (c=='Õ') c=-42;
-			else if (c=='”') c=-32;
-			else if (c=='⁄') c=-23;
-			else if (c=='Ò') c=-92;
-			else if (c=='—') c=-91;
-			else if (c=='°') c=-83;
-			else if (c=='ø') c=-88;
-			else if (c=='¸') c=-127;
-			else if (c=='‹') c=-102;
-		}
+		ReplaceAll(s, "\xC3\xA1", std::string(1, static_cast<char>(-96)));  // √°
+		ReplaceAll(s, "\xC3\xA9", std::string(1, static_cast<char>(-126))); // √©
+		ReplaceAll(s, "\xC3\xAD", std::string(1, static_cast<char>(-95)));  // √≠
+		ReplaceAll(s, "\xC3\xB3", std::string(1, static_cast<char>(-94)));  // √≥
+		ReplaceAll(s, "\xC3\xBA", std::string(1, static_cast<char>(-93)));  // √∫
+		ReplaceAll(s, "\xC3\xB1", std::string(1, static_cast<char>(-75)));  // √±
+		ReplaceAll(s, "\xC3\x91", std::string(1, static_cast<char>(-112))); // √ë
+		ReplaceAll(s, "\xC3\x9C", std::string(1, static_cast<char>(-42)));  // √ú
+		ReplaceAll(s, "\xC3\x81", std::string(1, static_cast<char>(-32)));  // √Å
+		ReplaceAll(s, "\xC3\x89", std::string(1, static_cast<char>(-23)));  // √â
+		ReplaceAll(s, "\xC3\x8D", std::string(1, static_cast<char>(-92)));  // √ç
+		ReplaceAll(s, "\xC3\x93", std::string(1, static_cast<char>(-91)));  // √ì
+		ReplaceAll(s, "\xC3\x9A", std::string(1, static_cast<char>(-83)));  // √ö
+		ReplaceAll(s, "\xC3\xBC", std::string(1, static_cast<char>(-88)));  // √º
+		ReplaceAll(s, "\xC3\xA0", std::string(1, static_cast<char>(-127))); // √†
+		ReplaceAll(s, "\xC3\xA7", std::string(1, static_cast<char>(-102))); // √ß
 	}
 }
 
@@ -364,47 +445,47 @@ std::unique_ptr<Funcion> MakeFuncionForSubproceso(RunTime &rt, const FuncStrings
 	
 	// parsear nombre y valor de retorno
 	if (parts.ret_id.empty()) {
-		the_func->tipos[0]=vt_error; // para que cuando la quieran usar en una expresiÛn salte un error, porque evaluar no verifica si se devuelve algo porque se use desde Ejecutar parala instrucciÛn INVOCAR
+		the_func->tipos[0]=vt_error; // para que cuando la quieran usar en una expresiÔøΩn salte un error, porque evaluar no verifica si se devuelve algo porque se use desde Ejecutar parala instrucciÔøΩn INVOCAR
 	} else {
-		if (es_proceso) err_handler.SyntaxError(242,"El proceso principal no puede retornar ningun valor.");
+		if (es_proceso) err_handler.SyntaxError(242,LocalizationManager::Instance().Translate("El proceso principal no puede retornar ningun valor."));
 		the_func->nombres[0] = parts.ret_id;
 		CheckVariable(rt,the_func->nombres[0]);
 	}
 	the_func->id = parts.nombre;
 	if (parts.nombre.empty() or LeftCompare(parts.nombre,"<sin_titulo_")) { 
-		err_handler.SyntaxError(40,MkErrorMsg("Falta nombre de $.",kw2str(es_proceso?KW_ALGORITMO:KW_SUBALGORITMO))); 
+		err_handler.SyntaxError(40,MkErrorMsg(LocalizationManager::Instance().Translate("Falta nombre de $."),kw2str(es_proceso?KW_ALGORITMO:KW_SUBALGORITMO))); 
 //		static int untitled_functions_count=0; // para numerar las funciones sin nombre
 //		the_func->id = string("<sin_nombre>")+IntToStr(++untitled_functions_count);
 	} else {
 		if (rt.funcs.IsFunction(parts.nombre))
-			err_handler.SyntaxError(243,MkErrorMsg("Ya existe otro $ con el mismo nombre($).",kw2str(KW_ALGORITMO)+" o "+kw2str(KW_SUBALGORITMO),parts.nombre+")."));
+			err_handler.SyntaxError(243,MkErrorMsg(LocalizationManager::Instance().Translate("Ya existe otro $ con el mismo nombre($)."),MkErrorMsg(LocalizationManager::Instance().Translate("$ o $"),kw2str(KW_ALGORITMO),kw2str(KW_SUBALGORITMO)),parts.nombre+")."));
 		else if (not CheckVariable(rt,parts.nombre))
-			err_handler.SyntaxError(244,MkErrorMsg("El nombre de $ ($) no es un identificador v·lido.",kw2str(es_proceso?KW_ALGORITMO:KW_SUBALGORITMO),parts.nombre));
+			err_handler.SyntaxError(244,MkErrorMsg(LocalizationManager::Instance().Translate("El nombre de $ ($) no es un identificador valido."),kw2str(es_proceso?KW_ALGORITMO:KW_SUBALGORITMO),parts.nombre));
 	}
 	// argumentos
 	std::string str_args = parts.args; Trim(str_args);
 	if (not str_args.empty())	{
 		if (str_args[0]!='(') { // si no habia argumentos no tiene que haber nada
-			if (es_proceso) err_handler.SyntaxError(252,"Se esperaba el fin de linea."); 
+			if (es_proceso) err_handler.SyntaxError(252,LocalizationManager::Instance().Translate("Se esperaba el fin de linea.")); 
 			else {
-				if (the_func->nombres[0].size()) err_handler.SyntaxError(253,"Se esperaba la lista de argumentos, o el fin de linea.");
-				else err_handler.SyntaxError(254,"Se esperaba la lista de argumentos, el signo de asignaciÛn, o el fin de linea.");
+				if (the_func->nombres[0].size()) err_handler.SyntaxError(253,LocalizationManager::Instance().Translate("Se esperaba la lista de argumentos, o el fin de linea."));
+				else err_handler.SyntaxError(254,LocalizationManager::Instance().Translate("Se esperaba la lista de argumentos, el signo de asignaciÛn, o el fin de linea."));
 			}
 		} else { // analizar los argumentos
 			if (es_proceso) err_handler.SyntaxError(246,MkErrorMsg("El $ principal no puede recibir argumentos.",kw2str(KW_ALGORITMO)));
 			int p2 = matchParentesis(str_args,0);
 			if (p2==-1) {
-				err_handler.SyntaxError(250,"Falta cerrar lista de argumentos.");
+				err_handler.SyntaxError(250,LocalizationManager::Instance().Translate("Falta cerrar lista de argumentos."));
 			} else {
 				if (p2+1!=str_args.size())
-					err_handler.SyntaxError(251,"Se esperaba fin de linea.");
+					err_handler.SyntaxError(251,LocalizationManager::Instance().Translate("Se esperaba fin de linea."));
 				std::string args = str_args.substr(1,p2-1);
 				auto vargs = splitArgsList(args); 
 				for (std::string &arg : vargs) {
 					Trim(arg);
 					bool por_copia       = RightCompare(arg,lang.keywords[KW_POR_COPIA],true);
 					bool por_referencia = (not por_copia) and RightCompare(arg,lang.keywords[KW_POR_REFERENCIA],true);
-					if (arg.empty()) err_handler.SyntaxError(247,"Falta nombre de argumento.");
+					if (arg.empty()) err_handler.SyntaxError(247,LocalizationManager::Instance().Translate("Falta nombre de argumento."));
 					else {
 						int p = 0;
 						if (arg!=NextToken(arg,p))
@@ -459,4 +540,3 @@ bool TooManyDigits(const std::string &s) {
 bool IsInteger(double d) {
 	return d == std::floor(d);
 }
-

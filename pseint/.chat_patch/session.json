@@ -1,0 +1,21 @@
+{
+  "created_at": "2026-04-01T23:11:43.751265",
+  "mode": "lang-upsert",
+  "pending_apply": false,
+  "files": [
+    {
+      "file": "C:/msys64/home/Lenovo/src/ppp/lang/fr.txt",
+      "preview": "C:/msys64/home/Lenovo/src/ppp/lang/fr.txt",
+      "encoding": "iso-8859-1",
+      "hits": [
+        {
+          "line": 899,
+          "category": "Lang upsert",
+          "old": null,
+          "new": "Debe haber un $.=Il doit y avoir un $.",
+          "key": "Debe haber un $."
+        }
+      ]
+    }
+  ]
+}

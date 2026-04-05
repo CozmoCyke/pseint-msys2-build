@@ -1,0 +1,53 @@
+<HTML>
+<HEAD>
+<TITLE>PSeudo Intérprete</TITLE>
+</HEAD>
+<BODY>
+<B>Language Customization</B>
+<BR><BR>
+There are several pseudocode features that can be customized to adapt PSeInt to each teacher's preferences. By default, PSeInt uses the most flexible and natural configuration possible, but it also offers a list of predefined configurations called "profiles". The profile list can be opened from the item "Language Options..." in the "Configure" menu.<BR>
+<BR>If none of the profiles is suitable, you can use the "Customize" button located below the profile list to define each of the following customizations one by one:<BR>
+<BR><UL>
+<LI><B>Use of uninitialized variables</B>: if this option is disabled, variables that were never read or assigned may still be used in expressions or output. In that case they assume the default value 0, "", or FALSO depending on the corresponding type. If the option is enabled, writing or evaluating an expression that involves an uninitialized variable generates a runtime error.</LI><BR>
+<LI><B>Mandatory explicit definition</B>: if this option is enabled, variables cannot be used until their type has been defined with the keyword DEFINIR.</LI><BR>
+<LI><B>Mandatory semicolon</B>: if this option is enabled, sequential instructions must end with a semicolon (;), as in languages such as C++ or Pascal. If it is disabled, the semicolon is optional.</LI><BR>
+<LI><B>String concatenation with +</B>: if this option is enabled, the content of two character variables can be concatenated with the + operator.</LI><BR>
+<LI><B>String functions</B>: enables Longitud, Subcadena, Mayúsculas, Minúsculas, and Concatenar.</LI><BR>
+<LI><B>Word operators</B>: enables Y, O, NO, and MOD as synonyms for &amp;, |, ~, and %.</LI><BR>
+<LI><B>Zero-based arrays</B>: when enabled, the first element of an array of N elements is 0 and the last is N-1; otherwise the first is 1 and the last is N.</LI><BR>
+<LI><B>Variable expressions in dimensions</B>: allows variables or expressions to be used when dimensioning arrays.</LI><BR>
+<LI><B>Assignment with =</B>: enables the equal sign as an assignment operator.</LI><BR>
+<LI><B>Functions/SubProcesses</B>: enables the keywords SubProceso and Función to define new functions in pseudocode.</LI><BR>
+<LI><B>Flexible syntax</B>: enables optional syntax variants such as omitting HACER in some loops, using DESDE in FOR, separating READ/WRITE expressions with spaces, and other more colloquial constructions.</LI><BR>
+<LI><B>Colloquial conditions</B>: allows conditions such as "X ES PAR" or "X NO ES MULTIPLO DE 5".</LI><BR>
+<LI><B>Numeric-only SEGUN selector</B>: if enabled, the multiple-selection structure only accepts integer control expressions; otherwise character variables may also be used.</LI><BR>
+<LI><B>Automatic default FOR step</B>: if enabled, when the step is omitted it uses +1 or -1 according to the initial and final values. If disabled, the default step is always +1.</LI><BR>
+<LI><B>Nassi-Schneiderman diagrams</B>: controls whether that diagram style is used instead of classic flowcharts.</LI><BR>
+<LI><B>Alternative input/output symbols</B>: changes the geometric shapes used for input and output actions in the classic flowchart editor.</LI><BR>
+<LI><B>Accents in identifiers</B>: allows accents, diaereses, and the Spanish ñ in variable and function names.</LI><BR>
+<LI><B>Preferred algorithm keyword</B>: selects whether generated code uses ALGORITMO or PROCESO.</LI><BR>
+<LI><B>Preferred function keyword</B>: selects whether generated code prefers FUNCIÓN rather than the other equivalent keywords.</LI><BR>
+<LI><B>Allow Repetir ... Mientras Que</B>: enables the use of "Mientras que &lt;condición&gt;" instead of "Hasta que &lt;condición&gt;" to close a Repeat structure.</LI><BR>
+<LI><B>Prefer Repetir ... Mientras Que</B>: when enabled, the command panel inserts the true-iterating Repeat variant by default.</LI>
+</ul><BR><BR>
+		Below is an example pseudocode written for the Strict and Flexible profiles, illustrating some of the differences between configurations:<BR><BR>
+<CENTER><TABLE>
+<TR><TD><CODE>
+Proceso EjemploEstricto<BR>
+&nbsp;&nbsp;&nbsp;Definir VAL_MAYOR,ARREGLO,CANT,I Como Enteros;<BR>
+&nbsp;&nbsp;&nbsp;Dimension ARREGLO[10];<BR>
+&nbsp;&nbsp;&nbsp;Escribir "Ingrese la cantidad de números:";<BR>
+&nbsp;&nbsp;&nbsp;Leer CANT;<BR>
+FinProceso<BR>
+</CODE></TD><TD>&nbsp;&nbsp;</TD><TD><CODE>
+Algoritmo EjemploFlexible<BR>
+&nbsp;&nbsp;&nbsp;Escribir "Ingrese la cantidad de números:"<BR>
+&nbsp;&nbsp;&nbsp;Leer CANT<BR>
+&nbsp;&nbsp;&nbsp;Dimension ARREGLO[CANT]<BR>
+FinAlgoritmo<BR>
+</CODE></TD></TR>
+</TABLE></CENTER>
+<BR><BR>
+If you are a teacher and the profile for your institution does not appear in PSeInt's built-in list, you can find <A href="doc_perfiles_en.html">here</A> the instructions to generate and send your own profile.</A>
+<BR><BR>
+</BODY></HTML>

@@ -1,0 +1,37 @@
+ESCRIBIR
+  <UL>
+  <LI>{liste_d_expressions}: completez ici la liste des expressions que vous voulez afficher en les separant par des virgules(,).</LI>
+  </UL>
+LEER
+  <UL>
+  <LI>{liste_de_variables}: completez ici la variable a lire, ou la liste des variables separees par des virgules(,).</LI>
+  </UL>
+ASIGNAR
+  <UL>
+  <LI>{variable}: completez ici le nom de la variable a modifier.</LI>
+  <LI>{expresion}: completez ici l'expression dont le resultat sera affecte a {variable}.</LI>
+  </UL>
+SI - ENTONCES
+  <UL>
+  <LI>{expresion_logica}: completez ici la condition a evaluer.</LI>
+  <LI>{acciones_por_verdadero}: completez ici les actions a executer si la condition est vraie.</LI>
+  </UL>
+SI - ENTONCES - SINO
+  <UL>
+  <LI>{expresion_logica}: completez ici la condition a evaluer.</LI>
+  <LI>{acciones_por_verdadero}: completez ici les actions a executer si la condition est vraie.</LI>
+  <LI>{acciones_por_falso}: completez ici les actions a executer si la condition est fausse.</LI>
+  </UL>
+MIENTRAS
+  <UL>
+  <LI>{expresion_logica}: completez ici la condition a verifier pour chaque iteration.</LI>
+  <LI>{secuencia_de_acciones}: completez ici la liste des instructions a repeter.</LI>
+  </UL>
+PARA
+  <UL>
+  <LI>{variable_numerica}: completez ici la variable utilisee pour iterer.</LI>
+  <LI>{valor_inicial}: valeur de depart.</LI>
+  <LI>{valor_final}: valeur de fin.</LI>
+  <LI>{paso}: pas applique a chaque iteration.</LI>
+  <LI>{secuencia_de_acciones}: liste des instructions a repeter.</LI>
+  </UL>

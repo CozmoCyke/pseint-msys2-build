@@ -1,0 +1,10 @@
+\b;Instruction \c;deletefile\n;
+L'instruction \c;deletefile();\n; supprime un fichier dans le dossier files/.
+
+Les fichiers ne peuvent être supprimés que dans le dossier files/, situé là où Colobot a été installé. Il n'est pas possible de supprimer des fichiers situés ailleurs que dans ce dossier files/.
+
+Syntaxe:
+\s;\c;deletefile ( filename );\n;
+
+\t;Voir aussi
+\l;Programmation\u cbot;, \l;types\u cbot\type; et \l;catégories\u cbot\category;.

@@ -1,0 +1,24 @@
+# Minimal Spanish overrides
+
+Generar Log=Generar Log
+&Guardar\tCtrl+S=&Guardar\tCtrl+S
+Guardar &Como...\tCtrl+Shift+S=Guardar &Como...\tCtrl+Shift+S
+Guardar=Guardar
+Guardar Como...=Guardar Como...
+Haga click en un operador=Haga click en un operador
+o en una función para=o en una función para
+insertarlo/a en expresiones=insertarlo/a en expresiones
+del pseudocódigo.=del pseudocódigo.
+Ayuda sobre "%s"=Ayuda sobre "%s"
+
+Instruccion no valida.=Instrucción no válida.
+
+Leyendo archivo y comprobando sintaxis...=Leyendo archivo y comprobando sintaxis...
+
+Instruccion fuera de $.=Instrucción fuera de $.
+
+Caracter no valido ($).=Caracter no válido ($).
+
+Falta operando al final de la expresion=Falta operando al final de la expresión
+
+Debe haber un $.=Debe haber un $.

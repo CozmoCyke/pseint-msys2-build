@@ -1,0 +1,6 @@
+Proceso PruebaDimension
+    Definir v Como Entero
+    Dimension v[5]
+    v[1] <- 10
+    Escribir v[1]
+FinProceso

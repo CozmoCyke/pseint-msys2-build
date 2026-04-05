@@ -6,6 +6,8 @@
 #include "mxFrame.h"
 #include "version.h"
 #include <wx/filename.h>
+#include <cstdio>
+#include <wx/utils.h>
 
 IMPLEMENT_APP(mxApplication)
 	
@@ -29,6 +31,12 @@ bool mxApplication::OnInit() {
 	_handle_version_query("psTerm",false);
 	
 	OSDep::AppInit();
+
+	const char *kwtrace_log = getenv("KWTRACE_LOG");
+	if (kwtrace_log && *kwtrace_log) {
+		freopen(kwtrace_log, "a", stderr);
+		setvbuf(stderr, NULL, _IONBF, 0);
+	}
 	
 	srand(time(0));
 	
@@ -36,7 +44,15 @@ bool mxApplication::OnInit() {
 	long port=-1, src_id=-1;
 	win_props props;
 	wxString command;
+	std::cerr << "KWTRACE PSTERM OnInit"
+	          << " argc=" << argc
+	          << " workdir=" << wxGetCwd()
+	          << std::endl;
 	for(int i=1;i<argc;i++) {
+		std::cerr << "KWTRACE PSTERM Arg"
+		          << " index=" << i
+		          << " value=" << argv[i]
+		          << std::endl;
 		if (no_arg) {
 			if (command.Len()) command<<" ";
 			command<<EscapeString(argv[i]);
@@ -83,6 +99,15 @@ bool mxApplication::OnInit() {
 			}
 		}
 	}
+	std::cerr << "KWTRACE PSTERM Parsed"
+	          << " port=" << port
+	          << " id=" << src_id
+	          << " debug=" << (debug?1:0)
+	          << " dark=" << (props.dark_theme?1:0)
+	          << " font=" << props.font_name.mb_str()
+	          << ":" << props.font_size
+	          << " child_command=" << command.mb_str()
+	          << std::endl;
 	wxImage::AddHandler(new wxPNGHandler);
 //	wxFont::AddPrivateFont("Inconsolata-Regular.ttf"); // already done win win_props
 	new mxFrame(command,port,src_id,debug,props);

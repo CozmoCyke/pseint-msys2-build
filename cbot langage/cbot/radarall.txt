@@ -1,0 +1,21 @@
+\b;Instruction \c;radarall\n;
+\c;radarall();\n; est une amélioration de la fonction \c;\l;radar\u cbot\radar;();\n; -- il détecte tous les objets correspondant au critère donné.
+
+\b;Exemple\c;
+\s;object[] items = radarall(PowerCell);
+\s;for (int i = 0; i < sizeof(items); ++i)
+\s;{
+\s;    message(items[i].id);
+\s;}
+\n;
+\b;Pour spécialistes
+\t;Syntaxe:
+\s;\c;radarall ( cat, angle, focus, min, max, sens, filter );\n;
+
+La fonction fonctionne de manière générale de la même manière que la fonction \c;\l;radar\u cbot\radar;();\n;,  la seule différence étant qu'elle renvoie un \l;tableau\u cbot\array; d'\l;objects\u cbot\object; plutôt qu'un seul objet. Si aucun objet n'est trouvé, la "non-valeur" \c;\l;null\u cbot\null;\n; est retournée.
+
+L'ordre des objets dans le tableau retourné est trié par distance et dépend du paramètre \c;sens\n;. Le premier objet du tableau est l'objet qui serait renvoyé par la fonction \c;radar();\n; appelée avec exactement les mêmes paramètres.
+
+\t;Voir aussi
+\c;\l;radar\u cbot\radar;();\n;, , \l;programmation\u cbot;, \l;types\u cbot\type; et \l;catégories\u cbot\category;.
+

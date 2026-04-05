@@ -1,0 +1,50 @@
+<HTML>
+	<HEAD>
+		<TITLE>PSeudo Int�rprete</TITLE>
+	</HEAD>
+	<BODY>
+<B>Funciones</B><BR><BR>
+&nbsp;&nbsp;&nbsp;Las funciones en el pseudoc�digo se utilizan de forma similar a otros lenguajes. Se coloca su nombre seguido de los argumentos para la misma encerrados entre par�ntesis (por ejemplo trunc(x)). Se pueden utilizar dentro de cualquier expresi�n, y cuando se eval�e la misma, se reemplazar� por el resultado correspondiente. Actualmente, todas la funciones disponibles son matem�ticas (es decir que devolver�n un resultado de tipo num�rico) y reciben un s�lo par�metro de tipo num�rico. A continuaci�n se listan las funciones integradas disponibles:<BR><BR>
+
+<table border=0> <TD>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD><TD>
+<table border="1" cellpadding="2" cellspacing="0">
+
+<tr ><td><i>Funci�n</i> </td><td> <i>Significado</i></td></tr>
+
+<tr ><td>RC(X) o Raiz(X)</td><td> Ra�z Cuadrada de X</td></tr>
+<tr ><td>Abs(X) </td><td> Valor Absoluto de X</td></tr>
+<tr ><td>Ln(X) </td><td> Logaritmo Natural de X</td></tr>
+<tr ><td>Exp(X) </td><td> Funci�n Exponencial de X</td></tr>
+<tr ><td>Sen(X) o Sin(X) </td><td> Seno de X</td></tr>
+<tr ><td>Cos(X) </td><td> Coseno de X</td></tr>
+<tr ><td>Tan(X) </td><td> Tangente de X</td></tr>
+<tr ><td>ASen(X) o ASin(X) </td><td> Arcoseno de X</td></tr>
+<tr ><td>ACos(X) </td><td> Arcocoseno de X</td></tr>
+<tr ><td>ATan(X) </td><td> Arcotangente de X</td></tr>
+<tr ><td>Trunc(X) </td><td> Parte entera de X</td></tr>
+<tr ><td>Redon(X) </td><td> Entero m�s cercano a X</td></tr>
+<tr ><td>Azar(X) </td><td> Entero aleatorio en el rango [0;x-1]</td></tr>
+<tr ><td>Aleatorio(A,B) </td><td> Entero aleatorio en el rango [A;B]</td></tr>
+
+<tr ><td>Longitud(S) </td><td> Cantidad de caracteres de la cadena S</td></tr>
+<tr ><td>Mayusculas(S) </td><td> Retorna una copia de la cadena S con todos sus caracteres en may�sculas</td></tr>
+<tr ><td>Minusculas(S) </td><td> Retorna una copia de la cadena S con todos sus caracteres en min�sculas</td></tr>
+<tr ><td>Subcadena(S,X,Y) </td><td> Retorna una nueva cadena que consiste en la parte de la cadena S que va desde la posici�n X hasta la posici�n Y (incluyendo ambos extremos). Las posiciones utilizan la misma base que los arreglos, por lo  que la primer letra ser� la 0 o la 1 de acuerdo al perfil del lenguaje utilizado.</td></tr>
+<tr ><td>Concatenar(S1,S2) </td><td> Retorna una nueva cadena resulta de unir las cadenas S1 y S2.</td></tr>
+<tr ><td>ConvertirANumero(X) o ConvertirANúmero(X) </td><td> Recibe una cadena de caracteres que contiene un n�mero y devuelve una variable num�rica con el mismo.</td></tr>
+<tr ><td>ConvertirATexto(S) </td><td> Recibe un real y devuelve una variable num�rica con la representaci�n como cadena de caracteres de dicho real.</td></tr>
+
+<tr ><td>HoraActual() </td><td> Retorna un n�mero entero de 5 o 6 d�gitos con el formato HHMMSS, donde HH es la hora actual del sistema, MM los minutos y SS los segundos.</td></tr>
+<tr ><td>FechaActual() </td><td> Retorna un n�mero entero de 8 d�gitos con el formato AAAAMMDD, donde AAAA es el a�o seg�n la fecha del sistema, MM el mes, y DD el d�a.</td></tr>
+
+</table></TD></TABLE><BR>
+
+<BR><I>Notas:</I><UL>
+<LI>El m�dulo (resto de la divisi�n entera) no se encuentra entre las funciones ya que fue implementado como <A href="operadores.html">operador</A>.</LI>
+<LI>Las funciones trigonom�tricas reciben el �ngulo en radianes. Para facilitar las conversiones se puede usar la constante PI (Ej: si A es un �ngulo en grados, su coseno se obtiene con "cos(A*PI/180)").</LI>
+<LI>Las funciones que operan sobre cadenas de caracteres solo estar�n disponibles si el perfil de lenguaje seleccionado lo permite (ver <A href="perfiles.html">Opciones del Pseudoc�digo</A>).</LI>
+<LI>Para crear sus propias funciones en pseudoc�digo para utilizar desde el procedimiento principal vea la secci�n <A href="subprocesos.html">SubProcesos</A>.</LI>
+<LI>Para separar los n�meros que retornan FechaActual y HoraActual puede utilizar el operador Mod y/o la funci�n Trunc como se ilustra en el <A href="example:FechaHora.psc">ejemplo FechaHora</A>.</LI>
+</UL><BR>
+</BODY>
+</HTML>

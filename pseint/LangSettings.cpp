@@ -293,10 +293,10 @@ static const char *mxSourceWords1_funcs =
 	"subproceso finsubproceso función funcion finfunción finfuncion por referencia valor copia subalgoritmo finsubalgoritmo ";
 
 static const char* mxSourceWords2_math =
-	"cos sen tan acos asen atan raiz rc ln abs exp aleatorio azar trunc redon pi euler ";
+	"cos sen sin tan acos asen asin atan raiz rc ln abs exp aleatorio azar trunc redon pi euler ";
 
 static const char* mxSourceWords2_string =
-	"concatenar longitud mayusculas minusculas subcadena mayúsculas minúsculas convertiranumero convertiratexto ";
+	"concatenar longitud mayusculas minusculas subcadena mayúsculas minúsculas convertiranumero convertiranúmero convertiratexto ";
 
 
 std::string LangSettings::GetKeywords ( ) const {

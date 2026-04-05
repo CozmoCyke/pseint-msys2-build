@@ -1,0 +1,33 @@
+\b;Les types des variables
+Une \l;variable\u cbot\var; est décrite par trois éléments:
+
+1) Un nom.
+2) Le type du contenu.
+
+Une fois la variable définie, elle peut être utilisée pour stocker de l'information. Cependant, l'information contenue dans une variable doit toujours être du bon type: une variable de type \l;float\u cbot\float; ne peut pas contenir de chaîne de caractères, etc.
+
+Dans un programme, le nom d'un type est toujours affiché comme ça : <type de format>type</format>. Si le nom d'un type n'est pas surligné, cela signifie que le nom est mal orthographié. Les noms de type sont toujours écrits en minuscules. Voici une liste des différents types : 
+
+\s;\c;\l;int\u cbot\int;\n;
+Pour un nombre entier (12, -500, etc.).
+
+\s;\c;\l;float\u cbot\float;\n;
+Pour un nombre réel (3.14, 0.2, -99.98, etc.).
+
+\s;\c;\l;bool\u cbot\bool;\n;
+Pour un variable booléenne valant vrai ou faux (true ou false).
+
+\s;\c;\l;string\u cbot\string;\n;
+Pour une chaîne de caractères ("bonjour", "le chat", etc.)
+
+\s;\c;\l;point\u cbot\point;\n;
+Pour une coordonnée dans l'espace x,y,z.
+
+\s;\c;\l;object\u cbot\object;\n;
+Pour décrire un objet (robot, bâtiment, etc.).
+
+\s;\c;\l;void\u cbot\void;\n;
+Pour indiquer "rien".
+
+\t;Voir aussi
+\l;Programmation\u cbot;, \l;types\u cbot\type; et \l;catégories\u cbot\category;.

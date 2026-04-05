@@ -1,7 +1,14 @@
 include ../configs/config.${ARCH}
 OBJS_DIR=../${TEMP}/pseval
-CXXFLAGS+=-DALLOW_MARKDOWN ${WX_CXXFLAGS}
-LDFLAGS+=${WX_LDFLAGS} -L../${TEMP}/hoewrap -lhoewrap
+ENABLE_MARKDOWN?=1
+
+CXXFLAGS+=${WX_CXXFLAGS}
+LDFLAGS+=${WX_LDFLAGS}
+
+ifeq (${ENABLE_MARKDOWN},1)
+CXXFLAGS+=-DALLOW_MARKDOWN
+LDFLAGS+=-L../${TEMP}/hoewrap -lhoewrap
+endif
 
 ifdef WINDOWS
 ICON=${OBJS_DIR}/icon.o
@@ -10,6 +17,11 @@ endif
 all: ${OBJS_DIR} ../${BIN}/pseval${EXT}
 
 include Makefile.common
+
+OBJS+=${OBJS_DIR}/LocalizationManager.o
+
+${OBJS_DIR}/LocalizationManager.o: ../wxPSeInt/LocalizationManager.cpp
+	${GPP} ${CXXFLAGS} -c ../wxPSeInt/LocalizationManager.cpp -o $@
 
 clean:
 	${RM} ${OBJS} ../${BIN}/pseval${EXT} ${ICON}

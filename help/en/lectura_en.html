@@ -1,0 +1,18 @@
+<HTML>
+	<HEAD>
+		<TITLE>PSeudo Intérprete</TITLE>
+	</HEAD>
+	<BODY>
+<B>Input</B>
+<BR><BR>
+<CENTER><img src="ps_leer.png"></TD></CENTER><BR>
+&nbsp;&nbsp;&nbsp;The Read instruction lets you enter information from the environment. <BR><BR>
+<code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Leer &lt;variable1&gt; , &lt;variable2&gt; , ... ,<BR> &lt;variableN&gt;&nbsp;;
+</code><br><BR>
+&nbsp;&nbsp;&nbsp;This instruction takes N values from the environment (in this case, the keyboard) and assigns them to the N variables listed. One or more variables may be included, so the command reads one or more values.<BR><BR>
+&nbsp;&nbsp;&nbsp;If a variable where the read value must be stored does not exist, it is created during the read. If the variable already exists, its previous value is lost because it takes the new value, which is why input is said to be destructive.<BR><BR>
+&nbsp;&nbsp;&nbsp;If flexible syntax is used, the variables to be read may optionally be separated with spaces instead of commas. This is configured in the <A href="perfiles_en.html">PSeudoCode Options</A> dialog.<BR>
+<BR>
+&nbsp;&nbsp;&nbsp;The <A href="example:Suma.psc">Sum</A> example shows a very simple program that reads two numbers and calculates and displays their sum.<BR>
+<BR>
+</BODY></HTML>

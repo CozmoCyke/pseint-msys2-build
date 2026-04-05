@@ -1,0 +1,85 @@
+\b;Instructions \c;switch\n;, \c;case\n; et \c;default\n;
+Avec l'instruction \c;switch() {}\n; vous pouvez exécuter un ensemble approprié d'instructions ("case") en vous basant sur chaque valeur voulue.
+
+\b;Utilisation courante
+Note: the \l;isbusy\u cbot\isbusy; instruction might be much better to use in this scenario.
+
+Voir la \l;fonction\u cbot\function; suivante : le robot sera en train d'\l;attendre\u cbot\wait; un temps approprié pour une certaine tâche à accomplir :
+\c;
+\s;public void WaitForTaskCompleted(object building)
+\s;{
+\s;	int cat = building.category;
+\s;	\l;if\u cbot\if; (cat == Converter) wait(15);
+\s;	else if (cat == BotFactory) wait(15);
+\s;	else if (cat == PowerPlant) wait(12);
+\s;	else message("Undefined wait time", DisplayError);
+\s;}
+\n;
+Cette fonction peut également être écrite en utilisant l'instruction \c;switch() {}\n; :
+\c;
+\s;public void WaitForTaskCompleted(object building)
+\s;{
+\s;	switch (building.category)
+\s;	{
+\s;		case Converter: wait(15); break;
+\s;		case BotFactory: wait(15); break;
+\s;		case PowerPlant: wait(12); break;
+\s;		default: message("Undefined wait time", DisplayError);
+\s;	}
+\s;}
+\n;
+Cette façon d'écrire ce genre de structures de choix est une question de goût.
+
+Vous pouvez aussi faire des "cases" regroupés comme celui-ci :
+\c;
+\s;switch (building.category)
+\s;{
+\s;	case Converter:
+\s;	case BotFactory:
+\s;		wait(15); break;
+\s;	case PowerPlant: wait(12); break;
+\s;	default: message("Undefined wait time", DisplayError);
+\s;}
+\n;
+La \l;raffinerie\u object\convert; et l'\l;usine de robots\u object\factory; ont le même temps d'attente, donc afin de ne pas écrire les mêmes instructions deux fois, nous avons fait exécuter le même code dans plusieurs cas. En fait, tout le code après le "case" le plus haut sera exécuté si nous ne faisons pas de \c;\l;break\u cbot\break;\n;.
+
+\b;Pour spécialistes
+Syntaxe:
+\s;\c;switch ( value )
+\s;{
+\s;	case value1: 		instructions1;
+\s;		break;
+\s;	case value2: 		instructions2;
+\s;		break;
+\s;	...
+\s;	case valueN: 		instructionsN;
+\s;		break;
+\s;	default: 
+\s;		instructionsDefault;
+\s;} \n; Ici, ça ne ferait qu'une instruction selon le cas, 
+\s;Si on étudie plutôt cette forme : 
+\s;\c; \c;switch ( value )
+\s;{
+\s;	case value1: instructions1
+\s;	case value2: instructions2
+\s;	...
+\s;	case valueN: instructionsN
+\s;		break;
+\s;	default: instructionsDefault
+\s;}
+\n;
+Avec cette structure conditionnelle, vous pouvez exécuter \c;instructions1\n; ou \c;instructions2\n; ou \c;instructionsN\n; ou \c;instructionsDefault\n; selon le \c; valeur\n; puis toutes les autres (tant qu'il n'y a pas de break et que le bloc du switch n'est pas terminé).
+
+Si \c;value\n; est égal à \c;value1\n;, alors on exécute \c;instructions1\n; jusqu'à \c;N\n; .
+Si \c;value\n; est égal à \c;value2\n;, alors on exécute \c;instructions2\n; jusqu'à \c;N\n; .
+etc...
+Si \c;value\n; est égal à \c;valueN\n;, alors on exécute \c;instructionsN\n;.
+Si \c;value\n; ne fait pas partie des valeurs citées dans les "cases", alors on exécute \c;instructionsDefault\n;.
+
+Vous pouvez quitter l'instruction \c;switch() {}\n; en utilisant \c;\l;break\u cbot\break;\n;.
+
+\t;Attention
+Il ne faut pas mettre de \l;point-virgule\u cbot\term; à la fin de l'instruction \c;switch ( ) { }\n;.
+
+\t;Voir aussi
+\l;Programmation\u cbot;, \l;types\u cbot\type; et \l;catégories\u cbot\category;.

@@ -1,0 +1,18 @@
+\b;Instruction \c;pendown\n;
+Syntaxe:
+\s;\c;pendown ( color, width );\n;
+L'instruction \c;pendown();\n; demande au robot de baisser son crayon au sol, donc il commence à dessiner.
+
+\t;color: \c;\l;int\u cbot\int;\n; (valeur par défaut: \c;Black\n;)
+\l;Couleur\u cbot\colors;.
+
+\t;width: \c;\l;float\u cbot\float;\n; (valeur par défaut: \c;0.5\n;)
+Largeur du crayon. La largeur ne peut être supérieure à \c;1.0\n; et ne peut être inférieure à \c;0.0\n;. Si vous passez une valeur supérieure, la largeur sera la plus grande possible et si vous passez une valeur inférieure, la largeur sera la plus petite possible.
+
+\t;Type du retour: \c;\l;entier (int)\u cbot\int;\n;
+Normalement, une erreur arrête le programme. Vous pouvez empêcher le programme de s'arrêter en cas d'erreur en utilisant l'instruction \c;\l;errmode\u cbot\errmode;(0)\n;. Une valeur différente de zéro en cas d'erreur est alors retournée par \c;pendown();\n;.
+\c;== 0 \n;Le crayon est maintenant abaissé
+\c;!= 0  \n;La commande ne fonctionne pas
+
+\t;Voir aussi
+\l;Programmation\u cbot;, \l;types\u cbot\type; et \l;catégories\u cbot\category;.

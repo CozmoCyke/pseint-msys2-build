@@ -1,0 +1,23 @@
+\b;Instruction \c;space\n;
+Syntaxe:
+\s;\c;space ( center, rmin, rmax, dist );\n;
+
+Calcule un emplacement libre autour d'un point central.
+
+\t;center: \c;\l;point\u cbot\point;\n; (position du robot par défaut)
+Position centrale autour de laquelle la recherche est effectuée.
+
+\t;rmin: \c;\l;float\u cbot\float;\n; (valeur par défaut \c;10\n;)
+Rayon minimal à partir duquel la recherche est effectuée.
+
+\t;rmax: \c;\l;float\u cbot\float;\n; (valeur par défaut \c;50\n;)
+Rayon maximal après lequel la recherche est stoppée.
+
+\t;dist: \c;\l;float\u cbot\float;\n; (valeur par défaut \c;4\n;)
+Distance requise entre deux emplacements libres.
+
+\t;Type du retour: \c;\l;point\u cbot\point;\n;
+Position libre.
+
+\t;Voir aussi
+\l;Programmation\u cbot;, \l;types\u cbot\type; et \l;catégories\u cbot\category;.

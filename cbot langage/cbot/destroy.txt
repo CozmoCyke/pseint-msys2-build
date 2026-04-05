@@ -1,0 +1,16 @@
+\b;Instruction \c;destroy\n;
+Syntaxe:
+\s;\c;\l;object\u cbot\object;.destroy ( );\n;
+
+Détruire un objet.
+
+\t;\l;object\u cbot\object;
+\l;Destructeur\u object\destroy;.
+
+\t;Type du retour: \c;\l;entier (int)\u cbot\int;\n;
+Normalement, une erreur arrête le programme. Vous pouvez empêcher le programme de s'arrêter en cas d'erreur en utilisant l'instruction \c;\l;errmode\u cbot\errmode;(0)\n;. Une valeur différente de zéro en cas d'erreur est alors retournée par \c;destroy()\n;.
+\c;== 0 \n; L'opération de destruction d'un objet a été commencée
+\c;!= 0 \n; L'instruction ne peut être réalisée (ex.: rien à détruire)
+
+\t;Voir aussi
+\l;Programmation\u cbot;, \l;types\u cbot\type; et \l;catégories\u cbot\category;.

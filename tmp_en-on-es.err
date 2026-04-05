@@ -1,0 +1,27 @@
+LANGTRACE before_set_exepath
+LANGTRACE after_set_exepath
+LANGTRACE step=parse arg=es
+LANGKW ALGORITMO=Algoritmo
+LANGKW FINALGORITMO=FinAlgoritmo
+LANGKW DEFINIR=Definir
+LANGKW COMO=Como
+LANGTRACE before_setlanguage_call lang_code=es
+LANGTRACE SetLanguage requested=es
+LANGTRACE SetLanguage try path=C:\msys64\home\Lenovo\src\ppp\bin/../lang/es.txt
+LANGTRACE SetLanguage loaded path=C:\msys64\home\Lenovo\src\ppp\bin/../lang/es.txt
+LANGTRACE after_setlanguage_call
+LANGTRACE postset ALGORITMO=Algoritmo
+LANGTRACE postset FINALGORITMO=FinAlgoritmo
+LANGTRACE postset DEFINIR=Definir
+LANGTRACE postset COMO=Como
+LANGTRACE set_current_lang before=es after=es source=main
+KWFIX overlay path=keywords/es.ini
+LANGTRACE engine current_lang=es
+LANGTRACE postfix current_lang=es
+LANGTRACE postfix ALGORITMO=Algoritmo
+LANGTRACE postfix FINALGORITMO=FinAlgoritmo
+LANGTRACE postfix DEFINIR=Definir
+LANGTRACE postfix COMO=Como
+LANGTRACE postfix LEER=Leer
+LANGTRACE postfix ESCRIBIR=Escribir
+KWTRACE ENTER CheckVariable

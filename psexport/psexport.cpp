@@ -6,6 +6,7 @@
 #include "ExporterBase.hpp"
 #include "exportexp.h"
 #include "CppExporter.hpp"
+#include "CBOTExporter.hpp"
 #include "CExporter.hpp"
 #include "JavaExporter.hpp"
 #include "JSExporter.hpp"
@@ -80,6 +81,7 @@ int main(int argc, char *argv[]){
 			if (s=="c" || s=="c99") exporter = new CExporter();
 			else if (s=="c++" || s=="cpp" || s=="c++98" || s=="cpp98" || s=="c++03" || s=="cpp03") exporter = new CppExporter();
 			else if (s=="c#" || s=="cs" || s=="csharp") exporter = new CSharpExporter();
+else if (s=="cbot") exporter = new CBOTExporter();
 			else if (s=="htm" || s=="html") exporter=new HTMLExporter();
 			else if (s=="java") exporter = new JavaExporter();
 			else if (s=="js" || s=="javascript") exporter=new JSExporter();

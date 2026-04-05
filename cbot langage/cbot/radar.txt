@@ -1,0 +1,82 @@
+\b;Instruction \c;radar\n;
+Avec l'instruction \c;\l;radar\u cbot\radar;();\n;, vous pouvez rechercher des objets comme des \l;enemis\u object\mother;, des robots, des bâtiments ou des matières premières.
+
+\b;Utilisation courante
+Donnez entre parenthèses le \l;nom de l'objet\u cbot\category; que vous cherchez. Mettez le résultat dans une variable de \l;type\u cbot\type; \c;object\n;. Voici par exemple comment chercher la fourmi la plus proche:
+\c;
+\s;// Tout au début du programme:
+\s;object  chose; // déclaration de la variable
+\s;
+\s;// Cherche la fourmi la plus proche
+\s;chose = \l;radar\u cbot\radar;(AlienAnt);
+\n;
+\b;Pour spécialistes
+Syntaxe:
+\s;\c;radar ( cat, angle, focus, min, max, sens, filter );\n;
+
+Détecte un objet selon divers critères.
+
+\image radar1 8 8;
+La zone arrondie violette correspond, vue d'en haut, à la zone dans laquelle les objets sont détectés.
+
+\t;cat: \c;\l;int\u cbot\int;\n;
+o \l;Catégorie/a> de l'objet qui doit être détecté. Par exemple, si vous cherchez une fourmi, écrivez \c;<a cbot\radar>radar\u cbot\category;(AlienAnt)\n;. 
+o \l;Tableau\u cbot\array; de catégories des objets à détecter. Par exemple, lorsque vous cherchez uniquement des préhenseurs :
+\c;\s;int bots[4];
+\s;bots[0] = WheeledGrabber;
+\s;bots[1] = TrackedGrabber;
+\s;bots[2] = WingedGrabber;
+\s;bots[3] = LeggedGrabber;
+\s;object nearestGrabber = \l;radar\u cbot\radar;(bots);\n;
+o Mot clef \const;Any\norm; si vous cherchez tous type d'objets (incluant les plantes etc.). Les filtres sont particulièrement utiles avec ce mot clef.
+
+\t;angle: \c;\l;float\u cbot\float;\n; (valeur par défaut : \c;0\n;)
+Direction dans laquelle est dirigé le radar, en degrés.
+\c;  0\n; -> radar dirigé droit devant
+\c;-90\n; -> radar dirigé à gauche
+\c; 90\n; -> radar dirigé à droite
+
+\t;focus : \c;\l;float\u cbot\float;\n; (valeur par défaut : \c;360\n;)
+Angle d'ouverture du radar, en degrés.
+
+\t;min: \c;\l;float\u cbot\float;\n; (valeur par défaut : \c;0\n;)
+Distance minimale de détection, en mètres. Avant cette distance, les objets sont ignorés.
+
+\t;max: \c;\l;float\u cbot\float;\n; (valeur par défaut : \c;1000\n;)
+Distance maximale de détection, en mètres. Au delà de cette distance, les objets sont ignorés.
+
+\t;sens: \c;\l;float\u cbot\float;\n; (valeur par défaut : \c;1\n;)
+Sens dans lequel s'effectue la recherche. Avec la valeur \c;1\n;, on cherche de l'intérieur vers l'extérieur. Autrement dit, c'est l'objet le plus proche qui est trouvé. Avec \c;-1\n;, on cherche de l'extérieur vers l'intérieur. On trouvera donc l'objet le plus éloigné.
+
+\t;filter: \c;\l;int\u cbot\int;\n; (valeur par défaut : \c;\const;FilterNone\norm;\n;)
+Détermine le type d'objets à détecter. Particulièrement utile avec un \l;array\u cbot\array; ou \const;Any\norm;. Les filtres suivants sont disponibles :
+
+\c;\const;FilterNone\norm; \n;Détecte tout (par défaut)
+\c;\const;FilterOnlyLanding\norm; \n;Détecte uniquement les objets au sol
+\c;\const;FilterOnlyFlying\norm; \n;Détecte uniquement les objets au sol non présents
+\c;\const;FilterFriendly\norm; \n;Détecte uniquement les alliés (objets de la même équipe)
+\c;\const;FilterEnemy\norm; \n;Détecte uniquement les ennemis (objets dans une autre équipe sauf neutre)
+\c;\const;FilterNeutral\norm; \n;Détecte seulement les objets neutres (ex. ressources)
+
+Les trois derniers sont principalement utiles dans \l;bataille de codes\u battles;. Vous pouvez également passer un ID d'équipe pour rechercher uniquement les objets d'une équipe spécifique. Attention : vous devez utiliser \const;FilterNeutral\norm; au lieu de \c;0\n; ou sinon cela ne fonctionnera pas.
+
+Les filtres et les ID peuvent être mélangés à l'aide de l'opérateur OU \c;|\n;, par exemple \c;\l;radar\u cbot\radar;(Any, 0, 360, 0, 1000, 1, 2 | FilterOnlyLanding);\n; détecte uniquement un objet d'équipe \c;2\n; qui sont posés sur terre. Attention : vous ne pouvez spécifier qu'un seul ID d'équipe à la fois, mais vous pouvez spécifier plusieurs filtres à la fois.
+
+\t;Type du retour: \c;\l;objet (object)\u cbot\object;\n;
+Objet trouvé le plus proche. La valeur \c;\l;null\u cbot\null;\n; indique que rien n'a été trouvé.
+
+\t;Remarque
+Il n'est pas nécessaire de donner tous les paramètres. Voici deux exemples identiques:
+\c;
+\s;	\l;radar\u cbot\radar;(Titanium, 0, 360, 0, 1000);
+\s;	\l;radar\u cbot\radar;(Titanium);  // identique
+
+\s;	\l;radar\u cbot\radar;(Titanium, 0, 90, 0, 1000);
+\s;	\l;radar\u cbot\radar;(Titanium, 0, 90);  // identique
+\n;
+En fait, lorsque des paramètres manquent, ils prennent les valeurs par défaut indiquées plus haut. Le premier paramètre \c;catégorie\n; est obligatoire. Les cinq paramètres suivants sont facultatifs, et sont remplacés par \c;0\n;, \c;360\n;, \c;0\n;, \c;1000\n; et \c;1\n; s'ils manquent.
+Ceci est très utile. En effet, \c;\l;radar\u cbot\radar;(XXX)\n; trouve l'objet le plus proche, où qu'il soit.
+
+\t;Voir aussi
+\c;\l;radarall\u cbot\radarall;();\n;, \l;programmation\u cbot;, \l;types\u cbot\type; et \l;catégories\u cbot\category;.
+

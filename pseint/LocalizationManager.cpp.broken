@@ -1,0 +1,130 @@
+#include "LocalizationManager.h"
+#include <fstream>
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <string>
+
+// Global variable to store the executable path
+static std::string g_exe_path_str;
+
+// Function to set the executable path from main
+void SetExecutablePath(const char* argv0) {
+    if (argv0) {
+        std::string path = argv0;
+        size_t pos = path.find_last_of("/");
+        if (pos != std::string::npos) {
+            g_exe_path_str = path.substr(0, pos);
+        }
+    }
+}
+
+// Singleton instance getter
+LocalizationManager& LocalizationManager::Instance() {
+    static LocalizationManager instance;
+    return instance;
+}
+
+// Clear loaded translations
+void LocalizationManager::Clear() {
+    m_exact_dict.clear();
+    m_dict.clear();
+}
+
+void LocalizationManager::SetLangDirectory(const std::string& dir) {
+    m_langDir = dir;
+}
+
+// Helper functions (trim, normalize_key)
+static std::string trim(const std::string& s) {
+    const char* whitespace = " 	
+";
+    size_t first = s.find_first_not_of(whitespace);
+    if (std::string::npos == first) return "";
+    size_t last = s.find_last_not_of(whitespace);
+    return s.substr(first, (last - first + 1));
+}
+
+static std::string normalize_key(const std::string& s) {
+    std::string out = trim(s);
+    size_t pos;
+    while ((pos = out.find('&')) != std::string::npos) {
+        out.erase(pos, 1);
+    }
+    return out;
+}
+
+// File loading implementation
+bool LocalizationManager::LoadFile(const std::string& filename) {
+    Clear();
+    std::ifstream f(filename.c_str());
+    if (!f.is_open()) return false;
+
+    std::string line;
+    bool firstLine = true;
+    while (std::getline(f, line)) {
+        if (!line.empty() && line.back() == '') line.pop_back();
+        
+        if (firstLine && line.size() >= 3 && (unsigned char)line[0] == 0xEF && (unsigned char)line[1] == 0xBB && (unsigned char)line[2] == 0xBF) {
+            line = line.substr(3);
+        }
+        firstLine = false;
+
+        line = trim(line);
+        if (line.empty() || line[0] == '#') continue;
+
+        size_t pos = line.find('=');
+        if (pos == std::string::npos) continue;
+
+        std::string key = trim(line.substr(0, pos));
+        std::string val = trim(line.substr(pos + 1));
+
+        if (!key.empty()) {
+            m_exact_dict[key] = val;
+            m_dict[normalize_key(key)] = val;
+        }
+    }
+    return true;
+}
+
+// SetLanguage implementation with robust path finding
+bool LocalizationManager::SetLanguage(const std::string& langCode) {
+    std::string code = langCode.empty() ? "es" : langCode;
+    std::cerr << "LANGTRACE SetLanguage requested=" << code << std::endl;
+    
+    std::vector<std::string> paths;
+    if (!g_exe_path_str.empty()) {
+        paths.push_back(g_exe_path_str + "/../lang/" + code + ".txt");
+        paths.push_back(g_exe_path_str + "/lang/" + code + ".txt");
+    }
+    if (!m_langDir.empty()) {
+        paths.push_back(m_langDir + "/" + code + ".txt");
+    }
+    paths.push_back("../lang/" + code + ".txt");
+    paths.push_back("lang/" + code + ".txt");
+
+    for (const std::string& path : paths) {
+        std::cerr << "LANGTRACE SetLanguage try path=" << path << std::endl;
+        if (LoadFile(path)) {
+            m_lang = code;
+            std::cerr << "LANGTRACE SetLanguage loaded path=" << path << std::endl;
+            return true;
+        }
+    }
+
+    std::cerr << "LANGTRACE SetLanguage failed, falling back to es" << std::endl;
+    m_lang = "es";
+    Clear();
+    return false;
+}
+
+// Translate implementation
+std::string LocalizationManager::Translate(const std::string& source) const {
+    auto exact = m_exact_dict.find(source);
+    if (exact != m_exact_dict.end()) return exact->second;
+
+    auto it = m_dict.find(normalize_key(source));
+    if (it != m_dict.end()) return it->second;
+
+    return source;
+}

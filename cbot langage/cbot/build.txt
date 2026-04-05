@@ -1,0 +1,27 @@
+\b;Instruction \c;build\n;
+L’instruction \c;build();\n; ordonne au robot de construire un bâtiment d’une \l;categorie\u cbot\category; donnée.
+
+\b;Utilisation courante
+Voici un programme qui recherche le \l;cube de titane\u object\titan; le plus proche, s’en approche, puis construit une \l;usine de robots\u object\factory;.
+\c;
+\s; \l;object\u cbot\object; item = \l;radar\u cbot\radar;(\l;Titanium\u object\titan;);
+\s; \l;goto\u cbot\goto;(item.position);
+\s; build(\l;BotFactory\u object\factory;);
+\n;
+\b;Pour spécialistes
+Syntaxe:
+\s;\c;build ( cat );\n;
+
+Construit un bâtiment en utilisant un cube de titane situé devant le \l;constructeur\u object\botbr;.
+
+\t;cat: \c;\l;int\u cbot\int;\n;
+\l;Catégorie\u cbot\category; d’un bâtiment.
+
+\t;Type du retour: \c;\l;entier (int)\u cbot\int;\n;
+Normalement, une erreur arrête le programme. Vous pouvez empêcher le programme de s’arrêter en cas d’erreur en utilisant l’instruction \c;\l;errmode\u cbot\errmode;(0)\n;. Une valeur différente de zéro en cas d’erreur est alors retournée par \c;build()\n;.
+\c;== 0 \n;Construction réussie
+\c;!= 0\n;Impossible de construire (par exemple, le cube de titane le plus proche est trop loin ou le bâtiment spécifié n’est pas disponible dans la mission ; ou encore, le terrain n’est pas assez plat)
+
+\t;Voir aussi
+\c;\l;canbuild\u cbot\canbuild;\n;, \c;\l;buildingenabled\u cbot\buildingenabled;\n;.
+\l;Programmation\u cbot;, \l;types\u cbot\type; et \l;catégories\u cbot\category;.

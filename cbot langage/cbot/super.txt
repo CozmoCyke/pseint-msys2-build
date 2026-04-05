@@ -1,0 +1,47 @@
+\b;Keyword \c;super\n;
+Ce mot-clé est similaire à \c;\l;this\u cbot\this;\n;, mais il donne accès aux méthodes de la classe mère (voir le mot-clé \c;\l;extends\u cbot\extends;\n;), qui est particulièrement utile pour remplacer une méthode.
+
+\t;Exemple
+\c;
+\s;public class Mere
+\s;{
+\s;	protected int field;
+\s;	
+\s;	void Mere()
+\s;	{
+\s;		field = 0;
+\s;	}
+\s;	
+\s;	void Print()
+\s;	{
+\s;		message("Champs mère: " + field);
+\s;	}
+\s;}
+\s;
+\s;public class Fille extends Mere
+\s;{
+\s;	private int childsField;
+\s;	
+\s;	void Fille()
+\s;	{
+\s;		super.Mere();
+\s;		childsField = field + 1;
+\s;	}
+\s;	
+\s;	void Print()
+\s;	{
+\s;		super.Print();
+\s;		message("Champs fille : " + childsField);
+\s;	}
+\s;}
+\s;
+\s;extern void object::Test()
+\s;{
+\s;	Fille child();
+\s;	child.Print(); // Affiche Champs mère : 0 puis Champs fille : 1
+\s;}
+\n;
+
+\t;Voir aussi
+\c;\l;class\u cbot\class;\n;, \c;\l;this\u cbot\this;\n;
+\l;Programmation\u cbot;, \l;types\u cbot\type; et \l;catégories\u cbot\category;.

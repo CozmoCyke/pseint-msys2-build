@@ -1,0 +1,13 @@
+\b;Instruction \c;floor\n;
+Syntaxe:
+\s;\c;floor ( valeur );\n;
+Partie entière d'un nombre.
+
+\t;valeur : \c;\l;float\u cbot\float;\n;
+Nombre.
+
+\t;Type du retour: \c;\l;réel (float)\u cbot\float;\n;
+Tronque la valeur entière, c'est-à-dire le plus grand entier ne dépassant pas \c;valeur\n;. Par exemple, \c;floor(2.9)\n; est \c;2.00\n;.
+
+\t;Voir aussi
+\l;round\u cbot\round;, \l;programmation\u cbot;, \l;types\u cbot\type; et \l;expressions\u cbot\expr;.

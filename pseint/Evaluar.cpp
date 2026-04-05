@@ -13,18 +13,96 @@
 #include "ErrorHandler.hpp"
 #include "SynCheck.hpp"
 #include "strFuncs.hpp"
+#ifdef FOR_WXPSEINT
+#include "../wxPSeInt/KeywordForms.h"
+#endif
 #include <ctime>
 using namespace std;
 
+#ifdef FOR_WXPSEINT
+static bool IsAuditKeywordForm(const std::string &form) {
+	std::string normalized = form;
+	for (char &c : normalized) c = Normalize(c);
+	return normalized == "READ" || normalized == "LIRE" || normalized == "WRITE" || normalized == "ECRIRE"
+		|| normalized == "LEER" || normalized == "ESCRIBIR"
+		|| normalized == "DEFINE" || normalized == "AS" || normalized == "DEFINIR" || normalized == "COMME" || normalized == "COMO";
+}
+
+static void LogAuditWord(const char *stage, const std::string &raw) {
+	if (!IsAuditKeywordForm(raw)) return;
+	std::string lower = ToLower(raw);
+	std::string normalized = raw;
+	for (char &c : normalized) c = Normalize(c);
+	bool runtime_leer = IsKeywordRuntimeWord(KW_LEER, raw);
+	bool runtime_escribir = IsKeywordRuntimeWord(KW_ESCRIBIR, raw);
+	bool runtime_definir = IsKeywordRuntimeWord(KW_DEFINIR, raw);
+	bool runtime_como = IsKeywordRuntimeWord(KW_COMO, raw);
+	bool final_reserved = runtime_leer || runtime_escribir || runtime_definir || runtime_como;
+	std::cerr << "KWTRACE " << stage
+	          << " raw=" << raw
+	          << " lower=" << lower
+	          << " normalized=" << normalized
+	          << " runtime_leer=" << (runtime_leer ? "yes" : "no")
+	          << " runtime_escribir=" << (runtime_escribir ? "yes" : "no")
+	          << " runtime_definir=" << (runtime_definir ? "yes" : "no")
+	          << " runtime_como=" << (runtime_como ? "yes" : "no")
+	          << " legacy=no"
+	          << " reserved=" << (final_reserved ? "yes" : "no")
+	          << " source=" << (final_reserved ? "runtime" : "none")
+	          << std::endl;
+}
+#endif
+
+static bool IsPseintAuditKeywordForm(const std::string &form) {
+	std::string normalized = form;
+	for (char &c : normalized) c = Normalize(c);
+	return normalized == "READ" || normalized == "LIRE" || normalized == "WRITE" || normalized == "ECRIRE"
+		|| normalized == "LEER" || normalized == "ESCRIBIR";
+}
+
+static void LogPseintAuditWord(const char *stage, const std::string &raw, bool final_reserved) {
+	if (!IsPseintAuditKeywordForm(raw)) return;
+	std::string lower = ToLower(raw);
+	std::string normalized = raw;
+	for (char &c : normalized) c = Normalize(c);
+	std::cerr << "KWTRACE " << stage
+	          << " raw=" << raw
+	          << " lower=" << lower
+	          << " normalized=" << normalized
+	          << " runtime_leer=" << (IsKeywordAlternative(lang.keywords[KW_LEER], raw) ? "yes" : "no")
+	          << " runtime_escribir=" << (IsKeywordAlternative(lang.keywords[KW_ESCRIBIR], raw) ? "yes" : "no")
+	          << " legacy=" << (IsKeywordAlternative(lang.keywords[KW_LEER], raw) || IsKeywordAlternative(lang.keywords[KW_ESCRIBIR], raw) ? "yes" : "no")
+	          << " reserved=" << (final_reserved ? "yes" : "no")
+	          << " source=" << (final_reserved ? "legacy" : "none")
+	          << std::endl;
+}
+
 bool PalabraReservada(const string &str) {
+	std::cerr << "KWTRACE ENTER PalabraReservada" << std::endl;
+	LogPseintAuditWord("PalabraReservada", str, IsKeywordAlternative(lang.keywords[KW_LEER], str) || IsKeywordAlternative(lang.keywords[KW_ESCRIBIR], str) || IsKeywordAlternative(lang.keywords[KW_DEFINIR], str) || IsKeywordAlternative(lang.keywords[KW_COMO], str));
+	#ifdef FOR_WXPSEINT
+	LogAuditWord("PalabraReservada", str);
+	#endif
 	// Comprobar que no sea palabra reservada
 	if (lang[LS_WORD_OPERATORS] && (str=="Y" || str=="O" || str=="NO" || str=="MOD"))
 		return true;
-	if (str=="LEER" || str=="ESCRIBIR" || str=="MIENTRAS" || str=="HACER" || str=="SEGUN" || str=="VERDADERO" || str=="FALSO" || str=="PARA")
+	if (
+#ifdef FOR_WXPSEINT
+		IsKeywordRuntimeWord(KW_LEER, str) || IsKeywordRuntimeWord(KW_ESCRIBIR, str) || IsKeywordRuntimeWord(KW_DEFINIR, str) || IsKeywordRuntimeWord(KW_COMO, str) ||
+#else
+		IsKeywordAlternative(lang.keywords[KW_LEER], str) || IsKeywordAlternative(lang.keywords[KW_ESCRIBIR], str) || IsKeywordAlternative(lang.keywords[KW_DEFINIR], str) || IsKeywordAlternative(lang.keywords[KW_COMO], str) ||
+#endif
+		str=="MIENTRAS" || str=="HACER" || str=="SEGUN" || str=="VERDADERO" || str=="FALSO" || str=="PARA")
 		return true;
 	if (str=="REPETIR" || str=="SI" || str=="SINO" || str=="ENTONCES" ||   str=="DIMENSION" || str=="PROCESO")
 		return true;
-	if (str=="FINSI" ||  str=="FINPARA" || str=="FINSEGUN" || str=="FINPROCESO" || str=="FINMIENTRAS" ||  str=="HASTA" || str=="DEFINIR" || str=="COMO")
+	if (str=="FINSI" ||  str=="FINPARA" || str=="FINSEGUN" || str=="FINPROCESO" || str=="FINMIENTRAS" ||  str=="HASTA"
+#ifdef FOR_WXPSEINT
+		|| IsKeywordRuntimeWord(KW_DEFINIR, str) || IsKeywordRuntimeWord(KW_COMO, str)
+#else
+		|| IsKeywordAlternative(lang.keywords[KW_DEFINIR], str) || IsKeywordAlternative(lang.keywords[KW_COMO], str)
+#endif
+		)
 		return true;
 	if (str=="FIN" ||  str=="IMPRIMIR" || str=="BORRAR" || str=="LIMPIAR" || str=="PANTALLA" ||  str=="BORRARPANTALLA" || str=="LIMPIARPANTALLA")
 		return true;
@@ -207,7 +285,7 @@ bool AplicarTipo(RunTime &rt, const string &expresion, int &p1, int &p2, tipo_va
 #	define ev_return(a) return a
 #endif
 
-// estructura auxiliar para la funcion EvaluarFuncion, para que el destructor del objeto libere la memoria si la función aborta de forma temprana, entre otras cosas
+// estructura auxiliar para la funcion EvaluarFuncion, para que el destructor del objeto libere la memoria si la funciï¿½n aborta de forma temprana, entre otras cosas
 // cppcheck-suppress noCopyConstructor
 struct ActualArgs { 
 	DataValue *values;
@@ -233,7 +311,7 @@ DataValue EvaluarFuncion(RunTime &rt, const std::string &func_name, const string
 DataValue EvaluarFuncion(RunTime &rt, const Funcion *func, const string &argumentos, const tipo_var &forced_tipo, bool for_expresion) {
 	ErrorHandler &err_handler = rt.err;
 	if (for_expresion && func->GetTipo(0)==vt_error) {
-		err_handler.AnytimeError(278,MkErrorMsg("El subproceso ($) no devuelve ningún valor.",func->id));
+		err_handler.AnytimeError(278,MkErrorMsg("El subproceso ($) no devuelve ningï¿½n valor.",func->id));
 		return DataValue::MakeError();
 	}
 	// controlar cantidad de argumentos
@@ -265,7 +343,7 @@ DataValue EvaluarFuncion(RunTime &rt, const Funcion *func, const string &argumen
 			} else if (func->pasajes[i+1]==PP_REFERENCIA) {
 #ifndef _FOR_PSEXPORT
 				if ((not SirveParaReferencia(rt,arg_actual)) and (not ignore_logic_errors)) { // puede ser el nombre de un arreglo suelto, para pasar por ref, y el evaluar diria que faltan los subindices
-					err_handler.AnytimeError(268,MkErrorMsg("No puede utilizar una expresión en un pasaje por referencia ($).",arg_actual));
+					err_handler.AnytimeError(268,MkErrorMsg("No puede utilizar una expresiï¿½n en un pasaje por referencia ($).",arg_actual));
 					return DataValue(forced_tipo);
 				}
 #endif
@@ -285,7 +363,7 @@ DataValue EvaluarFuncion(RunTime &rt, const Funcion *func, const string &argumen
 		for(int i=0;i<func->GetArgsCount();i++)
 			if (args.values[i].CanBeString() && EsArreglo(args.values[i].GetAsString())) {
 				/// @todo: mejorar esto, podria querer funciones predefinidas que reciban arreglos, tipo sizeof
-				err_handler.AnytimeError(282,MkErrorMsg("La función espera un único valor, pero recibe un arreglo ($).",args.values[i].GetAsString()));
+				err_handler.AnytimeError(282,MkErrorMsg("La funciï¿½n espera un ï¿½nico valor, pero recibe un arreglo ($).",args.values[i].GetAsString()));
 				return DataValue(forced_tipo);
 			}
 		ret = func->func(err_handler,args.values);
@@ -328,7 +406,7 @@ DataValue Evaluar(RunTime &rt, const string &expresion, int &p1, int &p2, const 
 	if (pos_op!=-1 and (expresion[pos_op]==',' || expresion[pos_op]==' ')) {
 		/// @todo: por ahora este es el unico caso donde se usa desc... 
 		///        quitar de aca y que el cliente lo agregue a la lista de errores como nuevo item nota
-		err_handler.AnytimeError(284,MkErrorMsg("Se esperaba solo una expresión$.",desc?desc:"",true)); 
+		err_handler.AnytimeError(284,MkErrorMsg("Se esperaba solo una expresiï¿½n$.",desc?desc:"",true)); 
 		return DataValue::MakeError(); 
 	}
 	if (pos_op==-1/* || pos_op==p1*/) { // si no hay operador, es constante o variable
@@ -339,7 +417,7 @@ DataValue Evaluar(RunTime &rt, const string &expresion, int &p1, int &p2, const 
 		} else if ( (c>='0'&&c<='9') || c=='.' || c=='-' || c=='+') { // si empieza con un numero o un punto, es nro
 			std::string val = expresion.substr(p1,p2-p1+1);	
 			if (TooManyDigits(val))
-				err_handler.CompileTimeWarning(329,"Posible pérdida de precisión (demasiados dígitos)");
+				err_handler.CompileTimeWarning(329,"Posible pï¿½rdida de precisiï¿½n (demasiados dï¿½gitos)");
 			ev_return( DataValue::MakeReal(val) );
 		} else if (expresion.substr(p1,p2-p1+1)==VERDADERO || expresion.substr(p1,p2-p1+1)==FALSO) { // veradero o falso, logica
 			ev_return( DataValue::MakeLogic(expresion.substr(p1,p2-p1+1)) );
@@ -349,13 +427,13 @@ DataValue Evaluar(RunTime &rt, const string &expresion, int &p1, int &p2, const 
 			if (pm==string::npos) { // si es una variable comun
 				string nombre = expresion.substr(p1,p2-p1+1);
 				if (!Inter.IsRunning() && (PalabraReservada(nombre) || nombre==rt.funcs.GetMainName())) {
-					err_handler.AnytimeError(285,MkErrorMsg("Identificador no válido ($).",nombre));
+					err_handler.AnytimeError(285,MkErrorMsg("Identificador no vï¿½lido ($).",nombre));
 					ev_return(DataValue::MakeError());
 				}
 				const Funcion *func = rt.funcs.GetFunction(nombre,false);
 				if (func) {
 					if (func->GetArgsCount()!=0) {
-						err_handler.AnytimeError(286,MkErrorMsg("Faltan parámetros para la función ($).",nombre));
+						err_handler.AnytimeError(286,MkErrorMsg("Faltan parï¿½metros para la funciï¿½n ($).",nombre));
 						ev_return(DataValue::MakeError());
 					} else {
 						DataValue res = EvaluarFuncion(rt, func,"()",forced_tipo);
@@ -385,7 +463,7 @@ DataValue Evaluar(RunTime &rt, const string &expresion, int &p1, int &p2, const 
 					ev_return(res);
 				} else {
 					if (PalabraReservada(nombre)) {
-						err_handler.AnytimeError(287,MkErrorMsg("Identificador no válido ($).",nombre));
+						err_handler.AnytimeError(287,MkErrorMsg("Identificador no vï¿½lido ($).",nombre));
 						ev_return(DataValue::MakeError());
 					}
 					if (lang[LS_FORCE_DEFINE_VARS] && Inter.IsRunning() && !memoria->EstaDefinida(nombre)) {
@@ -395,7 +473,7 @@ DataValue Evaluar(RunTime &rt, const string &expresion, int &p1, int &p2, const 
 					string aux=expresion.substr(p1,p2-p1+1);
 					if (CheckDims(rt,aux)) {
 						if (lang[LS_FORCE_INIT_VARS] && Inter.IsRunning() && !memoria->EstaInicializada(aux)) {
-							err_handler.AnytimeError(288,MkErrorMsg("Posición no inicializada ($).",aux));
+							err_handler.AnytimeError(288,MkErrorMsg("Posiciï¿½n no inicializada ($).",aux));
 							ev_return(DataValue::MakeError());
 						}
 						DataValue res = memoria->Leer(aux);
@@ -415,7 +493,7 @@ DataValue Evaluar(RunTime &rt, const string &expresion, int &p1, int &p2, const 
 		tipo_var td2 = DeterminarTipo(rt,expresion,p2a,p2b);
 		if ((op!='~'&&!td1.is_ok()) || !td2.is_ok()) { 
 			// DeterminarTipo no informa el error (ni al usuario ni impide la ejecucion)
-			// los evaluar que siguen están para que ese error se manifieste
+			// los evaluar que siguen estï¿½n para que ese error se manifieste
 			if (op!='~') Evaluar(rt,expresion,p1a,p1b, vt_desconocido,desc);
 			Evaluar(rt,expresion,p2a,p2b, vt_desconocido,desc);
 			ev_return(DataValue::MakeError());
@@ -453,9 +531,9 @@ DataValue Evaluar(RunTime &rt, const string &expresion, int &p1, int &p2, const 
 					return ret;
 				}
 				if (p2a>p2) // tal vez nunca se llegue a este error, porque lo detecta en otro lado
-					err_handler.AnytimeError(290,"Falta operando para la negación (~/NO).");
+					err_handler.AnytimeError(290,"Falta operando para la negaciï¿½n (~/NO).");
 				if (td2!=vt_logica && !AplicarTipo(rt,expresion,p2a,p2,vt_logica)) { 
-					err_handler.AnytimeError(291,"No coinciden los tipos (~ o NO). El operando deben ser lógico.");
+					err_handler.AnytimeError(291,"No coinciden los tipos (~ o NO). El operando deben ser lï¿½gico.");
 					ev_return(DataValue::MakeError());
 				}
 				DataValue s2 = Evaluar(rt,expresion,p2a,p2b,vt_logica,desc);
@@ -489,7 +567,7 @@ DataValue Evaluar(RunTime &rt, const string &expresion, int &p1, int &p2, const 
 				}
 			} else { // se conoce t1
 				if (!td2.is_known()) { // t2 no
-					t=td1; /*int p2b=p2;*/ // ¿por que se redefinia p2b???
+					t=td1; /*int p2b=p2;*/ // ï¿½por que se redefinia p2b???
 					if (!AplicarTipo(rt,expresion,p2a,p2b,td1)) { ev_return(DataValue::MakeError()); }
 				} else if (td1!=td2) {// t2 no coincide
 					err_handler.AnytimeError(207,"No coinciden los tipos (<, >, <=, >=, <> o =). No se puede comparar variables o expresiones de distinto tipo.");
@@ -529,7 +607,7 @@ DataValue Evaluar(RunTime &rt, const string &expresion, int &p1, int &p2, const 
 					} else if (op=='=') {
 						ev_return(DataValue::MakeLogic((s1.GetAsBool())==(s2.GetAsBool())));
 					} else {
-						/// @todo: ver si todavía es útil que devuelva tipo error pero valor valido
+						/// @todo: ver si todavï¿½a es ï¿½til que devuelva tipo error pero valor valido
 						DataValue res = DataValue::MakeLogic(false);
 						res.type = vt_error;
 						ev_return(res);
@@ -579,7 +657,7 @@ DataValue Evaluar(RunTime &rt, const string &expresion, int &p1, int &p2, const 
 				DataValue s1 = Evaluar(rt,expresion,p1a,p1b,tipo,desc);
 				DataValue s2 = Evaluar(rt,expresion,p2a,p2b,tipo,desc);
 				// esta comprobacion parece redundante segun los tests... si no le paso el tipo a los evaluar
-				// anteriores, se torna util... hay algun caso en que todavía sirva???
+				// anteriores, se torna util... hay algun caso en que todavï¿½a sirva???
 				if (!s1.type.set(s2.type) || !s2.type.set(s1.type)) {
 					err_handler.AnytimeError(295,"No coinciden los tipos (+). Los operandos deben ser de igual tipo.");
 					ev_return(DataValue::MakeError());
@@ -644,10 +722,10 @@ DataValue Evaluar(RunTime &rt, const string &expresion, int &p1, int &p2, const 
 	ev_return(DataValue::MakeError());
 }
 
-// wrapper para llamar al Evaluar que sigue desde SynCheck, para que verifique que no falten operandos al principio o al final, y aplique los tipos solo si la evaluación es correcta
+// wrapper para llamar al Evaluar que sigue desde SynCheck, para que verifique que no falten operandos al principio o al final, y aplique los tipos solo si la evaluaciï¿½n es correcta
 DataValue EvaluarSC(RunTime &rt, string expresion, const tipo_var &forced_tipo, const char *desc) {
 	if (ignore_logic_errors) { return DataValue(forced_tipo); }
-	// primero evalua sin importar de que tipo deberia ser (para que el error de tipo lo dé afuera, mejor contextualizado)
+	// primero evalua sin importar de que tipo deberia ser (para que el error de tipo lo dï¿½ afuera, mejor contextualizado)
 	int p1=0, p2=expresion.size()-1;
 	DataValue retval = Evaluar(rt,expresion,p1,p2,forced_tipo,desc);
 	// si no habia nada raro, aplica el tipo a las variables
@@ -677,8 +755,8 @@ bool CheckDims(RunTime &rt, string &str) {
 #ifdef _FOR_PSEXPORT
 		// cuando una expresion con un arreglo se utiliza desde un subproceso, la dimension del mismo
 		// no esta en el subproceso y entonces no se sabe, pero es neceria para exportar, por ejemplo
-		// para las cabeceras de las funciones en C++, así que al menos con esto detectamos que se trata
-		// de un arreglo, y sabemos la cantidad de dimensiones, aunque no sepamos sus tamaños
+		// para las cabeceras de las funciones en C++, asï¿½ que al menos con esto detectamos que se trata
+		// de un arreglo, y sabemos la cantidad de dimensiones, aunque no sepamos sus tamaï¿½os
 		int b=pp+1,ca=1; while ((b=BuscarComa(str,b+1,p2))>0) ca++;
 		int *dims=new int[ca+1]; for(int i=0;i<ca;i++) dims[i+1]=0; dims[0]=ca;
 		memoria->AgregarArreglo(nombre,dims);

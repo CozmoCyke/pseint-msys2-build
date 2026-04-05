@@ -1,0 +1,27 @@
+<HTML>
+	<HEAD>
+		<TITLE>PSeudo Int?rprete</TITLE>
+	</HEAD>
+	<BODY>
+	<B>Ejecuci?n Paso a Paso</B>
+	<BR><BR>
+	&nbsp;&nbsp;&nbsp; La ejecuci?n paso a paso permite realizar un seguimiento m?s detallado de la ejecuci?n del algoritmo. Es decir, permite observar en tiempo real qu? instrucciones y en qu? orden se ejecutan, como as? tambi?n observar el contenido de variables o expresiones durante el proceso.<BR>
+	<BR>
+	Si el panel de ejecuci?n paso a paso no se encuentra visible, puede acceder al mismo mediante el bot?n ubicado en el margen derecho de la ventana, o bien iniciando la ejecuci?n paso a paso mediante el bot?n de ejecuci?n paso a paso en la barra accesos r?pidos (ubicado entre los botones para ejecutar y dibujar diagrama de flujo) o el atajo de teclado F5.<BR>
+	<BR>
+	&nbsp;&nbsp;&nbsp; El bot?n "<B>Comenzar</B>" del panel sirve para iniciar la ejecuci?n autom?tica. Cuando lo utilice, el algoritmo comenzar? a ejecutarse autom?ticamente, avanzando de una instrucci?n a intervalos de tiempo regulares. Cada instrucci?n que se vaya ejecutando seg?n el flujo del programa se ir? seleccionando en el c?digo de dicho algoritmo indicando adem?s la l?nea con una flecha verde o amarilla sobre el margen izquierdo del pseudoc?digo. La velocidad con que avanza la ejecuci?n del algoritmo puede ajustarse desplazando el control rotulado como "<B>Velocidad</B>" en el panel.<BR>
+	<BR>
+	&nbsp;&nbsp;&nbsp; Otra forma de comenzar la ejecuci?n paso a paso es utilizar el bot?n "<B>Primer Paso</B>" del mismo panel. Este bot?n iniciar? la ejecuci?n, pero a diferencia de "Comenzar" no avanzar? de forma autom?tica, sino que se parar? sobre la primer linea del programa y esperar? a que el usuario avance manualmente cada paso con el mismo bot?n (que pasar? a denominarse <B>Avanzar un Paso</B>).<BR>
+	<BR>
+	&nbsp;&nbsp;&nbsp; Cuando el int?rprete llega a una instrucci?n que involucra una llamada a un subproceso, puede avanzar directamente a la siguiente l?nea (ejecutando todo el subproceso como una ?nica unidad a modo de caja negra, sin reflejar c?mo es el flujo de ejecuci?n dentro del mismo), o puede avanzar linea por linea dentro del subproceso. Esto depende del estado del cuadro "<B>Entrar en subprocesos</B>".<BR>
+	<BR>
+	&nbsp;&nbsp;&nbsp; El bot?n "<B>Pausar/Continuar</B>" sirve para detener moment?neamente la ejecuci?n autom?tica del algoritmo y reanudarla nuevamente despu?s. Detener el algoritmo puede servir para analizar el c?digo fuente, o para verificar qu? valor tiene asignado una variable o cuanto valdr?a una determinada expresi?n en ese punto.<BR>
+	<BR>
+	&nbsp;&nbsp;&nbsp; Para determinar el valor de una variable o expresi?n, una vez pausada la ejecuci?n paso a paso, utilice el bot?n "<B>Evaluar...</B>". Aparecer? una ventana donde podr? introducir cualquier nombre de variable o expresi?n arbitraria (incluyendo funciones y operadores), para luego observar su valor. Una forma r?pida de observar el valor de una variable consiste en hacer click con el bot?n derecho del rat?n sobre la misma en el panel de variables (ubicado en el margen izquierdo de la ventana).<BR>
+	<BR>
+	&nbsp;&nbsp;&nbsp; Si desea analizar c?mo evolucionan uno o m?s variables a lo largo de la ejecuci?n del algoritmo, puede activar la "<B>Prueba de escritorio</B>". Esta opci?n genera una tabla donde las columnas representan variables o expresiones, y las filas los distintos estados ordenados por los que pasa el programa a medida que se va ejecutando. <A href="prueba.html">M?s informaci?n sobre la prueba de escritorio...</A>.<BR>
+	<BR>
+	&nbsp;&nbsp;&nbsp; Finalmente, la opci?n "<B>Explicar con detalle cada paso</B>" despliega en la parte inferior de la ventana un panel donde el int?rprete comentar? los pasos espec?ficos que realiza al interpretar cada instrucci?n. All? aparecen por ejemplo las expresiones que se eval?an y sus resultados, las variables que se leen o asignan, las decisiones que controlan el flujo de ejecuci?n en las estructuras de control, etc. El panel dispone de un bot?n para avanzar manualmente, ya que no permite el modo de avance autom?tico.<BR>
+	<BR>
+	<BR><BR>
+</BODY></HTML>

@@ -1,0 +1,44 @@
+	0 interfaz.html Interface
+		0 configuracion.html Configuration
+		0 flow.html Édition de diagramme de flux
+		0 debug.html Suivi de l'algorithme
+			0 prueba.html Test sur table
+		0 ejercicios.html Exercices autonomes
+	0 pseudocodigo.html Pseudocode
+		0 forma.html Structure générale d'un algorithme
+		0 variables.html Variables
+		0 tipos.html Types de données
+			0 simples.html Types simples
+			0 arreglos.html Tableaux
+			0 definir.html Définition explicite
+		0 expresiones.html Expressions
+			0 operadores.html Opérateurs
+			0 funciones.html Fonctions prédéfinies
+			0 colcond.html Expressions courantes
+		0 secuenciales.html Actions séquentielles
+			0 asignacion.html Affectation
+			0 lectura.html Entrée
+			0 escritura.html Sortie
+			0 secotras.html Autres
+		0 estructuras.html Structures de contrôle
+			0 condicionales.html Structures conditionnelles
+				0 si.html Si-Alors
+				0 segun.html Selon
+			0 repetitivas.html Boucles
+				0 mientras.html Tant que
+				0 repetir.html Répéter
+				0 para.html Pour
+		0 subprocesos.html Fonctions et sous-processus
+		0 otros.html Autres considérations
+		0 perfiles.html Personnalisation du langage
+	0 ejemplos.html Exemples d'algorithmes
+	0 docentes.html Informations pour les enseignants
+		0 doc_perfiles.html Création de profils
+		0 doc_ejercicios.html Création d'exercices
+			0 html_format.html Format Help.html
+	0 about.html Notes sur PSeInt
+		0 about.html#a Licences et contacts
+		0 cambios.html Journal des modifications
+		0 about.html#a Licence publique générale
+		0 bugs.html Rapport de bogue
+		0 cucarachasracing.html Cucarachas Racing (blog)

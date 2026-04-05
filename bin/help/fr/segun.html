@@ -1,0 +1,23 @@
+<HTML>
+	<HEAD>
+		<TITLE>PSeudo Int?rprete</TITLE>
+	</HEAD>
+	<BODY>
+<B>Selecci?n M?ltiple</B>
+<BR><BR>
+<CENTER><img src="ps_segun.png"></TD></CENTER><BR>
+&nbsp;&nbsp;&nbsp;La secuencia de instrucciones ejecutada por una instrucci?n <i>Segun</i> depende del valor de una variable num?rica.<BR><BR>
+<code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Segun &lt;variable&gt; Hacer <BR>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   &lt;n?mero1&gt;: &lt;instrucciones&gt; <BR>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   &lt;n?mero2&gt;,&lt;n?mero3&gt;:  &lt;instrucciones&gt; <BR>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &lt;...&gt; <BR>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; De Otro Modo: &lt;instrucciones&gt; <BR>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FinSegun <BR>
+</code><BR><BR>
+&nbsp;&nbsp;&nbsp;Esta instrucci?n permite ejecutar opcionalmente varias acciones posibles, dependiendo del valor almacenado en una variable de tipo num?rico. Al ejecutarse, se eval?a el contenido de la variable y se ejecuta la secuencia de instrucciones asociada con dicho valor. <BR>
+&nbsp;&nbsp;&nbsp;Cada opci?n est? formada por uno o m?s n?meros separados por comas, dos puntos y una secuencia de instrucciones. Si una opci?n incluye varios n?meros, la secuencia de instrucciones asociada se debe ejecutar cuando el valor de la variable es uno de esos n?meros.<BR>
+&nbsp;&nbsp;&nbsp;Opcionalmente, se puede agregar una opci?n final, denominada <i>De Otro Modo</i>, cuya secuencia de instrucciones asociada se ejecutar? s?lo si el valor almacenado en la variable no coincide con ninguna de las opciones anteriores.<BR>
+<BR>
+&nbsp;&nbsp;&nbsp;El ejemplo <A href="example:Menu.psc">Men?</A> muestra un programa muy simple que utiliza esta estructura de control para elegir que salida mostrar en pantalla de acuerdo a qu? opci?n el usuario selecciona mediante un men?.<BR>
+<BR>
+</BODY></HTML>

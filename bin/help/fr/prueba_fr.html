@@ -1,0 +1,15 @@
+<HTML>
+	<HEAD>
+		<TITLE>PSeudo Intérprete</TITLE>
+	</HEAD>
+	<BODY>
+	<B>Desk Check</B>
+	<BR><BR>
+	&nbsp;&nbsp;&nbsp; Performing a desk check on a program means following in detail the values taken by its variables at each step. The most common way to do this is with a table in which each column is associated with a variable, showing the values it takes at each step. PSeInt can build this table automatically. To do so, the user must specify a list of Variables or Expressions to use as columns in the table and execute the algorithm in Step-by-Step mode.<BR>
+	<BR>
+	&nbsp;&nbsp;&nbsp; To access the desk-check table, select the option "Desk Check" in the <A href="debug_en.html">step-by-step execution panel</A>. This option shows the table at the bottom of the window, with two initial columns: Process/SubProcess and Line(inst). The first column shows the name of the current process or subprocess. The second column shows which line was being executed and, in parentheses, which instruction number inside that line was active, since a line may contain more than one instruction. To modify the variable or expression in a column, double-click the column title. You can also rearrange the columns by dragging their titles, or remove one by right-clicking its title.<BR>
+	<BR>
+	&nbsp;&nbsp;&nbsp; Once step-by-step execution starts, the buttons disappear and the columns can no longer be modified until execution finishes. For each instruction executed by the interpreter, a new row is added to the end of the table, showing the values of the selected expressions.<BR>
+	<BR>
+	<BR><BR>
+</BODY></HTML>

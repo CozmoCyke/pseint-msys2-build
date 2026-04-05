@@ -1,0 +1,67 @@
+\b;Les variables
+Une variable est un nom qui repère un emplacement en mémoire, dont on peut faire évoluer la valeur durant l'exécution du programme.
+
+Par exemple, vous pouvez utiliser une variable pour compter le nombre d'unités de minerai de titane que le préhenseur a collectées et transportées à la raffinerie. Tout d'abord, vous devez lui trouver un nom : le nom ne doit pas être trop long, mais expliquer par lui-même à quoi sert la variable. Appelons-le \c;cptTit\n;. Cette variable ne doit contenir que des nombres entiers, choisissez donc le type \c;int\n;. Au début du programme, vous devez déclarer la variable. Ensuite, vous l'initialisez en mettant la valeur \c;0\n; dans la variable, et chaque fois que vous saisissez un minerai de titane, vous augmentez la variable de \c;1\n;. A chaque instant, la variable contient le nombre d'unités de minerai de titane que le préhenseur a récupéré.
+
+La déclaration de la variable \c;compteur\n; s'écrit avec:
+\c;\s;	int  cptTit;\n;
+
+L'initialisation à zéro se fait avec:
+\c;\s;	cptTit = 0;\n;
+
+À chaque minerai de titane trouvé et saisi, vous l'augmentez de 1 avec:
+\c;\s;	cptTit++;	// équivalent à cptTit = cptTit+1;\n;
+
+Notez bien que le nom \c;cptTit\n; n'est qu'un exemple. Vous avez pratiquement toute liberté pour inventer le nom qui vous convient le mieux.Par exemple: \c;dist\n;, \c;direct\n;, \c;p2\n;, \c;a\n;, \c;x\n;, \c;chute_2_pierre\n;, etc.
+Le nom doit commencer par une lettre. Il peut contenir ensuite des lettres ou des chiffres, ainsi que le caractère souligné. Par contre, vous ne pouvez pas utiliser les mots-clés réservés du langage, tels que \c;\l;for\u cbot\for;\n;, \c;\l;while\u cbot\while;\n;, \c;\l;break\u cbot\break;\n;, \c;\l;continue\u cbot\continue;\n;, \c;do\n;, etc.
+On peut utiliser des noms anglais (plus courts et internationaux), ou plutôt des noms français, on peut aussi utiliser des abréviations, cela n'a pas d'importance. Ce qu'il faut, c'est que le nom exprime clairement à quoi sert la variable. A vous de bien choisir votre convention de nommage. Ne soyez pas trop cryptiques : \c;Bmo45\n;, \c;a\n;, \c;tgbin\n; ne sont pas de très bons exemples !
+
+Dans l'exemple ci-dessus, le mot-clé \c;int\n; indique que cette variable ne peut contenir que des nombres entiers, ce qui est suffisant pour compter les objets. Si vous voulez mesurer une distance, mieux vaut utiliser une variable qui peut aussi contenir des nombres réels, avec une partie fractionnaire (comme 3.45 ou 0.034) : dans ce cas, utilisez le type \c;float\n;.
+
+En fait, une variable est décrite par trois éléments:
+1) Son nom,
+2) Le type du contenu,
+3) Le contenu.
+
+\t;Le nom
+Le nom permet d'accéder au contenu.
+
+\t;Le type
+Le \l;type\u cbot\type; détermine ce que contient la variable. En effet, une variable peut contenir un nombre entier, un nombre réel, une chaîne de caractères, une coordonnée d'un point, etc.
+Les types les plus courants sont:
+  o  \c;\l;int\u cbot\int;\n; pour un nombre entier (12, -500, etc.)
+  o  \c;\l;float\u cbot\float;\n; pour un nombre réel (3.14, 0.2, -99.98, etc.)
+  o  \c;\l;string\u cbot\string;\n; pour une chaîne de caractères ("bonjour", "le chat", etc.)
+  o  \c;\l;point\u cbot\point;\n; pour une coordonnée dans l'espace x,y,z
+  o  \c;\l;object\u cbot\object;\n; pour décrire un objet (robot, bâtiment, etc.)
+
+\t;Le contenu
+Le contenu d'une variable peut être une ou plusieurs valeurs, une chaîne de caractères ou une coordonnée, selon le type.
+
+Lorsqu'une variable est déclarée, elle n'a encore aucune valeur. Avant de l'utiliser, il faut obligatoirement lui assigner une valeur:
+\c;\s;	int  i, j;
+\s;	j = 25;  // j prend la valeur 25
+\s;	j = i;   // impossible, car i est inconnu
+\n;
+Notez que vous pouvez très bien déclarer une variable et l'initialiser directement avec:
+\c;\s;	int  i=0;
+\n;
+Notez que l'assignation \c;=\n; copie la valeur de l'\l;expression\u cbot\expr; de droite dans la variable de gauche. Soit l'exemple suivant:
+\c;\s;	int  i, j;
+\s;	i = 5+2;  // i prend la valeur 7
+\s;	j = 6+i;  // j prend la valeur de i : 13
+\s;	i = j;    // i prend la valeur de j : 13
+\n;
+A la fin de cet exemple, les variables \c;i\n; et \c;j\n; contiennent toutes deux la valeur \c;13\n;.
+
+L'assignation suivante est incorrecte, car il ne peut y avoir qu'un nom de variable simple à gauche du signe \c;=\n;:
+\c;\s;	i+2 = j;  // impossible
+\n;
+Pour permuter les contenus de deux variables, il faut obligatoirement utiliser une troisième variable temporaire. Voici comment permuter \c;a\n; et \c;b\n;:
+\c;\s;	int temp;
+\s;	temp = a;  // temp prend la valeur de a
+\s;	a = b;     // b est copié dans a
+\s;	b = temp;  // temp est copié dans a
+\n;
+\t;Voir aussi
+\l;Programmation\u cbot;, \l;types\u cbot\type; et \l;catégories\u cbot\category;.

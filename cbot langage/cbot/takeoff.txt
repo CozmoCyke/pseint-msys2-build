@@ -1,0 +1,16 @@
+\b;Instruction \c;takeoff\n;
+Syntaxe:
+\s;\c;takeoff ( object );\n;
+
+Lance un vaisseau spatial.
+
+\t;\l;object\u cbot\object;
+\l;SpaceShip\u object\base;, le plus proche par défaut.
+
+\t;Type du retour: \c;\l;entier (int)\u cbot\int;\n;
+Normalement, une erreur arrête le programme. Vous pouvez empêcher le programme de s'arrêter en cas d'erreur en utilisant l'instruction \c;\l;errmode\u cbot\errmode;(0)\n;. Une valeur différente de zéro en cas d'erreur est alors retournée par \c;takeoff()\n;.
+\c;== 0 \n;Le vaisseau spatial se referme puis décolle
+\c;!= 0 \n;Le vaisseau spatial n'a pas pu décoller (par exemple, la mission n'est pas encore terminée ou quelque chose empêche les portes de se refermer)
+
+\t;Voir aussi
+\l;Programmation\u cbot;, \l;types\u cbot\type; et \l;catégories\u cbot\category;.

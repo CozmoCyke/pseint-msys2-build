@@ -1,0 +1,76 @@
+WRITE
+  <UL>
+  <LI>{expression_list}: complete here the list of expressions you want to display separated by commas(,).</LI>
+  </UL>
+LEER
+  <UL>
+  <LI>{variable}: complete here the variable to read, or the list of variables separated by commas(,).</LI>
+  </UL>
+ASIGNAR
+  <UL>
+  <LI>{variable}: complete here the name of the variable whose contents you want to modify.</LI>
+  <LI>{expresion}: complete here the expression whose result you want to assign to {variable}.</LI>
+  </UL>
+SI - ENTONCES
+  <UL>
+  <LI>{expresion_logica}: complete here the condition to evaluate in order to decide which group of actions must be executed.</LI>
+  <LI>{acciones_por_verdadero}: complete here the actions that must be executed if the condition ({expresion_logica}) is true.</LI>
+  </UL>
+SI - ENTONCES - SINO
+  <UL>
+  <LI>{expresion_logica}: complete here the condition to evaluate in order to decide which group of actions must be executed.</LI>
+  <LI>{acciones_por_verdadero}: complete here the actions that must be executed if the condition ({expresion_logica}) is true.</LI>
+  <LI>{acciones_por_falso}: complete here the actions that must be executed if the condition ({expresion_logica}) is false. If you do not want to do anything in this case, delete this line and the previous one (SINO).</LI>
+  </UL>
+SEGUN
+  <UL>
+  <LI>{variable_numerica}: complete here the variable whose contents must be evaluated in order to decide which actions to execute.</LI>
+  <LI>{opcion_n} y {secuencia_de_acciones_n}: replace {opcion_n} with a possible value for {variable_numerica} and complete {secuencia_de_acciones_n} with the instructions to execute if the value matches. You can add {opcion_n} and {secuencia_de_acciones_n} as many times as necessary to cover the corresponding cases. You can associate more than one option with the same group of actions by placing in {opcion_n} the list of values separated by commas.</LI>
+  <LI>{secuencia_de_acciones_dom}: complete here the set of instructions to execute if the value of {variable_numerica} does not match any of the previously stated options. If you do not want to include a set of actions for these cases, delete this line and the previous one (De Otro Modo:).</LI>
+  </UL>
+MIENTRAS
+  <UL>
+  <LI>{expresion_logica}: complete here the condition that must be evaluated to perform one iteration.</LI>
+  <LI>{secuencia_de_acciones}: complete here the list of instructions you want to repeat while the condition {expresion_logica} is true. Remember that you must include here some action that may modify that condition.</LI>
+  </UL>
+REPETIR - MIENTRAS QUE
+  <UL>
+  <LI>{secuencia_de_acciones}: complete here the list of instructions you want to repeat until the condition {expresion_logica} is true. Remember that you must include here some action that may modify that condition.</LI>
+  <LI>{expresion_logica}: complete here the condition that must be evaluated to determine whether iteration continues.</LI>
+  </UL>
+REPETIR - HASTA QUE
+  <UL>
+  <LI>{secuencia_de_acciones}: complete here the list of instructions you want to repeat until the condition {expresion_logica} is true. Remember that you must include here some action that may modify that condition.</LI>
+  <LI>{expresion_logica}: complete here the condition that must be evaluated to determine whether iteration continues.</LI>
+  </UL>
+PARA CADA
+  <UL>
+  <LI>{id_elemento}: enter here a new identifier/variable name, which will represent one element of the array in each iteration.</LI>
+  <LI>{id_arreglo}: enter here the identifier/name of the array to traverse.</LI>
+  </UL>
+PARA
+  <UL>
+  <LI>{variable_numerica}: complete here the identifier of the variable you will use to iterate.</LI>
+  <LI>{valor_inicial}: enter here the value of {variable_numerica} from which iteration will begin.</LI>
+  <LI>{valor_final}: enter here the final value of {variable_numerica} up to which iteration will continue.</LI>
+  <LI>{paso}: enter here the increment that must be applied to {variable_numerica} in each iteration.</LI>
+  <LI>{secuencia_de_acciones}: complete here the list of instructions you want to repeat in each iteration.</LI>
+  </UL>
+SUBPROCESO
+  <UL>
+  <LI>{variable_de_retorno}: if your function/subprocess calculates and returns some value, complete here the name of the variable you will use to store that value; if your function/subprocess returns nothing, you can remove the variable and the assignment arrow.</LI>
+  <LI>{nombre}: enter here the name that the function/subprocess will receive.</LI>
+  <LI>{argumentos}: enter here the list of arguments your function requires, using commas to separate them, and entering the identifier for each one and optionally the keywords "por valor" or "por referencia" to indicate the passing mode; if the function/subprocess does not require arguments, you may leave this field blank, and optionally omit the parentheses.</LI>
+  </UL>
+SUBALGORITMO
+  <UL>
+  <LI>{variable_de_retorno}: if your function/subprocess calculates and returns some value, complete here the name of the variable you will use to store that value; if your function/subprocess returns nothing, you can remove the variable and the assignment arrow.</LI>
+  <LI>{nombre}: enter here the name that the function/subprocess will receive.</LI>
+  <LI>{argumentos}: enter here the list of arguments your function requires, using commas to separate them, and entering the identifier for each one and optionally the keywords "por valor" or "por referencia" to indicate the passing mode; if the function/subprocess does not require arguments, you may leave this field blank, and optionally omit the parentheses.</LI>
+  </UL>
+FUNCION
+  <UL>
+  <LI>{variable_de_retorno}: if your function/subprocess calculates and returns some value, complete here the name of the variable you will use to store that value; if your function/subprocess returns nothing, you can remove the variable and the assignment arrow.</LI>
+  <LI>{nombre}: enter here the name that the function/subprocess will receive.</LI>
+  <LI>{argumentos}: enter here the list of arguments your function requires, using commas to separate them, and entering the identifier for each one and optionally the keywords "por valor" or "por referencia" to indicate the passing mode; if the function/subprocess does not require arguments, you may leave this field blank, and optionally omit the parentheses.</LI>
+  </UL>

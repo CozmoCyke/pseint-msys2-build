@@ -1,0 +1,12 @@
+\b;Instruction \c;tan\n;
+Syntaxe:
+\s;\c;tan ( angle );\n;
+
+\t;angle: \c;\l;float\u cbot\float;\n;
+Angle en degrés (en ne précisant jamais de multiples de 90).
+
+\t;Type du retour: \c;\l;réel (float)\u cbot\float;\n;
+Tangente d'un angle.
+
+\t;Voir aussi
+\l;Programmation\u cbot;, \l;types\u cbot\type; et \l;expressions\u cbot\expr;.

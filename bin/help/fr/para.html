@@ -1,0 +1,26 @@
+<HTML>
+	<HEAD>
+		<TITLE>PSeudo Int?rprete</TITLE>
+	</HEAD>
+	<BODY>
+<B>Lazos Para</B>
+<BR><BR>
+<CENTER><img src="ps_para.png"></TD></CENTER><BR>
+&nbsp;&nbsp;&nbsp;La instrucci?n <i>Para</i> ejecuta una secuencia de instrucciones un n?mero determinado de veces.
+<br><BR>
+<code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Para &lt;variable&gt; &lt;- &lt;inicial&gt; Hasta &lt;final&gt; Con Paso &lt;paso&gt; Hacer <BR>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &lt;instrucciones&gt; <BR>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FinPara <BR>
+</code><bR><BR>
+&nbsp;&nbsp;&nbsp;Al ingresar al bloque, la variable &lt;variable&gt; recibe el valor &lt;inicial&gt; y se ejecuta la secuencia de instrucciones que forma el cuerpo del ciclo. Luego se incrementa la variable &lt;variable&gt; en &lt;paso&gt; unidades y se eval?a si el valor almacenado en &lt;variable&gt; super? al valor &lt;final&gt;. Si esto es falso se repite hasta que &lt;variable&gt; supere a &lt;final&gt;. Si se omite la cl?usula <i>Con Paso</i> &lt;paso&gt;, la variable &lt;variable&gt; se incrementar? en 1.<BR>
+<BR>
+&nbsp;&nbsp;&nbsp;Si se habilita la sintaxis flexible en las <A href="perfiles.html">configuraci?n del lenguaje</A> se pueden utilizar dos alternativas. La primer variante consiste en reemplazar el operador de asignaci?n por la palabra clave <I>Desde</I>:<BR>
+<code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Para &lt;variable&gt; Desde &lt;inicial&gt; Hasta &lt;final&gt; Con Paso &lt;paso&gt; Hacer ... </code><bR>
+De esta forma, la lectura de la sentencia resulta m?s obvia. Adem?s, con sintaxis flexible, si no se especifica el paso pero el valor final es menor al inicial, el bucle recorrer? los valores en orden inverso como si el paso fuera -1. La segunda variante solo sirve para recorrer arreglos de una o m?s dimensiones. Se introduce con la construcci?n <I>Para Cada</I> seguida de un identificador, la palabra clave <I>De</I> y otro identificador:<BR>
+<code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Para Cada &lt;elemento&gt; De &lt;Arreglo&gt; Hacer ... </code><bR>
+El segundo identificador debe corresponder a un arreglo. El primero ser? el que ir? variando en cada iteraci?n. El ciclo realizar? tantas iteraciones como elementos contenga el arreglo y en cada uno el primer identificador servir? para referirse al elemento del arreglo en cuesti?n.<BR>
+<BR>
+&nbsp;&nbsp;&nbsp;El ejemplo <A href="example:Promedio.psc">Promedio</A> utiliza un bucle de este tipo para leer N valores num?ricos con los cuales calcula un promedio.<BR>
+&nbsp;&nbsp;&nbsp;El ejemplo <A href="example:Para.psc">Para</A> utiliza las tres variantes de este tipo de bucles para recorrer un arreglo.<BR>
+<BR>
+</BODY></HTML>

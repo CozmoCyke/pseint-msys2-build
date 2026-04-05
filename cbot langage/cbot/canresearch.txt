@@ -1,0 +1,16 @@
+\b;Instruction \c;canresearch\n;
+Syntaxe:
+\s;\c;canresearch ( research );\n;
+
+Vérifie si une \l;research\u cbot\researches; peut être effectuée pendant la mission en cours.
+
+\t;research: \c;\l;int\u cbot\int;\n;
+\l;Research name\u cbot\researches;.
+
+\t;Type du retour: \c;\l;booléen (bool)\u cbot\bool;\n;
+\const;true\norm; si la recherche peut être effectuée dans le niveau en cours (même si elle a déjà été recherchée, pour vérifier cela, utilisez l'instruction \l;researched\u cbot\researched;)
+\const;false\norm; si la recherche ne peut pas être effectuée.
+
+\t;Voir aussi
+\l;Research names\u cbot\researches;, \c;\l;research\u cbot\research;\n;, \c;\l;researched\u cbot\researched;\n;.
+\l;Programming\u cbot;, \l;types\u cbot\type; et \l;categories\u cbot\category;.

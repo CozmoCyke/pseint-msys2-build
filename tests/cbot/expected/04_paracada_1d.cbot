@@ -1,0 +1,17 @@
+// Approximate expected output for CBOTExporter V3
+
+// ADVERTENCIA: Dimension se refleja sobre todo en la declaracion del arreglo; la materializacion runtime exacta no se fuerza en V3.
+
+extern void object::pruebaparacada1d() {
+	int item;
+	int datos[3];
+	// Dimension(datos): se exporta principalmente en la declaracion del arreglo.
+	// ADVERTENCIA: CBOT materializa el arreglo al primer acceso o asignacion; V3 no fuerza esa inicializacion.
+	datos[0] = 7;
+	datos[1] = 8;
+	datos[2] = 9;
+	for (int cbot_idx_0 = 0; cbot_idx_0 < sizeof(datos); ++cbot_idx_0) {
+		item = datos[cbot_idx_0];
+		message("" + (item));
+	}
+}

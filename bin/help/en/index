@@ -1,0 +1,44 @@
+	0 interfaz_en.html Interface
+		0 configuracion_en.html Configuration
+		0 flow_en.html Flowchart Editing
+		0 debug_en.html Algorithm Tracing
+			0 prueba_en.html Desk Check
+		0 ejercicios_en.html Self-contained Exercises
+	0 pseudocodigo_en.html PSeudoCode
+		0 forma_en.html General Structure of an Algorithm
+		0 variables_en.html Variables
+		0 tipos_en.html Data Types
+			0 simples_en.html Simple Types
+			0 arreglos_en.html Arrays
+			0 definir_en.html Explicit Definition
+		0 expresiones_en.html Expressions
+			0 operadores_en.html Operators
+			0 funciones_en.html Predefined Functions
+			0 colcond_en.html Colloquial Expressions
+		0 secuenciales_en.html Sequential Actions
+			0 asignacion_en.html Assignment
+			0 lectura_en.html Input
+			0 escritura_en.html Output
+			0 secotras_en.html Others
+		0 estructuras_en.html Control Structures
+			0 condicionales_en.html Conditionals
+				0 si_en.html If-Then
+				0 segun_en.html According To
+			0 repetitivas_en.html Loops
+				0 mientras_en.html While
+				0 repetir_en.html Repeat
+				0 para_en.html For
+		0 subprocesos_en.html Functions/Subprocesses
+		0 otros_en.html Other Considerations
+		0 perfiles_en.html Language Customization
+	0 ejemplos_en.html Algorithm Examples
+	0 docentes_en.html Information for Teachers
+		0 doc_perfiles_en.html Profile Creation
+		0 doc_ejercicios_en.html Exercise Creation
+			0 html_format_en.html Help.html Format
+	0 about_en.html Notes about PSeInt
+		0 about_en.html#a Licenses and Contacts
+		0 cambios_en.html Change Log
+		0 gpl_en.html General Public License
+		0 bugs_en.html Bug Report
+		0 cucarachasracing_en.html Cucarachas Racing (blog)

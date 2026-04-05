@@ -1,0 +1,15 @@
+// Este codigo ha sido generado por el modulo psexport 20230904-w32 de PSeInt.
+// Es posible que el codigo generado no sea completamente correcto. Si encuentra
+// errores por favor reportelos en el foro (http://pseint.sourceforge.net).
+
+// Exportador CBOT V3: soporte prudente para arreglos, con limites explicitados en comentarios.
+// ADVERTENCIA: Dimension se refleja sobre todo en la declaracion del arreglo; la materializacion runtime exacta no se fuerza en V3.
+
+extern void object::pruebadimension() {
+	int v[5];
+	// Dimension(v): se exporta principalmente en la declaracion del arreglo.
+	// ADVERTENCIA: CBOT materializa el arreglo al primer acceso o asignacion; V3 no fuerza esa inicializacion.
+	v[0] = 10;
+	message("" + (v[0]));
+}
+

@@ -24,6 +24,7 @@ protected:
 
 	// funciones de utilería para las demás
 	std::vector<std::string> aux_varnames;
+	bool current_dimension_is_redimension = false;
 	virtual std::string get_aux_varname(std::string pref);
 	virtual void release_aux_varname(std::string vname);
 	void init_header(t_output &out, std::string comment_pre, std::string comment_post="");

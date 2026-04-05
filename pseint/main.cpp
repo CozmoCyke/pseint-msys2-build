@@ -343,7 +343,7 @@ std::cerr << "LANGKW COMO=" << lang.keywords[KW_COMO].get() << std::endl;
 		exit(1);
 	}
 	
-	if (user && check) show_user_info("Leyendo archivo y comprobando sintaxis...");
+	if (user && check) show_user_info(LocalizationManager::Instance().Translate("Leyendo archivo y comprobando sintaxis..."));
 	for(string buffer;getline(archivo,buffer);)
 		programa.PushBack(buffer);
 	archivo.close();
@@ -365,7 +365,7 @@ std::cerr << "LANGKW COMO=" << lang.keywords[KW_COMO].get() << std::endl;
 				CaseMapApply(rt,programa,for_export);
 			}
 			SavePrograma(fil_args[1],programa);
-			if (user) show_user_info("Dibujo guardado.");
+			if (user) show_user_info(LocalizationManager::Instance().Translate("Dibujo guardado."));
 			ExeInfo.close();
 			ExeInfoOn=false;
 		} else if (run) {
@@ -375,22 +375,22 @@ std::cerr << "LANGKW COMO=" << lang.keywords[KW_COMO].get() << std::endl;
 			const Funcion *main_func = rt.funcs.GetMainFunc();
 			memoria = main_func->memoria.get();
 			Inter.SetLocation(rt.prog[main_func->line_start].loc);
-			if (ExeInfoOn) if (user) ExeInfo<<"*** Ejecucion Iniciada. ***"<<endl;
-			if (user) show_user_info("*** Ejecuci?n Iniciada. ***");
+			if (ExeInfoOn) if (user) ExeInfo<<LocalizationManager::Instance().Translate("*** Ejecucion Iniciada. ***")<<endl;
+			if (user) show_user_info(LocalizationManager::Instance().Translate("*** Ejecucion Iniciada. ***"));
 			Ejecutar(rt,main_func->line_start);
 			Inter.SetFinished();
-			if (ExeInfoOn) ExeInfo<<"*** Ejecucion Finalizada. ***";
-			if (user) show_user_info("*** Ejecuci?n Finalizada. ***");
+			if (ExeInfoOn) ExeInfo<<LocalizationManager::Instance().Translate("*** Ejecucion Finalizada. ***");
+			if (user) show_user_info(LocalizationManager::Instance().Translate("*** Ejecucion Finalizada. ***"));
 		}
 	} else {
 		if (user) cout<<endl;
 		int errores = rt.err.GetErrorsCount();
 		if (errores==1) {
-			if (ExeInfoOn) if (user) ExeInfo<<"*** Se encontro 1 error. ***";
-			if (user) show_user_info("*** Se encontr? 1 error. ***");
+			if (ExeInfoOn) if (user) ExeInfo<<LocalizationManager::Instance().Translate("*** Se encontro 1 error. ***");
+			if (user) show_user_info(LocalizationManager::Instance().Translate("*** Se encontro 1 error. ***"));
 		} else {
-			if (ExeInfoOn) if (user) ExeInfo<<"*** Se encontraron "<<errores<<" errores. ***";
-			if (user) show_user_info("*** Se encontraron ",errores," errores. ***");
+			if (ExeInfoOn) if (user) ExeInfo<<LocalizationManager::Instance().Translate("*** Se encontraron ")<< " " <<errores<< " " << LocalizationManager::Instance().Translate(" errores. ***");
+			if (user) show_user_info(LocalizationManager::Instance().Translate("*** Se encontraron ")+" ",errores," " +LocalizationManager::Instance().Translate(" errores. ***"));
 		}
 	}
 	// esperar un enter si es necesario

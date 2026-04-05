@@ -1,0 +1,12 @@
+\b;Instruction \c;penup\n;
+Syntaxe:
+\s;\c;penup ( );\n;
+L'instruction \c;penup();\n;indique au robot d'avoir son crayon relevé, pour qu'il arrête de dessiner. Le crayon est en haut par défaut, il ne doit donc être utilisé qu'après avoir utilisé \c;\l;pendown\u cbot\pendown;\n;.
+
+\t;Type du retour: \c;\l;entier (int)\u cbot\int;\n;
+Normalement, une erreur arrête le programme Vous pouvez empêcher le programme de s'arrêter en cas d'erreur en utilisant l'instruction \c;\l;errmode\u cbot\errmode;(0)\n;. Une valeur différente de zéro en cas d'erreur est alors retournée par \c;penup();.
+\c;== 0 \n;Le crayon est maintenant relevé
+\c;!= 0  \n;La commande ne fonctionne pas
+
+\t;Voir aussi
+\l;Programmation\u cbot;, \l;types\u cbot\type; et \l;catégories\u cbot\category;.

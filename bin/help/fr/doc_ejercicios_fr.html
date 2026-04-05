@@ -1,0 +1,30 @@
+<HTML>
+	<HEAD>
+		<TITLE>PSeudo Intérprete</TITLE>
+	</HEAD>
+	<BODY>
+	<B>Exercise Creation</B><BR><BR>
+	This section describes how to create a <A href="ejercicios_en.html">self-contained exercise</A>. To do so, you must:
+	<OL>
+	<LI>Outside PSeInt, create an empty directory anywhere (which we will call the "base directory") and place the following files in it:
+	<UL>
+		<LI><B>base.psc</B>: a file with the initial pseudocode that PSeInt will show to the student when the exercise starts. If this file is omitted, PSeInt uses the same template it uses when creating a new algorithm.</LI>
+		<LI>Any txt file whose name begins with "input" is considered input for a test case. The rest of the file name is used as the test-case name. The file must contain the input values that the algorithm will read, one per line.</LI>
+		<LI>One of the following two options:<UL>
+			<LI>Files with the output that the correct solution should produce for each test case. They use the same naming rules as the input file, replacing "input" with "output".</LI>
+			<LI>A file with the pseudocode of the correct solution. It is not included directly in the exercise, but it can later be used to generate the correct outputs for the test cases.</LI>
+		</UL></LI>
+		<LI>An optional file with the problem statement, in basic html format (if it is help.html, see <A href="html_format_en.html">more details about the format</A>) or markdown (if it is help.md), which is shown in the quick-help panel when the exercise is opened.<UL>
+			<LI>Any png file is included in the exercise and can be used from help.html/help.md through a special address (<A href="html_format_en.html">details and examples</A>).</LI>
+		</UL></LI>
+	</UL></LI>
+	<LI>From PSeInt:<OL>
+		<LI>Open the special file <A href="cmd:creator">creator.psz</a> (with the "Open" command in the "File" menu) located in the PSeInt installation directory. This opens a new window with options to generate an exercise file.</LI>
+		<LI>Complete the exercise configuration in the new window. The window includes controls for: the base directory, success and failure messages, visibility of failed test cases, whether evaluation stops on the first failure or processes all cases, whether expected output is shown, the number of test cases found, whether the order is fixed or random, whether base.psc and help files are present, generation of outputs from solution.psc, optional password protection, optional required language profile, and compatibility with old encryption mechanisms.</LI>
+		<LI>Once the configuration is finished, use the "Generate" button to create and save the exercise file. The program lets you choose the final location. The extension is .psz for exercises without a password and .psx for exercises with a password. After choosing the location, the final exercise file is generated and the selected configuration (except the password) is stored in config.txt inside the exercise directory so it can be reloaded later.</LI>
+	</OL></LI>
+	</OL>
+<BR><BR>
+You can find a <A href="open:ejemplos/Ejercicio.psz">sample exercise file</A>, together with the <A href="explore:ejemplos/Ejercicio">folder containing all the files needed to create it</A>, in the "ejemplos" directory of your PSeInt installation.<BR>
+<BR><BR>
+</BODY></HTML>
