@@ -1,0 +1,13 @@
+"Cargando ejercicio..."|Cargando ejercicio...|pseval/mxMainWindow.cpp|43|Loading exercise...|READY
+"mostrar casos fallidos"|mostrar casos fallidos|pseval/mxMainWindow.cpp|78|show failed cases|READY
+"mostrar casos fallidos"|mostrar casos fallidos|pseval/mxMainWindow.cpp|91|show failed cases|READY
+"mensaje error"|mensaje error|pseval/mxMainWindow.cpp|93|error message|READY
+"\n\nA continuación se mostrará un caso de prueba en el que falla."|\n\nA continuacion se mostrara un caso de prueba en el que falla.|pseval/mxMainWindow.cpp|94|\n\nA failing test case will be shown next.|READY
+"mostrar casos fallidos"|mostrar casos fallidos|pseval/mxMainWindow.cpp|103|show failed cases|READY
+"mensaje error"|mensaje error|pseval/mxMainWindow.cpp|104|error message|READY
+"\n\nA continuación se mostrarán los casos de prueba en los que falla."|\n\nA continuacion se mostraran los casos de prueba en los que falla.|pseval/mxMainWindow.cpp|105|\n\nThe failing test cases will be shown next.|READY
+"mensaje error"|mensaje error|pseval/mxMainWindow.cpp|109|error message|READY
+"mensaje exito"|mensaje exito|pseval/mxMainWindow.cpp|113|success message|READY
+"Error al cargar el ejercicio"|Error al cargar el ejercicio|pseval/mxMainWindow.cpp|123|Error loading the exercise|READY
+"Debe actualizar PSeInt para poder abrir este ejercicio"|Debe actualizar PSeInt para poder abrir este ejercicio|pseval/mxMainWindow.cpp|128|You must update PSeInt to open this exercise|READY
+"<<<Ejecución interrumpida por el usuario>>>"|<<<Ejecucion interrumpida por el usuario>>>|pseval/mxMainWindow.cpp|176|<<<Execution interrupted by the user>>>|READY

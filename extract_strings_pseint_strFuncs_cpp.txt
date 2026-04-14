@@ -1,0 +1,6 @@
+"strFuncs.hpp"|strFuncs.hpp|pseint/strFuncs.cpp|1
+"debug.h"|debug.h|pseint/strFuncs.cpp|2
+" ("| (|pseint/strFuncs.cpp|68
+"("|(|pseint/strFuncs.cpp|68
+") "|) |pseint/strFuncs.cpp|71
+")"|)|pseint/strFuncs.cpp|71

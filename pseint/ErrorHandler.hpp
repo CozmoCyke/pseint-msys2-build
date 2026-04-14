@@ -14,6 +14,7 @@ public:
 	void RunTimeWarning(int num, const std::string &desc);
 	void ErrorIfRunning(int num, const std::string &desc);
 	void AnytimeError(int num, const std::string &desc);
+	void Reset() { m_errors_count = 0; m_warnings_count = 0; }
 	bool IsOk() const { return m_errors_count==0; }
 	int GetErrorsCount() const { return m_errors_count; }
 private:
@@ -27,4 +28,3 @@ public:
 };
 
 #endif
-

@@ -241,7 +241,7 @@ long Package::GetConfigInt(const wxString & key) {
 
 bool Package::GetConfigBool(const wxString & key) {
 	wxString val = GetConfigStr(key).Lower();
-	return val=="si"||val=="1"||val=="verdadero"||val=="yes"||val=="true"||val==_Z("sí");
+	return val=="si"||val=="1"||val=="verdadero"||val=="yes"||val=="true"||val==_Z("si");
 }
 
 Package::Package ( ) {
@@ -256,8 +256,8 @@ void Package::Reset ( ) {
 	m_base_psc.Clear();
 	m_config.clear();
 	m_images.Clear();
-	SetConfigStr  ( "mensaje exito" , "El algoritmo es correcto" );
-	SetConfigStr  ( "mensaje error" , "El algoritmo no es correcto" );
+	SetConfigStr  ( "mensaje exito" , LocalizationManager::Instance().Translate("El algoritmo es correcto") );
+	SetConfigStr  ( "mensaje error" , LocalizationManager::Instance().Translate("El algoritmo no es correcto") );
 	SetConfigBool ( "mostrar soluciones" , true );
 	SetConfigStr  ( "mostrar casos fallidos" , "primero" );
 	SetConfigBool ( "mezclar casos", true );

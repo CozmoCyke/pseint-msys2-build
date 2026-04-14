@@ -1,0 +1,119 @@
+"Finaliza el algoritmo"|Finaliza el algoritmo|pseint/Ejecutar.cpp|46|The algorithm ends|READY
+"Se sale del subproceso "|Se sale del subproceso |pseint/Ejecutar.cpp|48|Exiting subroutine |READY
+"El algoritmo comienza con el proceso "|El algoritmo comienza con el proceso |pseint/Ejecutar.cpp|56|The algorithm starts with process |READY
+"Se ingresa en el subproceso "|Se ingresa en el subproceso |pseint/Ejecutar.cpp|56|Entering subroutine |READY
+"***LimpiarPantalla***"|***LimpiarPantalla***|pseint/Ejecutar.cpp|60|***ClearScreen***|READY
+"Se borra la pantalla"|Se borra la pantalla|pseint/Ejecutar.cpp|61|The screen is cleared|READY
+"Se espera a que el usuario presione una tecla."|Se espera a que el usuario presione una tecla.|pseint/Ejecutar.cpp|65|Waiting for the user to press a key.|READY
+"***EsperarTecla***"|***EsperarTecla***|pseint/Ejecutar.cpp|67|***WaitForKey***|READY
+"Se va a invocar al subproceso"|Se va a invocar al subproceso|pseint/Ejecutar.cpp|74|The subroutine is about to be invoked|READY
+"Se evalúa la expresión: "|Se evalua la expresion: |pseint/Ejecutar.cpp|87|Evaluating expression: |READY
+"Se muestra en pantalla el resultado: "|Se muestra en pantalla el resultado: |pseint/Ejecutar.cpp|92|Displaying result on screen: |READY
+"Variable no definida ("|Variable no definida (|pseint/Ejecutar.cpp|106|Undefined variable (|READY
+"Faltan subindices para el arreglo ("|Faltan subindices para el arreglo (|pseint/Ejecutar.cpp|112|Missing indices for array (|READY
+"La variable ("|La variable (|pseint/Ejecutar.cpp|114|Variable (|READY
+") no es un arreglo."|) no es un arreglo.|pseint/Ejecutar.cpp|114|) is not an array.|READY
+"Se analizan las dimensiones de "|Se analizan las dimensiones de |pseint/Ejecutar.cpp|116|Analyzing dimensions of |READY
+"El resultado es "|El resultado es |pseint/Ejecutar.cpp|118|The result is |READY
+"No se puede modificar la variable "|No se puede modificar la variable |pseint/Ejecutar.cpp|121|Cannot modify variable |READY
+"Se espera a que el usuario ingrese un valor y presiones enter."|Se espera a que el usuario ingrese un valor y presiones enter.|pseint/Ejecutar.cpp|128|Waiting for the user to enter a value and press Enter.|READY
+"Sin entradas disponibles."|Sin entradas disponibles.|pseint/Ejecutar.cpp|133|No input available.|READY
+"<<No hay más datos de entrada>>"|<<No hay mas datos de entrada>>|pseint/Ejecutar.cpp|140|<<No more input data>>|READY
+"VERDADERO"|VERDADERO|pseint/Ejecutar.cpp|149|TRUE|READY
+"FALSO"|FALSO|pseint/Ejecutar.cpp|149|FALSE|READY
+"No coinciden los tipos ("|No coinciden los tipos (|pseint/Ejecutar.cpp|155|Types do not match (|READY
+"No coinciden los tipos ("|No coinciden los tipos (|pseint/Ejecutar.cpp|157|Types do not match (|READY
+"), el valor ingresado debe ser un entero."|), el valor ingresado debe ser un entero.|pseint/Ejecutar.cpp|157|), the entered value must be an integer.|READY
+"El valor ingresado se almacena en "|El valor ingresado se almacena en |pseint/Ejecutar.cpp|164|The entered value is stored in |READY
+"Posible pérdida de precisión (demasiados dígitos)"|Posible perdida de precision (demasiados digitos)|pseint/Ejecutar.cpp|169|Possible loss of precision (too many digits)|READY
+"Se evalúan las expresiones para cada dimensión del arreglo "|Se evaluan las expresiones para cada dimension del arreglo |pseint/Ejecutar.cpp|187|Evaluating expressions for each dimension of array |READY
+"No coinciden los tipos."|No coinciden los tipos.|pseint/Ejecutar.cpp|192|Types do not match.|READY
+"Las dimensiones solo pueden ser números enteros."|Las dimensiones solo pueden ser numeros enteros.|pseint/Ejecutar.cpp|194|Dimensions can only be integer numbers.|READY
+"Las dimensiones no pueden ser negativas."|Las dimensiones no pueden ser negativas.|pseint/Ejecutar.cpp|196|Dimensions cannot be negative.|READY
+"Las dimensiones no pueden ser 0."|Las dimensiones no pueden ser 0.|pseint/Ejecutar.cpp|198|Dimensions cannot be 0.|READY
+" no estaba previamente dimensionado."| no estaba previamente dimensionado.|pseint/Ejecutar.cpp|204| was not previously dimensioned.|READY
+"La nueva cantidad de dimensiones de "|La nueva cantidad de dimensiones de |pseint/Ejecutar.cpp|206|The new number of dimensions of |READY
+") no coincide con la previa("|) no coincide con la previa(|pseint/Ejecutar.cpp|206|) does not match the previous one (|READY
+"Identificador en uso."|Identificador en uso.|pseint/Ejecutar.cpp|211|Identifier already in use.|READY
+"El arreglo "|El arreglo |pseint/Ejecutar.cpp|220|Array |READY
+" cambia de tamaño, a"| cambia de tamano, a|pseint/Ejecutar.cpp|220| changes size, to |READY
+" elementos"| elementos|pseint/Ejecutar.cpp|220| elements|READY
+"Se crea el arreglo "|Se crea el arreglo |pseint/Ejecutar.cpp|222|Creating array |READY
+" de"| de|pseint/Ejecutar.cpp|222| with |READY
+" elementos"| elementos|pseint/Ejecutar.cpp|222| elements|READY
+"La variable ("|La variable (|pseint/Ejecutar.cpp|234|Variable (|READY
+") ya estaba definida."|) ya estaba definida.|pseint/Ejecutar.cpp|234|) was already defined.|READY
+"Se define el tipo de la variable \""|Se define el tipo de la variable "\" como Numérico(Entero)."|pseint/Ejecutar.cpp|238|Setting the type of variable \"|READY
+"\" como Numérico(Entero)."|\" como Numerico(Entero).|pseint/Ejecutar.cpp|238|\" as Numeric(Integer).|READY
+"Se define el tipo de la variable \""|Se define el tipo de la variable \"|pseint/Ejecutar.cpp|240|Setting the type of variable \"|READY
+"\" como Numérico(Real)."|\" como Numerico(Real).|pseint/Ejecutar.cpp|240|\" as Numeric(Real).|READY
+"Se define el tipo de la variable \""|Se define el tipo de la variable \"|pseint/Ejecutar.cpp|243|Setting the type of variable \"|READY
+"\" como Caracter/Cadena de Caracteres."|\" como Caracter/Cadena de Caracteres.|pseint/Ejecutar.cpp|243|\" as Character/String.|READY
+"Se define el tipo de la variable \""|Se define el tipo de la variable \"|pseint/Ejecutar.cpp|245|Setting the type of variable \"|READY
+"\" como Lógico."|\" como Logico.|pseint/Ejecutar.cpp|245|\" as Logical.|READY
+"Se evalúa la cantidad de tiempo: "|Se evalua la cantidad de tiempo: |pseint/Ejecutar.cpp|256|Evaluating time amount: |READY
+"La longitud del intervalo debe ser numérica."|La longitud del intervalo debe ser numerica.|pseint/Ejecutar.cpp|258|The interval length must be numeric.|READY
+"Se esperan "|Se esperan |pseint/Ejecutar.cpp|260|Waiting for |READY
+" milisengudos"| milisengudos|pseint/Ejecutar.cpp|260| milliseconds|READY
+" segundos"| segundos|pseint/Ejecutar.cpp|260| seconds|READY
+"***Esperar"|***Esperar|pseint/Ejecutar.cpp|261|***Wait|READY
+"La variable ("|La variable (|pseint/Ejecutar.cpp|273|Variable (|READY
+") no esta definida."|) no esta definida.|pseint/Ejecutar.cpp|273|) is not defined.|READY
+"Faltan subindices para el arreglo ("|Faltan subindices para el arreglo (|pseint/Ejecutar.cpp|278|Missing indices for array (|READY
+"La variable ("|La variable (|pseint/Ejecutar.cpp|282|Variable (|READY
+") no es un arreglo."|) no es un arreglo.|pseint/Ejecutar.cpp|282|) is not an array.|READY
+"Se evalúa la expresión a asignar: "|Se evalua la expresion a asignar: |pseint/Ejecutar.cpp|285|Evaluating expression to assign: |READY
+"No coinciden los tipos."|No coinciden los tipos.|pseint/Ejecutar.cpp|290|Types do not match.|READY
+"No se puede modificar la variable "|No se puede modificar la variable |pseint/Ejecutar.cpp|292|Cannot modify variable |READY
+"No coinciden los tipos, el valor a asignar debe ser un entero."|No coinciden los tipos, el valor a asignar debe ser un entero.|pseint/Ejecutar.cpp|294|Types do not match, the value to assign must be an integer.|READY
+"El resultado es: "|El resultado es: |pseint/Ejecutar.cpp|295|The result is: |READY
+"El resultado se guarda en "|El resultado se guarda en |pseint/Ejecutar.cpp|303|The result is stored in |READY
+"Se evalúa la condición para Si-Entonces: "|Se evalua la condicion para Si-Entonces: |pseint/Ejecutar.cpp|314|Evaluating condition for If-Then: |READY
+"El resultado es Verdadero, se sigue por la rama del Entonces"|El resultado es Verdadero, se sigue por la rama del Entonces|pseint/Ejecutar.cpp|324|The result is True, execution continues through the Then branch|READY
+"El resultado es Falso, se sigue por la rama del SiNo"|El resultado es Falso, se sigue por la rama del SiNo|pseint/Ejecutar.cpp|331|The result is False, execution continues through the Else branch|READY
+"El resultado es Falso, no se hace nada"|El resultado es Falso, no se hace nada|pseint/Ejecutar.cpp|334|The result is False, nothing is done|READY
+"Se sale de la estructura Si-Entonces"|Se sale de la estructura Si-Entonces|pseint/Ejecutar.cpp|340|Exiting If-Then structure|READY
+"No coinciden los tipos."|No coinciden los tipos.|pseint/Ejecutar.cpp|342|Types do not match.|READY
+"Se evalúa la condición para Mientras: "|Se evalua la condicion para Mientras: |pseint/Ejecutar.cpp|351|Evaluating condition for While: |READY
+"La condición es Verdadera, se iniciará una iteración."|La condicion es Verdadera, se iniciara una iteracion.|pseint/Ejecutar.cpp|357|The condition is True, an iteration will begin.|READY
+"Se evalúa nuevamente la condición: "|Se evalua nuevamente la condicion: |pseint/Ejecutar.cpp|360|Evaluating the condition again: |READY
+"La condición es Falsa, se sale de la estructura Mientras."|La condicion es Falsa, se sale de la estructura Mientras.|pseint/Ejecutar.cpp|365|The condition is False, exiting the While structure.|READY
+"Se ejecutarán las acciones contenidas en la estructura Repetir"|Se ejecutaran las acciones contenidas en la estructura Repetir|pseint/Ejecutar.cpp|378|Executing the actions contained in the Repeat structure|READY
+"Se evalúa la condición: "|Se evalua la condicion: |pseint/Ejecutar.cpp|385|Evaluating condition: |READY
+"La condición es "|La condicion es |pseint/Ejecutar.cpp|388|The condition is |READY
+", se continúa iterando."|, se continua iterando.|pseint/Ejecutar.cpp|388|, iteration continues.|READY
+"La condición es "|La condicion es |pseint/Ejecutar.cpp|391|The condition is |READY
+", se sale de la estructura Repetir."|, se sale de la estructura Repetir.|pseint/Ejecutar.cpp|391|, exiting the Repeat structure.|READY
+"Se evalúa la expresión para el valor inicial: "|Se evalua la expresion para el valor inicial: |pseint/Ejecutar.cpp|403|Evaluating expression for initial value: |READY
+"No coinciden los tipos."|No coinciden los tipos.|pseint/Ejecutar.cpp|405|Types do not match.|READY
+"Se determina que el paso será -1."|Se determina que el paso sera -1.|pseint/Ejecutar.cpp|412|The step is determined to be -1.|READY
+"Se determina que el paso será +1."|Se determina que el paso sera +1.|pseint/Ejecutar.cpp|415|The step is determined to be +1.|READY
+"Se evalúa la expresión para el paso: "|Se evalua la expresion para el paso: |pseint/Ejecutar.cpp|422|Evaluating expression for step: |READY
+"Se inicializar el contador "|Se inicializar el contador |pseint/Ejecutar.cpp|429|Initializing counter |READY
+" en "| en |pseint/Ejecutar.cpp|429| to |READY
+"Se compara el contador con el valor final: "|Se compara el contador con el valor final: |pseint/Ejecutar.cpp|434|Comparing counter with final value: |READY
+"La expresión fue Verdadera, se iniciará una iteración."|La expresion fue Verdadera, se iniciara una iteracion.|pseint/Ejecutar.cpp|437|The expression was True, an iteration will begin.|READY
+"Se actualiza el contador, ahora "|Se actualiza el contador, ahora |pseint/Ejecutar.cpp|443|Updating counter, now |READY
+" vale "| vale |pseint/Ejecutar.cpp|443| equals |READY
+"Se sale de la estructura repetitiva Para."|Se sale de la estructura repetitiva Para.|pseint/Ejecutar.cpp|451|Exiting the For loop structure.|READY
+"La variable ("|La variable (|pseint/Ejecutar.cpp|464|Variable (|READY
+") no es un arreglo."|) no es un arreglo.|pseint/Ejecutar.cpp|464|) is not an array.|READY
+"El arreglo \""|El arreglo \"|pseint/Ejecutar.cpp|469|Array \"|READY
+"\" contiene "|\" contiene |pseint/Ejecutar.cpp|469|\" contains |READY
+" elementos. Se comienza a iterar por ellos."| elementos. Se comienza a iterar por ellos.|pseint/Ejecutar.cpp|469| elements. Iteration over them begins.|READY
+" será equivalente a "| sera equivalente a |pseint/Ejecutar.cpp|481| will be equivalent to |READY
+" en esta iteración."| en esta iteracion.|pseint/Ejecutar.cpp|481| in this iteration.|READY
+"No coinciden los tipos."|No coinciden los tipos.|pseint/Ejecutar.cpp|483|Types do not match.|READY
+"Se sale de la estructura repetitiva Para Cada."|Se sale de la estructura repetitiva Para Cada.|pseint/Ejecutar.cpp|494|Exiting the For Each loop structure.|READY
+"Se evalúa la expresión: "|Se evalua la expresion: |pseint/Ejecutar.cpp|504|Evaluating expression: |READY
+"La expresión del SEGUN debe ser de tipo numérica o caracter."|La expresion del SEGUN debe ser de tipo numerica o caracter.|pseint/Ejecutar.cpp|508|The SWITCH expression must be numeric or character type.|READY
+"La expresión del SEGUN debe ser numérica."|La expresion del SEGUN debe ser numerica.|pseint/Ejecutar.cpp|510|The SWITCH expression must be numeric.|READY
+"El resultado es: "|El resultado es: |pseint/Ejecutar.cpp|512|The result is: |READY
+"Se evalúa la opción: "|Se evalua la opcion: |pseint/Ejecutar.cpp|523|Evaluating option: |READY
+"No coinciden los tipos."|No coinciden los tipos.|pseint/Ejecutar.cpp|525|Types do not match.|READY
+"El resultado coincide, se ingresará en esta opción."|El resultado coincide, se ingresara en esta opcion.|pseint/Ejecutar.cpp|528|The result matches, entering this option.|READY
+"El resultado no coincide: "|El resultado no coincide: |pseint/Ejecutar.cpp|531|The result does not match: |READY
+"Se ingresará en la opción De Otro Modo"|Se ingresara en la opcion De Otro Modo|pseint/Ejecutar.cpp|545|Entering the Otherwise option|READY
+"Ninguna de las opciones coincide. No se hace nada."|Ninguna de las opciones coincide. No se hace nada.|pseint/Ejecutar.cpp|549|None of the options match. Nothing is done.|READY
+"Se sale de la estructura Segun.	"|Se sale de la estructura Segun.	|pseint/Ejecutar.cpp|560|Exiting the Switch structure.	|READY
+"Ha ocurrido un error interno en PSeInt."|Ha ocurrido un error interno en PSeInt.|pseint/Ejecutar.cpp|566|An internal error has occurred in PSeInt.|READY

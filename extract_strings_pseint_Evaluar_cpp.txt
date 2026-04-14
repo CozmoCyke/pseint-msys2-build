@@ -1,0 +1,73 @@
+"Y"|Y|pseint/Evaluar.cpp|89|AND|READY
+"O"|O|pseint/Evaluar.cpp|89|OR|READY
+"NO"|NO|pseint/Evaluar.cpp|89|NOT|READY
+"MOD"|MOD|pseint/Evaluar.cpp|89|MOD|READY
+"HACER"|HACER|pseint/Evaluar.cpp|97|DO|READY
+"SEGUN"|SEGUN|pseint/Evaluar.cpp|97|SWITCH|READY
+"VERDADERO"|VERDADERO|pseint/Evaluar.cpp|97|TRUE|READY
+"FALSO"|FALSO|pseint/Evaluar.cpp|97|FALSE|READY
+"PARA"|PARA|pseint/Evaluar.cpp|97|FOR|READY
+"REPETIR"|REPETIR|pseint/Evaluar.cpp|99|REPEAT|READY
+"SI"|SI|pseint/Evaluar.cpp|99|IF|READY
+"SINO"|SINO|pseint/Evaluar.cpp|99|ELSE|READY
+"ENTONCES"|ENTONCES|pseint/Evaluar.cpp|99|THEN|READY
+"DIMENSION"|DIMENSION|pseint/Evaluar.cpp|99|DIMENSION|READY
+"PROCESO"|PROCESO|pseint/Evaluar.cpp|99|PROCESS|READY
+"FINSI"|FINSI|pseint/Evaluar.cpp|101|ENDIF|READY
+"FINPARA"|FINPARA|pseint/Evaluar.cpp|101|ENDFOR|READY
+"FINSEGUN"|FINSEGUN|pseint/Evaluar.cpp|101|ENDSWITCH|READY
+"FINPROCESO"|FINPROCESO|pseint/Evaluar.cpp|101|ENDPROCESS|READY
+"FINMIENTRAS"|FINMIENTRAS|pseint/Evaluar.cpp|101|ENDWHILE|READY
+"HASTA"|HASTA|pseint/Evaluar.cpp|101|UNTIL|READY
+"FIN"|FIN|pseint/Evaluar.cpp|109|END|READY
+"IMPRIMIR"|IMPRIMIR|pseint/Evaluar.cpp|109|PRINT|READY
+"BORRAR"|BORRAR|pseint/Evaluar.cpp|109|CLEAR|READY
+"LIMPIAR"|LIMPIAR|pseint/Evaluar.cpp|109|CLEAR|READY
+"PANTALLA"|PANTALLA|pseint/Evaluar.cpp|109|SCREEN|READY
+"BORRARPANTALLA"|BORRARPANTALLA|pseint/Evaluar.cpp|109|CLEARSCREEN|READY
+"LIMPIARPANTALLA"|LIMPIARPANTALLA|pseint/Evaluar.cpp|109|CLEARSCREEN|READY
+"SIN"|SIN|pseint/Evaluar.cpp|111|WITHOUT|READY
+"BAJAR"|BAJAR|pseint/Evaluar.cpp|111|NEWLINE|READY
+"SINBAJAR"|SINBAJAR|pseint/Evaluar.cpp|111|WITHOUT_NEWLINE|READY
+"SALTAR"|SALTAR|pseint/Evaluar.cpp|111|SKIP|READY
+"SINSALTAR"|SINSALTAR|pseint/Evaluar.cpp|111|WITHOUT_SKIP|READY
+"RET: *"|RET: *|pseint/Evaluar.cpp|284|RET: *|READY
+"El subproceso ($) no devuelve ningún valor."|El subproceso ($) no devuelve ningun valor.|pseint/Evaluar.cpp|316|The subroutine ($) does not return any value.|READY
+"Cantidad de argumentos incorrecta para el subproceso ($)."|Cantidad de argumentos incorrecta para el subproceso ($).|pseint/Evaluar.cpp|323|Incorrect number of arguments for subroutine ($).|READY
+"Tipo de dato incorrecto en el argumento $ ($)."|Tipo de dato incorrecto en el argumento $ ($).|pseint/Evaluar.cpp|334|Incorrect data type in argument $ ($).|READY
+"Los arreglos solo pueden pasarse a subprocesos/funciones por referencia ($)."|Los arreglos solo pueden pasarse a subprocesos/funciones por referencia ($).|pseint/Evaluar.cpp|340|Arrays can only be passed to subroutines/functions by reference ($).|READY
+"No puede utilizar una expresión en un pasaje por referencia ($)."|No puede utilizar una expresion en un pasaje por referencia ($).|pseint/Evaluar.cpp|348|You cannot use an expression in a pass-by-reference ($).|READY
+"La función espera un único valor, pero recibe un arreglo ($)."|La funcion espera un unico valor, pero recibe un arreglo ($).|pseint/Evaluar.cpp|368|The function expects a single value, but receives an array ($).|READY
+"No coinciden los tipos."|No coinciden los tipos.|pseint/Evaluar.cpp|397|Types do not match.|READY
+"EVALUAR: {"|EVALUAR: {|pseint/Evaluar.cpp|405|EVALUATE: {|READY
+"Se esperaba solo una expresión$."|Se esperaba solo una expresion$.|pseint/Evaluar.cpp|411|Only one expression was expected$.|READY
+"Posible pérdida de precisión (demasiados dígitos)"|Posible perdida de precision (demasiados digitos)|pseint/Evaluar.cpp|422|Possible loss of precision (too many digits)|READY
+"Identificador no válido ($)."|Identificador no valido ($).|pseint/Evaluar.cpp|432|Invalid identifier ($).|READY
+"Faltan parámetros para la función ($)."|Faltan parametros para la funcion ($).|pseint/Evaluar.cpp|438|Missing parameters for function ($).|READY
+"()"|()|pseint/Evaluar.cpp|441|()|READY
+"Faltan subindices para el arreglo ($)."|Faltan subindices para el arreglo ($).|pseint/Evaluar.cpp|446|Missing indices for array ($).|READY
+"Variable no definida ($)."|Variable no definida ($).|pseint/Evaluar.cpp|451|Undefined variable ($).|READY
+"Variable no inicializada ($)."|Variable no inicializada ($).|pseint/Evaluar.cpp|455|Uninitialized variable ($).|READY
+"Identificador no válido ($)."|Identificador no valido ($).|pseint/Evaluar.cpp|468|Invalid identifier ($).|READY
+"Variable no definida ($)."|Variable no definida ($).|pseint/Evaluar.cpp|472|Undefined variable ($).|READY
+"Posición no inicializada ($)."|Posicion no inicializada ($).|pseint/Evaluar.cpp|478|Uninitialized position ($).|READY
+"No coinciden los tipos (|/O, &/Y). Los operandos deben ser logicos."|No coinciden los tipos (|/O, &/Y). Los operandos deben ser logicos.|pseint/Evaluar.cpp|511|Types do not match (|/OR, &/AND). Operands must be logical.|READY
+"Falta operando para la negación (~/NO)."|Falta operando para la negacion (~/NO).|pseint/Evaluar.cpp|536|Missing operand for negation (~/NOT).|READY
+"No coinciden los tipos (~ o NO). El operando deben ser lógico."|No coinciden los tipos (~ o NO). El operando deben ser logico.|pseint/Evaluar.cpp|538|Types do not match (~ or NOT). The operand must be logical.|READY
+"No coinciden los tipos (<, >, <= o >=). Los operandos no deben ser logicos."|No coinciden los tipos (<, >, <= o >=). Los operandos no deben ser logicos.|pseint/Evaluar.cpp|558|Types do not match (<, >, <= or >=). Operands must not be logical.|READY
+"No coinciden los tipos (<, >, <=, >=, <> o =). No se puede comparar variables o expresiones de distinto tipo."|No coinciden los tipos (<, >, <=, >=, <> o =). No se puede comparar variables o expresiones de distinto tipo.|pseint/Evaluar.cpp|575|Types do not match (<, >, <=, >=, <> or =). Variables or expressions of different types cannot be compared.|READY
+"No coinciden los tipos (+). Los operandos deben ser numericos o caracter."|No coinciden los tipos (+). Los operandos deben ser numericos o caracter.|pseint/Evaluar.cpp|639|Types do not match (+). Operands must be numeric or character.|READY
+"No coinciden los tipos (+). Los operandos deben ser numericos o caracter."|No coinciden los tipos (+). Los operandos deben ser numericos o caracter.|pseint/Evaluar.cpp|643|Types do not match (+). Operands must be numeric or character.|READY
+"No coinciden los tipos (+). Los operandos deben ser de igual tipo."|No coinciden los tipos (+). Los operandos deben ser de igual tipo.|pseint/Evaluar.cpp|651|Types do not match (+). Operands must be of the same type.|READY
+"No coinciden los tipos (+). Los operandos deben ser de igual tipo."|No coinciden los tipos (+). Los operandos deben ser de igual tipo.|pseint/Evaluar.cpp|664|Types do not match (+). Operands must be of the same type.|READY
+"No coinciden los tipos (+, -, *, /, ^, % o MOD). Los operandos deben ser numericos."|No coinciden los tipos (+, -, *, /, ^, % o MOD). Los operandos deben ser numericos.|pseint/Evaluar.cpp|676|Types do not match (+, -, *, /, ^, % or MOD). Operands must be numeric.|READY
+"Division por cero"|Division por cero|pseint/Evaluar.cpp|694|Division by zero|READY
+"Solo Chuck Norris puede dividir por cero!"|Solo Chuck Norris puede dividir por cero!|pseint/Evaluar.cpp|694|Only Chuck Norris can divide by zero!|READY
+"Los operandos para el operador MOD deben ser enteros"|Los operandos para el operador MOD deben ser enteros|pseint/Evaluar.cpp|704|Operands for the MOD operator must be integers|READY
+"El segundo operando para el operador MOD no puede ser cero"|El segundo operando para el operador MOD no puede ser cero|pseint/Evaluar.cpp|710|The second operand for the MOD operator cannot be zero|READY
+"El identificador $ no corresponde a un arreglo o subproceso"|El identificador $ no corresponde a un arreglo o subproceso|pseint/Evaluar.cpp|766|Identifier $ does not correspond to an array or subroutine|READY
+"Cantidad de indices incorrecta para el arreglo ($)."|Cantidad de indices incorrecta para el arreglo ($).|pseint/Evaluar.cpp|784|Incorrect number of indices for array ($).|READY
+"Cantidad de indices incorrecta para el arreglo ($)."|Cantidad de indices incorrecta para el arreglo ($).|pseint/Evaluar.cpp|815|Incorrect number of indices for array ($).|READY
+"Subindice no entero ($)."|Subindice no entero ($).|pseint/Evaluar.cpp|826|Non-integer index ($).|READY
+"Subindice ($) fuera de rango (0...$)."|Subindice ($) fuera de rango (0...$).|pseint/Evaluar.cpp|831|Index ($) out of range (0...$).|READY
+"Subindice ($) fuera de rango (1...$)."|Subindice ($) fuera de rango (1...$).|pseint/Evaluar.cpp|836|Index ($) out of range (1...$).|READY

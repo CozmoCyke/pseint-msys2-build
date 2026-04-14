@@ -1,0 +1,34 @@
+"paso"|paso|pseint/intercambio.cpp|45
+"comenzar"|comenzar|pseint/intercambio.cpp|45
+"paso"|paso|pseint/intercambio.cpp|47
+"estado paso\n"|estado paso\n|pseint/intercambio.cpp|49
+"estado ejecutando\n"|estado ejecutando\n|pseint/intercambio.cpp|52
+"subtítulos 1"|subtitulos 1|pseint/intercambio.cpp|54
+"estado pausa\n"|estado pausa\n|pseint/intercambio.cpp|58
+"subtítulos 0"|subtitulos 0|pseint/intercambio.cpp|60
+"subprocesos 1"|subprocesos 1|pseint/intercambio.cpp|62
+"subprocesos 0"|subprocesos 0|pseint/intercambio.cpp|64
+"pausar"|pausar|pseint/intercambio.cpp|67
+"estado pausa\n"|estado pausa\n|pseint/intercambio.cpp|69
+"continuar"|continuar|pseint/intercambio.cpp|70
+"estado ejecutando\n"|estado ejecutando\n|pseint/intercambio.cpp|72
+"delay "|delay |pseint/intercambio.cpp|73
+"evaluar "|evaluar |pseint/intercambio.cpp|75
+"evaluacion "|evaluacion |pseint/intercambio.cpp|77
+"autoevaluar "|autoevaluar |pseint/intercambio.cpp|94
+"quit"|quit|pseint/intercambio.cpp|107
+"subtitulo "|subtitulo |pseint/intercambio.cpp|116
+"linea "|linea |pseint/intercambio.cpp|126
+"linea "|linea |pseint/intercambio.cpp|127
+"autoevaluacion "|autoevaluacion |pseint/intercambio.cpp|152
+"autoevaluacion "|autoevaluacion |pseint/intercambio.cpp|154
+"autoevaluacion "|autoevaluacion |pseint/intercambio.cpp|160
+"estado pausa\n"|estado pausa\n|pseint/intercambio.cpp|167
+"estado finalizado\n"|estado finalizado\n|pseint/intercambio.cpp|216
+"estado interrumpido\n"|estado interrumpido\n|pseint/intercambio.cpp|218
+"<<Error al inicializar ejecucion paso a paso>>"|<<Error al inicializar ejecucion paso a paso>>|pseint/intercambio.cpp|235
+"hello-debug -1\n"|hello-debug -1\n|pseint/intercambio.cpp|237
+"estado inicializado\n"|estado inicializado\n|pseint/intercambio.cpp|238
+"proceso "|proceso |pseint/intercambio.cpp|267
+"proceso "|proceso |pseint/intercambio.cpp|277
+"finalizando\n"|finalizando\n|pseint/intercambio.cpp|285

@@ -1,0 +1,10 @@
+"Seleccionar fuentes..."|Seleccionar fuentes...|wxPSeInt/mxMainWindow.cpp|405|Select fonts...|READY
+"Presentación"|Presentacion|wxPSeInt/mxMainWindow.cpp|406|Presentation|READY
+"Opciones del Lenguaje (perfiles)..."|Opciones del Lenguaje (perfiles)...|wxPSeInt/mxMainWindow.cpp|408|Language Options (profiles)...|READY
+"Actualizar accesos directos..."|Actualizar accesos directos...|wxPSeInt/mxMainWindow.cpp|412|Update shortcuts...|READY
+"&Configurar"|&Configurar|wxPSeInt/mxMainWindow.cpp|414|&Configure|READY
+"No se pudo abrir el archivo "|No se pudo abrir el archivo |wxPSeInt/mxMainWindow.cpp|751|Could not open the file |READY
+"Hay cambios sin guardar. ¿Desea guardarlos antes de salir?"|Hay cambios sin guardar. ¿Desea guardarlos antes de salir?|wxPSeInt/mxMainWindow.cpp|893|There are unsaved changes. Do you want to save them before exiting?|READY
+"Palabra a buscar:"|Palabra a buscar:|wxPSeInt/mxMainWindow.cpp|976|Word to search for:|READY
+"Ayuda Rápida"|Ayuda Rapida|wxPSeInt/mxMainWindow.cpp|976|Quick Help|READY
+

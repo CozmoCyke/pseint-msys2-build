@@ -1,0 +1,9 @@
+"Este ejercicio no se puede abrir porque fue\n"|Este ejercicio no se puede abrir porque fue\n|pseval/Package.cpp|109|This exercise cannot be opened because it was\n|READY
+"creado para una versión de PSeInt más reciente\n"|creado para una version de PSeInt mas reciente\n|pseval/Package.cpp|110|created for a newer version of PSeInt\n|READY
+"que esta. Actualice PSeInt para poder continuar.\n\n"|que esta. Actualice PSeInt para poder continuar.\n\n|pseval/Package.cpp|111|than this one. Update PSeInt to continue.\n\n|READY
+"La versión mínima necesaria es: "|La version minima necesaria es: |pseval/Package.cpp|112|The minimum required version is: |READY
+"Puede descargar las actualizaciones desde:\n"|Puede descargar las actualizaciones desde:\n|pseval/Package.cpp|113|You can download updates from:\n|READY
+"http://pseint.sourceforge.net"|http://pseint.sourceforge.net|pseval/Package.cpp|114|http://pseint.sourceforge.net|READY
+"sí"|si|pseval/Package.cpp|244|yes|READY
+"mensaje exito"|mensaje exito|pseval/Package.cpp|259|success message|READY
+"mensaje error"|mensaje error|pseval/Package.cpp|260|error message|READY

@@ -175,6 +175,16 @@ static void AuditProcessStream(const char *tag, const wxString &line) {
 	std::cerr << "KWTRACE PROCESS " << tag << " " << _W2S(line) << std::endl;
 }
 
+static const char *ProfileSourceName(int source) {
+	switch (source) {
+		case LS_DEFAULT: return "default";
+		case LS_LIST: return "list";
+		case LS_FILE: return "file";
+		case LS_CUSTOM: return "custom";
+		default: return "unknown";
+	}
+}
+
 bool mxProcess::CheckSyntax(wxString file, wxString extra_args) {
 	
 	if (what==mxPW_NULL) what=mxPW_CHECK;
@@ -351,6 +361,14 @@ bool mxProcess::ExportLang(wxString file, wxString lang, bool check_first) {
 }
 
 wxString mxProcess::GetProfileArgs() {
+	std::cerr
+		<< "CFGTRACE where=mxProcess::GetProfileArgs"
+		<< " profile_name=" << cfg_lang.name
+		<< " source=" << ProfileSourceName(cfg_lang.source)
+		<< " profile_bits=" << cfg_lang.GetAsSingleString()
+		<< " overload_equal=" << (cfg_lang[LS_OVERLOAD_EQUAL] ? 1 : 0)
+		<< " ui_lang=" << LocalizationManager::Instance().GetCurrentLanguage()
+		<< std::endl;
 	wxString args = wxString("--binprofile=")+cfg_lang.GetAsSingleString().c_str();
 	args << " --lang=" << LocalizationManager::Instance().GetCurrentLanguage();
 	return args;

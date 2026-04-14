@@ -1,0 +1,3 @@
+"Este ejercicio no se puede abrir porque fue\n"|Este ejercicio no se puede abrir porque fue\n|pseval\Package.cpp|109
+"creado para una versión de PSeInt más reciente\n"|creado para una version de PSeInt mas reciente\n|pseval\Package.cpp|110
+"La versión mínima necesaria es: "|La version minima necesaria es: |pseval\Package.cpp|112

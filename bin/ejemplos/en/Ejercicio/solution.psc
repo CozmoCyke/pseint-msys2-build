@@ -1,16 +1,20 @@
-Proceso compra_articulos
-	Definir n, i Como Entero;
-	Definir monto, precio Como Real;
-	monto <- 0;
-	Escribir "Number of items:";
-	Leer n;
-	Escribir "Prices:";
-	Para i <- 1 Hasta n Hacer
-		Leer precio;
-		monto <- monto + precio;
-	FinPara
-	Si monto >= 500 Entonces
-		monto <- monto * 0.95;
-	FinSi
-	Escribir "Amount to pay: $", monto;
-FinProceso
+Process buy_items
+    Define n, i As Integer;
+    Define amount, price As Real;
+    amount <- 0;
+    
+    Write "Number of items:";
+    Read n;
+    
+    Write "Prices:";
+    For i <- 1 To n Do
+        Read price;
+        amount <- amount + price;
+    EndFor
+    
+    If amount >= 500 Then
+        amount <- amount * 0.95;
+    EndIf
+    
+    Write "Amount to pay: $", amount;
+EndProcess

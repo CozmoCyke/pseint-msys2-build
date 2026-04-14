@@ -53,39 +53,39 @@ mxOpersWindow::mxOpersWindow(wxWindow *parent):wxScrolledWindow(parent,wxID_ANY,
 	Add(">=",">=",_Z("mayor o igual"),_Z("Ej: A>=B"));
 	
 	AddCaterory(_Z("Func. Matemáticas"));
-	Add(_Z("abs({expresión_numérica})"),"abs",_Z("valor absoluto"),_Z("abs(X) calcula el valor absoluto de x"));
-	Add(_Z("trunc({expresión_numérica})"),"trunc",_Z("valor truncado"),_Z("trunc(X) devuelve la parte entera de X"));
-	Add(_Z("redon({expresión_numérica})"),"redon",_Z("valor redondeado"),_Z("redon(X) redondea X al entero más cercano"));
-	Add(_Z("raiz({expr_num_no_negativa})"),"raiz",_Z("raíz cuadrada"),_Z("raiz(X) calcula la raiz cuadrada de X"));
-	Add(_Z("sen({ángulo_en_radianes})"),"sen",_Z("seno"),_Z("sen(X) calcula el seno del angulo X (en radianes)"));
-	Add(_Z("cos({ángulo_en_radianes})"),"cos",_Z("coseno"),_Z("cos(X) calcula el coseno del angulo X (en radianes)"));
-	Add(_Z("tan({ángulo_en_radianes})"),"tan",_Z("tangente"),_Z("tan(X) calcula la tangente del angulo X (en radianes)"));
-	Add(_Z("asen({expresión_numérica})"),"asen",_Z("arcoseno"),_Z("asen(X) calcula el arcoseno (en radianes) de X"));
-	Add(_Z("acos({expresión_numérica})"),"acos",_Z("arcocoseno"),_Z("acos(X) calcula el arcocoseno (en radianes) de X"));
-	Add(_Z("atan({expresión_numérica})"),"atan",_Z("arcotangente"),_Z("atan(X) calcula el arcotangenta (en radianes) de X"));
-	Add(_Z("ln({expr_numérica_positiva})"),"ln",_Z("logaritmo natural"),_Z("ln(X) calcula el logaritmo natural (base e) de X"));
-	Add(_Z("exp({expresión_numérica})"),"exp",_Z("func. exponencial"),_Z("exp(X) calcula la función exponencial e^X"));
+	Add(_Z("abs({expresión_numérica})"),_Z("abs"),_Z("valor absoluto"),_Z("abs(X) calcula el valor absoluto de x"));
+	Add(_Z("trunc({expresión_numérica})"),_Z("trunc"),_Z("valor truncado"),_Z("trunc(X) devuelve la parte entera de X"));
+	Add(_Z("redon({expresión_numérica})"),_Z("redon"),_Z("valor redondeado"),_Z("redon(X) redondea X al entero más cercano"));
+	Add(_Z("raiz({expr_num_no_negativa})"),_Z("raiz"),_Z("raíz cuadrada"),_Z("raiz(X) calcula la raiz cuadrada de X"));
+	Add(_Z("sen({ángulo_en_radianes})"),_Z("sen"),_Z("seno"),_Z("sen(X) calcula el seno del angulo X (en radianes)"));
+	Add(_Z("cos({ángulo_en_radianes})"),_Z("cos"),_Z("coseno"),_Z("cos(X) calcula el coseno del angulo X (en radianes)"));
+	Add(_Z("tan({ángulo_en_radianes})"),_Z("tan"),_Z("tangente"),_Z("tan(X) calcula la tangente del angulo X (en radianes)"));
+	Add(_Z("asen({expresión_numérica})"),_Z("asen"),_Z("arcoseno"),_Z("asen(X) calcula el arcoseno (en radianes) de X"));
+	Add(_Z("acos({expresión_numérica})"),_Z("acos"),_Z("arcocoseno"),_Z("acos(X) calcula el arcocoseno (en radianes) de X"));
+	Add(_Z("atan({expresión_numérica})"),_Z("atan"),_Z("arcotangente"),_Z("atan(X) calcula el arcotangenta (en radianes) de X"));
+	Add(_Z("ln({expr_numérica_positiva})"),_Z("ln"),_Z("logaritmo natural"),_Z("ln(X) calcula el logaritmo natural (base e) de X"));
+	Add(_Z("exp({expresión_numérica})"),_Z("exp"),_Z("func. exponencial"),_Z("exp(X) calcula la función exponencial e^X"));
 	
 	if (cfg_lang[LS_ENABLE_STRING_FUNCTIONS]) {
 		AddCaterory(_Z("Func. p/Cadenas"));
-		Add(_Z("Longitud({cadena})"),"Longitud","",_Z("Longutid(S) retorna la cantidad de caracteres de la cadena S"));
-		Add(_Z("SubCadena({cadena},{desde},{hasta})"),"SubCadena","",_Z("R<-Subcadena(S,I,J) retorna en R la cadena formada por los caracteres de la cadena S desde la posición I a la J inclusive"));
-		Add(_Z("Concatenar({cadena},{cadena})"),"Concatenar","",_Z("R<-Concatenar(S1,S2) retorna en R una sola cadena con los contenidos unidos de S1 y S2"));
-		Add(_Z("ConvertirANumero({cadena})"),"ConvertirANumero","",_Z("S<-ConvertirANumero(N) recibe un valor/expresión numérico N, y retorna su equivalente de tipo cadena de caracteres en S"));
-		Add(_Z("ConvertirATexto({número})"),"ConvertirATexto","",_Z("N<-ConvertirATexto(S) recibe una variable o expresión S de tipo cadena de caracteres que contiene un valor numérico, y obtiene ne N su equivalente de tipo numérico"));
-		Add(_Z("Mayusculas({cadena})"),"Mayusculas","",_Z("MAY<-Mayusculas(S) retorna en MAY el contenido de la cadena S con sus letras minusculas reemplazadas por mayusculas"));
-		Add(_Z("Minusculas({cadena})"),"Minusculas","",_Z("MIN<-Minusculas(S) retorna en MIN el contenido de la cadena S con sus letras mayusculas reemplazadas por minusculas"));
+		Add(_Z("Longitud({cadena})"),_Z("Longitud"),"",_Z("Longutid(S) retorna la cantidad de caracteres de la cadena S"));
+		Add(_Z("SubCadena({cadena},{desde},{hasta})"),_Z("SubCadena"),"",_Z("R<-Subcadena(S,I,J) retorna en R la cadena formada por los caracteres de la cadena S desde la posición I a la J inclusive"));
+		Add(_Z("Concatenar({cadena},{cadena})"),_Z("Concatenar"),"",_Z("R<-Concatenar(S1,S2) retorna en R una sola cadena con los contenidos unidos de S1 y S2"));
+		Add(_Z("ConvertirANumero({cadena})"),_Z("ConvertirANumero"),"",_Z("S<-ConvertirANumero(N) recibe un valor/expresión numérico N, y retorna su equivalente de tipo cadena de caracteres en S"));
+		Add(_Z("ConvertirATexto({número})"),_Z("ConvertirATexto"),"",_Z("N<-ConvertirATexto(S) recibe una variable o expresión S de tipo cadena de caracteres que contiene un valor numérico, y obtiene ne N su equivalente de tipo numérico"));
+		Add(_Z("Mayusculas({cadena})"),_Z("Mayusculas"),"",_Z("MAY<-Mayusculas(S) retorna en MAY el contenido de la cadena S con sus letras minusculas reemplazadas por mayusculas"));
+		Add(_Z("Minusculas({cadena})"),_Z("Minusculas"),"",_Z("MIN<-Minusculas(S) retorna en MIN el contenido de la cadena S con sus letras mayusculas reemplazadas por minusculas"));
 	}
 	
 	AddCaterory(_Z("Otras Funciones"));
-	Add(_Z("Azar({expr_num_entera_positiva})"),"Azar",_Z("numero aleatorio"),_Z("Ej: Azar(N) retorna un numero aleatorio entre 0 y N-1"));
-	Add(_Z("Aleatorio({valor_minimo},{valor_maximo})"),"Aleatorio",_Z("numero aleatorio"),_Z("Ej: Aleatorio(A,B) retorna un numero aleatorio entre A y B"));
-	Add(_Z("HoraActual()"),"HoraActual",_Z("hora actual"),_Z("Retorna un único numero entero con la hora del sistema en formato HHMMSS"));
-	Add(_Z("FechaActual()"),"FechaActual",_Z("fecha actual"),_Z("Retorna un único numero entero con la fecha del sistema en formato AAAAMMDD"));
+	Add(_Z("Azar({expr_num_entera_positiva})"),_Z("Azar"),_Z("numero aleatorio"),_Z("Ej: Azar(N) retorna un numero aleatorio entre 0 y N-1"));
+	Add(_Z("Aleatorio({valor_minimo},{valor_maximo})"),_Z("Aleatorio"),_Z("numero aleatorio"),_Z("Ej: Aleatorio(A,B) retorna un numero aleatorio entre A y B"));
+	Add(_Z("HoraActual()"),_Z("HoraActual"),_Z("hora actual"),_Z("Retorna un único numero entero con la hora del sistema en formato HHMMSS"));
+	Add(_Z("FechaActual()"),_Z("FechaActual"),_Z("fecha actual"),_Z("Retorna un único numero entero con la fecha del sistema en formato AAAAMMDD"));
 	
 	AddCaterory(_Z("Constantes"));
-	Add("PI","PI","",_Z("PI o constante de Arquímides (equivale a 3.1415926...)"));
-	Add("Euler","Euler","",_Z("E o constante de Euler (equivale a 2.7182818...)"));
+	Add("PI",_Z("PI"),"",_Z("PI o constante de Arquímides (equivale a 3.1415926...)"));
+	Add("Euler",_Z("Euler"),"",_Z("E o constante de Euler (equivale a 2.7182818...)"));
 	Finish();
 	
 	AdjustToProfile();
@@ -131,9 +131,9 @@ void mxOpersWindow::Replace(oper_item &o, wxString f1, wxString t1, wxString f2,
 void mxOpersWindow::AdjustToProfile ( ) {
 	if (cfg_lang[LS_WORD_OPERATORS]) {
 		for(unsigned int i=0;i<lista.size();i++) {  
-			Replace(lista[i],"&","Y"," & "," Y ",cfg_lang[LS_WORD_OPERATORS]);
-			Replace(lista[i],"|","O"," | "," O ",cfg_lang[LS_WORD_OPERATORS]);
-			Replace(lista[i],"~","NO","~ ","NO ",cfg_lang[LS_WORD_OPERATORS]);
+			Replace(lista[i],"&","Y"," & "," AND ",cfg_lang[LS_WORD_OPERATORS]);
+			Replace(lista[i],"|","O"," | "," OR ",cfg_lang[LS_WORD_OPERATORS]);
+			Replace(lista[i],"~","NO","~ ","NOT ",cfg_lang[LS_WORD_OPERATORS]);
 			Replace(lista[i],"%","MOD","%"," MOD ",cfg_lang[LS_WORD_OPERATORS]);
 		}
 	}

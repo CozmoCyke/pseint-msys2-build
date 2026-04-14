@@ -31,7 +31,7 @@ mxSingleCaseWindow::mxSingleCaseWindow (wxWindow *parent, bool only_first, bool 
 	if (show_solution) {
 		wxSizer *solution_sizer = new wxBoxSizer(wxVERTICAL);
 		solution = new wxStyledTextCtrl(this); solution->SetMinSize(wxSize(300,200));
-		solution_sizer->Add(new wxStaticText(this,wxID_ANY,_Z("Solución correcta:")),wxSizerFlags().Border(wxALL,5));
+		solution_sizer->Add(new wxStaticText(this,wxID_ANY,_Z("Solucion correcta:")),wxSizerFlags().Border(wxALL,5));
 		solution_sizer->Add(solution,wxSizerFlags().Proportion(1).Expand().Border(wxALL,5));
 		sizer->Add(solution_sizer,wxSizerFlags().Proportion(1).Expand()/*.Border(wxALL,5)*/);
 	} else {
@@ -44,7 +44,7 @@ mxSingleCaseWindow::mxSingleCaseWindow (wxWindow *parent, bool only_first, bool 
 	
 	wxSizer *output_sizer = new wxBoxSizer(wxVERTICAL);
 	output = new wxStyledTextCtrl(this); output->SetMinSize(wxSize(300,200));
-	output_sizer->Add(new wxStaticText(this,wxID_ANY,_Z("Tu solución:")),wxSizerFlags().Border(wxALL,5));
+	output_sizer->Add(new wxStaticText(this,wxID_ANY,_Z("Tu solucion:")),wxSizerFlags().Border(wxALL,5));
 	output_sizer->Add(output,wxSizerFlags().Proportion(1).Expand().Border(wxALL,5));
 	sizer->Add(output_sizer,wxSizerFlags().Proportion(1).Expand()/*.Border(wxALL,5)*/);
 	

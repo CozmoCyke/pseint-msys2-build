@@ -34,28 +34,28 @@ void Trim(std::string &str) {
 	LeftTrim(str); RightTrim(str);
 }
 
-std::string ToUpper(std::string a) { 
+std::string ToUpper(std::string a) {
 	int l=a.size();
 	for (int x=0;x<l;x++)
 		a[x]=toupper(a[x]);
-	return a; 
+	return a;
 }
 
-std::string ToLower(std::string a) { 
+std::string ToLower(std::string a) {
 	int l=a.size();
 	for (int x=0;x<l;x++)
 		a[x]=tolower(a[x]);
 	return a;
 }
 
-bool RightCompare(std::string a, std::string b) { 
+bool RightCompare(std::string a, std::string b) {
 	if (a.size()<b.size()) return false;
-	return (a.substr(a.size()-b.size())==b); /// @todo: mejorar 
+	return (a.substr(a.size()-b.size())==b); /// @todo: mejorar
 }
 
-bool LeftCompare(std::string a, std::string b) { 
+bool LeftCompare(std::string a, std::string b) {
 	if (a.size()<b.size()) return false;
-	return (a.substr(0,b.size())==b); /// @todo: mejorar 
+	return (a.substr(0,b.size())==b); /// @todo: mejorar
 }
 
 std::string MkErrorMsg(std::string msg, const std::string &arg, bool add_parentesis) {
@@ -109,7 +109,7 @@ int matchParentesis(const std::string &src, int p) {
 		else if (!comillas) {
 			if (src[i]=='('||src[i]=='[') parentesis++;
 			else if (src[i]==')'||src[i]==']') {
-				if (--parentesis==0) 
+				if (--parentesis==0)
 					return i;
 			}
 		}
@@ -118,27 +118,27 @@ int matchParentesis(const std::string &src, int p) {
 }
 
 char Normalize(char c) {
-	switch(c) {
-	case 'á': case 'Á': return 'A';
-	case 'é': case 'É': return 'E';
-	case 'í': case 'Í': return 'I';
-	case 'ó': case 'Ó': return 'O';
-	case 'ú': case 'Ú': return 'U';
-	case 'ü': case 'Ü': return 'U';
-	case 'ñ': case 'Ñ': return 'N';
-	default: return std::toupper(c);
+	switch ((unsigned char)c) {
+	case 0xC1: case 0xE1: return 'A'; // Ã Ã¡
+	case 0xC9: case 0xE9: return 'E'; // Ã‰ Ã©
+	case 0xCD: case 0xED: return 'I'; // Ã Ã­
+	case 0xD3: case 0xF3: return 'O'; // Ã“ Ã³
+	case 0xDA: case 0xFA: return 'U'; // Ãš Ãº
+	case 0xDC: case 0xFC: return 'U'; // Ãœ Ã¼
+	case 0xD1: case 0xF1: return 'N'; // Ã‘ Ã±
+	default: return std::toupper((unsigned char)c);
 	}
 }
 
 char NormalizeKA(char c) {
-	switch(c) {
-	case 'á': return 'Á';
-	case 'é': return 'É';
-	case 'í': return 'Í';
-	case 'ó': return 'Ó';
-	case 'ú': return 'Ú';
-	case 'ü': return 'Ü';
-	case 'ñ': return 'Ñ';
-	default: return std::toupper(c);
+	switch ((unsigned char)c) {
+	case 0xE1: return '\xC1'; // Ã¡ -> Ã
+	case 0xE9: return '\xC9'; // Ã© -> Ã‰
+	case 0xED: return '\xCD'; // Ã­ -> Ã
+	case 0xF3: return '\xD3'; // Ã³ -> Ã“
+	case 0xFA: return '\xDA'; // Ãº -> Ãš
+	case 0xFC: return '\xDC'; // Ã¼ -> Ãœ
+	case 0xF1: return '\xD1'; // Ã± -> Ã‘
+	default: return std::toupper((unsigned char)c);
 	}
 }

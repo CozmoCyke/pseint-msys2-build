@@ -10,6 +10,7 @@
 #include "FuncsManager.hpp"
 #include "Evaluar.hpp"
 #include "strFuncs.hpp"
+#include "LocalizationManager.h"
 using namespace std;
 
 // para la ejecucion explicada
@@ -21,8 +22,8 @@ using namespace std;
 
 // ********************* Ejecutar un Bloque de Instrucciones **************************
 // Ejecuta desde linestart+1 hasta lineend inclusive, o hasta finproceso/finsubproceso si lineend es -1.
-// Las variables aux?, tmp? y tipo quedaron del c�digo viejo, se reutilizan para diferentes
-// cosas, por lo que habr�a que analizarlas y cambiarlas por varias otras variables con scope y 
+// Las variables aux?, tmp? y tipo quedaron del código viejo, se reutilizan para diferentes
+// cosas, por lo que habría que analizarlas y cambiarlas por varias otras variables con scope y 
 // nombres mas claros... por ahora cambie las obvias y reduje el scope de las que quedaron, pero falta...
 void Ejecutar(RunTime &rt, int LineStart, int LineEnd) {
 	
@@ -43,9 +44,9 @@ void Ejecutar(RunTime &rt, int LineStart, int LineEnd) {
 				Inter.OnAboutToEndFunction();
 				_pos(line);
 				if (inst_impl.principal) {
-					_sub(line,"Finaliza el algoritmo");
+					_sub(line,LocalizationManager::Instance().Translate("Finaliza el algoritmo").c_str());
 				} else {
-					_sub(line,string("Se sale del subproceso ")+getImpl<IT_FINPROCESO>(inst).nombre);
+					_sub(line,string(LocalizationManager::Instance().Translate("Se sale del subproceso ").c_str())+getImpl<IT_FINPROCESO>(inst).nombre);
 					Inter.OnFunctionOut();
 				}
 			} return;
@@ -53,25 +54,25 @@ void Ejecutar(RunTime &rt, int LineStart, int LineEnd) {
 				const auto &inst_impl = getImpl<IT_PROCESO>(inst);
 				Inter.OnFunctionIn(inst_impl.nombre);
 				_pos(line);
-				_sub(line,string(inst_impl.principal?"El algoritmo comienza con el proceso ":"Se ingresa en el subproceso ")+inst_impl.nombre);
+				_sub(line,string(inst_impl.principal?LocalizationManager::Instance().Translate("El algoritmo comienza con el proceso ").c_str():LocalizationManager::Instance().Translate("Se ingresa en el subproceso ").c_str())+inst_impl.nombre);
 			} break;
 			case IT_BORRARPANTALLA: {
 				_pos(line);
-				if (for_test) cout<<"***LimpiarPantalla***"<<endl; else { clrscr(); gotoXY(1,1); }
-				_sub(line,"Se borra la pantalla");
+				if (for_test) cout<<LocalizationManager::Instance().Translate("***LimpiarPantalla***")<<endl; else { clrscr(); gotoXY(1,1); }
+				_sub(line,LocalizationManager::Instance().Translate("Se borra la pantalla").c_str());
 			} break;
 			case IT_ESPERARTECLA: {
 				_pos(line);
-				_sub_msg(line,"Se espera a que el usuario presione una tecla.");
+				_sub_msg(line,LocalizationManager::Instance().Translate("Se espera a que el usuario presione una tecla.").c_str());
 				_sub_raise();
-				if (for_test) cout<<"***EsperarTecla***"<<endl; else getKey();
+				if (for_test) cout<<LocalizationManager::Instance().Translate("***EsperarTecla***")<<endl; else getKey();
 				_sub_wait();
 			} break;
 			case IT_INVOCAR: {
 				_pos(line);
 				const auto &inst_impl = getImpl<IT_INVOCAR>(inst);
 				tipo_var tipo=vt_desconocido;
-				_sub(line,string("Se va a invocar al subproceso")+inst_impl.nombre);
+				_sub(line,string(LocalizationManager::Instance().Translate("Se va a invocar al subproceso").c_str())+inst_impl.nombre);
 				EvaluarFuncion(rt,inst_impl.nombre,inst_impl.args,tipo,false);
 			} break;
 
@@ -84,12 +85,12 @@ void Ejecutar(RunTime &rt, int LineStart, int LineEnd) {
 					const string &expression = inst_impl.expresiones[i_expr];
 					if (colored_output) setForeColor(COLOR_OUTPUT);
 					if (with_io_references) Inter.SendIOPositionToTerminal(i_expr+1);
-					_sub(line,string("Se eval�a la expresion: ")+expression);
+					_sub(line,string(LocalizationManager::Instance().Translate("Se evalua la expresion: ").c_str())+expression);
 					DataValue res = Evaluar(rt,expression);
 					if (res.IsOk()) {
 						string ans = res.GetForUser(); fixwincharset(ans);
 						cout<< ans <<flush; // Si es variable, muestra el contenido
-						_sub(line,string("Se muestra en pantalla el resultado: ")+res.GetForUser());
+						_sub(line,string(LocalizationManager::Instance().Translate("Se muestra en pantalla el resultado: ").c_str())+res.GetForUser());
 					}
 				}
 				if (inst_impl.saltar) cout<<endl; else cout<<flush;
@@ -103,41 +104,41 @@ void Ejecutar(RunTime &rt, int LineStart, int LineEnd) {
 					string variable = inst_impl.variables[i_var];  // es copia por CheckDims
 					
 					if (lang[LS_FORCE_DEFINE_VARS] && !memoria->EstaDefinida(variable)) {
-						err_handler.ExecutionError(208,"Variable no definida ("+variable+").");
+						err_handler.ExecutionError(208,LocalizationManager::Instance().Translate("Variable no definida (")+variable+").");
 					}
 					tipo_var tipo=memoria->LeerTipo(variable);
 					const int *dims=memoria->LeerDims(variable);
 					size_t pp=variable.find("(");
 					if (dims && pp==string::npos)
-						err_handler.ExecutionError(200,"Faltan subindices para el arreglo ("+variable+").");
+						err_handler.ExecutionError(200,LocalizationManager::Instance().Translate("Faltan subindices para el arreglo (")+variable+").");
 					else if (!dims && pp!=string::npos)
-						err_handler.ExecutionError(201,"La variable ("+variable.substr(0,pp)+") no es un arreglo.");
+						err_handler.ExecutionError(201,LocalizationManager::Instance().Translate("La variable (")+variable.substr(0,pp)+LocalizationManager::Instance().Translate(") no es un arreglo."));
 					if (dims) {
-						_sub(line,string("Se analizan las dimensiones de ")+variable);
+						_sub(line,string(LocalizationManager::Instance().Translate("Se analizan las dimensiones de "))+variable);
 						CheckDims(rt,variable);
-						_sub(line,string("El resultado es ")+variable);
+						_sub(line,string(LocalizationManager::Instance().Translate("El resultado es "))+variable);
 					}
 					if (tipo.read_only)
-						err_handler.ExecutionError(322,string("No se puede modificar la variable ")+variable);
+						err_handler.ExecutionError(322,string(LocalizationManager::Instance().Translate("No se puede modificar la variable "))+variable);
 					
 					if (with_io_references) Inter.SendIOPositionToTerminal(i_var+1);
 					if (colored_output) setForeColor(COLOR_INFO);
 					cout<<"> "<<flush;
 					if (colored_output) setForeColor(COLOR_INPUT);
 					// Leer dato
-					_sub_msg(line,"Se espera a que el usuario ingrese un valor y presiones enter."); // tipo?
+					_sub_msg(line,LocalizationManager::Instance().Translate("Se espera a que el usuario ingrese un valor y presiones enter.")); // tipo?
 					_sub_raise();
 					
 					string aux1;
 					if (!predef_input.empty() || noinput) {
-						if (predef_input.empty()) err_handler.ExecutionError(214,"Sin entradas disponibles.");
+						if (predef_input.empty()) err_handler.ExecutionError(214,LocalizationManager::Instance().Translate("Sin entradas disponibles."));
 						aux1=predef_input.front(); predef_input.pop(); cout<<aux1<<endl;
 						_sub_wait();
 					} else {
 						aux1=getLine();  
 						if (for_eval) {
 							if (aux1=="<{[END_OF_INPUT]}>") {
-								cout << "<<No hay m�s datos de entrada>>" << endl; exit(0);
+								cout << LocalizationManager::Instance().Translate("<<No hay mas datos de entrada>>") << endl; exit(0);
 							}
 							cout<<aux1<<endl; // la entrada en psEval es un stream separado de la salida, entonces la reproducimos alli para que la salida contenga todo el "dialogo"
 						}
@@ -146,27 +147,27 @@ void Ejecutar(RunTime &rt, int LineStart, int LineEnd) {
 					fixwincharset(aux1,true); // "descorrige" para que al corregir no traiga problemas
 					
 					string auxup=ToUpper(aux1);
-					if (auxup=="VERDADERO" || auxup=="FALSO") aux1=auxup;
+					if ((auxup=="VERDADERO") || (auxup=="FALSO")) aux1=auxup;
 					
 					if (tipo==vt_logica && aux1.size()==1 && (toupper(aux1[0])=='F'||aux1[0]=='0')) aux1=FALSO;
 					if (tipo==vt_logica && aux1.size()==1 && (toupper(aux1[0])=='V'||aux1[0]=='1')) aux1=VERDADERO;
 					tipo_var tipo2 = GuestTipo(aux1);
 					if (!tipo.set(tipo2)) 
-						err_handler.ExecutionError(120,string("No coinciden los tipos (")+variable+").");
+						err_handler.ExecutionError(120,string(LocalizationManager::Instance().Translate("No coinciden los tipos ("))+variable+").");
 					else if (tipo==vt_numerica_entera && tipo.rounded && aux1.find(".",0)!=string::npos)
-						err_handler.ExecutionError(313,string("No coinciden los tipos (")+variable+"), el valor ingresado debe ser un entero.");
+						err_handler.ExecutionError(313,string(LocalizationManager::Instance().Translate("No coinciden los tipos ("))+variable+LocalizationManager::Instance().Translate("), el valor ingresado debe ser un entero."));
 					if (Inter.subtitles_on) {
 						string name = variable; 
 						for (char &c:name) {
 							if (c=='(') c='[';
 							if (c==')') c=']';
 						}
-						_sub(line,string("El valor ingresado se almacena en ")+name);
+						_sub(line,string(LocalizationManager::Instance().Translate("El valor ingresado se almacena en "))+name);
 					}
 					memoria->DefinirTipo(variable,tipo);
 					if (memoria->LeerTipo(variable)==vt_numerica) {
 						if (TooManyDigits(aux1))
-							err_handler.RunTimeWarning(329,"Posible p�rdida de precisi�n (demasiados d�gitos)");
+							err_handler.RunTimeWarning(329,LocalizationManager::Instance().Translate("Posible perdida de precision (demasiados digitos)"));
 					}
 					DataValue dv(tipo,aux1);
 					memoria->EscribirValor(variable,dv);
@@ -184,31 +185,31 @@ void Ejecutar(RunTime &rt, int LineStart, int LineEnd) {
 					// Separar indices
 					auto dims_str = splitArgsList(tamanios); // expresiones de las dimensiones
 					int *dims = new int[dims_str.size()+1]; dims[0] = dims_str.size(); // arreglo para las dimensiones
-					if (lang[LS_ALLOW_DINAMYC_DIMENSIONS]) { _sub(line,string("Se eval�an las expresiones para cada dimensi�n del arreglo ")+nombre); }
+					if (lang[LS_ALLOW_DINAMYC_DIMENSIONS]) { _sub(line,string(LocalizationManager::Instance().Translate("Se evaluan las expresiones para cada dimension del arreglo ").c_str())+nombre); }
 					for(size_t i=0;i<dims_str.size();i++) {
 						DataValue index = Evaluar(rt,dims_str[i]);
 						dims[i+1] = index.GetAsInt();
 						if (not index.CanBeReal()) {
-							err_handler.ExecutionError(122,"No coinciden los tipos.");
+							err_handler.ExecutionError(122,LocalizationManager::Instance().Translate("No coinciden los tipos."));
 						} else if (not IsInteger(index.GetAsReal())) {
-							err_handler.ExecutionError(331,"Las dimensiones solo pueden ser n�meros enteros.");
+							err_handler.ExecutionError(331,LocalizationManager::Instance().Translate("Las dimensiones solo pueden ser numeros enteros."));
 						} else if (dims[i+1]<0) {
-							err_handler.ExecutionError(274,"Las dimensiones no pueden ser negativas.");
+							err_handler.ExecutionError(274,LocalizationManager::Instance().Translate("Las dimensiones no pueden ser negativas."));
 						} else if (dims[i+1]==0 and (not lang[LS_ALLOW_RESIZE_ARRAYS])) {
-							err_handler.ExecutionError(274,"Las dimensiones no pueden ser 0.");
+							err_handler.ExecutionError(274,LocalizationManager::Instance().Translate("Las dimensiones no pueden ser 0."));
 						}
 					}
 					if (inst_impl.redimension) {
 						const int *old_dims = memoria->LeerDims(nombre);
 						if (!old_dims) 
-							err_handler.ExecutionError(327,nombre+" no estaba previamente dimensionado.");
+							err_handler.ExecutionError(327,nombre+LocalizationManager::Instance().Translate(" no estaba previamente dimensionado."));
 						else if (dims[0]!=old_dims[0])
-							err_handler.ExecutionError(328,"La nueva cantidad de dimensiones de "+nombre+"("+std::to_string(dims[0])+") no coincide con la previa("+std::to_string(old_dims[0])+").");
+							err_handler.ExecutionError(328,LocalizationManager::Instance().Translate("La nueva cantidad de dimensiones de ")+nombre+"("+std::to_string(dims[0])+LocalizationManager::Instance().Translate(") no coincide con la previa(")+std::to_string(old_dims[0])+").");
 						else 
 							memoria->RedimensionarArreglo(nombre, dims);
 					} else { 
 						if (memoria->HaSidoUsada(nombre)||memoria->LeerDims(nombre))
-							err_handler.ExecutionError(123,"Identificador en uso.");
+							err_handler.ExecutionError(123,LocalizationManager::Instance().Translate("Identificador en uso."));
 						else
 							memoria->AgregarArreglo(nombre, dims);
 					}
@@ -217,9 +218,9 @@ void Ejecutar(RunTime &rt, int LineStart, int LineEnd) {
 						for(int i=1;i<=dims[0];i++) aux+="x"+IntToStr(dims[i]);
 						aux[0]=' ';
 						if (inst_impl.redimension) {
-							_sub(line,"El arreglo "+nombre+" cambia de tama�o, a"+aux+" elementos");
+							_sub(line,LocalizationManager::Instance().Translate("El arreglo ")+nombre+LocalizationManager::Instance().Translate(" cambia de tamano, a")+aux+LocalizationManager::Instance().Translate(" elementos"));
 						} else {
-							_sub(line,"Se crea el arreglo "+nombre+" de"+aux+" elementos");
+							_sub(line,LocalizationManager::Instance().Translate("Se crea el arreglo ")+nombre+LocalizationManager::Instance().Translate(" de")+aux+LocalizationManager::Instance().Translate(" elementos"));
 						}
 					}
 				}
@@ -231,18 +232,18 @@ void Ejecutar(RunTime &rt, int LineStart, int LineEnd) {
 				const auto &inst_impl = getImpl<IT_DEFINIR>(inst);
 				for(const string &var : inst_impl.variables) {
 					if (memoria->EstaDefinida(var) || memoria->EstaInicializada(var)) 
-						err_handler.ExecutionError(124,string("La variable (")+var+") ya estaba definida.");
+						err_handler.ExecutionError(124,string(LocalizationManager::Instance().Translate("La variable ("))+var+LocalizationManager::Instance().Translate(") ya estaba definida."));
 					memoria->DefinirTipo(var,inst_impl.tipo,inst_impl.tipo.rounded);
 					if (inst_impl.tipo==vt_numerica) {
 						if (inst_impl.tipo.rounded) {
-							_sub(line,string("Se define el tipo de la variable \"")+var+"\" como Num�rico(Entero).");
+							_sub(line,string(LocalizationManager::Instance().Translate("Se define el tipo de la variable \"\\\" como Numérico(Entero).\""))+var+LocalizationManager::Instance().Translate("\\\" como Numerico(Entero)."));
 						} else {
-							_sub(line,string("Se define el tipo de la variable \"")+var+"\" como Num�rico(Real).");
+							_sub(line,string(LocalizationManager::Instance().Translate("Se define el tipo de la variable \\\""))+var+LocalizationManager::Instance().Translate("\\\" como Numerico(Real)."));
 						}
 					} else if (inst_impl.tipo==vt_caracter) {
-						_sub(line,string("Se define el tipo de la variable \"")+var+"\" como Caracter/Cadena de Caracteres.");
+						_sub(line,string(LocalizationManager::Instance().Translate("Se define el tipo de la variable \\\""))+var+LocalizationManager::Instance().Translate("\\\" como Caracter/Cadena de Caracteres."));
 					} else if (inst_impl.tipo==vt_logica) {
-						_sub(line,string("Se define el tipo de la variable \"")+var+"\" como L�gico.");
+						_sub(line,string(LocalizationManager::Instance().Translate("Se define el tipo de la variable \\\""))+var+LocalizationManager::Instance().Translate("\\\" como Logico."));
 					} 
 				}
 			} break;
@@ -253,12 +254,12 @@ void Ejecutar(RunTime &rt, int LineStart, int LineEnd) {
 				const auto &inst_impl = getImpl<IT_ESPERAR>(inst);
 				string tiempo = inst_impl.tiempo; 
 				int factor = inst_impl.factor;
-				_sub(line,string("Se eval�a la cantidad de tiempo: ")+tiempo);
+				_sub(line,string(LocalizationManager::Instance().Translate("Se evalua la cantidad de tiempo: "))+tiempo);
 				DataValue time = Evaluar(rt,tiempo);
-				if (!time.CanBeReal()) err_handler.ExecutionError(219,string("La longitud del intervalo debe ser num�rica."));
+				if (!time.CanBeReal()) err_handler.ExecutionError(219,string(LocalizationManager::Instance().Translate("La longitud del intervalo debe ser numerica.")));
 				else {
-					_sub(line,string("Se esperan ")+time.GetForUser()+(factor==1?" milisengudos":" segundos"));
-					if (for_test) cout<<"***Esperar"<<time.GetAsInt()*factor<<"***"<<endl;
+					_sub(line,string(LocalizationManager::Instance().Translate("Se esperan "))+time.GetForUser()+(factor==1?LocalizationManager::Instance().Translate(" milisengudos"):LocalizationManager::Instance().Translate(" segundos")));
+					if (for_test) cout<<LocalizationManager::Instance().Translate("***Esperar")<<time.GetAsInt()*factor<<"***"<<endl;
 					else if (!Inter.subtitles_on) Sleep(time.GetAsInt()*factor);
 				}
 			} break;
@@ -270,29 +271,29 @@ void Ejecutar(RunTime &rt, int LineStart, int LineEnd) {
 				string var = inst_impl.variable; // es copia por CheckDims
 				const string &valor = inst_impl.valor;
 				if (lang[LS_FORCE_DEFINE_VARS] && !memoria->EstaDefinida(var)) {
-					err_handler.ExecutionError(211,string("La variable (")+var+") no esta definida.");
+					err_handler.ExecutionError(211,string(LocalizationManager::Instance().Translate("La variable ("))+var+LocalizationManager::Instance().Translate(") no esta definida."));
 				}
 				// verificar indices si es arreglo
 				if (memoria->LeerDims(var)) {
 					if (var.find("(",0)==string::npos)
-						err_handler.ExecutionError(200,"Faltan subindices para el arreglo ("+var+").");
+						err_handler.ExecutionError(200,LocalizationManager::Instance().Translate("Faltan subindices para el arreglo (")+var+").");
 					else
 						CheckDims(rt,var);
 				} else if (var.find("(",0)!=string::npos) {
-					err_handler.ExecutionError(201,"La variable ("+var.substr(0,var.find("(",0))+") no es un arreglo.");
+					err_handler.ExecutionError(201,LocalizationManager::Instance().Translate("La variable (")+var.substr(0,var.find("(",0))+LocalizationManager::Instance().Translate(") no es un arreglo."));
 				}
 				// evaluar expresion
-				_sub(line,string("Se eval�a la expresion a asignar: ")+valor);
+				_sub(line,string(LocalizationManager::Instance().Translate("Se evalua la expresion a asignar: "))+valor);
 				DataValue result = Evaluar(rt,valor);
 				// comprobar tipos
 				tipo_var tipo_aux1 = memoria->LeerTipo(var);
 				if (!tipo_aux1.can_be(result.type))
-					err_handler.ExecutionError(125,"No coinciden los tipos.");
+					err_handler.ExecutionError(125,LocalizationManager::Instance().Translate("No coinciden los tipos."));
 				if (tipo_aux1.read_only)
-					err_handler.ExecutionError(322,string("No se puede modificar la variable ")+var);
+					err_handler.ExecutionError(322,string(LocalizationManager::Instance().Translate("No se puede modificar la variable "))+var);
 				else if (tipo_aux1==vt_numerica_entera && tipo_aux1.rounded && result.GetAsInt()!=result.GetAsReal())
-					err_handler.ExecutionError(314,"No coinciden los tipos, el valor a asignar debe ser un entero.");
-				_sub(line,string("El resultado es: ")+result.GetForUser());
+					err_handler.ExecutionError(314,LocalizationManager::Instance().Translate("No coinciden los tipos, el valor a asignar debe ser un entero."));
+				_sub(line,string(LocalizationManager::Instance().Translate("El resultado es: "))+result.GetForUser());
 				// escribir en memoria
 				if (Inter.subtitles_on and valor!=var) { 
 					string name = var; 
@@ -300,7 +301,7 @@ void Ejecutar(RunTime &rt, int LineStart, int LineEnd) {
 						if (c=='(') c='[';
 						if (c==')') c=']';
 					}
-					_sub(line,string("El resultado se guarda en ")+name);
+					_sub(line,string(LocalizationManager::Instance().Translate("El resultado se guarda en "))+name);
 				}
 				result.type.rounded=false; // no forzar a entera la variable en la que se asigna
 				memoria->DefinirTipo(var,result.type);
@@ -311,7 +312,7 @@ void Ejecutar(RunTime &rt, int LineStart, int LineEnd) {
 			case IT_SI: {
 				const auto &inst_impl = getImpl<IT_SI>(inst);
 				_pos(line);
-				_sub(line,string("Se eval�a la condici�n para Si-Entonces: ")+inst_impl.condicion);
+				_sub(line,string(LocalizationManager::Instance().Translate("Se evalua la condicion para Si-Entonces: "))+inst_impl.condicion);
 				tipo_var tipo;
 				bool condition_is_true = Evaluar(rt,inst_impl.condicion,vt_logica).GetAsBool();
 				if (tipo!=vt_error) {
@@ -321,25 +322,25 @@ void Ejecutar(RunTime &rt, int LineStart, int LineEnd) {
 					_expects(line_finsi!=-1 and programa[line_finsi]==IT_FINSI);
 					// ejecutar lo que corresponda
 					if (condition_is_true) {
-						_sub(line+1,"El resultado es Verdadero, se sigue por la rama del Entonces");
+						_sub(line+1,LocalizationManager::Instance().Translate("El resultado es Verdadero, se sigue por la rama del Entonces"));
 						if (line_sino==-1) line_sino=line_finsi;
 						Ejecutar(rt,line+2,line_sino-1); // ejecutar salida por verdadero
 					} else {
 						if (line_sino!=-1) {
 							line = line_sino;
 							_pos(line);
-							_sub(line,"El resultado es Falso, se sigue por la rama del SiNo");
+							_sub(line,LocalizationManager::Instance().Translate("El resultado es Falso, se sigue por la rama del SiNo"));
 							Ejecutar(rt,line+1,line_finsi-1); // ejecutar salida por falso
 						} else {
-							_sub(line,"El resultado es Falso, no se hace nada");
+							_sub(line,LocalizationManager::Instance().Translate("El resultado es Falso, no se hace nada"));
 						}
 					}
 					// marcar la salida
 					line=line_finsi;
 					_pos(line);
-					_sub(line,"Se sale de la estructura Si-Entonces");
+					_sub(line,LocalizationManager::Instance().Translate("Se sale de la estructura Si-Entonces"));
 				} else {
-					err_handler.ExecutionError(275,"No coinciden los tipos.");
+					err_handler.ExecutionError(275,LocalizationManager::Instance().Translate("No coinciden los tipos."));
 				}
 			} break;
 			
@@ -348,21 +349,21 @@ void Ejecutar(RunTime &rt, int LineStart, int LineEnd) {
 				_pos(line);
 				const auto &inst_impl = getImpl<IT_MIENTRAS>(inst);
 				const string &condicion = inst_impl.condicion;
-				_sub(line,string("Se eval�a la condici�n para Mientras: ")+condicion);
+				_sub(line,string(LocalizationManager::Instance().Translate("Se evalua la condicion para Mientras: "))+condicion);
 				tipo_var tipo;
 				bool condition_is_true = Evaluar(rt,condicion,vt_logica).GetAsBool();
 				if (tipo!=vt_error) {
 					int line_finmientras = inst_impl.fin;
 					while (condition_is_true) {
-						_sub(line,"La condici�n es Verdadera, se iniciar� una iteraci�n.");
+						_sub(line,LocalizationManager::Instance().Translate("La condicion es Verdadera, se iniciara una iteracion."));
 						Ejecutar(rt,line+1,line_finmientras-1);
 						_pos(line);
-						_sub(line,string("Se eval�a nuevamente la condici�n: ")+condicion);
+						_sub(line,string(LocalizationManager::Instance().Translate("Se evalua nuevamente la condicion: "))+condicion);
 						condition_is_true = Evaluar(rt,condicion,vt_logica).GetAsBool();
 					}
 					line=line_finmientras;
 					_pos(line);
-					_sub(line,"La condici�n es Falsa, se sale de la estructura Mientras.");
+					_sub(line,LocalizationManager::Instance().Translate("La condicion es Falsa, se sale de la estructura Mientras."));
 				}
 			} break;
 			
@@ -375,20 +376,20 @@ void Ejecutar(RunTime &rt, int LineStart, int LineEnd) {
 				const auto &hasta_impl = getImpl<IT_HASTAQUE>(programa[line_hastaque]);
 				const string &condicion = hasta_impl.condicion;
 				bool valor_verdad = hasta_impl.mientras_que;
-				_sub(line,"Se ejecutar�n las acciones contenidas en la estructura Repetir");
+				_sub(line,LocalizationManager::Instance().Translate("Se ejecutaran las acciones contenidas en la estructura Repetir"));
 				tipo_var tipo;
 				bool should_continue_iterating=true;
 				while (should_continue_iterating) {
 					Ejecutar(rt,line+1,line_hastaque-1);
 					// evaluar condicion y seguir
 					_pos(line_hastaque);
-					_sub(line_hastaque,string("Se eval�a la condici�n: ")+condicion);
+					_sub(line_hastaque,string(LocalizationManager::Instance().Translate("Se evalua la condicion: "))+condicion);
 					should_continue_iterating = Evaluar(rt,condicion,vt_logica).GetAsBool()==valor_verdad;
 					if (should_continue_iterating)
-						_sub(line_hastaque,string("La condici�n es ")+(valor_verdad?VERDADERO:FALSO)+", se conti�a iterando.");
+						_sub(line_hastaque,string(LocalizationManager::Instance().Translate("La condicion es "))+(valor_verdad?VERDADERO:FALSO)+LocalizationManager::Instance().Translate(", se continua iterando."));
 				} while (should_continue_iterating);
 				line=line_hastaque;
-				_sub(line_hastaque,string("La condici�n es ")+(valor_verdad?FALSO:VERDADERO)+", se sale de la estructura Repetir.");
+				_sub(line_hastaque,string(LocalizationManager::Instance().Translate("La condicion es "))+(valor_verdad?FALSO:VERDADERO)+LocalizationManager::Instance().Translate(", se sale de la estructura Repetir."));
 			} break;
 			
 			// ------------------- PARA --------------------- //
@@ -400,47 +401,47 @@ void Ejecutar(RunTime &rt, int LineStart, int LineEnd) {
 				if (lang[LS_PROTECT_FOR_COUNTER]) memoria->SetearSoloLectura(contador,true);
 				
 				const string &expr_ini = inst_impl.val_ini;
-				_sub(line,string("Se eval�a la expresion para el valor inicial: ")+expr_ini);
+				_sub(line,string(LocalizationManager::Instance().Translate("Se evalua la expresion para el valor inicial: "))+expr_ini);
 				DataValue res_ini = Evaluar(rt,expr_ini,vt_numerica);
-				if (!res_ini.CanBeReal()) err_handler.ExecutionError(126,"No coinciden los tipos."); /// @todo: parece que esto no es posible, salta antes adentro del evaluar
+				if (!res_ini.CanBeReal()) err_handler.ExecutionError(126,LocalizationManager::Instance().Translate("No coinciden los tipos.")); /// @todo: parece que esto no es posible, salta antes adentro del evaluar
 				
 				bool positivo; // para saber si es positivo o negativo
 				DataValue res_paso(vt_numerica,"1"), res_fin;
 				if (inst_impl.paso.empty()) { // si no hay paso adivinar
 					res_fin = Evaluar(rt,inst_impl.val_fin,vt_numerica);
 					if (lang[LS_DEDUCE_NEGATIVE_FOR_STEP] && res_ini.GetAsReal()>res_fin.GetAsReal()) {
-						_sub(line,"Se determina que el paso ser� -1.");
+						_sub(line,LocalizationManager::Instance().Translate("Se determina que el paso sera -1."));
 						positivo=false; res_paso.SetFromInt(-1);
 					} else {
-						_sub(line,"Se determina que el paso ser� +1.");
+						_sub(line,LocalizationManager::Instance().Translate("Se determina que el paso sera +1."));
 						positivo=true; res_paso.SetFromInt(1);
 					}
 				} else { // si hay paso tomar ese
 					const string &expr_fin = inst_impl.val_fin;
 					res_fin = Evaluar(rt,expr_fin,vt_numerica);
 					const string &expr_paso = inst_impl.paso;
-					_sub(line,string("Se eval�a la expresion para el paso: ")+expr_paso);
+					_sub(line,string(LocalizationManager::Instance().Translate("Se evalua la expresion para el paso: "))+expr_paso);
 					res_paso = Evaluar(rt,expr_paso,vt_numerica);
 					positivo = res_paso.GetAsReal()>=0;
 				}
 				
 				int line_finpara = inst_impl.fin;
 				
-				_sub(line,string("Se inicializar el contador ")+contador+" en "+res_ini.GetForUser());
+				_sub(line,string(LocalizationManager::Instance().Translate("Se inicializar el contador "))+contador+LocalizationManager::Instance().Translate(" en ")+res_ini.GetForUser());
 				memoria->EscribirValor(contador,res_ini); // inicializa el contador
 				string comp=positivo?"<=":">=";
 				do {
 					/// @todo: cuando memoria maneje DataValues usar el valor del contador directamente desde ahi en lugar de evaluar
-					_sub(line,string("Se compara el contador con el valor final: ")+contador+"<="+res_fin.GetForUser());
+					_sub(line,string(LocalizationManager::Instance().Translate("Se compara el contador con el valor final: "))+contador+"<="+res_fin.GetForUser());
 					DataValue res_cont = Evaluar(rt,contador,vt_numerica);
 					if ( positivo ? (res_cont.GetAsReal()>res_fin.GetAsReal()) : (res_cont.GetAsReal()<res_fin.GetAsReal()) ) break;
-					_sub(line,"La expresi�n fue Verdadera, se iniciar� una iteraci�n.");
+					_sub(line,LocalizationManager::Instance().Translate("La expresion fue Verdadera, se iniciara una iteracion."));
 					Ejecutar(rt,line+1,line_finpara-1);
 					_pos(line);
 					res_cont = Evaluar(rt,contador,vt_numerica); // pueden haber cambiado a para el contador!!!
 					DataValue new_val = DataValue::MakeReal(res_cont.GetAsReal()+res_paso.GetAsReal());
 					memoria->EscribirValor(contador,new_val);
-					_sub(line,string("Se actualiza el contador, ahora ")+contador+" vale "+new_val.GetAsString()+".");
+					_sub(line,string(LocalizationManager::Instance().Translate("Se actualiza el contador, ahora "))+contador+LocalizationManager::Instance().Translate(" vale ")+new_val.GetAsString()+".");
 				} while(true);
 				if (lang[LS_PROTECT_FOR_COUNTER]) {
 					memoria->SetearSoloLectura(contador,false);
@@ -448,7 +449,7 @@ void Ejecutar(RunTime &rt, int LineStart, int LineEnd) {
 				}
 				line=line_finpara;
 				_pos(line);
-				_sub(line,"Se sale de la estructura repetitiva Para.");
+				_sub(line,LocalizationManager::Instance().Translate("Se sale de la estructura repetitiva Para."));
 			} break;
 			
 			// ------------------- PARA CADA --------------------- //
@@ -461,12 +462,12 @@ void Ejecutar(RunTime &rt, int LineStart, int LineEnd) {
 				int line_finpara = inst_impl.fin;
 				
 				const int *dims=memoria->LeerDims(arreglo);
-				if (!dims) err_handler.ExecutionError(276,"La variable ("+arreglo+") no es un arreglo.");
+				if (!dims) err_handler.ExecutionError(276,LocalizationManager::Instance().Translate("La variable (")+arreglo+LocalizationManager::Instance().Translate(") no es un arreglo."));
 				int nelems=1; // cantidad total de iteraciones
 				for (int i=1;i<=dims[0];i++) nelems*=dims[i];
 				
 				// bucle posta
-				_sub(line,string("El arreglo \"")+arreglo+"\" contiene "+IntToStr(nelems)+" elementos. Se comienza a iterar por ellos.");
+				_sub(line,string(LocalizationManager::Instance().Translate("El arreglo \\\""))+arreglo+LocalizationManager::Instance().Translate("\\\" contiene ")+IntToStr(nelems)+LocalizationManager::Instance().Translate(" elementos. Se comienza a iterar por ellos."));
 				for (int i=0;i<nelems;i++) {
 					// armar expresion del elemento (ej: A[1])
 					string elemento=")";
@@ -478,9 +479,9 @@ void Ejecutar(RunTime &rt, int LineStart, int LineEnd) {
 					elemento=arreglo+"("+elemento.substr(1);
 					// asignar el elemento en la variable del bucle
 					if (primer_iteracion) primer_iteracion=false; else { _pos(line); }
-					_sub(line,identificador+" ser� equivalente a "+elemento+" en esta iteraci�n.");
+					_sub(line,identificador+LocalizationManager::Instance().Translate(" sera equivalente a ")+elemento+LocalizationManager::Instance().Translate(" en esta iteracion."));
 					if (!memoria->DefinirTipo(identificador,memoria->LeerTipo(elemento)))
-						err_handler.ExecutionError(277,"No coinciden los tipos.");
+						err_handler.ExecutionError(277,LocalizationManager::Instance().Translate("No coinciden los tipos."));
 					memoria->EscribirValor(identificador,memoria->LeerValor(elemento));
 					// ejecutar la iteracion
 					Ejecutar(rt,line+1,line_finpara-1);
@@ -491,7 +492,7 @@ void Ejecutar(RunTime &rt, int LineStart, int LineEnd) {
 				memoria->Desinicializar(identificador);
 				line=line_finpara; // linea del finpara
 				_pos(line);
-				_sub(line,"Se sale de la estructura repetitiva Para Cada.");
+				_sub(line,LocalizationManager::Instance().Translate("Se sale de la estructura repetitiva Para Cada."));
 				
 			} break;
 			
@@ -501,34 +502,34 @@ void Ejecutar(RunTime &rt, int LineStart, int LineEnd) {
 				const string &expr_control = inst_impl.expresion;
 				tipo_var tipo_master=vt_caracter_o_numerica;
 				_pos(line);
-				_sub(line,string("Se eval�a la expresion: ")+expr_control);
+				_sub(line,string(LocalizationManager::Instance().Translate("Se evalua la expresion: "))+expr_control);
 				DataValue val_control = Evaluar(rt,expr_control,tipo_master); // evaluar para verificar el tipo
 				if (!val_control.CanBeReal()&&(lang[LS_INTEGER_ONLY_SWITCH]||!val_control.CanBeString())) {
 					if (!lang[LS_INTEGER_ONLY_SWITCH]) 
-						err_handler.ExecutionError(205,"La expresi�n del SEGUN debe ser de tipo numerica o caracter.");
+						err_handler.ExecutionError(205,LocalizationManager::Instance().Translate("La expresion del SEGUN debe ser de tipo numerica o caracter."));
 					else
-						err_handler.ExecutionError(206,"La expresi�n del SEGUN debe ser numerica.");
+						err_handler.ExecutionError(206,LocalizationManager::Instance().Translate("La expresion del SEGUN debe ser numerica."));
 				}
-				_sub(line,string("El resultado es: ")+val_control.GetForUser());
+				_sub(line,string(LocalizationManager::Instance().Translate("El resultado es: "))+val_control.GetForUser());
 				int line_finsegun=inst_impl.fin; 
 				
 				// analizar las opciones y comparar
-				int i_opcion_correcta = -1, i_de_otro_modo = -1; // guardo el indice en opciones y no la linea, porque eso dice donde empieza, y el siguiente en opciones ser�a donde termina
+				int i_opcion_correcta = -1, i_de_otro_modo = -1; // guardo el indice en opciones y no la linea, porque eso dice donde empieza, y el siguiente en opciones sería donde termina
 				for(size_t i=0;i_opcion_correcta==-1 && i<inst_impl.opciones.size();++i) {
 					int line_opcion = inst_impl.opciones[i];
 					if (programa[line_opcion]==IT_OPCION) {
 						const auto &posibles_valores = getImpl<IT_OPCION>(programa[line_opcion]).expresiones;
 						for(const std::string &expr_opcion : posibles_valores) {
 							_pos(line_opcion);
-							_sub(line_opcion,string("Se eval�a la opcion: ")+expr_opcion);
+							_sub(line_opcion,string(LocalizationManager::Instance().Translate("Se evalua la opcion: "))+expr_opcion);
 							DataValue val_opcion = Evaluar(rt,expr_opcion,tipo_master);
-							if (!val_opcion.CanBeReal()&&(lang[LS_INTEGER_ONLY_SWITCH]||!val_opcion.CanBeString())) err_handler.ExecutionError(127,"No coinciden los tipos.");
+							if (!val_opcion.CanBeReal()&&(lang[LS_INTEGER_ONLY_SWITCH]||!val_opcion.CanBeString())) err_handler.ExecutionError(127,LocalizationManager::Instance().Translate("No coinciden los tipos."));
 							// evaluar la condicion (se pone como estaban y no los resultados de la evaluaciones de antes porque sino las variables indefinida pueden no tomar el valor que corresponde
 							if (Evaluar(rt,string("(")+expr_control+")=("+expr_opcion+")").GetAsBool()) {
-								_sub(line_opcion,"El resultado coincide, se ingresar� en esta opci�n.");
+								_sub(line_opcion,LocalizationManager::Instance().Translate("El resultado coincide, se ingresara en esta opcion."));
 								i_opcion_correcta = i; break;
 							} else {
-								_sub(line_opcion,string("El resultado no coincide: ")+val_opcion.GetForUser());
+								_sub(line_opcion,string(LocalizationManager::Instance().Translate("El resultado no coincide: "))+val_opcion.GetForUser());
 							}
 						}
 					} else {
@@ -542,11 +543,11 @@ void Ejecutar(RunTime &rt, int LineStart, int LineEnd) {
 						i_opcion_correcta = i_de_otro_modo;
 						int line_dom = inst_impl.opciones[i_de_otro_modo];
 						_pos(line_dom);
-						_sub(line_dom,"Se ingresar� en la opci�n De Otro Modo");
+						_sub(line_dom,LocalizationManager::Instance().Translate("Se ingresara en la opcion De Otro Modo"));
 					}
 				}
 				if (i_opcion_correcta==-1) {
-					_sub(line_finsegun,string("Ninguna de las opciones coincide. No se hace nada."));	
+					_sub(line_finsegun,string(LocalizationManager::Instance().Translate("Ninguna de las opciones coincide. No se hace nada.")));	
 				} else {
 					int line_from = inst_impl.opciones[i_opcion_correcta]+1;
 					int line_to = i_opcion_correcta+1<inst_impl.opciones.size() 
@@ -557,13 +558,13 @@ void Ejecutar(RunTime &rt, int LineStart, int LineEnd) {
 				
 				line=line_finsegun;
 				_pos(line);
-				_sub(line,"Se sale de la estructura Segun.	");
+				_sub(line,LocalizationManager::Instance().Translate("Se sale de la estructura Segun.	"));
 			} break;
 			
-			// ya deber�amos haber cubierto todas las opciones
+			// ya deberíamos haber cubierto todas las opciones
 			default:
 
-				err_handler.ExecutionError(0,"Ha ocurrido un error interno en PSeInt.");
+				err_handler.ExecutionError(0,LocalizationManager::Instance().Translate("Ha ocurrido un error interno en PSeInt."));
 		} // switch 
 	} // while
 }

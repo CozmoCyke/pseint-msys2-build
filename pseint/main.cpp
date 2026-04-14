@@ -35,8 +35,8 @@ static void InitConsoleEncoding() {
 
 static void EncodingProbe() {
 	if (!g_encoding_test && std::getenv("PSEINT_ENCODING_TEST") == nullptr) return;
-	std::fprintf(stderr, u8"ENCODING TEST fprintf: Définir Réel Caractère\n");
-	std::cout << u8"ENCODING TEST cout: Définir Réel Caractère" << std::endl;
+	std::fprintf(stderr, "ENCODING TEST fprintf: Definir Reel Caractere\\n");
+	std::cout << "ENCODING TEST cout: Definir Reel Caractere" << std::endl;
 }
 
 void on_signal(int s) {
@@ -165,7 +165,7 @@ int main(int argc, char* argv[]) {
 				for_eval=true;
 			} else if (str.substr(0,10)=="--profile=") {
 				if (not lang.Load(str.substr(10))) {
-					cerr << "No se pudo leer el archivo de perfil: " << str.substr(10) << endl;
+					cerr << LocalizationManager::Instance().Translate("No se pudo leer el archivo de perfil: ") << str.substr(10) << endl;
 					exit(1);				}
 			} else if (str.substr(0,7)=="--lang=") {
 				std::string lang_code = str.substr(7);
@@ -194,6 +194,7 @@ std::cerr << "LANGKW COMO=" << lang.keywords[KW_COMO].get() << std::endl;
 				lang.SetFromSingleString(profile_before_lang);
 				lang.Fix();
 				std::cerr << "LANGTRACE restored_profile=" << lang.GetAsSingleString() << std::endl;
+				std::cerr << "LANGTRACE restored_overload_equal=" << (lang[LS_OVERLOAD_EQUAL] ? 1 : 0) << std::endl;
 				
 				std::cerr << "LANGTRACE engine current_lang=" << LocalizationManager::Instance().GetCurrentLanguage() << std::endl;
 			} else if (str.substr(0,2)=="--" && !lang.ProcessConfigLine(str.substr(2))) {
@@ -206,6 +207,7 @@ std::cerr << "LANGKW COMO=" << lang.keywords[KW_COMO].get() << std::endl;
 	EncodingProbe();
 	lang.Fix();
 	std::cerr << "LANGTRACE postfix current_lang=" << LocalizationManager::Instance().GetCurrentLanguage() << std::endl;
+	std::cerr << "LANGTRACE postfix overload_equal=" << (lang[LS_OVERLOAD_EQUAL] ? 1 : 0) << std::endl;
 	std::cerr << "LANGTRACE postfix ALGORITMO=" << lang.keywords[KW_ALGORITMO].get() << std::endl;
 	std::cerr << "LANGTRACE postfix FINALGORITMO=" << lang.keywords[KW_FINALGORITMO].get() << std::endl;
 	std::cerr << "LANGTRACE postfix DEFINIR=" << lang.keywords[KW_DEFINIR].get() << std::endl;
@@ -224,24 +226,24 @@ std::cerr << "LANGKW COMO=" << lang.keywords[KW_COMO].get() << std::endl;
 	if (error || (fil_count==0 && !real_time_syntax)) {
 		cout<<"Use: pseint FileName.psc [<options>] [LogFile]\n";
 		cout<<"     pseint FileName.psc --draw DrawTempFile.psd [LogFile]\n";
-		cout<<" <options> puede ser una o mas de las siguientes:"<<endl;
-		cout<<"      --color                utilizar colores para formatear la salida"<<endl;
-		cout<<"      --nocheck              no revisar la sintaxis"<<endl;
-		cout<<"      --norun                no ejecutar"<<endl;
-		cout<<"      --nouser               no mostrar mensajes de estado ni esperar un tecla al final"<<endl;
-		cout<<"      --port=<num>           define el puerto tpc para comunicar controlar la depuracion"<<endl;
-		cout<<"      --fortest              ignora algunas instrucciones particulares para evitar ciertas entradas/salidas"<<endl;
-		cout<<"      --rawerrors            muestra los errores sin descripcion, para testing automatizado"<<endl;
-		cout<<"      --noinput              en lugar realizar las lecturas desde el teclado, lo hace desde los argumentos"<<endl;
-		cout<<"      --input=<str>          sirve para predefinir uno o m?s valores de entrada para acciones LEER"<<endl;
-		cout<<"      --fixwincharset        corrige la codificaci?n de algunos caracteres para que se muestren correctamente"<<endl;
-		cout<<"                             en la consola de Windows"<<endl;
-		cout<<"      --writepositions       al generar el archivo parseado para el editor de diagrams de flujo incluye los"<<endl;
-		cout<<"                             numeros de linea e instrucci?n necesarios para marcar la ejecuci?n paso a paso"<<endl;
-		cout<<"      --delay=<num>          define el retardo entre instrucciones para la ejecucion paso a paso"<<endl;
-		cout<<"      --seed=<num>           semilla para el generador de numeros aleatorios"<<endl;
-		cout<<"      --profile=<archivo>    archivo de perfil a utilizar para configurar el int?rprete"<<endl;
-		cout<<"      --<opt>=?              cambia la opcion <opt> del perfil, ? puede ser 0 o 1"<<endl;
+		cout<<LocalizationManager::Instance().Translate(" <options> puede ser una o mas de las siguientes:")<<endl;
+		cout<<LocalizationManager::Instance().Translate("      --color                utilizar colores para formatear la salida")<<endl;
+		cout<<LocalizationManager::Instance().Translate("      --nocheck              no revisar la sintaxis")<<endl;
+		cout<<LocalizationManager::Instance().Translate("      --norun                no ejecutar")<<endl;
+		cout<<LocalizationManager::Instance().Translate("      --nouser               no mostrar mensajes de estado ni esperar un tecla al final")<<endl;
+		cout<<LocalizationManager::Instance().Translate("      --port=<num>           define el puerto tpc para comunicar controlar la depuracion")<<endl;
+		cout<<LocalizationManager::Instance().Translate("      --fortest              ignora algunas instrucciones particulares para evitar ciertas entradas/salidas")<<endl;
+		cout<<LocalizationManager::Instance().Translate("      --rawerrors            muestra los errores sin descripcion, para testing automatizado")<<endl;
+		cout<<LocalizationManager::Instance().Translate("      --noinput              en lugar realizar las lecturas desde el teclado, lo hace desde los argumentos")<<endl;
+		cout<<LocalizationManager::Instance().Translate("      --input=<str>          sirve para predefinir uno o m?s valores de entrada para acciones LEER")<<endl;
+		cout<<LocalizationManager::Instance().Translate("      --fixwincharset        corrige la codificaci?n de algunos caracteres para que se muestren correctamente")<<endl;
+		cout<<LocalizationManager::Instance().Translate("                             en la consola de Windows")<<endl;
+		cout<<LocalizationManager::Instance().Translate("      --writepositions       al generar el archivo parseado para el editor de diagrams de flujo incluye los")<<endl;
+		cout<<"                             numeros de linea e instruccion necesarios para marcar la ejecucion paso a paso"<<endl;
+		cout<<LocalizationManager::Instance().Translate("      --delay=<num>          define el retardo entre instrucciones para la ejecucion paso a paso")<<endl;
+		cout<<LocalizationManager::Instance().Translate("      --seed=<num>           semilla para el generador de numeros aleatorios")<<endl;
+		cout<<LocalizationManager::Instance().Translate("      --profile=<archivo>    archivo de perfil a utilizar para configurar el int?rprete")<<endl;
+		cout<<LocalizationManager::Instance().Translate("      --<opt>=?              cambia la opcion <opt> del perfil, ? puede ser 0 o 1")<<endl;
 		exit(1);
 	}
 	
@@ -267,10 +269,14 @@ std::cerr << "LANGKW COMO=" << lang.keywords[KW_COMO].get() << std::endl;
 	ErrorHandler &err_handler = rt.err;
 	
 	if (real_time_syntax) {
+		int rt_cycle = 0;
 		while (cin) {
+			std::fprintf(stderr, "DBG PSEINT RT BEGIN CYCLE cycle=%d\n", rt_cycle);
+			std::fflush(stderr);
 //			memoria->HardReset();
 			programa.HardReset();
 			rt.funcs.UnloadSubprocesos();
+			err_handler.Reset();
 			string line;
 			int lcount=0;
 			bool got_input=false;
@@ -279,14 +285,37 @@ std::cerr << "LANGKW COMO=" << lang.keywords[KW_COMO].get() << std::endl;
 				if (!cin) break;
 				lcount++;
 				got_input=true;
+				std::fprintf(stderr, "DBG PSEINT RT READ line=[%s] cycle=%d lcount=%d\n", line.c_str(), rt_cycle, lcount);
+				std::fflush(stderr);
 				if (line=="<!{[EXIT]}!>") { rt.funcs.UnloadPredefs(); return 0; }
-				if (line=="<!{[END_OF_INPUT]}!>") break;
+				if (line=="<!{[END_OF_INPUT]}!>") {
+					std::fprintf(stderr, "DBG PSEINT RT END_OF_INPUT detected cycle=%d\n", rt_cycle);
+					std::fflush(stderr);
+					break;
+				}
 				programa.PushBack(line);
 			}
-			if (!got_input) break;
+			if (!got_input) {
+				std::fprintf(stderr, "DBG PSEINT RT EMPTY CYCLE cycle=%d\n", rt_cycle);
+				std::fflush(stderr);
+				break;
+			}
 
+			std::fprintf(stderr, "DBG PSEINT RT before SynCheck cycle=%d prog_count=%d\n", rt_cycle, programa.GetInstCount());
+			std::fflush(stderr);
 			SynCheck(rt);
+			std::fprintf(stderr, "DBG PSEINT RT after SynCheck cycle=%d ok=%d errors=%d main=%d subs=%zu\n",
+				rt_cycle,
+				err_handler.IsOk() ? 1 : 0,
+				err_handler.GetErrorsCount(),
+				rt.funcs.HaveMain() ? 1 : 0,
+				rt.funcs.GetAllSubs().size());
+			std::fflush(stderr);
+			std::fprintf(stderr, "DBG PSEINT RT emit END_OF_OUTPUT cycle=%d\n", rt_cycle);
+			std::fflush(stderr);
 			cout<<"<!{[END_OF_OUTPUT]}!>"<<endl;
+			std::fprintf(stderr, "DBG PSEINT RT begin vars emit cycle=%d subs=%zu\n", rt_cycle, rt.funcs.GetAllSubs().size());
+			std::fflush(stderr);
 			for(auto &pf : rt.funcs.GetAllSubs()) {
 				auto &func = pf.second;
 				const std::string &name = pf.first;
@@ -301,7 +330,11 @@ std::cerr << "LANGKW COMO=" << lang.keywords[KW_COMO].get() << std::endl;
 				cout<<":"<<func->userline_start-1<<':'<<func->userline_end-1<<endl;
 				func->memoria->ListVars(case_map);
 			}
+			std::fprintf(stderr, "DBG PSEINT RT emit END_OF_VARS cycle=%d\n", rt_cycle);
+			std::fflush(stderr);
 			cout<<"<!{[END_OF_VARS]}!>"<<endl;
+			std::fprintf(stderr, "DBG PSEINT RT after END_OF_VARS cycle=%d\n", rt_cycle);
+			std::fflush(stderr);
 			if (lcount) {
 				int n=programa.GetInstCount();
 				int *bk=new int[lcount], *st=new int[n+1], stn=0;
@@ -321,7 +354,12 @@ std::cerr << "LANGKW COMO=" << lang.keywords[KW_COMO].get() << std::endl;
 				}
 				delete []bk; delete []st;
 			}
+			std::fprintf(stderr, "DBG PSEINT RT emit END_OF_BLOCKS cycle=%d\n", rt_cycle);
+			std::fflush(stderr);
 			cout<<"<!{[END_OF_BLOCKS]}!>"<<endl;
+			std::fprintf(stderr, "DBG PSEINT RT after END_OF_BLOCKS cycle=%d\n", rt_cycle);
+			std::fflush(stderr);
+			++rt_cycle;
 		}
 		return 0; // nunca se llega hasta aqui
 	}
@@ -331,9 +369,9 @@ std::cerr << "LANGKW COMO=" << lang.keywords[KW_COMO].get() << std::endl;
 	ifstream archivo(filename);
 	if (!archivo.is_open()) {
 		if (colored_output) setForeColor(COLOR_ERROR);
-		cout<<"ERROR: No se pudo abrir el archivo \""<<filename<<"\""<<endl;
+		cout<<LocalizationManager::Instance().Translate("ERROR: No se pudo abrir el archivo \\\"")<<filename<<"\""<<endl;
 		if (ExeInfoOn) {
-			ExeInfo<<"ERROR: No se pudo abrir el archivo \""<<filename<<"\""<<endl;
+			ExeInfo<<LocalizationManager::Instance().Translate("ERROR: No se pudo abrir el archivo \\\"")<<filename<<"\""<<endl;
 			if (user) {
 				hideCursor();
 				if (wait_key) getKey();

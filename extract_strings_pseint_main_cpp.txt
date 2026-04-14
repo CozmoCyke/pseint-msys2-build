@@ -1,0 +1,36 @@
+"ENCODING TEST fprintf: Définir Réel Caractère\n"|ENCODING TEST fprintf: Definir Reel Caractere\n|pseint/main.cpp|38|ENCODING TEST fprintf: Define Real Character\n|READY
+"ENCODING TEST cout: Définir Réel Caractère"|ENCODING TEST cout: Definir Reel Caractere|pseint/main.cpp|39|ENCODING TEST cout: Define Real Character|READY
+"No se pudo leer el archivo de perfil: "|No se pudo leer el archivo de perfil: |pseint/main.cpp|168|Could not read the profile file: |READY
+"LANGTRACE step=parse arg="|LANGTRACE step=parse arg=|pseint/main.cpp|173|LANGTRACE step=parse arg=|READY
+" <options> puede ser una o mas de las siguientes:"| <options> puede ser una o mas de las siguientes:|pseint/main.cpp|227| <options> can be one or more of the following:|READY
+"      --color                utilizar colores para formatear la salida"|      --color                utilizar colores para formatear la salida|pseint/main.cpp|228|      --color                use colors to format the output|READY
+"      --nocheck              no revisar la sintaxis"|      --nocheck              no revisar la sintaxis|pseint/main.cpp|229|      --nocheck              do not check syntax|READY
+"      --norun                no ejecutar"|      --norun                no ejecutar|pseint/main.cpp|230|      --norun                do not execute|READY
+"      --nouser               no mostrar mensajes de estado ni esperar un tecla al final"|      --nouser               no mostrar mensajes de estado ni esperar un tecla al final|pseint/main.cpp|231|      --nouser               do not show status messages or wait for a key at the end|READY
+"      --port=<num>           define el puerto tpc para comunicar controlar la depuracion"|      --port=<num>           define el puerto tpc para comunicar controlar la depuracion|pseint/main.cpp|232|      --port=<num>           defines the TCP port for debugging communication|READY
+"      --fortest              ignora algunas instrucciones particulares para evitar ciertas entradas/salidas"|      --fortest              ignora algunas instrucciones particulares para evitar ciertas entradas/salidas|pseint/main.cpp|233|      --fortest              ignore some instructions to avoid certain inputs/outputs|READY
+"      --rawerrors            muestra los errores sin descripcion, para testing automatizado"|      --rawerrors            muestra los errores sin descripcion, para testing automatizado|pseint/main.cpp|234|      --rawerrors            show errors without description, for automated testing|READY
+"      --noinput              en lugar realizar las lecturas desde el teclado, lo hace desde los argumentos"|      --noinput              en lugar realizar las lecturas desde el teclado, lo hace desde los argumentos|pseint/main.cpp|235|      --noinput              read input from arguments instead of the keyboard|READY
+"      --input=<str>          sirve para predefinir uno o m?s valores de entrada para acciones LEER"|      --input=<str>          sirve para predefinir uno o m?s valores de entrada para acciones LEER|pseint/main.cpp|236|      --input=<str>          predefine one or more input values for READ actions|READY
+"      --fixwincharset        corrige la codificaci?n de algunos caracteres para que se muestren correctamente"|      --fixwincharset        corrige la codificaci?n de algunos caracteres para que se muestren correctamente|pseint/main.cpp|237|      --fixwincharset        fix character encoding issues for Windows console display|READY
+"                             en la consola de Windows"|                             en la consola de Windows|pseint/main.cpp|238|                             in the Windows console|READY
+"      --writepositions       al generar el archivo parseado para el editor de diagrams de flujo incluye los"|      --writepositions       al generar el archivo parseado para el editor de diagrams de flujo incluye los|pseint/main.cpp|239|      --writepositions       include line and instruction numbers when generating the parsed file for the flowchart editor|READY
+"                             numeros de linea e instrucci?n necesarios para marcar la ejecuci?n paso a paso"|                             numeros de linea e instrucci?n necesarios para marcar la ejecuci?n paso a paso|pseint/main.cpp|240|                             needed to mark step-by-step execution|READY
+"      --delay=<num>          define el retardo entre instrucciones para la ejecucion paso a paso"|      --delay=<num>          define el retardo entre instrucciones para la ejecucion paso a paso|pseint/main.cpp|241|      --delay=<num>          set delay between instructions for step-by-step execution|READY
+"      --seed=<num>           semilla para el generador de numeros aleatorios"|      --seed=<num>           semilla para el generador de numeros aleatorios|pseint/main.cpp|242|      --seed=<num>           seed for the random number generator|READY
+"      --profile=<archivo>    archivo de perfil a utilizar para configurar el int?rprete"|      --profile=<archivo>    archivo de perfil a utilizar para configurar el int?rprete|pseint/main.cpp|243|      --profile=<file>       profile file used to configure the interpreter|READY
+"      --<opt>=?              cambia la opcion <opt> del perfil, ? puede ser 0 o 1"|      --<opt>=?              cambia la opcion <opt> del perfil, ? puede ser 0 o 1|pseint/main.cpp|244|      --<opt>=?              change profile option <opt>, ? can be 0 or 1|READY
+"ERROR: No se pudo abrir el archivo \""|ERROR: No se pudo abrir el archivo \"|pseint/main.cpp|334|ERROR: Could not open file \"|READY
+"ERROR: No se pudo abrir el archivo \""|ERROR: No se pudo abrir el archivo \"|pseint/main.cpp|336|ERROR: Could not open file \"|READY
+"Leyendo archivo y comprobando sintaxis..."|Leyendo archivo y comprobando sintaxis...|pseint/main.cpp|346|Reading file and checking syntax...|READY
+"Dibujo guardado."|Dibujo guardado.|pseint/main.cpp|368|Drawing saved.|READY
+"*** Ejecucion Iniciada. ***"|*** Ejecucion Iniciada. ***|pseint/main.cpp|378|*** Execution Started. ***|READY
+"*** Ejecucion Iniciada. ***"|*** Ejecucion Iniciada. ***|pseint/main.cpp|379|*** Execution Started. ***|READY
+"*** Ejecucion Finalizada. ***"|*** Ejecucion Finalizada. ***|pseint/main.cpp|382|*** Execution Finished. ***|READY
+"*** Ejecucion Finalizada. ***"|*** Ejecucion Finalizada. ***|pseint/main.cpp|383|*** Execution Finished. ***|READY
+"*** Se encontro 1 error. ***"|*** Se encontro 1 error. ***|pseint/main.cpp|389|*** 1 error found. ***|READY
+"*** Se encontro 1 error. ***"|*** Se encontro 1 error. ***|pseint/main.cpp|390|*** 1 error found. ***|READY
+"*** Se encontraron "|*** Se encontraron |pseint/main.cpp|392|*** Found |READY
+" errores. ***"| errores. ***|pseint/main.cpp|392| errors. ***|READY
+"*** Se encontraron "|*** Se encontraron |pseint/main.cpp|393|*** Found |READY
+" errores. ***"| errores. ***|pseint/main.cpp|393| errors. ***|READY

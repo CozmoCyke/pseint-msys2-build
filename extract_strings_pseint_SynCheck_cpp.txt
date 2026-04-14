@@ -1,0 +1,171 @@
+"ES ENTERO "|ES ENTERO |pseint/SynCheck.cpp|134|IS INTEGER |READY
+"ES ENTERA "|ES ENTERA |pseint/SynCheck.cpp|135|IS INTEGER |READY
+"ES MENOR A "|ES MENOR A |pseint/SynCheck.cpp|136|IS LESS THAN |READY
+"ES MENOR QUE "|ES MENOR QUE |pseint/SynCheck.cpp|137|IS LESS THAN |READY
+"ES MAYOR A "|ES MAYOR A |pseint/SynCheck.cpp|138|IS GREATER THAN |READY
+"ES MAYOR QUE "|ES MAYOR QUE |pseint/SynCheck.cpp|139|IS GREATER THAN |READY
+"ES IGUAL | MAYOR A "|ES IGUAL | MAYOR A |pseint/SynCheck.cpp|140|IS EQUAL OR GREATER THAN |READY
+"ES IGUAL | MAYOR QUE "|ES IGUAL | MAYOR QUE |pseint/SynCheck.cpp|141|IS EQUAL OR GREATER THAN |READY
+"ES IGUAL | MENOR A "|ES IGUAL | MENOR A |pseint/SynCheck.cpp|142|IS EQUAL OR LESS THAN |READY
+"ES IGUAL | MENOR QUE "|ES IGUAL | MENOR QUE |pseint/SynCheck.cpp|143|IS EQUAL OR LESS THAN |READY
+"ES MAYOR | IGUAL A "|ES MAYOR | IGUAL A |pseint/SynCheck.cpp|144|IS GREATER OR EQUAL TO |READY
+"ES MAYOR | IGUAL QUE "|ES MAYOR | IGUAL QUE |pseint/SynCheck.cpp|145|IS GREATER OR EQUAL TO |READY
+"ES MENOR | IGUAL A "|ES MENOR | IGUAL A |pseint/SynCheck.cpp|146|IS LESS OR EQUAL TO |READY
+"ES MENOR | IGUAL QUE "|ES MENOR | IGUAL QUE |pseint/SynCheck.cpp|147|IS LESS OR EQUAL TO |READY
+"ES IGUAL A "|ES IGUAL A |pseint/SynCheck.cpp|148|IS EQUAL TO |READY
+"ES IGUAL QUE "|ES IGUAL QUE |pseint/SynCheck.cpp|149|IS EQUAL TO |READY
+"ES DISTINTO A "|ES DISTINTO A |pseint/SynCheck.cpp|150|IS DIFFERENT FROM |READY
+"ES DISTINTO DE "|ES DISTINTO DE |pseint/SynCheck.cpp|151|IS DIFFERENT FROM |READY
+"ES DISTINTA A "|ES DISTINTA A |pseint/SynCheck.cpp|152|IS DIFFERENT FROM |READY
+"ES DISTINTA DE "|ES DISTINTA DE |pseint/SynCheck.cpp|153|IS DIFFERENT FROM |READY
+"ES PAR "|ES PAR |pseint/SynCheck.cpp|154|IS EVEN |READY
+"ES IMPAR "|ES IMPAR |pseint/SynCheck.cpp|155|IS ODD |READY
+"ES POSITIVO "|ES POSITIVO |pseint/SynCheck.cpp|156|IS POSITIVE |READY
+"ES POSITIVA "|ES POSITIVA |pseint/SynCheck.cpp|157|IS POSITIVE |READY
+"ES NEGATIVO "|ES NEGATIVO |pseint/SynCheck.cpp|158|IS NEGATIVE |READY
+"ES NEGATIVA "|ES NEGATIVA |pseint/SynCheck.cpp|159|IS NEGATIVE |READY
+"ES CERO "|ES CERO |pseint/SynCheck.cpp|160|IS ZERO |READY
+"ES DIVISIBLE POR "|ES DIVISIBLE POR |pseint/SynCheck.cpp|161|IS DIVISIBLE BY |READY
+"ES MULTIPLO DE "|ES MULTIPLO DE |pseint/SynCheck.cpp|162|IS MULTIPLE OF |READY
+"ES "|ES |pseint/SynCheck.cpp|163|IS |READY
+"Falta operando (antes de la condición coloquial $)."|Falta operando (antes de la condicion coloquial $).|pseint/SynCheck.cpp|217|Missing operand (before the colloquial condition $).|READY
+"Falta operando (después de la condición coloquial $)."|Falta operando (despues de la condicion coloquial $).|pseint/SynCheck.cpp|236|Missing operand (after the colloquial condition $).|READY
+"No corresponde operando (después de la condición coloquial $)."|No corresponde operando (despues de la condicion coloquial $).|pseint/SynCheck.cpp|238|Invalid operand (after the colloquial condition $).|READY
+"Falta operador (antes de la cadena de caracteres)."|Falta operador (antes de la cadena de caracteres).|pseint/SynCheck.cpp|290|Missing operator (before the string).|READY
+"Falta operando (antes de $)."|Falta operando (antes de $).|pseint/SynCheck.cpp|302|Missing operand (before $).|READY
+"Falta operando (despues de $)."|Falta operando (despues de $).|pseint/SynCheck.cpp|309|Missing operand (after $).|READY
+"Falta operador o coma entre operandos."|Falta operador o coma entre operandos.|pseint/SynCheck.cpp|321|Missing operator or comma between operands.|READY
+"Operador no válido (:)."|Operador no valido (:).|pseint/SynCheck.cpp|330|Invalid operator (:).|READY
+"Falta operando (antes de $)."|Falta operando (antes de $).|pseint/SynCheck.cpp|332|Missing operand (before $).|READY
+"Falta operador."|Falta operador.|pseint/SynCheck.cpp|340|Missing operator.|READY
+"Parámetro nulo."|Parametro nulo.|pseint/SynCheck.cpp|341|Null parameter.|READY
+"Falta operador."|Falta operador.|pseint/SynCheck.cpp|345|Missing operator.|READY
+"Falta operando (antes de ')')."|Falta operando (antes de ')').|pseint/SynCheck.cpp|349|Missing operand (before ')').|READY
+"Falta operador (despues de la cadena de caracteres)."|Falta operador (despues de la cadena de caracteres).|pseint/SynCheck.cpp|354|Missing operator (after the string).|READY
+"Falta operador (despues de ')')."|Falta operador (despues de ')').|pseint/SynCheck.cpp|355|Missing operator (after ')').|READY
+"Constante numérica no válida."|Constante numerica no valida.|pseint/SynCheck.cpp|360|Invalid numeric constant.|READY
+"Falta operando (después de cadena de texto)."|Falta operando (despues de cadena de texto).|pseint/SynCheck.cpp|366|Missing operand (after text string).|READY
+"Falta operando (posiblemente después de ')')."|Falta operando (posiblemente despues de ')').|pseint/SynCheck.cpp|368|Missing operand (possibly after ')').|READY
+"Constante numérica no válida."|Constante numerica no valida.|pseint/SynCheck.cpp|370|Invalid numeric constant.|READY
+"Falta operando (antes de $)."|Falta operando (antes de $).|pseint/SynCheck.cpp|380|Missing operand (before $).|READY
+"Falta operando (antes de $)."|Falta operando (antes de $).|pseint/SynCheck.cpp|383|Missing operand (before $).|READY
+"Caracter no valido ($)."|Caracter no valido ($).|pseint/SynCheck.cpp|388|Invalid character ($).|READY
+"Falta operando al final de la expresion"|Falta operando al final de la expresion|pseint/SynCheck.cpp|394|Missing operand at the end of the expression|READY
+"Se cerraron parentesis o corchetes demás."|Se cerraron parentesis o corchetes demas.|pseint/SynCheck.cpp|396|Too many parentheses or brackets were closed.|READY
+"Falta cerrar parentesis o corchete."|Falta cerrar parentesis o corchete.|pseint/SynCheck.cpp|397|Missing closing parenthesis or bracket.|READY
+"Falta cerrar comillas."|Falta cerrar comillas.|pseint/SynCheck.cpp|398|Missing closing quotation marks.|READY
+"Falta cerrar PARA."|Falta cerrar PARA.|pseint/SynCheck.cpp|420|Missing closing FOR.|READY
+"Falta cerrar REPETIR."|Falta cerrar REPETIR.|pseint/SynCheck.cpp|421|Missing closing REPEAT.|READY
+"Falta cerrar MIENTRAS."|Falta cerrar MIENTRAS.|pseint/SynCheck.cpp|422|Missing closing WHILE.|READY
+"Falta cerrar SI."|Falta cerrar SI.|pseint/SynCheck.cpp|423|Missing closing IF.|READY
+"Falta cerrar SEGUN."|Falta cerrar SEGUN.|pseint/SynCheck.cpp|424|Missing closing SWITCH.|READY
+"Falta cerrar ALGORITMO/PROCESO."|Falta cerrar ALGORITMO/PROCESO.|pseint/SynCheck.cpp|427|Missing closing ALGORITHM/PROCESS.|READY
+"Falta cerrar FUNCION/SUBPROCESO."|Falta cerrar FUNCION/SUBPROCESO.|pseint/SynCheck.cpp|429|Missing closing FUNCTION/SUBROUTINE.|READY
+"$ mal colocado."|$ mal colocado.|pseint/SynCheck.cpp|503|$ misplaced.|READY
+"$ mal colocado."|$ mal colocado.|pseint/SynCheck.cpp|536|$ misplaced.|READY
+"$ no lleva punto y coma."|$ no lleva punto y coma.|pseint/SynCheck.cpp|598|$ must not be followed by a semicolon.|READY
+"$ no lleva punto y coma."|$ no lleva punto y coma.|pseint/SynCheck.cpp|601|$ must not be followed by a semicolon.|READY
+"Se esperan dos puntos (:) luego de la lista de opciones."|Se esperan dos puntos (:) luego de la lista de opciones.|pseint/SynCheck.cpp|610|A colon (:) is expected after the list of options.|READY
+"Parametro nulo."|Parametro nulo.|pseint/SynCheck.cpp|715|Null parameter.|READY
+"Falta $."|Falta $.|pseint/SynCheck.cpp|726|Missing $.|READY
+"Se esperaba <opcion>:."|Se esperaba <opcion>:.|pseint/SynCheck.cpp|731|Expected <option>:.|READY
+"Falta punto y coma."|Falta punto y coma.|pseint/SynCheck.cpp|743|Missing semicolon.|READY
+"Instruccion fuera de $."|Instruccion fuera de $.|pseint/SynCheck.cpp|764|Instruction outside of $.|READY
+"$ mal colocado."|$ mal colocado.|pseint/SynCheck.cpp|794|$ misplaced.|READY
+"Faltan parámetros."|Faltan parametros.|pseint/SynCheck.cpp|802|Missing parameters.|READY
+"Falta punto y coma."|Falta punto y coma.|pseint/SynCheck.cpp|806|Missing semicolon.|READY
+"Falta $."|Falta $.|pseint/SynCheck.cpp|810|Missing $.|READY
+"Falta tipo de dato o tipo no válido."|Falta tipo de dato o tipo no valido.|pseint/SynCheck.cpp|823|Missing data type or invalid type.|READY
+"Se esperaba el fin de la instrucción (luego del tipo)."|Se esperaba el fin de la instruccion (luego del tipo).|pseint/SynCheck.cpp|825|Expected end of instruction (after the type).|READY
+"Se esperaba fin de expresión (fin de la instrucción, o coma para separar)."|Se esperaba fin de expresion (fin de la instruccion, o coma para separar).|pseint/SynCheck.cpp|836|Expected end of expression (end of instruction, or comma as separator).|READY
+"No debe redefinir el tipo de un argumento."|No debe redefinir el tipo de un argumento.|pseint/SynCheck.cpp|843|You must not redefine the type of an argument.|READY
+"No debe utilizar subindices ($)."|No debe utilizar subindices ($).|pseint/SynCheck.cpp|848|You must not use indices ($).|READY
+"Faltan parámetros."|Faltan parametros.|pseint/SynCheck.cpp|859|Missing parameters.|READY
+"Se esperaba fin de expresión."|Se esperaba fin de expresion.|pseint/SynCheck.cpp|875|Expected end of expression.|READY
+"Faltan parámetros."|Faltan parametros.|pseint/SynCheck.cpp|888|Missing parameters.|READY
+"Falta unidad o unidad desconocida."|Falta unidad o unidad desconocida.|pseint/SynCheck.cpp|896|Missing unit or unknown unit.|READY
+"La longitud del intervalo debe ser numérica."|La longitud del intervalo debe ser numerica.|pseint/SynCheck.cpp|898|The interval length must be numeric.|READY
+"Se esperaba una sola expresión."|Se esperaba una sola expresion.|pseint/SynCheck.cpp|900|Only one expression was expected.|READY
+"Faltan parámetros."|Faltan parametros.|pseint/SynCheck.cpp|905|Missing parameters.|READY
+"Faltan subindices."|Faltan subindices.|pseint/SynCheck.cpp|913|Missing indices.|READY
+"No debe redimensionar un argumento."|No debe redimensionar un argumento.|pseint/SynCheck.cpp|920|You must not resize an argument.|READY
+"Se esperaba coma o fin de la instrucción luego de las dimensiones del arreglo $."|Se esperaba coma o fin de la instruccion luego de las dimensiones del arreglo $.|pseint/SynCheck.cpp|925|A comma or end of instruction was expected after the dimensions of array $.|READY
+"Parametro nulo."|Parametro nulo.|pseint/SynCheck.cpp|937|Null parameter.|READY
+"No coinciden los tipos; en la expresion $"|No coinciden los tipos; en la expresion $|pseint/SynCheck.cpp|940|Types do not match; in expression $|READY
+"Las dimensiones no pueden ser 0, en: $"|Las dimensiones no pueden ser 0, en: $|pseint/SynCheck.cpp|944|Dimensions cannot be 0, in: $|READY
+"El tamaño 1 para una dimensión probablemente sea un error, en: $"|El tamano 1 para una dimension probablemente sea un error, en: $|pseint/SynCheck.cpp|946|Size 1 for a dimension is probably an error, in: $|READY
+"Las dimensiones no pueden ser negativas, en: $"|Las dimensiones no pueden ser negativas, en: $|pseint/SynCheck.cpp|948|Dimensions cannot be negative, in: $|READY
+"Las dimensiones deben ser números enteros, en: $"|Las dimensiones deben ser numeros enteros, en: $|pseint/SynCheck.cpp|950|Dimensions must be integer numbers, in: $|READY
+"Las dimensiones deben ser constantes, en: $"|Las dimensiones deben ser constantes, en: $|pseint/SynCheck.cpp|955|Dimensions must be constants, in: $|READY
+"Faltan parámetros."|Faltan parametros.|pseint/SynCheck.cpp|969|Missing parameters.|READY"Faltan subindices para el arreglo ($)."|Faltan subindices para el arreglo ($).|pseint/SynCheck.cpp|979
+"La variable ($) no es un arreglo."|La variable ($) no es un arreglo.|pseint/SynCheck.cpp|987|Variable ($) is not an array.|READY
+"Identificador o lista de índices incorrecta ($)"|Identificador o lista de indices incorrecta ($)|pseint/SynCheck.cpp|989|Incorrect identifier or index list ($)|READY
+"No coinciden los tipos."|No coinciden los tipos.|pseint/SynCheck.cpp|998|Types do not match.|READY
+"Cantidad de indices incorrecta para el arreglo ($)."|Cantidad de indices incorrecta para el arreglo ($).|pseint/SynCheck.cpp|1001|Incorrect number of indices for array ($).|READY
+"Falta $."|Falta $.|pseint/SynCheck.cpp|1014|Missing $.|READY
+"Falta $."|Falta $.|pseint/SynCheck.cpp|1020|Missing $.|READY
+"$ va despues de $."|$ va despues de $.|pseint/SynCheck.cpp|1033|$ goes after $.|READY
+"Se esperaba asignación."|Se esperaba asignacion.|pseint/SynCheck.cpp|1044|Assignment expected.|READY
+"Asignacion incompleta."|Asignacion incompleta.|pseint/SynCheck.cpp|1056|Incomplete assignment.|READY
+"No coinciden los tipos."|No coinciden los tipos.|pseint/SynCheck.cpp|1061|Types do not match.|READY
+"valor inicial"|valor inicial|pseint/SynCheck.cpp|1065|initial value|READY
+"No coinciden los tipos."|No coinciden los tipos.|pseint/SynCheck.cpp|1066|Types do not match.|READY
+"Falta el valor final del $."|Falta el valor final del $.|pseint/SynCheck.cpp|1072|Missing final value for $.|READY
+"valor final"|valor final|pseint/SynCheck.cpp|1075|final value|READY
+"No coinciden los tipos."|No coinciden los tipos.|pseint/SynCheck.cpp|1076|Types do not match.|READY
+"Falta el valor del paso."|Falta el valor del paso.|pseint/SynCheck.cpp|1082|Missing step value.|READY
+"paso"|paso|pseint/SynCheck.cpp|1084|step|READY
+"No coinciden los tipos."|No coinciden los tipos.|pseint/SynCheck.cpp|1085|Types do not match.|READY
+"Falta $."|Falta $.|pseint/SynCheck.cpp|1096|Missing $.|READY
+"Falta $."|Falta $.|pseint/SynCheck.cpp|1102|Missing $.|READY
+"Falta el identificador de elemento y/o el del arreglo."|Falta el identificador de elemento y/o el del arreglo.|pseint/SynCheck.cpp|1107|Missing element identifier and/or array identifier.|READY
+"Opción fuera de $."|Opcion fuera de $.|pseint/SynCheck.cpp|1121|Option outside of $.|READY
+" O "| O |pseint/SynCheck.cpp|1129| OR |READY
+"Las opciones deben ser de tipo numérico."|Las opciones deben ser de tipo numerico.|pseint/SynCheck.cpp|1139|Options must be numeric.|READY
+"Asignación incompleta."|Asignacion incompleta.|pseint/SynCheck.cpp|1151|Incomplete assignment.|READY
+"Se esperaba fin de expresión."|Se esperaba fin de expresion.|pseint/SynCheck.cpp|1162|Expected end of expression.|READY
+"Demasiados parámetros."|Demasiados parametros.|pseint/SynCheck.cpp|1164|Too many parameters.|READY
+"Asignación incompleta."|Asignacion incompleta.|pseint/SynCheck.cpp|1167|Incomplete assignment.|READY
+"No coinciden los tipos."|No coinciden los tipos.|pseint/SynCheck.cpp|1176|Types do not match.|READY
+"Falta la condición en la estructura $-$"|Falta la condicion en la estructura $-$|pseint/SynCheck.cpp|1187|Missing condition in structure $-$|READY
+"Se esperaba $ o fin de expresión."|Se esperaba $ o fin de expresion.|pseint/SynCheck.cpp|1200|Expected $ or end of expression.|READY
+"No coinciden los tipos."|No coinciden los tipos.|pseint/SynCheck.cpp|1207|Types do not match.|READY
+"Falta la condición en la estructura $."|Falta la condicion en la estructura $.|pseint/SynCheck.cpp|1212|Missing condition in structure $.|READY
+"Se esperaba fin de expresión."|Se esperaba fin de expresion.|pseint/SynCheck.cpp|1222|Expected end of expression.|READY
+"No coinciden los tipos."|No coinciden los tipos.|pseint/SynCheck.cpp|1230|Types do not match.|READY
+"$ no lleva punto y coma luego de la expresión de control."|$ no lleva punto y coma luego de la expresion de control.|pseint/SynCheck.cpp|1238|$ must not be followed by a semicolon after the control expression.|READY
+"Falta $."|Falta $.|pseint/SynCheck.cpp|1242|Missing $.|READY
+"Falta la variable/expresión de control en la estructura $."|Falta la variable/expresion de control en la estructura $.|pseint/SynCheck.cpp|1246|Missing control variable/expression in structure $.|READY
+"expresión de control"|expresion de control|pseint/SynCheck.cpp|1249|control expression|READY
+"No coinciden los tipos."|No coinciden los tipos.|pseint/SynCheck.cpp|1250|Types do not match.|READY
+"$ no lleva punto y coma luego de la condición."|$ no lleva punto y coma luego de la condicion.|pseint/SynCheck.cpp|1257|$ must not be followed by a semicolon after the condition.|READY
+"Falta $."|Falta $.|pseint/SynCheck.cpp|1261|Missing $.|READY
+"Falta la condición en la estructura $."|Falta la condicion en la estructura $.|pseint/SynCheck.cpp|1264|Missing condition in structure $.|READY
+"condición"|condicion|pseint/SynCheck.cpp|1268|condition|READY
+"No coinciden los tipos."|No coinciden los tipos.|pseint/SynCheck.cpp|1269|Types do not match.|READY
+"$ mal colocado."|$ mal colocado.|pseint/SynCheck.cpp|1273|$ misplaced.|READY
+"No puede haber más de un $."|No puede haber mas de un $.|pseint/SynCheck.cpp|1276|There cannot be more than one $.|READY
+"La instrucción no debe tener parámetros."|La instruccion no debe tener parametros.|pseint/SynCheck.cpp|1287|The instruction must not have parameters.|READY
+"FIN "|FIN |pseint/SynCheck.cpp|1292|END |READY
+"Instruccion no valida."|Instruccion no valida.|pseint/SynCheck.cpp|1293|Invalid instruction.|READY
+"Instruccion no valida."|Instruccion no valida.|pseint/SynCheck.cpp|1295|Invalid instruction.|READY
+"La función retorna un valor, debe ser parte de una expresión ($)."|La funcion retorna un valor, debe ser parte de una expresion ($).|pseint/SynCheck.cpp|1304|The function returns a value and must be part of an expression ($).|READY
+"Se esperaban argumentos para el $ ($)."|Se esperaban argumentos para el $ ($).|pseint/SynCheck.cpp|1307|Arguments were expected for $ ($).|READY
+"El $ ($) no debe recibir argumentos."|El $ ($) no debe recibir argumentos.|pseint/SynCheck.cpp|1309|$ ($) must not receive arguments.|READY
+"Los argumentos para invocar a un $ deben ir entre paréntesis."|Los argumentos para invocar a un $ deben ir entre parentesis.|pseint/SynCheck.cpp|1310|Arguments to call $ must be enclosed in parentheses.|READY
+"No puede utilizar una expresión en un pasaje por referencia ($)."|No puede utilizar una expresion en un pasaje por referencia ($).|pseint/SynCheck.cpp|1321|You cannot use an expression in a pass-by-reference ($).|READY
+"Cantidad de argumentos incorrecta para el subproceso ($)."|Cantidad de argumentos incorrecta para el subproceso ($).|pseint/SynCheck.cpp|1328|Incorrect number of arguments for subroutine ($).|READY
+"Se esperaba fin de instrucción."|Se esperaba fin de instruccion.|pseint/SynCheck.cpp|1329|Expected end of instruction.|READY
+"$ mal colocado."|$ mal colocado.|pseint/SynCheck.cpp|1340|$ misplaced.|READY
+"$ mal colocado."|$ mal colocado.|pseint/SynCheck.cpp|1350|$ misplaced.|READY
+"$ mal colocado."|$ mal colocado.|pseint/SynCheck.cpp|1357|$ misplaced.|READY
+"$ mal colocado."|$ mal colocado.|pseint/SynCheck.cpp|1364|$ misplaced.|READY
+"$ mal colocado."|$ mal colocado.|pseint/SynCheck.cpp|1372|$ misplaced.|READY
+"$ mal colocado."|$ mal colocado.|pseint/SynCheck.cpp|1374|$ misplaced.|READY
+"Debe haber acciones en la salida por verdadero."|Debe haber acciones en la salida por verdadero.|pseint/SynCheck.cpp|1380|There must be actions in the true branch output.|READY
+"No puede haber más de una expresión ni comentarios."|No puede haber mas de una expresion ni comentarios.|pseint/SynCheck.cpp|1397|There cannot be more than one expression or comments.|READY
+"PSeInt apesta"|PSeInt apesta|pseint/SynCheck.cpp|1405|PSeInt sucks|READY
+"Hieres mis sentimientos :("|Hieres mis sentimientos :(|pseint/SynCheck.cpp|1409|You hurt my feelings :(|READY
+"Solo puede haber un $."|Solo puede haber un $.|pseint/SynCheck.cpp|1455|There can only be one $.|READY
+"Este perfil no admite $."|Este perfil no admite $.|pseint/SynCheck.cpp|1458|This profile does not support $.|READY
+"Debe haber un $."|Debe haber un $.|pseint/SynCheck.cpp|1463|There must be a $.|READY

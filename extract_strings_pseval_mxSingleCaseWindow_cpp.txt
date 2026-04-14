@@ -1,0 +1,4 @@
+"Solución correcta:"|Solucion correcta:|pseval/mxSingleCaseWindow.cpp|34|Correct solution:|READY
+"Tu solución:"|Tu solucion:|pseval/mxSingleCaseWindow.cpp|47|Your solution:|READY
+"Copiar Entrada"|Copiar Entrada|pseval/mxSingleCaseWindow.cpp|56|Copy input|READY
+"Seleccione un caso de prueba:"|Seleccione un caso de prueba:|pseval/mxSingleCaseWindow.cpp|63|Select a test case:|READY

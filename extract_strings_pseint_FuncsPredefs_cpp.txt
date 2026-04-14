@@ -1,0 +1,6 @@
+"Raíz cuadrada de número negativo."|Raiz cuadrada de numero negativo.|pseint/FuncsPredefs.cpp|12|Square root of a negative number.|READY
+"Logaritmo de 0 o negativo."|Logaritmo de 0 o negativo.|pseint/FuncsPredefs.cpp|26|Logarithm of zero or negative number.|READY
+"Argumento inválido para la función ASEN (debe estar en [-1;+1])."|Argumento invalido para la funcion ASEN (debe estar en [-1;+1]).|pseint/FuncsPredefs.cpp|43|Invalid argument for ASIN function (must be in [-1;+1]).|READY
+"Argumento inválido para la función ACOS (debe estar en [-1;+1])."|Argumento invalido para la funcion ACOS (debe estar en [-1;+1]).|pseint/FuncsPredefs.cpp|52|Invalid argument for ACOS function (must be in [-1;+1]).|READY
+"Azar de 0 o negativo."|Azar de 0 o negativo.|pseint/FuncsPredefs.cpp|73|Random value of zero or negative.|READY
+"La cadena (\"%s\") no representa un número."|La cadena (\"%s\") no representa un numero.|pseint/FuncsPredefs.cpp|185|The string (\"%s\") does not represent a number.|READY

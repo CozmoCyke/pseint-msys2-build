@@ -91,7 +91,7 @@ bool mxMainWindow::RunAllTests(const wxString &cmdline, bool for_create) {
 			if (!for_create && pack.GetConfigStr("mostrar casos fallidos")=="primero") {
 				Hide();
 				wxMessageBox(pack.GetConfigStr("mensaje error")
-					+_Z("\n\nA continuación se mostrará un caso de prueba en el que falla."),_Z("Resultado"),wxOK|wxICON_ERROR,NULL);
+					+_Z("\\n\\nA continuacion se mostrara un caso de prueba en el que falla."),_Z("Resultado"),wxOK|wxICON_ERROR,NULL);
 					results_win->Show();
 					return true;
 			}
@@ -102,7 +102,7 @@ bool mxMainWindow::RunAllTests(const wxString &cmdline, bool for_create) {
 		if (for_create||results_wrong) {
 			if (for_create||pack.GetConfigStr("mostrar casos fallidos")=="todos") {
 				if (!for_create) wxMessageBox(pack.GetConfigStr("mensaje error")
-				  +_Z("\n\nA continuación se mostrarán los casos de prueba en los que falla."),_Z("Resultado"),wxOK|wxICON_ERROR,NULL);
+				  +_Z("\\n\\nA continuacion se mostraran los casos de prueba en los que falla."),_Z("Resultado"),wxOK|wxICON_ERROR,NULL);
 					results_win->Show();
 					return true;
 			} else {
@@ -173,7 +173,7 @@ bool mxMainWindow::RunTest(wxString command, TestCase &test, bool for_create) {
 	output.Replace("\r","");
 	solution.Replace("\r","");
 	
-	if (abort_test) output+=_Z("<<<Ejecución interrumpida por el usuario>>>");
+	if (abort_test) output+=_Z("<<<Ejecucion interrumpida por el usuario>>>");
 	
 	if (for_create) solution=output;
 	return output==solution;

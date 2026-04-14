@@ -37,7 +37,7 @@ class Intercambio {
 	
 	RunTime *m_runtime= nullptr;
 	bool running = false;
-	CodeLocation loc, prev_loc;        // Numero de linea e instruccion que se est� ejecutando (base 1)
+	CodeLocation loc, prev_loc;        // Numero de linea e instrucción que se está ejecutando (base 1)
 	std::vector <std::string> Archivo; // Archivo original
 	std::vector <std::string> Errores; // Descripcion de los errores encontrados
 	std::vector <int> Lineas;     // Numeros de lines correspondientes a los errores	
@@ -57,7 +57,7 @@ class Intercambio {
 #endif
 	
 	std::string sbuffer;
-	int delay; // indica el retardo entre instruccion e instruccion para el pasa a paso continuo
+	int delay; // indica el retardo entre instrucción e instrucción para el pasa a paso continuo
 	bool do_continue; // indica si debe continuar la ejecucion  o pausarse
 	bool do_one_step; // si do_continue, indica si continuar solo un paso (en cuyo caso do_continue volvera a ser falso)
 public:
@@ -72,14 +72,14 @@ public:
 #ifdef USE_ZOCKETS
 	void ProcData(std::string order);
 	void ProcInput();
-	void InitDebug(RunTime &runtime, int _delay); // si _delay!=0 inicializa la ejecuci�n paso a paso enviando el hello y esperando la primer instruccion
+	void InitDebug(RunTime &runtime, int _delay); // si _delay!=0 inicializa la ejecución paso a paso enviando el hello y esperando la primer instrucción
 	void SetPort(int p);
 #endif
-	void SetLocation(CodeLocation loc); // define cual es la instruccion que se va a ejecutar a continuacion
-	void SendPositionToGUI(); // avisa a la gui en que instruccion va
-	void SendIOPositionToTerminal(int argNumber); // avisa a la terminal en que instruccion va
-//	void SendLoopPositionToTerminal(); // avisa a la terminal en que instruccion va
-	void SendErrorPositionToTerminal(); // avisa a la terminal en que instruccion va
+	void SetLocation(CodeLocation loc); // define cual es la instrucción que se va a ejecutar a continuacion
+	void SendPositionToGUI(); // avisa a la gui en que instrucción va
+	void SendIOPositionToTerminal(int argNumber); // avisa a la terminal en que instrucción va
+//	void SendLoopPositionToTerminal(); // avisa a la terminal en que instrucción va
+	void SendErrorPositionToTerminal(); // avisa a la terminal en que instrucción va
 	void ChatWithGUI(); // espera respuesta de la gui para avanzar
 	void SendSubtitle(std::string _str); // envia el texto para el subtitulo a la gui
 	
@@ -108,7 +108,7 @@ public:
 	
 };
 
-extern Intercambio Inter;        // clase para enviar informacion de depuraci�n al editor
+extern Intercambio Inter;        // clase para enviar informacion de depuración al editor
 
 // *****************************************************************
 

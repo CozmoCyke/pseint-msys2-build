@@ -19,7 +19,7 @@ END_EVENT_TABLE()
 
 mxConfig::mxConfig(wxWindow *parent, LangSettings &settings )
 	: wxDialog(parent,wxID_ANY,_Z("Opciones del Lenguaje"),wxDefaultPosition,wxDefaultSize,wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER),
-	  lang(settings)
+      lang(settings)
 {
 	lang.source = LS_CUSTOM; lang.name = CUSTOM_PROFILE;
 	
@@ -68,11 +68,12 @@ void mxConfig::OnClose(wxCloseEvent &evt) {
 
 void mxConfig::OnOkButton(wxCommandEvent &evt) {
 	if ((not m_list->IsChecked(LS_WORD_OPERATORS)) and m_list->IsChecked(LS_COLOQUIAL_CONDITIONS))
-		wxMessageBox("No se puede desactivar la opción \"Permitir las palabras Y, O, NO y MOD para los operadores &&, |, ~ y %\" sin desactivar también \"Permitir condiciones en lenguaje coloquial\", por lo que la primera permanecerá activa.");
+	wxMessageBox("No se puede desactivar la opciï¿½n \"Permitir las palabras Y, O, NO y MOD para los operadores &&, |, ~ y %\" sin desactivar tambiï¿½n \"Permitir condiciones en lenguaje coloquial\", por lo que la primera permanecerï¿½ activa.");
+	lang.source = LS_CUSTOM;
+	lang.name = CUSTOM_PROFILE;
 	CopyToStruct(lang);
 	EndModal(1);
 }
-
 void mxConfig::OnCancelButton(wxCommandEvent &evt) {
 	EndModal(0);
 }
@@ -108,13 +109,13 @@ void mxConfig::OnSaveButton (wxCommandEvent & evt) {
 		config->last_dir=wxFileName(dlg.GetPath()).GetPath();
 		LangSettings l(LS_INIT);
 		while(true) {
-//			l.descripcion = _W2S( wxGetTextFromUser(_Z("Ingrese una descripción del perfil (\n"
-//									   		           "incluya materia, carrera, institución\n"
+//			l.descripcion = _W2S( wxGetTextFromUser(_Z("Ingrese una descripciï¿½n del perfil (\n"
+//									   		           "incluya materia, carrera, instituciï¿½n\n"
 //											           "y nombre del docente)."),_Z("Guardar Perfil"),"",this) );
 			
 			wxTextEntryDialog dialog(this, 
-									 _Z("Ingrese una descripción del perfil (incluya materia,\n"
-										"carrera, institución y nombre del docente)."),
+									 _Z("Ingrese una descripciï¿½n del perfil (incluya materia,\n"
+										"carrera, instituciï¿½n y nombre del docente)."),
 									 _Z("Guardar Perfil"),"", wxOK | wxCANCEL | wxTE_MULTILINE);
 			
 			if (dialog.ShowModal() != wxID_OK) return;
@@ -122,7 +123,7 @@ void mxConfig::OnSaveButton (wxCommandEvent & evt) {
 			l.descripcion = _W2S( desc );;
 			if (l.descripcion.empty()) return;
 			if (l.descripcion.size()<10 or (not TodoMayusculas(l.descripcion))) break;
-			wxMessageBox(_Z("¡NO ME GRITE!"),_Z("Por favor"),wxOK|wxICON_ERROR);
+			wxMessageBox(_Z("ï¿½NO ME GRITE!"),_Z("Por favor"),wxOK|wxICON_ERROR);
 		}
 		CopyToStruct(l);
 		l.Save(dlg.GetPath());
@@ -137,4 +138,10 @@ void mxConfig::ReadFromStruct (LangSettings l) {
 void mxConfig::CopyToStruct (LangSettings & l) {
 	for(int i=0;i<LS_COUNT;i++) l[LS_ENUM(i)] = m_list->IsChecked(i);
 }
+
+
+
+
+
+
 

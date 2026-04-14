@@ -17,6 +17,8 @@
 #include "../wxPSeInt/KeywordForms.h"
 #endif
 #include <ctime>
+#include "LocalizationManager.h"
+
 using namespace std;
 
 #ifdef FOR_WXPSEINT
@@ -84,7 +86,7 @@ bool PalabraReservada(const string &str) {
 	LogAuditWord("PalabraReservada", str);
 	#endif
 	// Comprobar que no sea palabra reservada
-	if (lang[LS_WORD_OPERATORS] && (str=="Y" || str=="O" || str=="NO" || str=="MOD"))
+	if (lang[LS_WORD_OPERATORS] && (str==LocalizationManager::Instance().Translate("Y") || str==LocalizationManager::Instance().Translate("O") || str==LocalizationManager::Instance().Translate("NO") || str==LocalizationManager::Instance().Translate("MOD")))
 		return true;
 	if (
 #ifdef FOR_WXPSEINT
@@ -92,11 +94,11 @@ bool PalabraReservada(const string &str) {
 #else
 		IsKeywordAlternative(lang.keywords[KW_LEER], str) || IsKeywordAlternative(lang.keywords[KW_ESCRIBIR], str) || IsKeywordAlternative(lang.keywords[KW_DEFINIR], str) || IsKeywordAlternative(lang.keywords[KW_COMO], str) ||
 #endif
-		str=="MIENTRAS" || str=="HACER" || str=="SEGUN" || str=="VERDADERO" || str=="FALSO" || str=="PARA")
+		IsKeywordAlternative(lang.keywords[KW_MIENTRAS],str) || str==LocalizationManager::Instance().Translate("HACER") || str==LocalizationManager::Instance().Translate("SEGUN") || str==LocalizationManager::Instance().Translate("VERDADERO") || str==LocalizationManager::Instance().Translate("FALSO") || str==LocalizationManager::Instance().Translate("PARA"))
 		return true;
-	if (str=="REPETIR" || str=="SI" || str=="SINO" || str=="ENTONCES" ||   str=="DIMENSION" || str=="PROCESO")
+	if (str==LocalizationManager::Instance().Translate("REPETIR") || str==LocalizationManager::Instance().Translate("SI") || str==LocalizationManager::Instance().Translate("SINO") || str==LocalizationManager::Instance().Translate("ENTONCES") ||   str==LocalizationManager::Instance().Translate("DIMENSION") || str==LocalizationManager::Instance().Translate("PROCESO"))
 		return true;
-	if (str=="FINSI" ||  str=="FINPARA" || str=="FINSEGUN" || str=="FINPROCESO" || str=="FINMIENTRAS" ||  str=="HASTA"
+	if (str==LocalizationManager::Instance().Translate("FINSI") ||  str==LocalizationManager::Instance().Translate("FINPARA") || str==LocalizationManager::Instance().Translate("FINSEGUN") || str==LocalizationManager::Instance().Translate("FINPROCESO") || str==LocalizationManager::Instance().Translate("FINMIENTRAS") ||  str==LocalizationManager::Instance().Translate("HASTA")
 #ifdef FOR_WXPSEINT
 		|| IsKeywordRuntimeWord(KW_DEFINIR, str) || IsKeywordRuntimeWord(KW_COMO, str)
 #else
@@ -104,9 +106,9 @@ bool PalabraReservada(const string &str) {
 #endif
 		)
 		return true;
-	if (str=="FIN" ||  str=="IMPRIMIR" || str=="BORRAR" || str=="LIMPIAR" || str=="PANTALLA" ||  str=="BORRARPANTALLA" || str=="LIMPIARPANTALLA")
+	if (str==LocalizationManager::Instance().Translate("FIN") ||  str==LocalizationManager::Instance().Translate("IMPRIMIR") || str==LocalizationManager::Instance().Translate("BORRAR") || str==LocalizationManager::Instance().Translate("LIMPIAR") || str==LocalizationManager::Instance().Translate("PANTALLA") ||  str==LocalizationManager::Instance().Translate("BORRARPANTALLA") || str==LocalizationManager::Instance().Translate("LIMPIARPANTALLA"))
 		return true;
-	if (str=="SIN" || str=="BAJAR" || str=="SINBAJAR" || str=="SALTAR" || str=="SINSALTAR")
+	if (str==LocalizationManager::Instance().Translate("SIN") || str==LocalizationManager::Instance().Translate("BAJAR") || str==LocalizationManager::Instance().Translate("SINBAJAR") || str==LocalizationManager::Instance().Translate("SALTAR") || str==LocalizationManager::Instance().Translate("SINSALTAR"))
 		return true;
 	return false;
 }
@@ -279,13 +281,13 @@ bool AplicarTipo(RunTime &rt, const string &expresion, int &p1, int &p2, tipo_va
 #ifdef LOG_EVALUAR
 	static int tabs=0;
 	DataValue ev_aux(const DataValue &a,int &tabs)
-	{ cerr<<setw(tabs)<<""<<"RET: *"<<(a.GetForUser())<<"*\n"; tabs-=2; return a;}
+	{ cerr<<setw(tabs)<<""<<LocalizationManager::Instance().Translate("RET: *")<<(a.GetForUser())<<"*\n"; tabs-=2; return a;}
 #	define ev_return(a) return ev_aux(a,tabs)
 #else
 #	define ev_return(a) return a
 #endif
 
-// estructura auxiliar para la funcion EvaluarFuncion, para que el destructor del objeto libere la memoria si la funci�n aborta de forma temprana, entre otras cosas
+// estructura auxiliar para la función EvaluarFuncion, para que el destructor del objeto libere la memoria si la función aborta de forma temprana, entre otras cosas
 // cppcheck-suppress noCopyConstructor
 struct ActualArgs { 
 	DataValue *values;
@@ -311,14 +313,14 @@ DataValue EvaluarFuncion(RunTime &rt, const std::string &func_name, const string
 DataValue EvaluarFuncion(RunTime &rt, const Funcion *func, const string &argumentos, const tipo_var &forced_tipo, bool for_expresion) {
 	ErrorHandler &err_handler = rt.err;
 	if (for_expresion && func->GetTipo(0)==vt_error) {
-		err_handler.AnytimeError(278,MkErrorMsg("El subproceso ($) no devuelve ning�n valor.",func->id));
+		err_handler.AnytimeError(278,MkErrorMsg(LocalizationManager::Instance().Translate("El subproceso ($) no devuelve ningun valor."),func->id));
 		return DataValue::MakeError();
 	}
 	// controlar cantidad de argumentos
 	int b=0,ca=argumentos[1]==')'?0:1, l=argumentos.length()-1;
 	if (ca==1) while ((b=BuscarComa(argumentos,b+1,l))>0) ca++;
 	if (func->GetArgsCount()!=ca) {
-		err_handler.AnytimeError(279,MkErrorMsg("Cantidad de argumentos incorrecta para el subproceso ($).",func->id));
+		err_handler.AnytimeError(279,MkErrorMsg(LocalizationManager::Instance().Translate("Cantidad de argumentos incorrecta para el subproceso ($)."),func->id));
 		return DataValue(func->GetTipo(0));
 	}
 	// parsear argumentos
@@ -329,13 +331,13 @@ DataValue EvaluarFuncion(RunTime &rt, const Funcion *func, const string &argumen
 		if (b2==-1) b2=l;
 		int p1=b+1, p2=b2-1; b=b2;
 		if (!AplicarTipo(rt,argumentos,p1,p2,func->tipos[i+1])) {
-			err_handler.AnytimeError(280,MkErrorMsg("Tipo de dato incorrecto en el argumento $ ($).",std::to_string(i+1),argumentos.substr(p1,p2-p1+1)));
+			err_handler.AnytimeError(280,MkErrorMsg(LocalizationManager::Instance().Translate("Tipo de dato incorrecto en el argumento $ ($)."),std::to_string(i+1),argumentos.substr(p1,p2-p1+1)));
 			return DataValue(forced_tipo); // deberiamos retorar error?
 		} else {
 			string arg_actual = argumentos.substr(p1,p2-p1+1);
 			if (EsArreglo(arg_actual)) { // los arreglos siempre pasan por referencia
 				if (func->pasajes[i+1]==PP_VALOR) { // si la funcion explicita por valor, error
-					err_handler.AnytimeError(281,MkErrorMsg("Los arreglos solo pueden pasarse a subprocesos/funciones por referencia ($).",arg_actual));
+					err_handler.AnytimeError(281,MkErrorMsg(LocalizationManager::Instance().Translate("Los arreglos solo pueden pasarse a subprocesos/funciones por referencia ($)."),arg_actual));
 					return DataValue(forced_tipo);
 				}
 				args.pasajes[i] = PP_REFERENCIA;
@@ -343,7 +345,7 @@ DataValue EvaluarFuncion(RunTime &rt, const Funcion *func, const string &argumen
 			} else if (func->pasajes[i+1]==PP_REFERENCIA) {
 #ifndef _FOR_PSEXPORT
 				if ((not SirveParaReferencia(rt,arg_actual)) and (not ignore_logic_errors)) { // puede ser el nombre de un arreglo suelto, para pasar por ref, y el evaluar diria que faltan los subindices
-					err_handler.AnytimeError(268,MkErrorMsg("No puede utilizar una expresi�n en un pasaje por referencia ($).",arg_actual));
+					err_handler.AnytimeError(268,MkErrorMsg(LocalizationManager::Instance().Translate("No puede utilizar una expresion en un pasaje por referencia ($)."),arg_actual));
 					return DataValue(forced_tipo);
 				}
 #endif
@@ -363,7 +365,7 @@ DataValue EvaluarFuncion(RunTime &rt, const Funcion *func, const string &argumen
 		for(int i=0;i<func->GetArgsCount();i++)
 			if (args.values[i].CanBeString() && EsArreglo(args.values[i].GetAsString())) {
 				/// @todo: mejorar esto, podria querer funciones predefinidas que reciban arreglos, tipo sizeof
-				err_handler.AnytimeError(282,MkErrorMsg("La funci�n espera un �nico valor, pero recibe un arreglo ($).",args.values[i].GetAsString()));
+				err_handler.AnytimeError(282,MkErrorMsg(LocalizationManager::Instance().Translate("La funcion espera un unico valor, pero recibe un arreglo ($)."),args.values[i].GetAsString()));
 				return DataValue(forced_tipo);
 			}
 		ret = func->func(err_handler,args.values);
@@ -392,7 +394,7 @@ DataValue EvaluarFuncion(RunTime &rt, const Funcion *func, const string &argumen
 #endif
 	}
 	if (!ret.type.set(forced_tipo)) 
-		err_handler.AnytimeError(283,"No coinciden los tipos.");
+		err_handler.AnytimeError(283,LocalizationManager::Instance().Translate("No coinciden los tipos."));
 	return ret;
 }
 
@@ -400,13 +402,13 @@ DataValue Evaluar(RunTime &rt, const string &expresion, int &p1, int &p2, const 
 	ErrorHandler &err_handler = rt.err;
 #ifdef LOG_EVALUAR
 	tabs+=2;
-	cerr<<setw(tabs)<<""<<"EVALUAR: {"<<expresion.substr(p1,p2-p1+1)<<"}\n";
+	cerr<<setw(tabs)<<""<<LocalizationManager::Instance().Translate("EVALUAR: {")<<expresion.substr(p1,p2-p1+1)<<"}\n";
 #endif
 	int pos_op = BuscarOperador(expresion,p1,p2);
 	if (pos_op!=-1 and (expresion[pos_op]==',' || expresion[pos_op]==' ')) {
 		/// @todo: por ahora este es el unico caso donde se usa desc... 
 		///        quitar de aca y que el cliente lo agregue a la lista de errores como nuevo item nota
-		err_handler.AnytimeError(284,MkErrorMsg("Se esperaba solo una expresi�n$.",desc?desc:"",true)); 
+		err_handler.AnytimeError(284,MkErrorMsg(LocalizationManager::Instance().Translate("Se esperaba solo una expresion$."),desc?desc:"",true)); 
 		return DataValue::MakeError(); 
 	}
 	if (pos_op==-1/* || pos_op==p1*/) { // si no hay operador, es constante o variable
@@ -417,7 +419,7 @@ DataValue Evaluar(RunTime &rt, const string &expresion, int &p1, int &p2, const 
 		} else if ( (c>='0'&&c<='9') || c=='.' || c=='-' || c=='+') { // si empieza con un numero o un punto, es nro
 			std::string val = expresion.substr(p1,p2-p1+1);	
 			if (TooManyDigits(val))
-				err_handler.CompileTimeWarning(329,"Posible p�rdida de precisi�n (demasiados d�gitos)");
+				err_handler.CompileTimeWarning(329,LocalizationManager::Instance().Translate("Posible perdida de precision (demasiados digitos)"));
 			ev_return( DataValue::MakeReal(val) );
 		} else if (expresion.substr(p1,p2-p1+1)==VERDADERO || expresion.substr(p1,p2-p1+1)==FALSO) { // veradero o falso, logica
 			ev_return( DataValue::MakeLogic(expresion.substr(p1,p2-p1+1)) );
@@ -427,13 +429,13 @@ DataValue Evaluar(RunTime &rt, const string &expresion, int &p1, int &p2, const 
 			if (pm==string::npos) { // si es una variable comun
 				string nombre = expresion.substr(p1,p2-p1+1);
 				if (!Inter.IsRunning() && (PalabraReservada(nombre) || nombre==rt.funcs.GetMainName())) {
-					err_handler.AnytimeError(285,MkErrorMsg("Identificador no v�lido ($).",nombre));
+					err_handler.AnytimeError(285,MkErrorMsg(LocalizationManager::Instance().Translate("Identificador no valido ($)."),nombre));
 					ev_return(DataValue::MakeError());
 				}
 				const Funcion *func = rt.funcs.GetFunction(nombre,false);
 				if (func) {
 					if (func->GetArgsCount()!=0) {
-						err_handler.AnytimeError(286,MkErrorMsg("Faltan par�metros para la funci�n ($).",nombre));
+						err_handler.AnytimeError(286,MkErrorMsg(LocalizationManager::Instance().Translate("Faltan parametros para la funcion ($)."),nombre));
 						ev_return(DataValue::MakeError());
 					} else {
 						DataValue res = EvaluarFuncion(rt, func,"()",forced_tipo);
@@ -441,16 +443,16 @@ DataValue Evaluar(RunTime &rt, const string &expresion, int &p1, int &p2, const 
 					}
 				}
 				if (memoria->LeerDims(nombre)) { // usar leertipo trae problemas cuando la variable es un alias a un elemento de un arreglo
-					err_handler.AnytimeError(220,MkErrorMsg("Faltan subindices para el arreglo ($).",nombre));
+					err_handler.AnytimeError(220,MkErrorMsg(LocalizationManager::Instance().Translate("Faltan subindices para el arreglo ($)."),nombre));
 					ev_return(DataValue::MakeError());
 				}
 				DataValue res;
 				if (lang[LS_FORCE_DEFINE_VARS] && Inter.IsRunning() && !memoria->EstaDefinida(nombre)) {
-					err_handler.AnytimeError(210,MkErrorMsg("Variable no definida ($).",nombre));
+					err_handler.AnytimeError(210,MkErrorMsg(LocalizationManager::Instance().Translate("Variable no definida ($)."),nombre));
 					ev_return(DataValue::MakeError());
 				}
 				if ((lang[LS_FORCE_INIT_VARS] || Inter.EvaluatingForDebug()) && Inter.IsRunning() && !memoria->EstaInicializada(nombre)) {
-					err_handler.AnytimeError(215,MkErrorMsg("Variable no inicializada ($).",nombre));
+					err_handler.AnytimeError(215,MkErrorMsg(LocalizationManager::Instance().Translate("Variable no inicializada ($)."),nombre));
 					ev_return(DataValue::MakeError());
 				}
 				res = memoria->Leer(nombre);
@@ -463,17 +465,17 @@ DataValue Evaluar(RunTime &rt, const string &expresion, int &p1, int &p2, const 
 					ev_return(res);
 				} else {
 					if (PalabraReservada(nombre)) {
-						err_handler.AnytimeError(287,MkErrorMsg("Identificador no v�lido ($).",nombre));
+						err_handler.AnytimeError(287,MkErrorMsg(LocalizationManager::Instance().Translate("Identificador no valido ($)."),nombre));
 						ev_return(DataValue::MakeError());
 					}
 					if (lang[LS_FORCE_DEFINE_VARS] && Inter.IsRunning() && !memoria->EstaDefinida(nombre)) {
-						err_handler.AnytimeError(209,MkErrorMsg("Variable no definida ($).",nombre));
+						err_handler.AnytimeError(209,MkErrorMsg(LocalizationManager::Instance().Translate("Variable no definida ($)."),nombre));
 						ev_return(DataValue::MakeError());
 					}
 					string aux=expresion.substr(p1,p2-p1+1);
 					if (CheckDims(rt,aux)) {
 						if (lang[LS_FORCE_INIT_VARS] && Inter.IsRunning() && !memoria->EstaInicializada(aux)) {
-							err_handler.AnytimeError(288,MkErrorMsg("Posici�n no inicializada ($).",aux));
+							err_handler.AnytimeError(288,MkErrorMsg(LocalizationManager::Instance().Translate("Posicion no inicializada ($)."),aux));
 							ev_return(DataValue::MakeError());
 						}
 						DataValue res = memoria->Leer(aux);
@@ -493,7 +495,7 @@ DataValue Evaluar(RunTime &rt, const string &expresion, int &p1, int &p2, const 
 		tipo_var td2 = DeterminarTipo(rt,expresion,p2a,p2b);
 		if ((op!='~'&&!td1.is_ok()) || !td2.is_ok()) { 
 			// DeterminarTipo no informa el error (ni al usuario ni impide la ejecucion)
-			// los evaluar que siguen est�n para que ese error se manifieste
+			// los evaluar que siguen están para que ese error se manifieste
 			if (op!='~') Evaluar(rt,expresion,p1a,p1b, vt_desconocido,desc);
 			Evaluar(rt,expresion,p2a,p2b, vt_desconocido,desc);
 			ev_return(DataValue::MakeError());
@@ -531,9 +533,9 @@ DataValue Evaluar(RunTime &rt, const string &expresion, int &p1, int &p2, const 
 					return ret;
 				}
 				if (p2a>p2) // tal vez nunca se llegue a este error, porque lo detecta en otro lado
-					err_handler.AnytimeError(290,"Falta operando para la negaci�n (~/NO).");
+					err_handler.AnytimeError(290,LocalizationManager::Instance().Translate("Falta operando para la negacion (~/NO)."));
 				if (td2!=vt_logica && !AplicarTipo(rt,expresion,p2a,p2,vt_logica)) { 
-					err_handler.AnytimeError(291,"No coinciden los tipos (~ o NO). El operando deben ser l�gico.");
+					err_handler.AnytimeError(291,LocalizationManager::Instance().Translate("No coinciden los tipos (~ o NO). El operando deben ser logico."));
 					ev_return(DataValue::MakeError());
 				}
 				DataValue s2 = Evaluar(rt,expresion,p2a,p2b,vt_logica,desc);
@@ -553,7 +555,7 @@ DataValue Evaluar(RunTime &rt, const string &expresion, int &p1, int &p2, const 
 					AplicarTipo(rt,expresion,p1a,p1b,vt_caracter_o_numerica);
 				}
 				if (!td1.is_ok() || !td2.is_ok()) { 
-					err_handler.AnytimeError(292,"No coinciden los tipos (<, >, <= o >=). Los operandos no deben ser logicos.");
+					err_handler.AnytimeError(292,LocalizationManager::Instance().Translate("No coinciden los tipos (<, >, <= o >=). Los operandos no deben ser logicos."));
 					ev_return(DataValue::MakeError());
 				}
 			}
@@ -567,10 +569,10 @@ DataValue Evaluar(RunTime &rt, const string &expresion, int &p1, int &p2, const 
 				}
 			} else { // se conoce t1
 				if (!td2.is_known()) { // t2 no
-					t=td1; /*int p2b=p2;*/ // �por que se redefinia p2b???
+					t=td1; /*int p2b=p2;*/ // ¿por que se redefinia p2b???
 					if (!AplicarTipo(rt,expresion,p2a,p2b,td1)) { ev_return(DataValue::MakeError()); }
 				} else if (td1!=td2) {// t2 no coincide
-					err_handler.AnytimeError(207,"No coinciden los tipos (<, >, <=, >=, <> o =). No se puede comparar variables o expresiones de distinto tipo.");
+					err_handler.AnytimeError(207,LocalizationManager::Instance().Translate("No coinciden los tipos (<, >, <=, >=, <> o =). No se puede comparar variables o expresiones de distinto tipo."));
 					ev_return(DataValue::MakeError()); 
 				}
 			}
@@ -607,7 +609,7 @@ DataValue Evaluar(RunTime &rt, const string &expresion, int &p1, int &p2, const 
 					} else if (op=='=') {
 						ev_return(DataValue::MakeLogic((s1.GetAsBool())==(s2.GetAsBool())));
 					} else {
-						/// @todo: ver si todav�a es �til que devuelva tipo error pero valor valido
+						/// @todo: ver si todavía es útil que devuelva tipo error pero valor valido
 						DataValue res = DataValue::MakeLogic(false);
 						res.type = vt_error;
 						ev_return(res);
@@ -634,11 +636,11 @@ DataValue Evaluar(RunTime &rt, const string &expresion, int &p1, int &p2, const 
 		case '+':
 			if (lang[LS_ALLOW_CONCATENATION]) {
 				if (td1.can_be(vt_logica) && !AplicarTipo(rt,expresion,p1a,p1b,vt_caracter_o_numerica)) {
-					err_handler.AnytimeError(293,"No coinciden los tipos (+). Los operandos deben ser numericos o caracter.");
+					err_handler.AnytimeError(293,LocalizationManager::Instance().Translate("No coinciden los tipos (+). Los operandos deben ser numericos o caracter."));
 					ev_return(DataValue::MakeError());
 				} else td1.set(vt_caracter_o_numerica);
 				if (td2.can_be(vt_logica) && !AplicarTipo(rt,expresion,p2a,p2b,vt_caracter_o_numerica)) {
-					err_handler.AnytimeError(294,"No coinciden los tipos (+). Los operandos deben ser numericos o caracter.");
+					err_handler.AnytimeError(294,LocalizationManager::Instance().Translate("No coinciden los tipos (+). Los operandos deben ser numericos o caracter."));
 					ev_return(DataValue::MakeError());
 				} else td2.set(vt_caracter_o_numerica);
 				if (td1!=td2) {
@@ -646,7 +648,7 @@ DataValue Evaluar(RunTime &rt, const string &expresion, int &p1, int &p2, const 
 					td1.set(td2);
 					td2.set(td1);
 					if (!td1.is_ok() || !td2.is_ok() || (ot1!=td1 && !AplicarTipo(rt,expresion,p1a,p1b,td1)) || (ot2!=td2 && !AplicarTipo(rt,expresion,p2a,p2b,td2)) || td1!=td2) {
-						err_handler.AnytimeError(295,"No coinciden los tipos (+). Los operandos deben ser de igual tipo.");
+						err_handler.AnytimeError(295,LocalizationManager::Instance().Translate("No coinciden los tipos (+). Los operandos deben ser de igual tipo."));
 						ev_return(DataValue::MakeError());
 					}
 				}
@@ -657,9 +659,9 @@ DataValue Evaluar(RunTime &rt, const string &expresion, int &p1, int &p2, const 
 				DataValue s1 = Evaluar(rt,expresion,p1a,p1b,tipo,desc);
 				DataValue s2 = Evaluar(rt,expresion,p2a,p2b,tipo,desc);
 				// esta comprobacion parece redundante segun los tests... si no le paso el tipo a los evaluar
-				// anteriores, se torna util... hay algun caso en que todav�a sirva???
+				// anteriores, se torna util... hay algun caso en que todavía sirva???
 				if (!s1.type.set(s2.type) || !s2.type.set(s1.type)) {
-					err_handler.AnytimeError(295,"No coinciden los tipos (+). Los operandos deben ser de igual tipo.");
+					err_handler.AnytimeError(295,LocalizationManager::Instance().Translate("No coinciden los tipos (+). Los operandos deben ser de igual tipo."));
 					ev_return(DataValue::MakeError());
 				}
 				if (tipo==vt_caracter) { ev_return( DataValue::MakeString(s1.GetAsString()+s2.GetAsString()) ); }
@@ -671,7 +673,7 @@ DataValue Evaluar(RunTime &rt, const string &expresion, int &p1, int &p2, const 
 			if ((td1!=vt_numerica && !AplicarTipo(rt,expresion,p1a,p1b,vt_numerica)) ||
 				(td2!=vt_numerica && !AplicarTipo(rt,expresion,p2a,p2b,vt_numerica))) 
 			{
-				err_handler.AnytimeError(213,"No coinciden los tipos (+, -, *, /, ^, % o MOD). Los operandos deben ser numericos.");
+				err_handler.AnytimeError(213,LocalizationManager::Instance().Translate("No coinciden los tipos (+, -, *, /, ^, % o MOD). Los operandos deben ser numericos."));
 				ev_return(DataValue::MakeError());
 			}
 			// evaluar operandos
@@ -689,7 +691,7 @@ DataValue Evaluar(RunTime &rt, const string &expresion, int &p1, int &p2, const 
 					/// @todo: ver si tiene sentido.... lo mismo que arriba
 					DataValue retval = DataValue::MakeReal(0);
 					if (Inter.IsRunning()) {
-						err_handler.AnytimeError(296,time(nullptr)%60?"Division por cero":"Solo Chuck Norris puede dividir por cero!");
+						err_handler.AnytimeError(296,time(nullptr)%60?LocalizationManager::Instance().Translate("Division por cero"):LocalizationManager::Instance().Translate("Solo Chuck Norris puede dividir por cero!"));
 						retval.type=vt_error;	
 					}
 					ev_return(retval);
@@ -699,13 +701,13 @@ DataValue Evaluar(RunTime &rt, const string &expresion, int &p1, int &p2, const 
 				res=o1*o2;
 			} else if (op=='%') {
 				if ((not IsInteger(o1)) or (not IsInteger(o2))) {
-					err_handler.AnytimeError(298,"Los operandos para el operador MOD deben ser enteros");
+					err_handler.AnytimeError(298,LocalizationManager::Instance().Translate("Los operandos para el operador MOD deben ser enteros"));
 					ev_return(DataValue::MakeError());
 				} else if (o2==0) {
 					/// @todo: ver.... lo mismo que antes
 					DataValue retval = DataValue::MakeReal(0);
 					if (Inter.IsRunning()) {
-						err_handler.AnytimeError(316,"El segundo operando para el operador MOD no puede ser cero");
+						err_handler.AnytimeError(316,LocalizationManager::Instance().Translate("El segundo operando para el operador MOD no puede ser cero"));
 						retval.type = vt_error;
 					}
 					ev_return(retval);
@@ -722,10 +724,10 @@ DataValue Evaluar(RunTime &rt, const string &expresion, int &p1, int &p2, const 
 	ev_return(DataValue::MakeError());
 }
 
-// wrapper para llamar al Evaluar que sigue desde SynCheck, para que verifique que no falten operandos al principio o al final, y aplique los tipos solo si la evaluaci�n es correcta
+// wrapper para llamar al Evaluar que sigue desde SynCheck, para que verifique que no falten operandos al principio o al final, y aplique los tipos solo si la evaluación es correcta
 DataValue EvaluarSC(RunTime &rt, string expresion, const tipo_var &forced_tipo, const char *desc) {
 	if (ignore_logic_errors) { return DataValue(forced_tipo); }
-	// primero evalua sin importar de que tipo deberia ser (para que el error de tipo lo d� afuera, mejor contextualizado)
+	// primero evalua sin importar de que tipo deberia ser (para que el error de tipo lo dé afuera, mejor contextualizado)
 	int p1=0, p2=expresion.size()-1;
 	DataValue retval = Evaluar(rt,expresion,p1,p2,forced_tipo,desc);
 	// si no habia nada raro, aplica el tipo a las variables
@@ -755,13 +757,13 @@ bool CheckDims(RunTime &rt, string &str) {
 #ifdef _FOR_PSEXPORT
 		// cuando una expresion con un arreglo se utiliza desde un subproceso, la dimension del mismo
 		// no esta en el subproceso y entonces no se sabe, pero es neceria para exportar, por ejemplo
-		// para las cabeceras de las funciones en C++, as� que al menos con esto detectamos que se trata
-		// de un arreglo, y sabemos la cantidad de dimensiones, aunque no sepamos sus tama�os
+		// para las cabeceras de las funciones en C++, así que al menos con esto detectamos que se trata
+		// de un arreglo, y sabemos la cantidad de dimensiones, aunque no sepamos sus tamaños
 		int b=pp+1,ca=1; while ((b=BuscarComa(str,b+1,p2))>0) ca++;
 		int *dims=new int[ca+1]; for(int i=0;i<ca;i++) dims[i+1]=0; dims[0]=ca;
 		memoria->AgregarArreglo(nombre,dims);
 #endif
-		rt.err.AnytimeError(202,MkErrorMsg("El identificador $ no corresponde a un arreglo o subproceso",str.substr(0,pp))); /// @todo: ver que hacer cuando se llama desde psexport, porque genera errores falsos
+		rt.err.AnytimeError(202,MkErrorMsg(LocalizationManager::Instance().Translate("El identificador $ no corresponde a un arreglo o subproceso"),str.substr(0,pp))); /// @todo: ver que hacer cuando se llama desde psexport, porque genera errores falsos
 		return false;
 	}
 	if (!Inter.IsRunning()) {
@@ -779,7 +781,7 @@ bool CheckDims(RunTime &rt, string &str) {
 		}
 		// controlar cantidad de dimensiones
 		if (adims[0]!=ca) {
-			rt.err.AnytimeError(299,MkErrorMsg("Cantidad de indices incorrecta para el arreglo ($).",nombre));
+			rt.err.AnytimeError(299,MkErrorMsg(LocalizationManager::Instance().Translate("Cantidad de indices incorrecta para el arreglo ($)."),nombre));
 			return false;
 		}
 		
@@ -810,7 +812,7 @@ bool CheckDims(RunTime &rt, string &str) {
 	
 	int b=pp,ca=1; while ((b=BuscarComa(str,b+1,p2))>0) ca++;
 	if (adims[0]!=ca) {
-		rt.err.AnytimeError(300,MkErrorMsg("Cantidad de indices incorrecta para el arreglo ($).",nombre));
+		rt.err.AnytimeError(300,MkErrorMsg(LocalizationManager::Instance().Translate("Cantidad de indices incorrecta para el arreglo ($)."),nombre));
 		return false;
 	}
 	nombre+="(";
@@ -821,17 +823,17 @@ bool CheckDims(RunTime &rt, string &str) {
 		if (!ret.IsOk()) return false;
 		int idx = ret.GetAsInt();
 		if (int(ret.GetAsReal())!=idx) {
-			err_handler.AnytimeError(301,MkErrorMsg("Subindice no entero ($).",ret.GetForUser()));
+			err_handler.AnytimeError(301,MkErrorMsg(LocalizationManager::Instance().Translate("Subindice no entero ($)."),ret.GetForUser()));
 			return false;
 		}
 		if (lang[LS_BASE_ZERO_ARRAYS]) {
 			if (idx<0||idx>adims[i+1]-1) {
-				err_handler.AnytimeError(302,MkErrorMsg("Subindice ($) fuera de rango (0...$).",ret.GetForUser(),IntToStr(adims[i+1]-1)));
+				err_handler.AnytimeError(302,MkErrorMsg(LocalizationManager::Instance().Translate("Subindice ($) fuera de rango (0...$)."),ret.GetForUser(),IntToStr(adims[i+1]-1)));
 				return false;
 			}
 		} else {
 			if (idx<1||idx>adims[i+1]) {
-				err_handler.AnytimeError(303,MkErrorMsg("Subindice ($) fuera de rango (1...$).",ret.GetForUser(),IntToStr(adims[i+1])));
+				err_handler.AnytimeError(303,MkErrorMsg(LocalizationManager::Instance().Translate("Subindice ($) fuera de rango (1...$)."),ret.GetForUser(),IntToStr(adims[i+1])));
 				return false;
 			}
 		}

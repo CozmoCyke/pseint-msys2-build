@@ -12,7 +12,7 @@ class RunTime;
 void show_user_info(std::string msg);
 void show_user_info(std::string msg1, int num, std::string msg2);
 
-// ***************** Control de Errores y Depuración **********************
+// ***************** Control de Errores y DepuraciÃ³n **********************
 
 // ------------------------------------------------------------
 //    Informa un error en tiempo de ejecucion
@@ -73,7 +73,7 @@ std::string CutString(std::string s, int a, int b=0);
 // determina si una letra puede ser parte de una palabra clave o identificador
 bool parteDePalabra(char c) ;
 
-// corrige diferencias entre la codificación que usa pseint (ascii pelado) y la de la consola de windows
+// corrige diferencias entre la codificaciÃ³n que usa pseint (ascii pelado) y la de la consola de windows
 void fixwincharset(std::string &s, bool reverse=false);
 
 

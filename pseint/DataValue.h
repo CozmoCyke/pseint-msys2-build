@@ -10,9 +10,9 @@
 #define VERDADERO "VERDADERO"
 
 #if 1
-// preferirÌa usar las implementaciones del else, basadas en from_chars y to_chars,
+// preferir√≠a usar las implementaciones del else, basadas en from_chars y to_chars,
 // pero en el SDK para mac que uso solo estan las versiones para enteros
-// y en el gcc del mint (7.x) ni est· el header
+// y en el gcc del mint (7.x) ni est√° el header
 inline double StrToDbl(const std::string &s) {
 	return atof(s.c_str());
 }
@@ -55,7 +55,7 @@ inline std::string DblToStr(double d) {
 inline std::string DblToStr(double d, bool low) {
 	_expects(low);
 	char buf[512]; // DBL_MAX ocupa 310 caracteres
-	sprintf(buf,"%.10f",d); // version de baja precisiÛn, se deberÌa usar solo para mostrar
+	sprintf(buf,"%.10f",d); // version de baja precisi√≥n, se deber√≠a usar solo para mostrar
 	// eliminar los ceros que sobren y el punto si era entero
 	int i=0; while (buf[i]!=0) i++;
 	while (buf[--i]=='0'); // contar ceros de atras para adelante
@@ -66,13 +66,13 @@ inline std::string DblToStr(double d, bool low) {
 }
 
 /// @todo: usar to_chars/from_chars aca tambien
-// en este caso el cambio no es crÌtico, no hay problemas de redondeo cuando son enteros
+// en este caso el cambio no es cr√≠tico, no hay problemas de redondeo cuando son enteros
 inline int StrToInt(const std::string &s) {
 	return atoi(s.c_str());
 }
 
 inline std::string IntToStr(int l) {
-	char buf[4*sizeof(int)]; // para un long de 64bits, el m·s largo tiene 20 cifras y estarÌa reservando 32
+	char buf[4*sizeof(int)]; // para un long de 64bits, el m√°s largo tiene 20 cifras y estar√≠a reservando 32
 	sprintf(buf,"%i",l);
 	return buf;
 }
@@ -96,7 +96,7 @@ public:
 	bool rounded = false; // para cuando se definen como enteras
 	bool defined = false; // para saber si fueron definidas explicitamente (definir...)
 	bool used = false; // para saber si fue usada, asignada, leida, algo que no sea dimensionada o definida explicitamente, lo setean Escribir y LeerValor
-	bool read_only = false; // para saber si el usuario puede modificarla (ej, el contador de un para serÌa read-only para el usuario, solo lo modifica el para)
+	bool read_only = false; // para saber si el usuario puede modificarla (ej, el contador de un para ser√≠a read-only para el usuario, solo lo modifica el para)
 	tipo_var() {}
 	tipo_var(bool l, bool n, bool c, bool r=false):cb_log(l),cb_num(n),cb_car(c),rounded(r) {}
 	bool set(const tipo_var &v) {
@@ -142,7 +142,7 @@ public:
 		dims=t.dims;
 		return *this;
 	}
-	void reset() { // para borrar la informaciÛn que genera el analisis sint·ctico antes de la ejecuciÛn y que no debe pasar a la ejecuciÛn
+	void reset() { // para borrar la informaci√≥n que genera el an√°lisis sint√°ctico antes de la ejecuci√≥n y que no debe pasar a la ejecuci√≥n
 		read_only=defined=used=enabled=false;
 		if (dims) { delete [] dims; dims=NULL; }
 	}
@@ -182,7 +182,7 @@ struct DataValue {
 	bool IsReal() const   { return !type.cb_log &&  type.cb_num && !type.cb_car; }
 	bool IsString() const { return !type.cb_log && !type.cb_num &&  type.cb_car; }
 	
-	// estos mÈtodos se implementan abajo para poder definir un std::get alternativo para mac os
+	// estos m√©todos se implementan abajo para poder definir un std::get alternativo para mac os
 	bool GetAsBool() const;
 	double GetAsReal() const;
 	int GetAsInt() const;

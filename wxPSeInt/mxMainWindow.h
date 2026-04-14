@@ -84,7 +84,7 @@ private:
 	
 public:
 	
-	mxSource *NewProgram(const wxString &title="<sin_titulo>");
+	mxSource *NewProgram(const wxString &title="<no_name>");
 	mxSource *OpenProgram(wxString path, bool is_example=false);
 	mxSource *OpenTestPackage(const wxString &path);
 	mxTestPanel *GetTestPanel() { return test_panel; }

@@ -161,7 +161,7 @@ namespace std {
 // de cada tipo de instruccion sin tener que saber su tipo (el del struct), ni
 // como se llama el atributo, o si es herencia, o lo que sea...
 // simplemente: auto &impl = getImpl<IT_LEER>(inst);
-// siempre que algo varía con el tipo de instrucción, mejor que el código cliente
+// siempre que algo varia con el tipo de instruccion, mejor que el codigo cliente
 // dependa solo del enum InstruccionType y el resto de los detalles queden escondidos
 template<int IT_ALGO> struct InstImplHelper { };
 template<> struct InstImplHelper<IT_ASIGNAR>   { static auto& get(Instruccion &inst) { return std::get<Instruccion::IAsignar>   (inst.impl); } };

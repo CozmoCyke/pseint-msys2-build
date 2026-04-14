@@ -60,7 +60,7 @@ class Memoria {
 public:
 	// cppcheck-suppress uninitMemberVar
 	Memoria(const Funcion *parent):funcion(parent){} // guarda el puntero a su scope para usar en EsArgumento
-	bool EsArgumento(const std::string &nom) const; // determina si un nombre dado es uno de los argumentos de la función actual o no
+	bool EsArgumento(const std::string &nom) const; // determina si un nombre dado es uno de los argumentos de la funciÃ³n actual o no
 	void HardReset() {
 		var_value.clear();
 		var_info.clear();

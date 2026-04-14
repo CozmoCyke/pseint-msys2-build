@@ -35,6 +35,7 @@ ALEATORIO={minimum value}, {maximum value}
 AZAR={positive integer numeric expression (maximum possible value +1)}
 TRUNC={numeric expression}
 REDON={numeric expression}
+ROUND={numeric expression}
 RC={non-negative numeric expression}
 RAIZ={non-negative numeric expression}
 ABS={numeric expression}

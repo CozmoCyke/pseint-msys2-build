@@ -1000,10 +1000,10 @@ void mxSource::MessageReadOnly() {
 	static wxDateTime last_msg=wxDateTime((time_t)0);
 	if (wxDateTime::Now().Subtract(last_msg).GetSeconds()>0) {
 		if (flow_socket) {
-			wxMessageBox(_Z("Cierre la ventana del editor de diagramas de flujo para este algortimo, antes de continuar editando el pseudoc�digo."));
+			wxMessageBox(_Z("Cierre la ventana del editor de diagramas de flujo para este algortimo, antes de continuar editando el pseudocódigo."));
 			flow_socket->Write("raise\n",6); 
 		}
-		else if (!is_example) wxMessageBox(_Z("No se puede modificar el pseudoc�digo mientras est� siendo ejecutado paso a paso."));
+		else if (!is_example) wxMessageBox(_Z("No se puede modificar el pseudocódigo mientras est� siendo ejecutado paso a paso."));
 		else wxMessageBox(_Z("No se permite modificar los ejemplos, pero puede copiarlo y pegarlo en un nuevo archivo."));
 	}
 	last_msg=wxDateTime::Now();
@@ -1024,7 +1024,7 @@ void mxSource::SetExample() {
 			int p2=aux.Index('}');
 			if (p2==wxNOT_FOUND) {
 				_LOG("mxSource::SetExample ERROR 1 parsing example: "<<page_text);
-				wxMessageBox(_Z("Ha ocurrido un error al procesar el ejemplo. Puede que el pseudoc�digo no sea correcto."));
+				wxMessageBox(_Z("Ha ocurrido un error al procesar el ejemplo. Puede que el pseudocódigo no sea correcto."));
 				break;
 			}
 			if (p1==wxNOT_FOUND||p1>p2) {
@@ -1124,24 +1124,24 @@ bool mxSource::IndentLine(int l, bool goup) {
 		int we = SkipWord(line,ws,len); // we = word end
 		wxString fword = line.Mid(ws,we-ws);
 		MakeUpper(fword);
-		if (fword=="SINO") cur-=4;
-		else if (fword=="DE" && we+10<len && line.SubString(ws,we+10).Upper()=="DE OTRO MODO:") cur-=4;
-		else if (fword=="HASTA" && we+4<len && line.SubString(ws,we+4).Upper()=="HASTA QUE ") cur-=4;
-		else if (fword=="MIENTRAS" && we+4<len && line.SubString(ws,we+4).Upper()=="MIENTRAS QUE ") cur-=4;
-		else if (fword=="FINSEGUN"||fword==_Z("FINSEG�N")) cur-=8;
-		else if (fword=="FINMIENTRAS") cur-=4;
-		else if (fword=="FINPARA") cur-=4;
-		else if (fword=="FIN") { 
+		if (fword==_Z("SINO")) cur-=4;
+		else if (fword==_Z("DE") && we+10<len && line.SubString(ws,we+10).Upper()==_Z("DE OTRO MODO:")) cur-=4;
+		else if (fword==_Z("HASTA") && we+4<len && line.SubString(ws,we+4).Upper()==_Z("HASTA QUE ")) cur-=4;
+		else if (fword==_Z("MIENTRAS") && we+4<len && line.SubString(ws,we+4).Upper()==_Z("MIENTRAS QUE ")) cur-=4;
+		else if (fword==_Z("FINSEGUN")||fword==_Z("FINSEGÚN")) cur-=8;
+		else if (fword==_Z("FINMIENTRAS")) cur-=4;
+		else if (fword==_Z("FINPARA")) cur-=4;
+		else if (fword==_Z("FIN")) { 
 			cur-=4;
 			ws = SkipWhite(line,we,len);
 			we = SkipWord(line,ws,len);
 			fword = line.Mid(ws,we-ws);
 			MakeUpper(fword);
-			if (fword=="SEGUN"||fword==_Z("SEG�N")) cur-=4;
+			if (fword==_Z("SEGUN")||fword==_Z("SEGÚN")) cur-=4;
 		}
-		else if (fword=="FINSI") cur-=4;
-		else if (fword=="FINPROCESO"||fword=="FINALGORITMO") cur=0;
-		else if (fword=="FINSUBPROCESO"||fword=="FINFUNCION"||fword=="FINSUBALGORITMO"||fword==_Z("FINFUNCI�N")) cur=0;
+		else if (fword==_Z("FINSI")) cur-=4;
+		else if (fword==_Z("FINPROCESO")||fword==_Z("FINALGORITMO")) cur=0;
+		else if (fword==_Z("FINSUBPROCESO")||fword==_Z("FINFUNCION")||fword==_Z("FINSUBALGORITMO")||fword==_Z("FINFUNCIÓN")) cur=0;
 		else {
 			ws = we;
 			while (ws<len) {
@@ -1197,20 +1197,22 @@ int mxSource::GetIndentLevel(int l, bool goup, int &e_btype, bool diff_proc_sub_
 								int y=i+1; while (line[y]==' '||line[y]=='\t') y++; 
 								if (toupper(line[y])!='E' || toupper(line[y+1])!='S' || (line[y+2]!=' '&&line[y+2]!='\t'))
 									{ cur+=4; e_btype=BT_SI; }
-							} else 	{ cur+=4; e_btype=BT_SI; }
+							} else { 
+								cur+=4; e_btype=BT_SI; 
+							}
 						}
-						else if (word=="SINO") { cur+=4; e_btype=BT_SINO; }
-						else if (word=="PROCESO") { cur+=4; e_btype=BT_PROCESO; }
-						else if (word=="ALGORITMO") { cur+=4; e_btype=diff_proc_sub_func?BT_ALGORITMO:BT_PROCESO; }
-						else if (word=="FUNCION"||word==_Z("FUNCI�N")) { cur+=4; e_btype=diff_proc_sub_func?BT_FUNCION:BT_PROCESO; }
-						else if (word=="SUBPROCESO") { cur+=4; e_btype=diff_proc_sub_func?BT_SUBPROCESO:BT_PROCESO; }
-						else if (word=="SUBALGORITMO") { cur+=4; e_btype=diff_proc_sub_func?BT_SUBALGORITMO:BT_PROCESO; }
-						else if (word=="MIENTRAS" && !(i+4<n && line.SubString(wstart,i+4).Upper()=="MIENTRAS QUE ")) { cur+=4; e_btype=BT_MIENTRAS; }
-						else if (word=="SEGUN"||word==_Z("SEG�N")) { cur+=8; e_btype=BT_SEGUN; }
-						else if (word=="PARA") { cur+=4; e_btype=BT_PARA;	}
-						else if (word=="REPETIR"||(first_word && word=="HACER")) { cur+=4; e_btype=BT_REPETIR; }
-						else if (word=="FIN") { ignore_next=true; e_btype=BT_NONE; }
-						else if (e_btype!=BT_NONE && (word=="FINSEGUN"||word==_Z("FINSEG�N")||word=="FINPARA"||word=="FINMIENTRAS"||word=="FINSI"||word=="MIENTRAS"||word=="FINPROCESO"||word=="FINALGORITMO"||word=="FINSUBALGORITMO"||word=="FINSUBPROCESO"||word=="FINFUNCION"||word==_Z("FINFUNCI�N"))) {
+						else if (word==_Z("SINO")) { cur+=4; e_btype=BT_SINO; }
+						else if (word==_Z("PROCESO")) { cur+=4; e_btype=BT_PROCESO; }
+						else if (word==_Z("ALGORITMO")) { cur+=4; e_btype=diff_proc_sub_func?BT_ALGORITMO:BT_PROCESO; }
+						else if (word==_Z("FUNCION")||word==_Z("FUNCIÓN")) { cur+=4; e_btype=diff_proc_sub_func?BT_FUNCION:BT_PROCESO; }
+						else if (word==_Z("SUBPROCESO")) { cur+=4; e_btype=diff_proc_sub_func?BT_SUBPROCESO:BT_PROCESO; }
+						else if (word==_Z("SUBALGORITMO")) { cur+=4; e_btype=diff_proc_sub_func?BT_SUBALGORITMO:BT_PROCESO; }
+						else if ((word==_Z("MIENTRAS")) && !(i+4<n && line.SubString(wstart,i+4).Upper()==_Z("MIENTRAS QUE "))) { cur+=4; e_btype=BT_MIENTRAS; }
+						else if (word==_Z("SEGUN")||word==_Z("SEGÚN")) { cur+=8; e_btype=BT_SEGUN; }
+						else if (word==_Z("PARA")) { cur+=4; e_btype=BT_PARA; }
+						else if ((word==_Z("REPETIR")) || (first_word && word==_Z("HACER"))) { cur+=4; e_btype=BT_REPETIR; }
+						else if (word==_Z("FIN")) { ignore_next=true; e_btype=BT_NONE; }
+						else if (e_btype!=BT_NONE && (word==_Z("FINSEGUN")||word==_Z("FINSEGÚN")||word==_Z("FINPARA")||word==_Z("FINMIENTRAS")||word==_Z("FINSI")||word==_Z("MIENTRAS")||word==_Z("FINPROCESO")||word==_Z("FINALGORITMO")||word==_Z("FINSUBALGORITMO")||word==_Z("FINSUBPROCESO")||word==_Z("FINFUNCION")||word==_Z("FINFUNCIÓN"))) {
 							if (e_btype==BT_SEGUN) cur-=4;
 							e_btype=BT_NONE; cur-=4;
 						}
@@ -1250,52 +1252,52 @@ void mxSource::SetCalltips() {
 	calltips_functions.clear(); calltips_instructions.clear();
 	
 	wxString subproc_tip = _Z("{variable de retorno} <- {nombre} ( {lista de argumentos separados por coma} )\n{nombre} ( {lista de argumentos, separados por coma} )");
-	AddCalltipKeywordForms(calltips_instructions, KW_SUBALGORITMO, subproc_tip, false, {"Funci�n", "Funcion", "SubProceso", "SubAlgoritmo"});
-	AddCalltipKeywordForms(calltips_instructions, KW_LEER, _Z("{una o mas variables, separadas por comas}"), false, {"Leer"});
-	AddCalltipKeywordForms(calltips_instructions, KW_DEFINIR, _Z("{una o mas variables, separadas por comas}"), false, {"Definir"});
+	AddCalltipKeywordForms(calltips_instructions, KW_SUBALGORITMO, subproc_tip, false, {"Función", "Funcion", "SubProceso", "SubAlgoritmo"});
+	AddCalltipKeywordForms(calltips_instructions, KW_LEER, _Z("{una o más variables, separadas por comas}"), false, {"Leer"});
+	AddCalltipKeywordForms(calltips_instructions, KW_DEFINIR, _Z("{una o más variables, separadas por comas}"), false, {"Definir"});
 	AddCalltipKeywordForms(calltips_instructions, KW_ESPERARTIEMPO, _Z("{\"Tecla\" o intervalo de tiempo}"), false, {"Esperar"});
-	AddCalltipKeywordForms(calltips_instructions, KW_ESCRIBIR, _Z("{una o mas expresiones, separadas por comas}"), false, {"Escribir"});
+	AddCalltipKeywordForms(calltips_instructions, KW_ESCRIBIR, _Z("{una o más expresiones, separadas por comas}"), false, {"Escribir"});
 	if (cfg_lang[LS_LAZY_SYNTAX])
-		AddCalltipKeywordForms(calltips_instructions, KW_ESCRIBIR, _Z("{una o mas expresiones, separadas por comas}"), false, {"Mostrar", "Imprimir"});
-	AddCalltipKeywordForms(calltips_instructions, KW_MIENTRAS, _Z("{condici�n, expresion l�gica}"), false, {"Mientras"});
-	AddCalltipEntry(calltips_instructions, _Z("QUE"), _Z("{condici�n, expresion l�gica}"));
-	AddCalltipKeywordForms(calltips_instructions, KW_PARA, _Z("{asignaci�n inicial: variable <- valor}"), false, {"Para"});
+		AddCalltipKeywordForms(calltips_instructions, KW_ESCRIBIR, _Z("{una o más expresiones, separadas por comas}"), false, {"Mostrar", "Imprimir"});
+	AddCalltipKeywordForms(calltips_instructions, KW_MIENTRAS, _Z("{condición, expresión lógica}"), false, {"Mientras"});
+	AddCalltipEntry(calltips_instructions, _Z("QUE"), _Z("{condición, expresión lógica}"));
+	AddCalltipKeywordForms(calltips_instructions, KW_PARA, _Z("{asignación inicial: variable <- valor}"), false, {"Para"});
 	AddCalltipKeywordForms(calltips_instructions, KW_DESDE, _Z("{valor inicial}"), false, {"Desde"});
 	AddCalltipKeywordForms(calltips_instructions, KW_HASTA, _Z("{valor final}"), true, {"Hasta"});
 	AddCalltipKeywordForms(calltips_instructions, KW_CONPASO, _Z("{valor del paso}"), false, {"Paso"});
-	AddCalltipKeywordForms(calltips_instructions, KW_SI, _Z("{condicion, expresi�n l�gica}"), false, {"Si"});
+	AddCalltipKeywordForms(calltips_instructions, KW_SI, _Z("{condicion, expresión lógica}"), false, {"Si"});
 	AddCalltipKeywordForms(calltips_instructions, KW_ENTONCES, _Z("{acciones por verdadero}"), false, {"Entonces"});
 	AddCalltipKeywordForms(calltips_instructions, KW_SINO, _Z("{acciones por falso}"), false, {"SiNo"});
-	AddCalltipKeywordForms(calltips_instructions, KW_SEGUN, _Z(cfg_lang[LS_INTEGER_ONLY_SWITCH]?"{variable o expresi�n num�rica entera}":"{variable o expresi�n de control}"), false, {"Segun", "Seg�n"});
+	AddCalltipKeywordForms(calltips_instructions, KW_SEGUN, _Z(cfg_lang[LS_INTEGER_ONLY_SWITCH]?"{variable o expresión numérica entera}":"{variable o expresión de control}"), false, {"Segun", "Según"});
 	if (cfg_lang[LS_LAZY_SYNTAX])
-		AddCalltipKeywordForms(calltips_instructions, KW_OPCION, _Z("{posible valor para la expresi�n de control}"), false, {"Opcion", "Opci�n", "SiEs", "Caso", "Si Es"});
+		AddCalltipKeywordForms(calltips_instructions, KW_OPCION, _Z("{posible valor para la expresión de control}"), false, {"Opcion", "Opción", "SiEs", "Caso", "Si Es"});
 	
-	calltips_functions.push_back(calltip_text(_Z("ALEATORIO"),_Z("{valor m�nimo}, {valor m�ximo}")));
-	calltips_functions.push_back(calltip_text(_Z("AZAR"),_Z("{expresi�n num�rica entera positiva (m�ximo valor posible +1)}")));
-	calltips_functions.push_back(calltip_text(_Z("TRUNC"),_Z("{expresi�n num�rica}")));
-	calltips_functions.push_back(calltip_text(_Z("REDON"),_Z("{expresi�n num�rica}")));
-	calltips_functions.push_back(calltip_text(_Z("RC"),_Z("{expresi�n num�rica no negativa}")));
-	calltips_functions.push_back(calltip_text(_Z("RAIZ"),_Z("{expresi�n num�rica no negativa}")));
-	calltips_functions.push_back(calltip_text(_Z("ABS"),_Z("{expresi�n num�rica}")));
-	calltips_functions.push_back(calltip_text(_Z("EXP"),_Z("{expresi�n num�rica}")));
-	calltips_functions.push_back(calltip_text(_Z("LN"),_Z("{expresi�n num�rica positiva}")));
-	calltips_functions.push_back(calltip_text(_Z("COS"),_Z("{�ngulo en radianes}")));
-	calltips_functions.push_back(calltip_text(_Z("SIN"),_Z("{�ngulo en radianes}")));
-	calltips_functions.push_back(calltip_text(_Z("TAN"),_Z("{�ngulo en radianes}")));
-	calltips_functions.push_back(calltip_text(_Z("ACOS"),_Z("{expresi�n num�rica (en el intervalo [-1;+1])}")));
-	calltips_functions.push_back(calltip_text(_Z("ASIN"),_Z("{expresi�n num�rica (en el intervalo [-1;+1])}")));
-	calltips_functions.push_back(calltip_text(_Z("ATAN"),_Z("{expresi�n num�rica}")));
+	calltips_functions.push_back(calltip_text(_Z("ALEATORIO"),_Z("{valor mínimo}, {valor máximo}")));
+	calltips_functions.push_back(calltip_text(_Z("AZAR"),_Z("{expresión numérica entera positiva (máximo valor posible +1)}")));
+	calltips_functions.push_back(calltip_text(_Z("TRUNC"),_Z("{expresión numérica}")));
+	calltips_functions.push_back(calltip_text(_Z("REDON"),_Z("{expresión numérica}")));
+	calltips_functions.push_back(calltip_text(_Z("RC"),_Z("{expresión numérica no negativa}")));
+	calltips_functions.push_back(calltip_text(_Z("RAIZ"),_Z("{expresión numérica no negativa}")));
+	calltips_functions.push_back(calltip_text(_Z("ABS"),_Z("{expresión numérica}")));
+	calltips_functions.push_back(calltip_text(_Z("EXP"),_Z("{expresión numérica}")));
+	calltips_functions.push_back(calltip_text(_Z("LN"),_Z("{expresión numérica positiva}")));
+	calltips_functions.push_back(calltip_text(_Z("COS"),_Z("{ángulo en radianes}")));
+	calltips_functions.push_back(calltip_text(_Z("SIN"),_Z("{ángulo en radianes}")));
+	calltips_functions.push_back(calltip_text(_Z("TAN"),_Z("{ángulo en radianes}")));
+	calltips_functions.push_back(calltip_text(_Z("ACOS"),_Z("{expresión numérica (en el intervalo [-1;+1])}")));
+	calltips_functions.push_back(calltip_text(_Z("ASIN"),_Z("{expresión numérica (en el intervalo [-1;+1])}")));
+	calltips_functions.push_back(calltip_text(_Z("ATAN"),_Z("{expresión numérica}")));
 	if (cfg_lang[LS_ENABLE_STRING_FUNCTIONS]) {
-		calltips_functions.push_back(calltip_text(_Z("CONVERTIRAN�MERO"),_Z("{cadena}")));
+		calltips_functions.push_back(calltip_text(_Z("CONVERTIRANÚMERO"),_Z("{cadena}")));
 		calltips_functions.push_back(calltip_text(_Z("CONVERTIRANUMERO"),_Z("{cadena}")));
 		calltips_functions.push_back(calltip_text(_Z("MAYUSCULAS"),_Z("{cadena}")));
-		calltips_functions.push_back(calltip_text(_Z("MAY�SCULAS"),_Z("{cadena}")));
+		calltips_functions.push_back(calltip_text(_Z("MAYÚSCULAS"),_Z("{cadena}")));
 		calltips_functions.push_back(calltip_text(_Z("MINUSCULAS"),_Z("{cadena}")));
-		calltips_functions.push_back(calltip_text(_Z("MIN�SCULAS"),_Z("{cadena}")));
+		calltips_functions.push_back(calltip_text(_Z("MINÚSCULAS"),_Z("{cadena}")));
 		calltips_functions.push_back(calltip_text(_Z("CONCATENAR"),_Z("{dos cadenas}")));
 		calltips_functions.push_back(calltip_text(_Z("LONGITUD"),_Z("{cadena}")));
-		calltips_functions.push_back(calltip_text(_Z("SUBCADENA"),_Z("{cadena}, {posici�n desde}, {posici�n hasta}")));
-		calltips_functions.push_back(calltip_text(_Z("CONVERTIRATEXTO"),_Z("{expresi�n num�rica}")));
+		calltips_functions.push_back(calltip_text(_Z("SUBCADENA"),_Z("{cadena}, {posición desde}, {posición hasta}")));
+		calltips_functions.push_back(calltip_text(_Z("CONVERTIRATEXTO"),_Z("{expresión numérica}")));
 	}
 }
 
@@ -1385,17 +1387,17 @@ void mxSource::SetAutocompletion() {
 	AddCompletionKeywordForms(KW_FINSEGUN, "\n", "", {"FinSegun"});
 	if (cfg_lang[LS_LAZY_SYNTAX]) AddCompletionKeywordForms(KW_FINSEGUN, "\n", "", {"Fin Segun"});
 	
-	AddCompletionRuntimeWord("Aleatorio", "(", "*");
-	AddCompletionRuntimeWord("FechaActual", "()", "*");
-	AddCompletionRuntimeWord("HoraActual", "()", "*");
+	AddCompletionRuntimeWord(_Z("Aleatorio"), "(", "*");
+	AddCompletionRuntimeWord(_Z("FechaActual"), "()", "*");
+	AddCompletionRuntimeWord(_Z("HoraActual"), "()", "*");
 	if (cfg_lang[LS_ENABLE_STRING_FUNCTIONS]) {
-		AddCompletionRuntimeWord("ConvertirATexto", "(", "*");
-		AddCompletionRuntimeWord("ConvertirANumero", "(", "*");
-		AddCompletionRuntimeWord("Concatenar", "(", "*");
-		AddCompletionRuntimeWord("Longitud", "(", "*");
-		AddCompletionRuntimeWord("Mayusculas", "(", "*");
-		AddCompletionRuntimeWord("Minusculas", "(", "*");
-		AddCompletionRuntimeWord("Subcadena", "(", "*");
+		AddCompletionRuntimeWord(_Z("ConvertirATexto"), "(", "*");
+		AddCompletionRuntimeWord(_Z("ConvertirANumero"), "(", "*");
+		AddCompletionRuntimeWord(_Z("Concatenar"), "(", "*");
+		AddCompletionRuntimeWord(_Z("Longitud"), "(", "*");
+		AddCompletionRuntimeWord(_Z("Mayusculas"), "(", "*");
+		AddCompletionRuntimeWord(_Z("Minusculas"), "(", "*");
+		AddCompletionRuntimeWord(_Z("Subcadena"), "(", "*");
 	}
 	
 	comp_list.push_back(comp_list_item("Verdadero","Verdadero","*"));
@@ -1619,6 +1621,7 @@ void mxSource::SelectInstruccion (int line, int inst) {
 }
 
 void mxSource::DoRealTimeSyntax (std::function<void()> &&action_post) {
+    _LOG("mxSource::DoRealTimeSyntax this="<<this<<" rt_running="<<rt_running<<" modified="<<IsModified());
 	RTSyntaxManager::Process(this,std::move(action_post));
 //	SetStatus(); // si lo hago aca setea el estado antes de terminar de analizar todo, mejor que lo haga el rt_syntax
 }
@@ -1665,7 +1668,7 @@ void mxSource::MarkError(int line, int inst, int n, wxString str, bool special) 
 		wxString msg("errors add "); msg<<line+1<<':'<<inst+1<<' '<<str<<'\n';
 		flow_socket->Write(msg.c_str(),msg.Len());
 	}
-	// marcarlo en el pseudoc�digo subrayando la instrucci�n y poniendo la cruz en el margen
+	// marcarlo en el pseudocódigo subrayando la instrucci�n y poniendo la cruz en el margen
 //	if (int(v.size())<=2*inst+1) return;
 	if (!(MarkerGet(line)&(1<<MARKER_ERROR_LINE))) MarkerAdd(line,MARKER_ERROR_LINE);
 	// agregar el error como anotacion y subrayar la instruccion
@@ -1678,6 +1681,7 @@ void mxSource::MarkError(int line, int inst, int n, wxString str, bool special) 
 }
 
 void mxSource::StartRTSyntaxChecking ( ) {
+	_LOG("mxSource::StartRTSyntaxChecking this="<<this<<" rt_running="<<rt_running);
 	rt_running=true; DoRTSyntaxChecking();
 }
 
@@ -2242,12 +2246,12 @@ bool mxSource::IsProcOrSub(int line) {
 	if (cfg_lang[LS_ENABLE_USER_FUNCTIONS]) {
 		if (fword=="SUBPROCESO") return true;
 		if (fword=="FUNCION") return true;
-		if (fword=="FUNCI�N") return true;
+		if (fword=="FUNCIÓN") return true;
 		if (fword=="SUBALGORITMO") return true;
 //		while (i<l) {
 //			if (i+12<l && s.Mid(i,12).Upper()==" SUBPROCESO ") return true;
 //			if (i+9<l && s.Mid(i,9).Upper()==" FUNCION ") return true;
-//			if (i+9<l && s.Mid(i,9).Upper()==" FUNCI�N ") return true;
+//			if (i+9<l && s.Mid(i,9).Upper()==" FUNCIÓN ") return true;
 //			if (i+9<l && s.Mid(i,14).Upper()==" SUBALGORITMO ") return true;
 //			i++;
 //		}

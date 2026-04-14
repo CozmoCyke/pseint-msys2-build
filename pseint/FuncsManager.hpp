@@ -24,13 +24,13 @@ struct Funcion {
 	FunctionPtr func = nullptr; // NULL si es de las definidas por el usuario como subproceso
 	int line_start = -1; // linea del pseudocodigo parseado donde comienza la funcion (solo para las definidas por el usuario)
 	int userline_start = -1, userline_end = -1; // linea del pseudocodigo original donde empieza y termina la funcion (para pasarsela a la lista de variables del editor)
-	std::unique_ptr<Memoria> memoria; // instancia de la clase memoria que se usa para el analisis sintático
+	std::unique_ptr<Memoria> memoria; // instancia de la clase memoria que se usa para el anÃ¡lisis sintÃ¡ctico
 	int GetArgsCount() const { return tipos.size()-1; }
 	
 	/// constructor for user defined functions
 	Funcion(int line) : line_start(line) { AddArg(""); }
 	void AddArg(std::string arg, PASAJE por=PP_DESCONOCIDO) { nombres.push_back(arg); tipos.push_back(vt_desconocido); pasajes.push_back(por); }
-	void SetLastPasaje(PASAJE por) { pasajes[pasajes.size()-1]=por; } // para modificar el tipo de pasaje del último argumento insertado con AddArg
+	void SetLastPasaje(PASAJE por) { pasajes[pasajes.size()-1]=por; } // para modificar el tipo de pasaje del Ãºltimo argumento insertado con AddArg
 	
 	/// constructor for language predefined functions
 	Funcion(tipo_var tipo_ret, FunctionPtr af) : func(af) { 

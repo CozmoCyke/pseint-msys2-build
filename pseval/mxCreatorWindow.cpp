@@ -45,11 +45,11 @@ mxCreatorWindow::mxCreatorWindow(const wxString &cmdline)
 	wxButton *input_button = new wxButton(this,mxID_INPUT_PATH_BUTTON,_Z(" ... "),wxDefaultPosition,wxDefaultSize,wxBU_EXACTFIT);
 	input_sizer->Add(input_button,wxSizerFlags().Border(wxRIGHT|wxTOP|wxBOTTOM,5));
 	wxButton *reload_button = new wxButton(this,mxID_INPUT_RELOAD,_Z(" R "),wxDefaultPosition,wxDefaultSize,wxBU_EXACTFIT);
-	reload_button->SetToolTip(_Z("Recargar información desde el directorio de entrada actual"));
+	reload_button->SetToolTip(_Z("Recargar informacion desde el directorio de entrada actual"));
 	input_sizer->Add(reload_button,wxSizerFlags().Border(wxRIGHT|wxTOP|wxBOTTOM,5));
 	main_sizer->Add(input_sizer,wxSizerFlags().Proportion(0).Expand());
 	
-	static1 = new wxStaticText(this,wxID_ANY,_Z("Mensaje en caso de éxito:"));
+	static1 = new wxStaticText(this,wxID_ANY,_Z("Mensaje en caso de exito:"));
 	main_sizer->Add(static1,wxSizerFlags().Border(wxTOP|wxLEFT|wxRIGHT,5));
 	msg_ok = new wxTextCtrl(this,wxID_ANY,_Z(""));
 	main_sizer->Add(msg_ok,wxSizerFlags().Expand().Border(wxALL,5));
@@ -75,7 +75,7 @@ mxCreatorWindow::mxCreatorWindow(const wxString &cmdline)
 	shuffle_tests = new wxCheckBox(this,wxID_ANY,_Z("Probar casos en orden aleatorio"));
 	main_sizer->Add(shuffle_tests,wxSizerFlags().Border(wxALL,5));
 	
-	base_psc = new wxCheckBox(this,wxID_ANY,_Z("Incluir pseudocódigo base"));
+	base_psc = new wxCheckBox(this,wxID_ANY,_Z("Incluir pseudocodigo base"));
 	main_sizer->Add(base_psc,wxSizerFlags().Border(wxALL,5));
 	
 	help_html = new wxCheckBox(this,wxID_ANY,_Z("Incluir ayuda/enunciado html/markdown"));
@@ -85,7 +85,7 @@ mxCreatorWindow::mxCreatorWindow(const wxString &cmdline)
 	main_sizer->Add(solutions_button,wxSizerFlags().Border(wxALL,5));
 	
 	wxBoxSizer *pass1_sizer = new wxBoxSizer(wxHORIZONTAL);
-	chk_password = new wxCheckBox(this,mxID_USE_PASSWORD,_Z("Contraseña: "));
+	chk_password = new wxCheckBox(this,mxID_USE_PASSWORD,_Z("Contrasena: "));
 	pass1_sizer->Add(chk_password,wxSizerFlags().Center().Border(wxLEFT,5));
 	password1 = new wxTextCtrl(this,wxID_ANY,_Z(""));
 	pass1_sizer->Add(password1,wxSizerFlags().Proportion(1).Border(wxRIGHT|wxTOP|wxBOTTOM,5));
@@ -116,7 +116,7 @@ void mxCreatorWindow::OnTimer (wxTimerEvent & event) {
 void mxCreatorWindow::OnCreate (wxCommandEvent & event) {
 	
 	if (chk_password->GetValue() && password1->GetValue().IsEmpty()) {
-		wxMessageBox(_Z("Debe completar la contraseña"),_Z("Error"),wxOK|wxICON_ERROR,this);
+		wxMessageBox(_Z("Debe completar la contrasena"),_Z("Error"),wxOK|wxICON_ERROR,this);
 		return;
 	}
 	
@@ -138,7 +138,7 @@ void mxCreatorWindow::OnCreate (wxCommandEvent & event) {
 	}
 	
 	if (all_output.IsEmpty()) {
-		if (wxNO==wxMessageBox(_Z("Las soluciones están vacías. ¿Continuar igualmente?"),_Z("Advertencia"),wxYES_NO|wxICON_ERROR,this))
+		if (wxNO==wxMessageBox(_Z("Las soluciones estan vacias. ¿Continuar igualmente?"),_Z("Advertencia"),wxYES_NO|wxICON_ERROR,this))
 			return;
 	}
 	
@@ -169,7 +169,7 @@ void mxCreatorWindow::OnCreate (wxCommandEvent & event) {
 			return;
 		}
 		if (!pack.Save(file.GetFullPath(),chk_password->GetValue()?password1->GetValue():_Z(""),!chk_new_cypher->GetValue())) {
-			wxMessageBox(wxString(_Z("Error al guardar el archivo \""))+file.GetFullPath()+_Z("\"."),_Z("Error"),wxOK|wxICON_ERROR,this);
+			wxMessageBox(wxString(_Z("Error al guardar el archivo \\\""))+file.GetFullPath()+_Z("\"."),_Z("Error"),wxOK|wxICON_ERROR,this);
 		} else {
 			wxMessageBox(_Z("Ejercicio generado correctamente"),_Z("PSeInt"),wxOK|wxICON_INFORMATION,this);
 			pack.SaveConfig( GetFilePath("config.ini") );

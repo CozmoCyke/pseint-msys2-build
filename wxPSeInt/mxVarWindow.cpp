@@ -76,6 +76,8 @@ mxVarWindow::~mxVarWindow() {
 }
 
 void mxVarWindow::BeginInput ( ) {
+	std::fprintf(stderr, "DBG BeginInput\n");
+std::fflush(stderr);
 	all_vars.Clear();
 	wxTreeItemId s=GetSelection(); 
 	if (s.IsOk()) {
@@ -88,6 +90,8 @@ void mxVarWindow::BeginInput ( ) {
 }
 
 void mxVarWindow::AddProc(wxString vname, bool main_process) {
+	std::fprintf(stderr, "DBG AddProc vname=%s main=%d\n", (const char*)_W2S(vname), (int)main_process);
+    std::fflush(stderr);
 	if (!main_process) RegisterAutocompKey(vname.BeforeFirst(':'));
 	range *r=NULL;
 	if (vname.Contains(":")) {
@@ -101,6 +105,8 @@ void mxVarWindow::AddProc(wxString vname, bool main_process) {
 }
 
 void mxVarWindow::AddVar(wxString vname, wxChar type) {
+	std::fprintf(stderr, "DBG AddVar vname=%s type=%d\n", (const char*)_W2S(vname), (int)type);
+    std::fflush(stderr);
 	RegisterAutocompKey(vname.BeforeFirst('['));
 	int icon = type-LV_BASE_CHAR;
 	vname.Replace("-1","??",true);
@@ -109,6 +115,8 @@ void mxVarWindow::AddVar(wxString vname, wxChar type) {
 }
 
 void mxVarWindow::EndInput ( ) {
+	std::fprintf(stderr, "DBG EndInput\n");
+std::fflush(stderr);
 	tree->ExpandAll();
 }
 

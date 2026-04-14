@@ -1,0 +1,25 @@
+"Nombre de archivo incorrecto. La extensión debe ser \".psz\" para\n"|Nombre de archivo incorrecto. La extension debe ser \".psz\" para\n|pseval/mxCreatorWindow.cpp|166|Invalid file name. The extension must be ".psz" for\n|READY
+"ejercicios sin contraseña, y \".psx\" para ejercicios con contraseña."|ejercicios sin contrasena, y \".psx\" para ejercicios con contrasena.|pseval/mxCreatorWindow.cpp|167|exercises without a password, and ".psx" for password-protected exercises.|READY
+"Recargar información desde el directorio de entrada actual"|Recargar informacion desde el directorio de entrada actual|pseval/mxCreatorWindow.cpp|48|Reload information from the current input directory|READY
+"Mensaje en caso de éxito:"|Mensaje en caso de exito:|pseval/mxCreatorWindow.cpp|52|Message in case of success:|READY
+"Mensaje en caso de error:"|Mensaje en caso de error:|pseval/mxCreatorWindow.cpp|56|Message in case of error:|READY
+"Incluir pseudocódigo base"|Incluir pseudocodigo base|pseval/mxCreatorWindow.cpp|78|Include base pseudocode|READY
+"Incluir ayuda/enunciado html/markdown"|Incluir ayuda/enunciado html/markdown|pseval/mxCreatorWindow.cpp|81|Include help/statement (HTML/Markdown)|READY
+" Generar soluciones... "| Generar soluciones... |pseval/mxCreatorWindow.cpp|84| Generate solutions... |READY
+"Contraseña: "|Contrasena: |pseval/mxCreatorWindow.cpp|88|Password: |READY
+"Debe completar la contraseña"|Debe completar la contrasena|pseval/mxCreatorWindow.cpp|119|You must complete the password|READY
+"Debe completar el nombre del perfil requerido"|Debe completar el nombre del perfil requerido|pseval/mxCreatorWindow.cpp|124|You must complete the required profile name|READY
+"Las soluciones están vacías. ¿Continuar igualmente?"|Las soluciones estan vacias. ¿Continuar igualmente?|pseval/mxCreatorWindow.cpp|141|The solutions are empty. Continue anyway?|READY
+"mensaje exito"|mensaje exito|pseval/mxCreatorWindow.cpp|145|success message|READY
+"mensaje error"|mensaje error|pseval/mxCreatorWindow.cpp|146|error message|READY
+"mostrar casos fallidos"|mostrar casos fallidos|pseval/mxCreatorWindow.cpp|148|show failed cases|READY
+"perfil requerido"|perfil requerido|pseval/mxCreatorWindow.cpp|152|required profile|READY
+"perfil requerido"|perfil requerido|pseval/mxCreatorWindow.cpp|153|required profile|READY
+"Error al guardar el archivo \""|Error al guardar el archivo \"|pseval/mxCreatorWindow.cpp|172|Error saving the file "|READY
+"Seleccione un directorio"|Seleccione un directorio|pseval/mxCreatorWindow.cpp|181|Select a directory|READY
+"mostrar casos fallidos"|mostrar casos fallidos|pseval/mxCreatorWindow.cpp|255|show failed cases|READY
+"mostrar casos fallidos"|mostrar casos fallidos|pseval/mxCreatorWindow.cpp|256|show failed cases|READY
+"mensaje error"|mensaje error|pseval/mxCreatorWindow.cpp|258|error message|READY
+"mensaje exito"|mensaje exito|pseval/mxCreatorWindow.cpp|259|success message|READY
+"perfil requerido"|perfil requerido|pseval/mxCreatorWindow.cpp|262|required profile|READY
+"perfil requerido"|perfil requerido|pseval/mxCreatorWindow.cpp|263|required profile|READY

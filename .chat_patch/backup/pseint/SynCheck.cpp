@@ -131,12 +131,12 @@ struct coloquial_aux {
 std::vector<coloquial_aux> &GetColoquialConditions() {
 	static std::vector<coloquial_aux> v;
 	if (v.empty()) {
-		v.push_back(coloquial_aux("ES ENTERO ",				"(",	")=TRUNC(",		"<PRE>)"	,false));
-		v.push_back(coloquial_aux("ES ENTERA ",				"(",	")=TRUNC(",		"<PRE>)"	,false));
-		v.push_back(coloquial_aux("ES MENOR A ",			"(",	")<(",			")"			));
-		v.push_back(coloquial_aux("ES MENOR QUE ",			"(",	")<(",			")"			));
-		v.push_back(coloquial_aux("ES MAYOR A ",			"(",	")>(",			")"			));
-		v.push_back(coloquial_aux("ES MAYOR QUE ",			"(",	")>(",			")"			));
+		v.push_back(coloquial_aux(LocalizationManager::Instance().Translate("ES ENTERO "),				"(",	")=TRUNC(",		"<PRE>)"	,false));
+		v.push_back(coloquial_aux(LocalizationManager::Instance().Translate("ES ENTERA "),				"(",	")=TRUNC(",		"<PRE>)"	,false));
+		v.push_back(coloquial_aux(LocalizationManager::Instance().Translate("ES MENOR A "),			"(",	")<(",			")"			));
+		v.push_back(coloquial_aux(LocalizationManager::Instance().Translate("ES MENOR QUE "),			"(",	")<(",			")"			));
+		v.push_back(coloquial_aux(LocalizationManager::Instance().Translate("ES MAYOR A "),			"(",	")>(",			")"			));
+		v.push_back(coloquial_aux(LocalizationManager::Instance().Translate("ES MAYOR QUE "),			"(",	")>(",			")"			));
 		v.push_back(coloquial_aux("ES IGUAL | MAYOR A ",	"(",	")>=(",			")"			));
 		v.push_back(coloquial_aux("ES IGUAL | MAYOR QUE ",	"(",	")>=(",			")"			));
 		v.push_back(coloquial_aux("ES IGUAL | MENOR A ",	"(",	")<=(",			")"			));
@@ -145,22 +145,22 @@ std::vector<coloquial_aux> &GetColoquialConditions() {
 		v.push_back(coloquial_aux("ES MAYOR | IGUAL QUE ",	"(",	")>=(",			")"			));
 		v.push_back(coloquial_aux("ES MENOR | IGUAL A ",	"(",	")<=(",			")"			));
 		v.push_back(coloquial_aux("ES MENOR | IGUAL QUE ",	"(",	")<=(",			")"			));
-		v.push_back(coloquial_aux("ES IGUAL A ",			"(",	")=(",			")"			));
-		v.push_back(coloquial_aux("ES IGUAL QUE ",			"(",	")=(",			")"			));
-		v.push_back(coloquial_aux("ES DISTINTO A ",			"(",	")<>(",			")"			));
-		v.push_back(coloquial_aux("ES DISTINTO DE ",		"(",	")<>(",			")"			));
-		v.push_back(coloquial_aux("ES DISTINTA A ",			"(",	")<>(",			")"			));
-		v.push_back(coloquial_aux("ES DISTINTA DE ",		"(",	")<>(",			")"			));
-		v.push_back(coloquial_aux("ES PAR ",				"(",	")%2=0 ",		""			));
-		v.push_back(coloquial_aux("ES IMPAR ",				"(",	")%2=1 ",		""			));
-		v.push_back(coloquial_aux("ES POSITIVO ",			"(",	")>0 ",			""			));
-		v.push_back(coloquial_aux("ES POSITIVA ",			"(",	")>0 ",			""			));
-		v.push_back(coloquial_aux("ES NEGATIVO ",			"(",	")<0 ",			""			));
-		v.push_back(coloquial_aux("ES NEGATIVA ",			"(",	")<0 ",			""			));
-		v.push_back(coloquial_aux("ES CERO ",				"(",	")=0 ",			""			));
-		v.push_back(coloquial_aux("ES DIVISIBLE POR ",		"(",	") % (",		")=0"		));
-		v.push_back(coloquial_aux("ES MULTIPLO DE ",		"(",	") % (",		")=0"		));
-		v.push_back(coloquial_aux("ES ",					"(",	")=(",			")"			));
+		v.push_back(coloquial_aux(LocalizationManager::Instance().Translate("ES IGUAL A "),			"(",	")=(",			")"			));
+		v.push_back(coloquial_aux(LocalizationManager::Instance().Translate("ES IGUAL QUE "),			"(",	")=(",			")"			));
+		v.push_back(coloquial_aux(LocalizationManager::Instance().Translate("ES DISTINTO A "),			"(",	")<>(",			")"			));
+		v.push_back(coloquial_aux(LocalizationManager::Instance().Translate("ES DISTINTO DE "),		"(",	")<>(",			")"			));
+		v.push_back(coloquial_aux(LocalizationManager::Instance().Translate("ES DISTINTA A "),			"(",	")<>(",			")"			));
+		v.push_back(coloquial_aux(LocalizationManager::Instance().Translate("ES DISTINTA DE "),		"(",	")<>(",			")"			));
+		v.push_back(coloquial_aux(LocalizationManager::Instance().Translate("ES PAR "),				"(",	")%2=0 ",		""			));
+		v.push_back(coloquial_aux(LocalizationManager::Instance().Translate("ES IMPAR "),				"(",	")%2=1 ",		""			));
+		v.push_back(coloquial_aux(LocalizationManager::Instance().Translate("ES POSITIVO "),			"(",	")>0 ",			""			));
+		v.push_back(coloquial_aux(LocalizationManager::Instance().Translate("ES POSITIVA "),			"(",	")>0 ",			""			));
+		v.push_back(coloquial_aux(LocalizationManager::Instance().Translate("ES NEGATIVO "),			"(",	")<0 ",			""			));
+		v.push_back(coloquial_aux(LocalizationManager::Instance().Translate("ES NEGATIVA "),			"(",	")<0 ",			""			));
+		v.push_back(coloquial_aux(LocalizationManager::Instance().Translate("ES CERO "),				"(",	")=0 ",			""			));
+		v.push_back(coloquial_aux(LocalizationManager::Instance().Translate("ES DIVISIBLE POR "),		"(",	") % (",		")=0"		));
+		v.push_back(coloquial_aux(LocalizationManager::Instance().Translate("ES MULTIPLO DE "),		"(",	") % (",		")=0"		));
+		v.push_back(coloquial_aux(LocalizationManager::Instance().Translate("ES "),					"(",	")=(",			")"			));
 	}
 	return v;
 }
@@ -214,7 +214,7 @@ void Condiciones(RunTime &rt, std::string &cadena) {
 			int y2=yold-1; while (y2>y && cadena[y2]==' ') y2--;
 			
 			pre=cadena.substr(y+1,y2-y);
-			if (pre.empty()) err_handler.SyntaxError(317,MkErrorMsg("Falta operando (antes de la condición coloquial $).",col.cond));
+			if (pre.empty()) err_handler.SyntaxError(317,MkErrorMsg(LocalizationManager::Instance().Translate("Falta operando (antes de la condicion coloquial $)."),col.cond));
 			if (col.pre.size()) cadena.insert(y+1,col.pre);
 			if (negate) { cadena.insert(y+1,"~"); yold++; }
 			y=yold+col.pre.size();
@@ -233,9 +233,9 @@ void Condiciones(RunTime &rt, std::string &cadena) {
 			}
 			while (y>yold && cadena[y-1]==' ') y--;
 			if (col.binary) {
-				if (y0>=y) err_handler.SyntaxError(318,MkErrorMsg("Falta operando (después de la condición coloquial $).",col.cond));
+				if (y0>=y) err_handler.SyntaxError(318,MkErrorMsg(LocalizationManager::Instance().Translate("Falta operando (despues de la condicion coloquial $)."),col.cond));
 			} else {
-				if (y0<y) err_handler.SyntaxError(319,MkErrorMsg("No corresponde operando (después de la condición coloquial $).",col.cond));
+				if (y0<y) err_handler.SyntaxError(319,MkErrorMsg(LocalizationManager::Instance().Translate("No corresponde operando (despues de la condicion coloquial $)."),col.cond));
 			}
 			std::string post=col.post;
 			size_t n=post.find("<PRE>");
@@ -327,7 +327,7 @@ void Operadores(RunTime &rt, const int &x, std::string &cadena, InstructionType 
 					cadena.erase(i,1); i--;
 				}
 			} else if (act==';' || act==':') {
-				if (act==':' && instruction_type!=IT_OPCION) err_handler.SyntaxError(226,"Operador no válido (:).");
+				if (act==':' && instruction_type!=IT_OPCION) err_handler.SyntaxError(226,LocalizationManager::Instance().Translate("Operador no valido (:)."));
 				else if (w==w_operator) 
 					err_handler.SyntaxError(227,MkErrorMsg(LocalizationManager::Instance().Translate("Falta operando (antes de $)."),std::string(1,act)));
 				w=w_null; wext=w_other;
@@ -338,7 +338,7 @@ void Operadores(RunTime &rt, const int &x, std::string &cadena, InstructionType 
 				}
 			} else if (act==',') {
 				if (w==w_operator) err_handler.SyntaxError(228,LocalizationManager::Instance().Translate("Falta operador."));
-				else if (w==w_null && wext==w_comma) err_handler.SyntaxError(3,"Parámetro nulo."); // 35+;
+				else if (w==w_null && wext==w_comma) err_handler.SyntaxError(3,LocalizationManager::Instance().Translate("Parametro nulo.")); // 35+;
 				w=w_null; wext=w_comma;
 			
 			} else if (act=='(') {
@@ -357,17 +357,17 @@ void Operadores(RunTime &rt, const int &x, std::string &cadena, InstructionType 
 			} else if (act=='.') {
 				if (w!=w_operand) { w=w_operand; wext=w_number_dec; }
 				else if (wext!=w_number_int) {
-					if (!ignore_logic_errors) err_handler.SyntaxError(231,LocalizationManager::Instance().Translate("Constante numérica no válida."));
+					if (!ignore_logic_errors) err_handler.SyntaxError(231,LocalizationManager::Instance().Translate(LocalizationManager::Instance().Translate("Constante numerica no valida.")));
 				} else wext=w_number_dec;
 			
 			} else if (EsLetra(act)) {
 				if (w==w_operand && wext!=w_id) {
 					if (wext==w_string)
-						err_handler.SyntaxError(233,LocalizationManager::Instance().Translate("Falta operando (después de cadena de texto)."));
+						err_handler.SyntaxError(233,LocalizationManager::Instance().Translate(LocalizationManager::Instance().Translate("Falta operando (despues de cadena de texto).")));
 					else if (wext==w_expr)
-						err_handler.SyntaxError(307,LocalizationManager::Instance().Translate("Falta operando (posiblemente después de ')')."));
+						err_handler.SyntaxError(307,LocalizationManager::Instance().Translate(LocalizationManager::Instance().Translate("Falta operando (posiblemente despues de ')').")));
 					else
-						if (!ignore_logic_errors) err_handler.SyntaxError(238,LocalizationManager::Instance().Translate("Constante numérica no válida."));
+						if (!ignore_logic_errors) err_handler.SyntaxError(238,LocalizationManager::Instance().Translate(LocalizationManager::Instance().Translate("Constante numerica no valida.")));
 				}
 				w=w_operand; wext=w_id;
 			
@@ -385,15 +385,15 @@ void Operadores(RunTime &rt, const int &x, std::string &cadena, InstructionType 
 					w=w_operator; wext=op_type;
 				} else {
 					if (i==0 or (act!=cadena[i-1])) // si encuentra algo como "???" que marque un solo ?
-						err_handler.SyntaxError(68,MkErrorMsg(LocalizationManager::Instance().Translate("Caracter no válido ($)."),std::string(1,act)));
+						err_handler.SyntaxError(68,MkErrorMsg(LocalizationManager::Instance().Translate("Caracter no valido ($)."),std::string(1,act)));
 					w = w_operand; // fuerzo a operando para que preserve espacios despues de esto (casos como "mientras ??? hacer", que no pegue ??? con hacer porque eso generar un error adicional "falta hacer").
 				}
 			}
 		}
 	}
-	if (w==w_operator) err_handler.SyntaxError(236,LocalizationManager::Instance().Translate("Falta operando al final de la expresión"));
+	if (w==w_operator) err_handler.SyntaxError(236,LocalizationManager::Instance().Translate("Falta operando al final de la expresion"));
 	// Posibles errores encontrados
-	if (parentesis<0) err_handler.SyntaxError(35,"Se cerraron parentesis o corchetes demás.");
+	if (parentesis<0) err_handler.SyntaxError(35,LocalizationManager::Instance().Translate("Se cerraron parentesis o corchetes demas."));
 	if (parentesis>0) err_handler.SyntaxError(36,LocalizationManager::Instance().Translate("Falta cerrar parentesis o corchete."));
 	if (comillas) err_handler.SyntaxError(37,LocalizationManager::Instance().Translate("Falta cerrar comillas."));
 }
@@ -500,7 +500,7 @@ void Instrucciones(RunTime &rt) {
 			// si se identifica la instrucción, se quita del string cadena y se guarda en el string instrucción
 			if (first_word_id==KW_ENTONCES) {
 				if (/*programa[bucles.back()]!=IT_SI || */programa[prog_idx-1]!=IT_SI)
-					err_handler.SyntaxError(1,MkErrorMsg("$ mal colocado.",first_word_str));
+					err_handler.SyntaxError(1,MkErrorMsg(LocalizationManager::Instance().Translate("$ mal colocado."),first_word_str));
 				if (not cadena.empty()) programa.Insert(prog_idx+1,cadena);
 				inst.setType(IT_ENTONCES); cadena="";
 			} else if (first_word_id==KW_SINO) {
@@ -533,7 +533,7 @@ void Instrucciones(RunTime &rt) {
 				inst.setType(IT_SEGUN);
 				bucles.push_back(prog_idx);
 			} else if (first_word_id==KW_DEOTROMODO) {
-				if (bucles.empty() || programa[bucles.back()]!=IT_SEGUN) err_handler.SyntaxError(321,MkErrorMsg("$ mal colocado.",first_word_str));
+				if (bucles.empty() || programa[bucles.back()]!=IT_SEGUN) err_handler.SyntaxError(321,MkErrorMsg(LocalizationManager::Instance().Translate("$ mal colocado."),first_word_str));
 				programa.Insert(prog_idx+1,cadena.substr(1)); // cortar los ':'
 				inst.setType(IT_DEOTROMODO); cadena="";
 			} else if (first_word_id==KW_DIMENSIONAR or first_word_id==KW_REDIMENSIONAR) {
@@ -595,10 +595,10 @@ void Instrucciones(RunTime &rt) {
 				}
 			} else if (first_word_id==KW_FINALGORITMO) {
 				inst.setType(IT_FINPROCESO); getImpl<IT_FINPROCESO>(inst).principal = true;
-				if (!ignore_logic_errors&&cadena==";") err_handler.SyntaxError(315,MkErrorMsg("$ no lleva punto y coma.",first_word_str));
+				if (!ignore_logic_errors&&cadena==";") err_handler.SyntaxError(315,MkErrorMsg(LocalizationManager::Instance().Translate("$ no lleva punto y coma."),first_word_str));
 			} else if (first_word_id==KW_FINSUBALGORITMO) {
 				inst.setType(IT_FINPROCESO); getImpl<IT_FINPROCESO>(inst).principal = false;
-				if (!ignore_logic_errors&&cadena==";") err_handler.SyntaxError(315,MkErrorMsg("$ no lleva punto y coma.",first_word_str));
+				if (!ignore_logic_errors&&cadena==";") err_handler.SyntaxError(315,MkErrorMsg(LocalizationManager::Instance().Translate("$ no lleva punto y coma."),first_word_str));
 			} else if (first_word_id==KW_REPETIR) {
 				inst.setType(IT_REPETIR); bucles.push_back(prog_idx);
 			} else if (first_word_id==KW_DEFINIR) {
@@ -607,7 +607,7 @@ void Instrucciones(RunTime &rt) {
 				inst.setType(IT_OPCION);
 				int pos_dp = PSeudoFind(cadena,':');
 				if (pos_dp==-1) {
-					err_handler.SyntaxError(326,"Se esperan dos puntos (:) luego de la lista de opciones.");
+					err_handler.SyntaxError(326,LocalizationManager::Instance().Translate("Se esperan dos puntos (:) luego de la lista de opciones."));
 					cadena += ":";
 				} else { 
 					// ver ademas si dice "OPCION o CASO o similar al principio" y eliminarlo
@@ -712,7 +712,7 @@ void Instrucciones(RunTime &rt) {
 			}
 			
 			if (LastCharIs(cadena,','))
-				err_handler.SyntaxError(31,"Parametro nulo.");
+				err_handler.SyntaxError(31,LocalizationManager::Instance().Translate("Parametro nulo."));
 			while (cadena[0]==';' && cadena.size()>1) cadena.erase(0,1); // para que caso esta esto?
 			// Controlar que el si siempre tenga un entonces
 			if (prog_idx&&programa[prog_idx-1]==IT_SI)
@@ -723,12 +723,12 @@ void Instrucciones(RunTime &rt) {
 						if (bucles.back()==prog_idx) ++bucles.back(); // por si justo se habria otro bloque en la inst actual
 						++prog_idx;
 					} else 
-						err_handler.SyntaxError(32,MkErrorMsg("Falta $.",kw2str(KW_ENTONCES)),Inter.GetPreviousLocation());
+						err_handler.SyntaxError(32,MkErrorMsg(LocalizationManager::Instance().Translate("Falta $."),kw2str(KW_ENTONCES)),Inter.GetPreviousLocation());
 				}
 			// si entro en segun comprobar que haya opción
 			if (!bucles.empty()) {
 				if (programa[bucles.back()]==IT_SEGUN && programa[prog_idx-1]==IT_SEGUN && cadena!="") {
-					if (inst.type!=IT_OPCION) err_handler.SyntaxError(33,"Se esperaba <opcion>:.");
+					if (inst.type!=IT_OPCION) err_handler.SyntaxError(33,LocalizationManager::Instance().Translate("Se esperaba <opcion>:."));
 				}
 			}
 			
@@ -740,7 +740,7 @@ void Instrucciones(RunTime &rt) {
 			if (lleva_pyc) {
 				if (not LastCharIs(cadena,';')) {
 					if (lang[LS_FORCE_SEMICOLON])
-						err_handler.SyntaxError(38,"Falta punto y coma.");
+						err_handler.SyntaxError(38,LocalizationManager::Instance().Translate("Falta punto y coma."));
 					cadena += ';';
 				}
 			}
@@ -761,7 +761,7 @@ void Instrucciones(RunTime &rt) {
 				memoria = (current_func->memoria = std::make_unique<Memoria>(current_func)).get();
 			}
 			if (!in_process && inst.type!=IT_NULL&&cadena!="") {
-				err_handler.SyntaxError(43,MkErrorMsg("Instrucción fuera de $.",
+				err_handler.SyntaxError(43,MkErrorMsg(LocalizationManager::Instance().Translate("Instruccion fuera de $."),
 													  kw2str(KW_ALGORITMO) +
 													  (lang[LS_ENABLE_USER_FUNCTIONS] ? "/"+kw2str(KW_SUBALGORITMO) : "") ));
 			}
@@ -799,7 +799,7 @@ void Instrucciones(RunTime &rt) {
 			// Controlar correcta y completa sintaxis de cada instruccion
 			if (inst.type==IT_DEFINIR) {  // ------------ DEFINIR -----------//
 				auto &inst_impl = getImpl<IT_DEFINIR>(inst);
-				if (cadena=="" || cadena==";") err_handler.SyntaxError(44,"Faltan parámetros.");
+				if (cadena=="" || cadena==";") err_handler.SyntaxError(44,LocalizationManager::Instance().Translate("Faltan parametros."));
 				else {
 					if (LastCharIs(cadena,';')) EraseLastChar(cadena);
 					else if ((not ignore_logic_errors) and lang[LS_FORCE_SEMICOLON]) 
@@ -820,9 +820,9 @@ void Instrucciones(RunTime &rt) {
 						else if (LeftCompare(str_tipo,lang.keywords[KW_TIPO_LOGICO],true))
 							inst_impl.tipo = vt_logica;
 						else if (!ignore_logic_errors) 
-							err_handler.SyntaxError(46,"Falta tipo de dato o tipo no válido.");
+							err_handler.SyntaxError(46,LocalizationManager::Instance().Translate("Falta tipo de dato o tipo no valido."));
 						if (inst_impl.tipo!=vt_desconocido and (not str_tipo.empty()))
-							err_handler.SyntaxError(325,"Se esperaba el fin de la instrucción (luego del tipo).");
+							err_handler.SyntaxError(325,LocalizationManager::Instance().Translate("Se esperaba el fin de la instruccion (luego del tipo)."));
 						
 						// evaluar los nombre de variables
 						/// @todo: usar funcion auxiliar para cortar listas, aca, en leer, escribir, dimension...
@@ -833,7 +833,7 @@ void Instrucciones(RunTime &rt) {
 							if (cadena[i]==')') parentesis--;
 							if (i>0 && i<(int)cadena.size()-1)
 								if (cadena[i]==' ' && cadena[i-1]!='&' && cadena[i-1]!='|'  && cadena[i+1]!='&'  && cadena[i+1]!='|')
-									err_handler.SyntaxError(47,"Se esperaba fin de expresión (fin de la instrucción, o coma para separar).");
+									err_handler.SyntaxError(47,LocalizationManager::Instance().Translate("Se esperaba fin de expresion (fin de la instruccion, o coma para separar)."));
 							if (parentesis==0 && cadena[i]==',') { // comprobar validez
 								std::string str=cadena;
 								str.erase(i,str.size()-i);
@@ -893,16 +893,16 @@ void Instrucciones(RunTime &rt) {
 					int &factor = inst_impl.factor;
 					if      (RightCompare(tiempo,lang.keywords[KW_SEGUNDOS],true)) factor = 1000;
 					else if (RightCompare(tiempo,lang.keywords[KW_MILISEGUNDOS],true)) factor = 1;
-					else if (!ignore_logic_errors) err_handler.SyntaxError(218,"Falta unidad o unidad desconocida.");
+					else if (!ignore_logic_errors) err_handler.SyntaxError(218,LocalizationManager::Instance().Translate("Falta unidad o unidad desconocida."));
 					DataValue res = EvaluarSC(rt,tiempo,vt_numerica);
-					if (!res.CanBeReal()) err_handler.SyntaxError(219,"La longitud del intervalo debe ser numérica."); 
+					if (!res.CanBeReal()) err_handler.SyntaxError(219,LocalizationManager::Instance().Translate("La longitud del intervalo debe ser numerica.")); 
 					else {
-						for (int tmp1=0;tmp1<(int)tiempo.size();tmp1++) if (tiempo[tmp1]==' ') err_handler.SyntaxError(240,"Se esperaba una sola expresión.");
+						for (int tmp1=0;tmp1<(int)tiempo.size();tmp1++) if (tiempo[tmp1]==' ') err_handler.SyntaxError(240,LocalizationManager::Instance().Translate("Se esperaba una sola expresion."));
 					}
 				}
 			}
 			if (inst.type==IT_DIMENSION){  // ------------ DIMENSION/REDIMENSION -----------//
-				if (cadena=="" || cadena==";") err_handler.SyntaxError(56,"Faltan parámetros.");
+				if (cadena=="" || cadena==";") err_handler.SyntaxError(56,LocalizationManager::Instance().Translate("Faltan parametros."));
 				else {
 					auto &inst_impl = getImpl<IT_DIMENSION>(inst);
 					if (LastCharIs(cadena,';')) EraseLastChar(cadena);
@@ -910,19 +910,19 @@ void Instrucciones(RunTime &rt) {
 					for(const auto &array_dec : arrays) {
 						auto pos_par = array_dec.find('(',0);
 						if (pos_par==std::string::npos) { 
-							if (!ignore_logic_errors) err_handler.SyntaxError(58,"Faltan subindices.");
+							if (!ignore_logic_errors) err_handler.SyntaxError(58,LocalizationManager::Instance().Translate("Faltan subindices."));
 							if (CheckVariable(rt,array_dec,59) and (not memoria->EstaDefinida(array_dec)))
 								memoria->DefinirTipo(array_dec,vt_desconocido); // para que aparezca en la lista de variables
 						} else {
 							// check name
 							std::string aname = array_dec.substr(0,pos_par);
 							CheckVariable(rt,aname,60);
-							if (memoria->EsArgumento(aname) && !ignore_logic_errors) err_handler.SyntaxError(223,"No debe redimensionar un argumento.");
+							if (memoria->EsArgumento(aname) && !ignore_logic_errors) err_handler.SyntaxError(223,LocalizationManager::Instance().Translate("No debe redimensionar un argumento."));
 							
 							// complete inst_impl
 							int close_par = matchParentesis(array_dec,pos_par);
 							if (close_par+1!=array_dec.size())
-								if (!ignore_logic_errors) err_handler.SyntaxError(57,MkErrorMsg("Se esperaba coma o fin de la instrucción luego de las dimensiones del arreglo $.",aname));
+								if (!ignore_logic_errors) err_handler.SyntaxError(57,MkErrorMsg(LocalizationManager::Instance().Translate("Se esperaba coma o fin de la instruccion luego de las dimensiones del arreglo $."),aname));
 							std::string str_dims = array_dec.substr(pos_par+1,close_par-pos_par-1);
 							inst_impl.nombres.push_back(aname);
 							inst_impl.tamanios.push_back(str_dims);
@@ -934,25 +934,25 @@ void Instrucciones(RunTime &rt) {
 							for (const std::string &str_dim : vstr_dims) {
 								dims[++idim] = -1;
 								if (ignore_logic_errors) continue;
-								if (str_dim=="") err_handler.SyntaxError(61,"Parametro nulo.");
+								if (str_dim=="") err_handler.SyntaxError(61,LocalizationManager::Instance().Translate("Parametro nulo."));
 								/*if (this_instruction_is_ok()) */res = EvaluarSC(rt,str_dim,vt_numerica);
 								if (res.IsOk() and (not res.CanBeReal())) {
-									err_handler.SyntaxError(62,MkErrorMsg("No coinciden los tipos; en la expresion $",str_dim));
+									err_handler.SyntaxError(62,MkErrorMsg(LocalizationManager::Instance().Translate("No coinciden los tipos; en la expresion $"),str_dim));
 								} else {
 									if (IsNumericConstant(str_dim)) {
 										if ((not lang[LS_ALLOW_RESIZE_ARRAYS]) and str_dim=="0")
-											err_handler.SyntaxError(274,MkErrorMsg("Las dimensiones no pueden ser 0, en: $",array_dec));
+											err_handler.SyntaxError(274,MkErrorMsg(LocalizationManager::Instance().Translate("Las dimensiones no pueden ser 0, en: $"),array_dec));
 										else if ((not lang[LS_ALLOW_RESIZE_ARRAYS]) and str_dim=="1")
-											err_handler.CompileTimeWarning(333,MkErrorMsg("El tamaño 1 para una dimensión probablemente sea un error, en: $",array_dec));
+											err_handler.CompileTimeWarning(333,MkErrorMsg(LocalizationManager::Instance().Translate("El tamano 1 para una dimension probablemente sea un error, en: $"),array_dec));
 										else if (res.GetAsInt()<0)
-											err_handler.SyntaxError(274,MkErrorMsg("Las dimensiones no pueden ser negativas, en: $",array_dec));
+											err_handler.SyntaxError(274,MkErrorMsg(LocalizationManager::Instance().Translate("Las dimensiones no pueden ser negativas, en: $"),array_dec));
 										else if (not IsInteger(res.GetAsReal()))
-											err_handler.SyntaxError(331,MkErrorMsg("Las dimensiones deben ser números enteros, en: $",array_dec));
+											err_handler.SyntaxError(331,MkErrorMsg(LocalizationManager::Instance().Translate("Las dimensiones deben ser numeros enteros, en: $"),array_dec));
 										else 
 											dims[idim]=res.GetAsInt();
 									} else {
 										if (not lang[LS_ALLOW_DINAMYC_DIMENSIONS])
-											err_handler.SyntaxError(153,MkErrorMsg("Las dimensiones deben ser constantes, en: $",array_dec));
+											err_handler.SyntaxError(153,MkErrorMsg(LocalizationManager::Instance().Translate("Las dimensiones deben ser constantes, en: $"),array_dec));
 									}
 								}
 							}
@@ -984,9 +984,9 @@ void Instrucciones(RunTime &rt) {
 							if (!CheckVariable(rt,aname,66)) { name_ok=false; }
 							else if (!memoria->EstaDefinida(aname)) memoria->DefinirTipo(aname,vt_desconocido); // para que aparezca en la lista de variables
 							if (!memoria->LeerDims(aname) && !ignore_logic_errors) { 
-								err_handler.SyntaxError(256,MkErrorMsg("La variable ($) no es un arreglo.",aname));
+								err_handler.SyntaxError(256,MkErrorMsg(LocalizationManager::Instance().Translate("La variable ($) no es un arreglo."),aname));
 							} else if (matchParentesis(var_name,pos_par)!=var_name.size()-1) {
-								err_handler.SyntaxError(330,MkErrorMsg("Identificador o lista de índices incorrecta ($)",var_name));
+								err_handler.SyntaxError(330,MkErrorMsg(LocalizationManager::Instance().Translate("Identificador o lista de indices incorrecta ($)"),var_name));
 							} else {
 								std::string s_indexes = var_name.substr(pos_par+1,var_name.size()-pos_par-2);
 								auto v_indexes = splitArgsList(s_indexes);
@@ -995,10 +995,10 @@ void Instrucciones(RunTime &rt) {
 									DataValue res;
 									if (this_instruction_is_ok()) res = EvaluarSC(rt,one_index,vt_numerica);
 									if (res.IsOk()&&!res.CanBeReal())
-										err_handler.SyntaxError(154,"No coinciden los tipos.");
+										err_handler.SyntaxError(154,LocalizationManager::Instance().Translate("No coinciden los tipos."));
 								}
 								if (name_ok && memoria->LeerDims(aname)[0]!=int(v_indexes.size()) && !ignore_logic_errors) {
-									err_handler.SyntaxError(257,MkErrorMsg("Cantidad de indices incorrecta para el arreglo ($).",aname));
+									err_handler.SyntaxError(257,MkErrorMsg(LocalizationManager::Instance().Translate("Cantidad de indices incorrecta para el arreglo ($)."),aname));
 									return;
 								}
 							}
@@ -1011,13 +1011,13 @@ void Instrucciones(RunTime &rt) {
 				
 				// verificar "hacer"
 				if (not RightCompare(cadena,lang.keywords[KW_HACER],true)) {
-					if (not lang[LS_LAZY_SYNTAX]) err_handler.SyntaxError(71,MkErrorMsg("Falta $.",kw2str(KW_HACER)));
+					if (not lang[LS_LAZY_SYNTAX]) err_handler.SyntaxError(71,MkErrorMsg(LocalizationManager::Instance().Translate("Falta $."),kw2str(KW_HACER)));
 				}
 				
 				// cortar hasta
 				int pos_hasta = FindKeyword(cadena,lang.keywords[KW_HASTA],true), pos_paso = -1;
 				if (pos_hasta==-1) {
-					err_handler.SyntaxError(78,MkErrorMsg("Falta $.",kw2str(KW_HASTA)));
+					err_handler.SyntaxError(78,MkErrorMsg(LocalizationManager::Instance().Translate("Falta $."),kw2str(KW_HASTA)));
 				} else {
 					std::string asignacion = cadena.substr(0,pos_hasta);
 					inst_impl.val_fin = cadena.substr(pos_hasta);
@@ -1030,7 +1030,7 @@ void Instrucciones(RunTime &rt) {
 					} else {
 						pos_paso = FindKeyword(asignacion,lang.keywords[KW_CONPASO],true);
 						if (pos_paso!=-1) {
-							if (not lang[LS_LAZY_SYNTAX]) err_handler.SyntaxError(216,MkErrorMsg("$ va despues de $.",kw2str(KW_CONPASO),kw2str(KW_HASTA)));
+							if (not lang[LS_LAZY_SYNTAX]) err_handler.SyntaxError(216,MkErrorMsg(LocalizationManager::Instance().Translate("$ va despues de $."),kw2str(KW_CONPASO),kw2str(KW_HASTA)));
 							inst_impl.paso = asignacion.substr(pos_paso);
 							asignacion.erase(pos_paso);
 						}
@@ -1041,7 +1041,7 @@ void Instrucciones(RunTime &rt) {
 					int pos_corte = -1;
 					if (pos_flecha==std::string::npos) {
 						if (lang[LS_LAZY_SYNTAX]) pos_corte = FindKeyword(asignacion,lang.keywords[KW_DESDE],true);
-						if (pos_corte==-1) err_handler.SyntaxError(72,"Se esperaba asignación.");
+						if (pos_corte==-1) err_handler.SyntaxError(72,LocalizationManager::Instance().Translate("Se esperaba asignacion."));
 					} else {
 						pos_corte = pos_flecha;
 						asignacion.erase(pos_flecha,2);
@@ -1053,36 +1053,36 @@ void Instrucciones(RunTime &rt) {
 							inst_impl.val_ini = inst_impl.val_ini.substr(1,inst_impl.val_ini.size()-2);
 						// contador
 						if (inst_impl.contador.empty() or inst_impl.val_ini.empty())
-							err_handler.SyntaxError(73,"Asignacion incompleta.");
+							err_handler.SyntaxError(73,LocalizationManager::Instance().Translate("Asignacion incompleta."));
 						else if (CheckVariable(rt,inst_impl.contador,74)) {
 							memoria->DefinirTipo(inst_impl.contador,vt_numerica); // para que aparezca en la lista de variables
 							DataValue res;
 							if (this_instruction_is_ok()) DataValue res = EvaluarSC(rt,inst_impl.contador,vt_numerica);
-							if (res.IsOk() and (not res.CanBeReal())) err_handler.SyntaxError(76,"No coinciden los tipos.");
+							if (res.IsOk() and (not res.CanBeReal())) err_handler.SyntaxError(76,LocalizationManager::Instance().Translate("No coinciden los tipos."));
 						}
 						// valor inicial
 						if (this_instruction_is_ok()) {
-							DataValue res = EvaluarSC(rt,inst_impl.val_ini,vt_numerica,"valor inicial");
-							if (res.IsOk() and (not res.CanBeReal())) err_handler.SyntaxError(77,"No coinciden los tipos.");
+							DataValue res = EvaluarSC(rt,inst_impl.val_ini,vt_numerica,LocalizationManager::Instance().Translate("valor inicial"));
+							if (res.IsOk() and (not res.CanBeReal())) err_handler.SyntaxError(77,LocalizationManager::Instance().Translate("No coinciden los tipos."));
 						}
 					}
 					
 					// validar valor final
 					if (inst_impl.val_fin.empty()) 
-						err_handler.SyntaxError(79,MkErrorMsg("Falta el valor final del $.",kw2str(KW_PARA)));
+						err_handler.SyntaxError(79,MkErrorMsg(LocalizationManager::Instance().Translate("Falta el valor final del $."),kw2str(KW_PARA)));
 					else {
 						DataValue res;
-						if (this_instruction_is_ok()) res = EvaluarSC(rt,inst_impl.val_fin,vt_numerica,"valor final");
-						if (res.IsOk()&&!res.CanBeReal()) err_handler.SyntaxError(81,"No coinciden los tipos.");
+						if (this_instruction_is_ok()) res = EvaluarSC(rt,inst_impl.val_fin,vt_numerica,LocalizationManager::Instance().Translate("valor final"));
+						if (res.IsOk()&&!res.CanBeReal()) err_handler.SyntaxError(81,LocalizationManager::Instance().Translate("No coinciden los tipos."));
 					}
 						
 					// validar paso
 					if (pos_paso!=-1) {
 						if (inst_impl.paso.empty())
-							err_handler.SyntaxError(258,"Falta el valor del paso.");
+							err_handler.SyntaxError(258,LocalizationManager::Instance().Translate("Falta el valor del paso."));
 						else {
-							DataValue res = EvaluarSC(rt,inst_impl.paso,vt_numerica,"paso");
-							if (res.IsOk() and (not res.CanBeReal())) err_handler.SyntaxError(84,"No coinciden los tipos.");
+							DataValue res = EvaluarSC(rt,inst_impl.paso,vt_numerica,LocalizationManager::Instance().Translate("paso"));
+							if (res.IsOk() and (not res.CanBeReal())) err_handler.SyntaxError(84,LocalizationManager::Instance().Translate("No coinciden los tipos."));
 						}
 					}
 				}
@@ -1093,18 +1093,18 @@ void Instrucciones(RunTime &rt) {
 				
 				// verificar "hacer"
 				if (not RightCompare(cadena,lang.keywords[KW_HACER],true)) {
-					if (not lang[LS_LAZY_SYNTAX]) err_handler.SyntaxError(71,MkErrorMsg("Falta $.",kw2str(KW_HACER)));
+					if (not lang[LS_LAZY_SYNTAX]) err_handler.SyntaxError(71,MkErrorMsg(LocalizationManager::Instance().Translate("Falta $."),kw2str(KW_HACER)));
 				}
 				
 				// cortar hasta
 				int pos_de = FindKeyword(cadena,lang.keywords[KW_DE],true), pos_paso = -1;
 				if (pos_de==-1) {
-					err_handler.SyntaxError(260,MkErrorMsg("Falta $.",kw2str(KW_DE)));
+					err_handler.SyntaxError(260,MkErrorMsg(LocalizationManager::Instance().Translate("Falta $."),kw2str(KW_DE)));
 				} else {
 					inst_impl.identificador = cadena.substr(0,pos_de);
 					inst_impl.arreglo = cadena.substr(pos_de);
 					if (inst_impl.identificador.empty() or inst_impl.arreglo.empty())
-						err_handler.SyntaxError(260,"Falta el identificador de elemento y/o el del arreglo.");
+						err_handler.SyntaxError(260,LocalizationManager::Instance().Translate("Falta el identificador de elemento y/o el del arreglo."));
 					if (not inst_impl.identificador.empty())
 						CheckVariable(rt,inst_impl.identificador,259);
 					if (not inst_impl.arreglo.empty())
@@ -1118,7 +1118,7 @@ void Instrucciones(RunTime &rt) {
 			}
 			if (inst.type==IT_OPCION) {  // ------------ opcion del SEGUN -----------//
 				if (programa[bucles.back()]!=IT_SEGUN) 
-					err_handler.SyntaxError(241,MkErrorMsg("Opción fuera de $.",kw2str(KW_SEGUN)));
+					err_handler.SyntaxError(241,MkErrorMsg(LocalizationManager::Instance().Translate("Opcion fuera de $."),kw2str(KW_SEGUN)));
 				
 				auto &inst_impl = getImpl<IT_OPCION>(inst);
 				if ((!bucles.empty())and(programa[bucles.back()]==IT_SEGUN))
@@ -1126,7 +1126,7 @@ void Instrucciones(RunTime &rt) {
 				// permitir utiliza O para separar la posibles opciones
 				if (lang[LS_LAZY_SYNTAX]) {
 					size_t p;
-					while ((p=cadena.find(" O "))!=std::string::npos) cadena.replace(p,3,",");
+					while ((p=cadena.find(LocalizationManager::Instance().Translate(" O ")))!=std::string::npos) cadena.replace(p,3,",");
 					while ((p=cadena.find("|")  )!=std::string::npos) cadena.replace(p,1,",");
 				}
 				cadena[cadena.size()-1]=',';
@@ -1136,7 +1136,7 @@ void Instrucciones(RunTime &rt) {
 					DataValue res = EvaluarSC(rt,inst_impl.expresiones.back(),
 											  lang[LS_INTEGER_ONLY_SWITCH]?vt_numerica:vt_caracter_o_numerica);
 					if (res.IsOk() && !res.CanBeReal()&&lang[LS_INTEGER_ONLY_SWITCH]) {
-						err_handler.SyntaxError(203,"Las opciones deben ser de tipo numérico.");
+						err_handler.SyntaxError(203,LocalizationManager::Instance().Translate("Las opciones deben ser de tipo numerico."));
 					}
 					i=p+1;
 				}
@@ -1148,7 +1148,7 @@ void Instrucciones(RunTime &rt) {
 				auto pos_arrow = cadena.find("<-",0);
 				std::string &var = inst_impl.variable = cadena.substr(0,pos_arrow);
 				if (var.empty())
-					err_handler.SyntaxError(85,"Asignación incompleta.");
+					err_handler.SyntaxError(85,LocalizationManager::Instance().Translate("Asignacion incompleta."));
 				else {
 					CheckVariable(rt,var,86);
 					std::string str = cadena.substr(pos_arrow+2);
@@ -1159,12 +1159,12 @@ void Instrucciones(RunTime &rt) {
 						if (str[y]=='\'') comillas=!comillas;
 						if (y>0 && y<(int)str.size()-1)
 							if ((!comillas) && str[y]==' ' && str[y-1]!='&' && str[y-1]!='|'  && str[y+1]!='&'  && str[y+1]!='|')
-								err_handler.SyntaxError(87,"Se esperaba fin de expresión.");
+								err_handler.SyntaxError(87,LocalizationManager::Instance().Translate("Se esperaba fin de expresion."));
 						if ((!comillas) && parentesis==1 && str[y]==',')
-							err_handler.SyntaxError(88,"Demasiados parámetros.");
+							err_handler.SyntaxError(88,LocalizationManager::Instance().Translate("Demasiados parametros."));
 					}
 					if (str.size()==3) // "();"
-						err_handler.SyntaxError(89,"Asignación incompleta.");
+						err_handler.SyntaxError(89,LocalizationManager::Instance().Translate("Asignacion incompleta."));
 					else {
 						str.erase(0,1); str.erase(str.size()-2,2); // eliminar parentesis y punto y comma
 						inst_impl.valor = str;
@@ -1173,7 +1173,7 @@ void Instrucciones(RunTime &rt) {
 						DataValue res;
 						if (this_instruction_is_ok()) res = EvaluarSC(rt,str,tipo_left.is_ok()?tipo_left:vt_desconocido);
 						if (res.IsOk()&&!res.type.can_be(tipo_left)) {
-							err_handler.SyntaxError(125,"No coinciden los tipos.");
+							err_handler.SyntaxError(125,LocalizationManager::Instance().Translate("No coinciden los tipos."));
 							if (!memoria->EstaDefinida(str)) memoria->DefinirTipo(str,vt_desconocido); // para que aparezca en la lista de variables
 						} else {
 							res.type.rounded = false; // no forzar a entero la variable asignada
@@ -1184,7 +1184,7 @@ void Instrucciones(RunTime &rt) {
 			}
 			if (inst.type==IT_SI){  // ------------ SI -----------//
 				if (cadena=="")
-					err_handler.SyntaxError(90,MkErrorMsg("Falta la condición en la estructura $-$",kw2str(KW_SI),kw2str(KW_ENTONCES)));
+					err_handler.SyntaxError(90,MkErrorMsg(LocalizationManager::Instance().Translate("Falta la condicion en la estructura $-$"),kw2str(KW_SI),kw2str(KW_ENTONCES)));
 				// comprobar que no halla espacios
 				bool comillas=false;
 				for (int tmp1=0;tmp1<(int)cadena.size();tmp1++) {
@@ -1197,19 +1197,19 @@ void Instrucciones(RunTime &rt) {
 								cadena.erase(tmp1);
 								break;
 							} else {
-								err_handler.SyntaxError(91,MkErrorMsg("Se esperaba $ o fin de expresión.",kw2str(KW_ENTONCES)));
+								err_handler.SyntaxError(91,MkErrorMsg(LocalizationManager::Instance().Translate("Se esperaba $ o fin de expresion."),kw2str(KW_ENTONCES)));
 							}
 						}
 					}
 				}
 				DataValue res;
 				if (this_instruction_is_ok()) res = EvaluarSC(rt,cadena,vt_logica);
-				if (res.IsOk()&&!res.CanBeLogic()) err_handler.SyntaxError(92,"No coinciden los tipos.");
+				if (res.IsOk()&&!res.CanBeLogic()) err_handler.SyntaxError(92,LocalizationManager::Instance().Translate("No coinciden los tipos."));
 				getImpl<IT_SI>(inst).condicion = cadena;
 			}
 			if (inst.type==IT_HASTAQUE){  // ------------ HASTA QUE -----------//
 				if (cadena==""||cadena==";") { // cual era la segunda cadena??? (decir cadena==""||cadena=="", puse el ; por instinto)
-					 err_handler.SyntaxError(93,MkErrorMsg("Falta la condición en la estructura $.",kw2str(KW_REPETIR))); 
+					 err_handler.SyntaxError(93,MkErrorMsg(LocalizationManager::Instance().Translate("Falta la condicion en la estructura $."),kw2str(KW_REPETIR))); 
 					 cadena+=" ";
 				} else {
 					std::string str=cadena; // Comprobar la condición
@@ -1219,7 +1219,7 @@ void Instrucciones(RunTime &rt) {
 						if (str[tmp1]=='\'') comillas=!comillas;
 						if (tmp1>0 && tmp1<(int)str.size()-1)
 							if ((!comillas) && str[tmp1]==' ' && str[tmp1-1]!='&' && str[tmp1-1]!='|'  && str[tmp1+1]!='&'  && str[tmp1+1]!='|')
-								err_handler.SyntaxError(94,"Se esperaba fin de expresión.");
+								err_handler.SyntaxError(94,LocalizationManager::Instance().Translate("Se esperaba fin de expresion."));
 					}
 					if (LastCharIs(str,';')) {
 						str=str.substr(0,str.size()-1);
@@ -1227,7 +1227,7 @@ void Instrucciones(RunTime &rt) {
 					}
 					DataValue res;
 					if (this_instruction_is_ok()) res = EvaluarSC(rt,str,vt_logica);
-					if (res.IsOk()&&!res.CanBeLogic()) err_handler.SyntaxError(95,"No coinciden los tipos.");
+					if (res.IsOk()&&!res.CanBeLogic()) err_handler.SyntaxError(95,LocalizationManager::Instance().Translate("No coinciden los tipos."));
 					getImpl<IT_HASTAQUE>(inst).condicion = str;
 				}
 			}
@@ -1235,45 +1235,45 @@ void Instrucciones(RunTime &rt) {
 				auto &inst_impl = getImpl<IT_SEGUN>(inst);
 				
 				if (LastCharIs(cadena,';')) {
-					if (!ignore_logic_errors) err_handler.SyntaxError(323,MkErrorMsg("$ no lleva punto y coma luego de la expresión de control.",kw2str(KW_MIENTRAS)));
+					if (!ignore_logic_errors) err_handler.SyntaxError(323,MkErrorMsg(LocalizationManager::Instance().Translate("$ no lleva punto y coma luego de la expresion de control."),kw2str(KW_MIENTRAS)));
 					cadena.erase(cadena.size()-1,1);
 				}
 				if (not RightCompare(cadena,lang.keywords[KW_HACER],true)) {
-					if (not lang[LS_LAZY_SYNTAX]) err_handler.SyntaxError(97,MkErrorMsg("Falta $.",kw2str(KW_HACER)));
+					if (not lang[LS_LAZY_SYNTAX]) err_handler.SyntaxError(97,MkErrorMsg(LocalizationManager::Instance().Translate("Falta $."),kw2str(KW_HACER)));
 				}
 				
 				if (cadena.empty()) 
-					err_handler.SyntaxError(96,MkErrorMsg("Falta la variable/expresión de control en la estructura $.",kw2str(KW_SEGUN)));
+					err_handler.SyntaxError(96,MkErrorMsg(LocalizationManager::Instance().Translate("Falta la variable/expresion de control en la estructura $."),kw2str(KW_SEGUN)));
 				else {
 					inst_impl.expresion = cadena; // Comprobar la condición
-					DataValue res = EvaluarSC(rt,inst_impl.expresion,lang[LS_INTEGER_ONLY_SWITCH]?vt_numerica:vt_caracter_o_numerica,"expresión de control");
-					if (res.IsOk() and (not res.CanBeReal()) and lang[LS_INTEGER_ONLY_SWITCH]) err_handler.SyntaxError(100,"No coinciden los tipos.");
+					DataValue res = EvaluarSC(rt,inst_impl.expresion,lang[LS_INTEGER_ONLY_SWITCH]?vt_numerica:vt_caracter_o_numerica,LocalizationManager::Instance().Translate("expresion de control"));
+					if (res.IsOk() and (not res.CanBeReal()) and lang[LS_INTEGER_ONLY_SWITCH]) err_handler.SyntaxError(100,LocalizationManager::Instance().Translate("No coinciden los tipos."));
 				}
 			}
 			if (inst.type==IT_MIENTRAS) { // ------------ MIENTRAS -----------//
 				auto &inst_impl = getImpl<IT_MIENTRAS>(inst);
 				
 				if (LastCharIs(cadena,';')) {
-					if (!ignore_logic_errors) err_handler.SyntaxError(262,MkErrorMsg("$ no lleva punto y coma luego de la condición.",kw2str(KW_MIENTRAS)));
+					if (!ignore_logic_errors) err_handler.SyntaxError(262,MkErrorMsg(LocalizationManager::Instance().Translate("$ no lleva punto y coma luego de la condicion."),kw2str(KW_MIENTRAS)));
 					cadena.erase(cadena.size()-1,1);
 				}
 				if (not RightCompare(cadena,lang.keywords[KW_HACER],true)) {
-					if (not lang[LS_LAZY_SYNTAX]) err_handler.SyntaxError(102,MkErrorMsg("Falta $.",kw2str(KW_HACER)));
+					if (not lang[LS_LAZY_SYNTAX]) err_handler.SyntaxError(102,MkErrorMsg(LocalizationManager::Instance().Translate("Falta $."),kw2str(KW_HACER)));
 				}
 				if (cadena.empty()) 
-					err_handler.SyntaxError(101,MkErrorMsg("Falta la condición en la estructura $.",kw2str(KW_MIENTRAS)));
+					err_handler.SyntaxError(101,MkErrorMsg(LocalizationManager::Instance().Translate("Falta la condicion en la estructura $."),kw2str(KW_MIENTRAS)));
 				else {
 					// Comprobar la condición
 					inst_impl.condicion = cadena; 
-					DataValue res = EvaluarSC(rt,inst_impl.condicion,vt_logica,"condición");
-					if (res.IsOk() and (not res.CanBeLogic())) err_handler.SyntaxError(104,"No coinciden los tipos.");
+					DataValue res = EvaluarSC(rt,inst_impl.condicion,vt_logica,LocalizationManager::Instance().Translate("condicion"));
+					if (res.IsOk() and (not res.CanBeLogic())) err_handler.SyntaxError(104,LocalizationManager::Instance().Translate("No coinciden los tipos."));
 				}
 			}
 			if (inst.type==IT_SINO) {
-				if (bucles.empty() || programa[bucles.back()]!=IT_SI) err_handler.SyntaxError(2,MkErrorMsg("$ mal colocado.",kw2str(KW_SINO)));
+				if (bucles.empty() || programa[bucles.back()]!=IT_SI) err_handler.SyntaxError(2,MkErrorMsg(LocalizationManager::Instance().Translate("$ mal colocado."),kw2str(KW_SINO)));
 				else {
 					auto &si_impl = getImpl<IT_SI>(programa[bucles.back()]);
-					if (si_impl.sino!=-1) err_handler.SyntaxError(322,MkErrorMsg("No puede haber más de un $.",kw2str(KW_SINO)));
+					if (si_impl.sino!=-1) err_handler.SyntaxError(322,MkErrorMsg(LocalizationManager::Instance().Translate("No puede haber mas de un $."),kw2str(KW_SINO)));
 					else si_impl.sino = prog_idx;	
 				}
 			}
@@ -1284,13 +1284,13 @@ void Instrucciones(RunTime &rt) {
 			{
 				if (fin_algo && cadena==";") cadena="";
 				else if (!cadena.empty() && cadena!=";") {
-					err_handler.SyntaxError(105,"La instrucción no debe tener parámetros.");
+					err_handler.SyntaxError(105,LocalizationManager::Instance().Translate("La instruccion no debe tener parametros."));
 					cadena="";
 				}
 			}
 			if (inst.type==IT_ERROR && cadena!="" && cadena!=";") {
 				if (LeftCompare(cadena,"FIN "))
-					err_handler.SyntaxError(99,"Instrucción no válida.");
+					err_handler.SyntaxError(99,LocalizationManager::Instance().Translate("Instruccion no valida."));
 				else
 					err_handler.SyntaxError(106,LocalizationManager::Instance().Translate("Instruccion no valida."));
 			}
@@ -1301,13 +1301,13 @@ void Instrucciones(RunTime &rt) {
 				const std::string &fname = inst_impl.nombre = NextToken(cadena,p);
 				const Funcion *func = rt.funcs.GetFunction(fname);
 				std::string &args = inst_impl.args = cadena.substr(p);
-				if (func->GetTipo(0)!=vt_error && !ignore_logic_errors) err_handler.SyntaxError(310,MkErrorMsg("La función retorna un valor, debe ser parte de una expresión ($).",fname));
+				if (func->GetTipo(0)!=vt_error && !ignore_logic_errors) err_handler.SyntaxError(310,MkErrorMsg(LocalizationManager::Instance().Translate("La funcion retorna un valor, debe ser parte de una expresion ($)."),fname));
 				if (args==";") args="();"; // para que siempre aparezcan las llaves y se eviten así problemas
 				if (args=="();") {
-					if (func->GetArgsCount()!=0 && !ignore_logic_errors) err_handler.SyntaxError(264,MkErrorMsg("Se esperaban argumentos para el $ ($).",kw2str(KW_SUBALGORITMO),fname));
+					if (func->GetArgsCount()!=0 && !ignore_logic_errors) err_handler.SyntaxError(264,MkErrorMsg(LocalizationManager::Instance().Translate("Se esperaban argumentos para el $ ($)."),kw2str(KW_SUBALGORITMO),fname));
 				} else if (func->GetArgsCount()==0) {
-					if (args!="();" && !ignore_logic_errors) err_handler.SyntaxError(265,MkErrorMsg("El $ ($) no debe recibir argumentos.",kw2str(KW_SUBALGORITMO),fname));
-				} else if (args[0]!='(' && !ignore_logic_errors) err_handler.SyntaxError(266,MkErrorMsg("Los argumentos para invocar a un $ deben ir entre paréntesis.",kw2str(KW_SUBALGORITMO)));
+					if (args!="();" && !ignore_logic_errors) err_handler.SyntaxError(265,MkErrorMsg(LocalizationManager::Instance().Translate("El $ ($) no debe recibir argumentos."),kw2str(KW_SUBALGORITMO),fname));
+				} else if (args[0]!='(' && !ignore_logic_errors) err_handler.SyntaxError(266,MkErrorMsg(LocalizationManager::Instance().Translate("Los argumentos para invocar a un $ deben ir entre parentesis."),kw2str(KW_SUBALGORITMO)));
 				else { // entonces tiene argumentos, y requiere argumentos, ver que la cantidad esté bien
 					int args_last_pos = BuscarComa(args,1,args.length()-1,')');
 					if (args_last_pos!=-1) { // si faltaban cerrar parentesis, el error salto antes
@@ -1318,15 +1318,15 @@ void Instrucciones(RunTime &rt) {
 							if (cant_args<func->GetArgsCount()) {
 								std::string arg_actual=args.substr(last_pos_coma+1,pos_coma-last_pos_coma-1);
 								if (not SirveParaReferencia(rt,arg_actual)) { // puede ser el nombre de un arreglo suelto, para pasar por ref, y el evaluar diria que faltan los subindices
-									if (func->pasajes[cant_args+1]==PP_REFERENCIA && !ignore_logic_errors) err_handler.SyntaxError(268,MkErrorMsg("No puede utilizar una expresión en un pasaje por referencia ($).",arg_actual));
+									if (func->pasajes[cant_args+1]==PP_REFERENCIA && !ignore_logic_errors) err_handler.SyntaxError(268,MkErrorMsg(LocalizationManager::Instance().Translate("No puede utilizar una expresion en un pasaje por referencia ($)."),arg_actual));
 									else EvaluarSC(rt,arg_actual,func->tipos[cant_args+1]);
 								}
 							}
 							cant_args++; last_pos_coma=pos_coma;
 						} while (pos_coma!=args_last_pos);
 						if (cant_args!=func->GetArgsCount() && !ignore_logic_errors) 
-							err_handler.SyntaxError(267,MkErrorMsg("Cantidad de argumentos incorrecta para el subproceso ($).",fname));
-						else if (args_last_pos!=int(args.length())-2) err_handler.SyntaxError(269,"Se esperaba fin de instrucción."); // el -2 de la condición es por el punto y coma
+							err_handler.SyntaxError(267,MkErrorMsg(LocalizationManager::Instance().Translate("Cantidad de argumentos incorrecta para el subproceso ($)."),fname));
+						else if (args_last_pos!=int(args.length())-2) err_handler.SyntaxError(269,LocalizationManager::Instance().Translate("Se esperaba fin de instruccion.")); // el -2 de la condición es por el punto y coma
 					}
 				}
 				args.erase(args.size()-1);
@@ -1337,7 +1337,7 @@ void Instrucciones(RunTime &rt) {
 					getImpl<IT_SEGUN>(programa[bucles.back()]).fin = prog_idx;	
 					bucles.pop_back();
 				} else
-					err_handler.SyntaxError(107,MkErrorMsg("$ mal colocado.",kw2str(KW_FINSEGUN)));
+					err_handler.SyntaxError(107,MkErrorMsg(LocalizationManager::Instance().Translate("$ mal colocado."),kw2str(KW_FINSEGUN)));
 			}
 			if (inst.type==IT_FINPARA) {
 				if (!bucles.empty() && (programa[bucles.back()]==IT_PARA||programa[bucles.back()]==IT_PARACADA)) {
@@ -1347,21 +1347,21 @@ void Instrucciones(RunTime &rt) {
 						getImpl<IT_PARACADA>(programa[bucles.back()]).fin = prog_idx;	
 					bucles.pop_back();
 				} else
-					err_handler.SyntaxError(108,MkErrorMsg("$ mal colocado.",kw2str(KW_FINPARA)));
+					err_handler.SyntaxError(108,MkErrorMsg(LocalizationManager::Instance().Translate("$ mal colocado."),kw2str(KW_FINPARA)));
 			}
 			if (inst.type==IT_FINMIENTRAS) {
 				if (!bucles.empty() && (programa[bucles.back()]==IT_MIENTRAS)) {
 					getImpl<IT_MIENTRAS>(programa[bucles.back()]).fin = prog_idx;	
 					bucles.pop_back();
 				} else
-					err_handler.SyntaxError(109,MkErrorMsg("$ mal colocado.",kw2str(KW_FINMIENTRAS)));
+					err_handler.SyntaxError(109,MkErrorMsg(LocalizationManager::Instance().Translate("$ mal colocado."),kw2str(KW_FINMIENTRAS)));
 			}
 			if (inst.type==IT_FINSI) {
 				if (!bucles.empty() && (programa[bucles.back()]==IT_SI)) {
 					getImpl<IT_SI>(programa[bucles.back()]).fin = prog_idx;	
 					bucles.pop_back();
 				} else
-					err_handler.SyntaxError(110,MkErrorMsg("$ mal colocado.",kw2str(KW_FINSI)));
+					err_handler.SyntaxError(110,MkErrorMsg(LocalizationManager::Instance().Translate("$ mal colocado."),kw2str(KW_FINSI)));
 			}
 			if (inst.type==IT_HASTAQUE) {
 				if (!bucles.empty() && programa[bucles.back()]==IT_REPETIR) {
@@ -1369,15 +1369,15 @@ void Instrucciones(RunTime &rt) {
 					bucles.pop_back();
 				} else {
 					if (getImpl<IT_HASTAQUE>(inst).mientras_que)
-						err_handler.SyntaxError(270,MkErrorMsg("$ mal colocado.",kw2str(KW_MIENTRASQUE))); 
+						err_handler.SyntaxError(270,MkErrorMsg(LocalizationManager::Instance().Translate("$ mal colocado."),kw2str(KW_MIENTRASQUE))); 
 					else
-						err_handler.SyntaxError(111,MkErrorMsg("$ mal colocado.",kw2str(KW_HASTAQUE))); 
+						err_handler.SyntaxError(111,MkErrorMsg(LocalizationManager::Instance().Translate("$ mal colocado."),kw2str(KW_HASTAQUE))); 
 				}
 			}
 			if ( (prog_idx>0 && inst.type==IT_SINO && programa[prog_idx-1]==IT_SI)
 				|| (prog_idx>0 && inst.type==IT_SINO && programa[prog_idx-1]==IT_ENTONCES) )
 			{
-				if (!ignore_logic_errors) err_handler.SyntaxError(113,"Debe haber acciones en la salida por verdadero.");
+				if (!ignore_logic_errors) err_handler.SyntaxError(113,LocalizationManager::Instance().Translate("Debe haber acciones en la salida por verdadero."));
 			}
 			
 			inst.type = inst.type;
@@ -1394,7 +1394,7 @@ void Instrucciones(RunTime &rt) {
 
 bool ParseInspection(RunTime &rt, std::string &cadena) {
 	auto ret = Normalizar(cadena); // acomodar caracteres
-	if (!ret.first.empty()) rt.err.SyntaxError(271,"No puede haber más de una expresión ni comentarios.");
+	if (!ret.first.empty()) rt.err.SyntaxError(271,LocalizationManager::Instance().Translate("No puede haber mas de una expresion ni comentarios."));
 	if (LastCharIs(cadena,';')) EraseLastChar(cadena);
 	Condiciones(rt,cadena); // word_operators
 	Operadores(rt,-1,cadena,IT_ASIGNAR); // verificar operadores
@@ -1402,11 +1402,11 @@ bool ParseInspection(RunTime &rt, std::string &cadena) {
 }
 
 static void parseEasterEggInComment(RunTime &rt, std::string &str, CodeLocation loc) {
-	auto p_egg = str.find("PSeInt apesta");
+	auto p_egg = str.find(LocalizationManager::Instance().Translate("PSeInt apesta"));
 	if (p_egg==std::string::npos) return;
 	str.insert(p_egg+6," no");
 	Inter.SetLocation(loc);
-	rt.err.CompileTimeWarning(332,"Hieres mis sentimientos :(");
+	rt.err.CompileTimeWarning(332,LocalizationManager::Instance().Translate("Hieres mis sentimientos :("));
 	Inter.SetLocation({});
 }
 
@@ -1452,7 +1452,7 @@ bool SynCheck(RunTime &rt) {
 			rt.funcs.AddSub(std::move(func));
 			if (es_proceso) { // si es el proceso principal, verificar que sea el unico, y guardar el nombre en main_process_name para despues saber a cual llamar
 				if (rt.funcs.HaveMain())
-					err_handler.SyntaxError(272,MkErrorMsg("Solo puede haber un $.",kw2str(KW_ALGORITMO)));
+					err_handler.SyntaxError(272,MkErrorMsg(LocalizationManager::Instance().Translate("Solo puede haber un $."),kw2str(KW_ALGORITMO)));
 				rt.funcs.SetMain(func_name);
 			} else if (!lang[LS_ENABLE_USER_FUNCTIONS])
 				err_handler.SyntaxError(309,MkErrorMsg("Este perfil no admite $.",kw2str(KW_SUBALGORITMO)));
@@ -1460,7 +1460,7 @@ bool SynCheck(RunTime &rt) {
 	}
 	Instrucciones(rt);
 	
-	if (not rt.funcs.HaveMain()) { Inter.SetLocation({1,1}); err_handler.SyntaxError(273,MkErrorMsg("Debe haber un $.",kw2str(KW_ALGORITMO))); }
+	if (not rt.funcs.HaveMain()) { Inter.SetLocation({1,1}); err_handler.SyntaxError(273,MkErrorMsg(LocalizationManager::Instance().Translate("Debe haber un $."),kw2str(KW_ALGORITMO))); }
 	else Inter.SetLocation({rt.funcs.GetMainFunc()->line_start,1});
 	
 	return err_handler.IsOk();

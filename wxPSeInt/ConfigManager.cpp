@@ -19,8 +19,30 @@
 ConfigManager *config = NULL;
 LangSettings lang(LS_DO_NOT_INIT);
 
+static const char *LangSourceName(int source) {
+	switch (source) {
+		case LS_DEFAULT: return "default";
+		case LS_LIST: return "list";
+		case LS_FILE: return "file";
+		case LS_CUSTOM: return "custom";
+		default: return "unknown";
+	}
+}
+
+static void TraceCfgLang(const char *where, const LangSettings &runtime_lang) {
+	std::cerr
+		<< "CFGTRACE where=" << where
+		<< " profile_name=" << runtime_lang.name
+		<< " source=" << LangSourceName(runtime_lang.source)
+		<< " version=" << runtime_lang.version
+		<< " profile_bits=" << runtime_lang.GetAsSingleString()
+		<< " overload_equal=" << (runtime_lang[LS_OVERLOAD_EQUAL] ? 1 : 0)
+		<< std::endl;
+}
+
 static void SyncRuntimeLang(const LangSettings &runtime_lang) {
 	lang = runtime_lang;
+	TraceCfgLang("SyncRuntimeLang", lang);
 }
 
 static void AuditHelpPath(const char *fn, const wxString &requested, const wxString &root, const wxString &final_path, const wxString &resolved_lang) {
@@ -96,8 +118,15 @@ ConfigManager::ConfigManager(wxString apath) : lang(LS_INIT) {
 		filename="config.here";
 	else
 		filename = DIR_PLUS_FILE(home_dir,"config");
+	std::cerr
+		<< "CFGTRACE where=ConfigManager::ConfigManager"
+		<< " pseint_dir=" << pseint_dir
+		<< " home_dir=" << home_dir
+		<< " filename=" << filename
+		<< std::endl;
 	LoadDefaults();
 	Read();
+	TraceCfgLang("ConfigManager::ConfigManager after Read", lang);
 	
 #ifdef __APPLE__
 	if (version<20210407)
@@ -206,6 +235,8 @@ void ConfigManager::Save() {
 	else
 		fil.Create();
 	fil.Clear();
+	TraceCfgLang("ConfigManager::Save", lang);
+	std::cerr << "CFGTRACE where=ConfigManager::Save filename=" << filename << std::endl;
 	
 	fil.AddLine(wxString("# generado por PSeInt ")<<VERSION<<"-" ARCHITECTURE ARCH_EXTRA);
 	fil.AddLine(wxString("version=")<<VERSION);
@@ -373,6 +404,7 @@ void ConfigManager::Read() {
 		if (pos_y+size_y>screen_h) pos_y = screen_h-size_y;
 	}
 	if (!wxFileName::DirExists(temp_dir)) wxFileName::Mkdir(temp_dir);
+	TraceCfgLang("ConfigManager::Read exit", lang);
 }
 
 ConfigManager::~ConfigManager() {
@@ -382,18 +414,21 @@ ConfigManager::~ConfigManager() {
 bool ConfigManager::LoadProfileFromFile(wxString path) {
 	if (!lang.Load(path,false)) return false;
 	SyncRuntimeLang(lang);
+	TraceCfgLang("LoadProfileFromFile", lang);
 	return true;
 }
 
 bool ConfigManager::LoadListedProfile(wxString name) {
 	if (!lang.Load(DIR_PLUS_FILE(profiles_dir,name),true)) return false;
 	SyncRuntimeLang(lang);
+	TraceCfgLang("LoadListedProfile", lang);
 	return true;
 }
 
 bool ConfigManager::SetProfile(LangSettings custom_lang) {
 	lang = custom_lang;
 	SyncRuntimeLang(lang);
+	TraceCfgLang("SetProfile", lang);
 	return true;
 }
 
